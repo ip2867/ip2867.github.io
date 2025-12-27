@@ -1,0 +1,3 @@
+[submodule "themes/reimu"]
+	path = themes/reimu
+	url = git@github.com:D-Sketon/hugo-theme-reimu.git
