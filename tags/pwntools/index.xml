@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pwntools on Ip2867</title><link>https://ip2867.github.io/tags/pwntools/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 26 May 2026 12:30:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/pwntools/index.xml" rel="self" type="application/rss+xml"/><item><title>Python 逆向脚本编程手册（CTF 解题版）</title><link>https://ip2867.github.io/post/python-reverse-scripting/</link><pubDate>Tue, 26 May 2026 12:30:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/python-reverse-scripting/</guid><description>
+<![CDATA[<h1>Python 逆向脚本编程手册（CTF 解题版）</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>CTF 逆向题的最终目标是写出解密脚本。本文覆盖写脚本时 95% 会用到的 Python 知识，每条都附带<strong>逆向实战场景</strong>，遇到题目直接查。</p>
+<hr>
+<h2 id="一bytes-vs-string90-报错的根源">
+<a class="header-anchor" href="#%e4%b8%80bytes-vs-string90-%e6%8a%a5%e9%94%99%e7%9a%84%e6%a0%b9%e6%ba%90"></a>
+一、Bytes vs String（90% 报错的根源）
+</h2><p>Python 3 严格区分文本（str）和字节（bytes），<strong>逆向只认 bytes</strong>。</p>
+        
+        <hr><p>本文2026-05-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-26</p>]]></description><category>逆向</category></item></channel></rss>
