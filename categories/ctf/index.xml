@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CTF on Ip2867</title><link>https://ip2867.github.io/categories/ctf/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 26 May 2026 12:45:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/ctf/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux ptrace 反调试详解 + CTF 逆向题解</title><link>https://ip2867.github.io/post/ptrace-anti-debug/</link><pubDate>Tue, 26 May 2026 12:45:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ptrace-anti-debug/</guid><description>
+<![CDATA[<h1>Linux ptrace 反调试详解 + CTF 逆向题解</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <h2 id="一ptrace-是什么">
+<a class="header-anchor" href="#%e4%b8%80ptrace-%e6%98%af%e4%bb%80%e4%b9%88"></a>
+一、ptrace 是什么
+</h2><p><code>ptrace</code> 是 Linux 系统调用，全称 <strong>&ldquo;process trace&rdquo;</strong>，用于<strong>一个进程监视或控制另一个进程的执行</strong>。它是调试器（GDB、strace）的底层基础，也是 CTF 逆向题中最常见的<strong>反调试手段</strong>。</p>
+        
+        <hr><p>本文2026-05-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-26</p>]]></description><category>CTF</category></item></channel></rss>
