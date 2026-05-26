@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>X64 on Ip2867</title><link>https://ip2867.github.io/tags/x64/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 26 May 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/x64/index.xml" rel="self" type="application/rss+xml"/><item><title>x86/x64 汇编指令速查手册（逆向工程版）</title><link>https://ip2867.github.io/post/x86-assembly-cheatsheet/</link><pubDate>Tue, 26 May 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/x86-assembly-cheatsheet/</guid><description>
+<![CDATA[<h1>x86/x64 汇编指令速查手册（逆向工程版）</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>本文面向 CTF 逆向工程方向，覆盖 x86 和 x86-64 架构下最常用的汇编指令。重点不在&quot;怎么写汇编&quot;，而在&quot;在 IDA 里看到这行代码时，它在干什么&quot;。</p>
+        
+        <hr><p>本文2026-05-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-26</p>]]></description><category>逆向</category></item></channel></rss>
