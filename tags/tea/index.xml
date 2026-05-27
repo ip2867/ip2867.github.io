@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TEA on Ip2867</title><link>https://ip2867.github.io/tags/tea/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Wed, 27 May 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/tea/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</title><link>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</link><pubDate>Wed, 27 May 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</guid><description>
+<![CDATA[<h1>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>CTF 逆向系列第三篇，深入两种重要的分组加密算法：AES（高级加密标准）和 TEA 家族（TEA/XTEA/XXTEA）。每种算法先讲原理和识别特征，再用实际题目演示完整的解题过程。</p>
+        
+        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item></channel></rss>

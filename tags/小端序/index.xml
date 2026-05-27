@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小端序 on Ip2867</title><link>https://ip2867.github.io/tags/%E5%B0%8F%E7%AB%AF%E5%BA%8F/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Wed, 27 May 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/%E5%B0%8F%E7%AB%AF%E5%BA%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</title><link>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</link><pubDate>Wed, 27 May 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</guid><description>
+<![CDATA[<h1>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>本系列基于实际 CTF 逆向训练题目，系统介绍逆向工程中常见的加密算法与解题技巧。第一篇覆盖最基础的四种题型：XOR 异或加密、小端序处理、换表 Base64 编码、Z3 约束求解。</p>
+        
+        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item></channel></rss>
