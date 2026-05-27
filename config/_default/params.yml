@@ -28,8 +28,8 @@ timeFormat: "2006-01-02 15:04:05"
 
 author: 栗悟饭与龟波功
 email: xxx@example.com
-description: "这就是命运石之门的选择"
-subtitle: "这就是命运石之门的选择"
+description: "这一切都是命运石之门的选择！"
+subtitle: "这一切都是命运石之门的选择！"
 
 banner: "images/my-banner.webp"
 # You can also write it in the form of the following url
@@ -372,7 +372,8 @@ gitalk:
 # https://giscus.app/zh-CN
 giscus:
   enable: true        # 👈 必须改成 true
-  repo: "nanakusa77/ip2867.github-io"
+  repo: "ip2867/ip2867.github.io"
+# 注意：repoId 可能不需要变，但为了保险，建议去 Giscus 官网重新生成一次
   repoId: "R_kgDOQvgvJA"
   category: "Announcements"
   categoryId: "DIC_kwDOQvgvJM4C0R79"
@@ -413,10 +414,10 @@ algolia_search:
 preloader:
   enable: true
   text: 
-    zh-CN: 少女祈祷中...
-    zh-TW: 少女祈禱中...
+    zh-CN: EL PSY KONGROO
+    zh-TW: EL PSY KONGROO
     en: Loading...
-    ja: 少女祈祷中...
+    ja: EL PSY KONGROO
     pt-BR: Carregando...
   icon: # default use inline svg for fast speed, you can use a image url, like '/images/taichi.png'
   rotate: true # whether to rotate the icon

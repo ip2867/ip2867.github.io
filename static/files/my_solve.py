@@ -1,0 +1,65 @@
+s = 'wabcdefglhijkmqnoprvstuzxy_!{}.1234567890 '  # 末尾有空格，42字符
+
+def xorr(s):
+    v1 = [chr(0)] * 52  # 全部初始化为 chr(0)，避免 int/str 混用
+    v1[0] = s[0]
+    v1[2] = chr(ord(s[21]) ^ 2)
+    v1[3] = chr(ord(s[5]) ^ 3)
+    v1[6] = chr(ord(s[28]) ^ 6)
+    v1[13] = chr(ord(s[26]) ^ 13)
+    v1[8] = chr(ord(s[9]) ^ 8)
+    v1[5] = chr(ord(s[18]) ^ 5)
+    v1[11] = chr(ord(s[12]) ^ 0xB)
+    v1[1] = chr(ord(s[1]) ^ 1)
+    v1[10] = chr(ord(s[15]) ^ 0xA)
+    v1[9] = chr(ord(s[34]) ^ 9)
+    v1[12] = chr(ord(s[35]) ^ 0xC)
+    v1[47] = chr(ord(s[5]) ^ 0x2F)
+    v1[16] = chr(ord(s[3]) ^ 0x10)
+    v1[15] = chr(ord(s[34]) ^ 0xF)
+    v1[4] = chr(ord(s[19]) ^ 4)
+    v1[20] = chr(ord(s[7]) ^ 0x14)
+    v1[23] = chr(ord(s[16]) ^ 0x17)
+    v1[32] = chr(ord(s[1]) ^ 0x20)
+    v1[24] = chr(ord(s[18]) ^ 0x18)
+    v1[14] = chr(ord(s[9]) ^ 0xE)
+    v1[18] = chr(ord(s[31]) ^ 0x12)
+    v1[21] = chr(ord(s[26]) ^ 0x15)
+    v1[31] = chr(ord(s[9]) ^ 0x1F)
+    v1[22] = chr(ord(s[6]) ^ 0x16)
+    v1[7] = chr(ord(s[21]) ^ 7)
+    v1[34] = chr(ord(s[12]) ^ 0x22)
+    v1[17] = chr(ord(s[12]) ^ 0x11)
+    v1[19] = chr(ord(s[15]) ^ 0x13)
+    v1[40] = chr(ord(s[18]) ^ 0x28)
+    v1[26] = chr(ord(s[20]) ^ 0x1A)
+    v1[33] = chr(ord(s[3]) ^ 0x21)
+    v1[25] = chr(ord(s[26]) ^ 0x19)
+    v1[29] = chr(ord(s[22]) ^ 0x1D)
+    v1[27] = chr(ord(s[40]) ^ 0x1B)
+    v1[42] = chr(ord(s[16]) ^ 0x2A)
+    v1[37] = chr(ord(s[7]) ^ 0x25)
+    v1[28] = chr(ord(s[11]) ^ 0x1C)
+    v1[39] = chr(ord(s[16]) ^ 0x27)
+    v1[35] = chr(ord(s[10]) ^ 0x23)
+    v1[36] = chr(ord(s[15]) ^ 0x24)
+    v1[48] = chr(ord(s[1]) ^ 0x30)
+    v1[30] = chr(ord(s[26]) ^ 0x1E)
+    v1[51] = chr(0)
+    v1[43] = chr(ord(s[11]) ^ 0x2B)
+    v1[44] = chr(ord(s[22]) ^ 0x2C)
+    v1[45] = chr(ord(s[30]) ^ 0x2D)
+    v1[38] = chr(ord(s[6]) ^ 0x26)
+    v1[50] = chr(ord(s[29]) ^ 0x32)
+    v1[49] = chr(ord(s[13]) ^ 0x31)
+    v1[41] = chr(ord(s[20]) ^ 0x29)
+    v1[46] = chr(ord(s[21]) ^ 0x2E)
+
+    # 逆向: flag[i] = encoded[i] XOR i
+    v2 = ''
+    for i in range(51):
+        v2 += chr(ord(v1[i]) ^ i)
+    return v2
+
+if __name__ == '__main__':
+    print(xorr(s))

@@ -1,4 +1,4 @@
-baseURL = 'https://nanakusa77.github.io/ip2867.github-io/'
+baseURL = 'https://ip2867.github.io/'
 languageCode = 'zh-CN'
 defaultContentLanguage = 'zh-CN'
 # --- 必须放在最上面的全局配置 ---
