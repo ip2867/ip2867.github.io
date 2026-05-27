@@ -250,7 +250,7 @@ int main() {
         decrypt(v, k);
         for (int j = 0; j < 2; j++) {
             for (int k = 0; k < 4; k++) {
-                printf("%c", v[j] & 0xff);
+                printf("%#x, ", v[j] & 0xff);
                 v[j] >>= 8;
             }
         }
