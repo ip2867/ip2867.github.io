@@ -59,7 +59,15 @@ def rc4_crypt(S, data):
 
 ### 1.3 实战题目：RC4 解密
 
-**题目来源**：`3-Z3-RC4-反调试RC4/3`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | rc4_antidebug.exe |
+| 格式 | PE 32-bit (Windows EXE) |
+| 题型 | 逆向 — RC4 流密码 |
+| 附件下载 | [rc4_antidebug.exe](/files/ctf-reverse-2/rc4_antidebug.exe) |
+| 解题脚本 | [solve_rc4.py](/files/ctf-reverse-2/solve_rc4.py) |
 
 在 IDA 中定位到 RC4 加密函数，提取密文和密钥后，直接套用标准 RC4 脚本：
 
@@ -138,7 +146,15 @@ CTF 中有时会魔改 RC4，常见的变体包括：
 
 ### 2.2 实战题目：索引置换解密
 
-**题目来源**：`2-TQ-APK-XOR-HS-RC4/1`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | repy.exe |
+| 格式 | PE 64-bit (PyInstaller 打包的 Python 程序) |
+| 题型 | 逆向 — 索引置换加密 |
+| 附件下载 | [repy.exe](/files/ctf-reverse-2/repy.exe) |
+| 解题脚本 | [solve_index_perm.py](/files/ctf-reverse-2/solve_index_perm.py) |
 
 这道题先用 PyInstaller 打包了 Python 脚本，需要先解包（详见系列第四篇），还原出加密逻辑：
 
@@ -193,7 +209,15 @@ print("".join(flag))
 
 ### 3.2 实战题目：移位加密
 
-**题目来源**：`2-TQ-APK-XOR-HS-RC4/4`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | challenge_bitop |
+| 格式 | ELF 64-bit / Binary |
+| 题型 | 逆向 — 位运算加密（移位与整除） |
+| 附件下载 | [challenge_bitop](/files/ctf-reverse-2/challenge_bitop) |
+| 解题脚本 | [solve_bitop.py](/files/ctf-reverse-2/solve_bitop.py) |
 
 从 IDA 中还原加密逻辑：
 
@@ -259,7 +283,15 @@ for (i = 1; i < len; ++i)
 
 ### 4.3 实战题目：累加异或解密
 
-**题目来源**：`2-TQ-APK-XOR-HS-RC4/3`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | challenge_prefix_xor |
+| 格式 | ELF 64-bit / Binary |
+| 题型 | 逆向 — 累加异或 (Prefix XOR) |
+| 附件下载 | [challenge_prefix_xor](/files/ctf-reverse-2/challenge_prefix_xor) |
+| 解题脚本 | [solve_prefix_xor.py](/files/ctf-reverse-2/solve_prefix_xor.py) |
 
 ```python
 # 密文（从 IDA 中提取的字节序列）

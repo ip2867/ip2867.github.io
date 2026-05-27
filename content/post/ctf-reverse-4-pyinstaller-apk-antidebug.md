@@ -40,7 +40,16 @@ pycdc target.pyc > target.py
 
 ### 1.3 实战题目：PyInstaller + 索引置换
 
-**题目来源**：`2-TQ-APK-XOR-HS-RC4/1`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | repy.exe |
+| 格式 | PE 64-bit (PyInstaller 打包的 Python 3.6 程序) |
+| 题型 | 逆向 — PyInstaller 解包 + 索引置换加密 |
+| 附件下载 | [repy.exe](/files/ctf-reverse-4/repy.exe) |
+| 解包工具 | [pyinstxtractor.py](/files/ctf-reverse-4/pyinstxtractor.py) |
+| 解题脚本 | [solve_pyinst.py](/files/ctf-reverse-4/solve_pyinst.py) |
 
 **Step 1：解包**
 
@@ -130,7 +139,14 @@ jadx-gui target.apk
 
 ### 2.3 实战题目：简单 APK 逆向
 
-**题目来源**：`2-TQ-APK-XOR-HS-RC4/2`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | reapk.apk |
+| 格式 | Android APK |
+| 题型 | 逆向 — APK 反编译 + Java 层加密分析 |
+| 附件下载 | [reapk.apk](/files/ctf-reverse-4/reapk.apk) |
 
 ```bash
 # 1. 用 jadx 反编译
@@ -193,7 +209,15 @@ if (ptrace(PTRACE_TRACEME, 0, 0, 0) == -1) {
 
 ### 3.3 实战题目：RC4 + 反调试
 
-**题目来源**：`3-Z3-RC4-反调试RC4/3`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | rc4_antidebug.exe |
+| 格式 | PE 32-bit (Windows EXE) |
+| 题型 | 逆向 — RC4 + IsDebuggerPresent 反调试 |
+| 附件下载 | [rc4_antidebug.exe](/files/ctf-reverse-4/rc4_antidebug.exe) |
+| 解题脚本 | [solve_rc4.py](/files/ctf-reverse-4/solve_rc4.py) |
 
 题目特征：程序包含反调试检测 + RC4 加密。反调试检测通过后才会执行正确的 RC4 解密；如果检测到调试器，会使用错误的密钥。
 

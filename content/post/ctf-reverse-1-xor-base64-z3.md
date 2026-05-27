@@ -57,7 +57,15 @@ A ^ 0 = A    ← 恒等性：与零异或不变
 
 ### 2.2 实战题目：逐字节异或 + 小端序
 
-**题目来源**：`1-XDX-HB-AES/1`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | challenge_1_xor |
+| 格式 | ELF 64-bit / Binary |
+| 题型 | 逆向 — XOR 加密 + 小端序字节序 |
+| 附件下载 | [challenge_1_xor](/files/ctf-reverse-1/challenge_1_xor) |
+| 解题脚本 | [solve_xor.py](/files/ctf-reverse-1/solve_xor.py) |
 
 用 IDA 打开题目二进制文件，F5 反编译后看到如下逻辑：
 
@@ -216,7 +224,15 @@ Z3 是微软开发的 SMT（Satisfiability Modulo Theories）求解器。在 CTF
 
 ### 4.3 实战题目：从 IDA 伪代码到 Z3 求解
 
-**题目来源**：`1-XDX-HB-AES/2`（Z3 方程组部分）
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | EZBASE.exe |
+| 格式 | PE 64-bit (Windows EXE) |
+| 题型 | 逆向 — 换表 Base64 + Z3 约束求解 |
+| 附件下载 | [EZBASE.exe](/files/ctf-reverse-1/EZBASE.exe) |
+| 解题脚本 | [solve_z3_base64.py](/files/ctf-reverse-1/solve_z3_base64.py) |
 
 **Step 1：在 IDA 中找到校验方程**
 

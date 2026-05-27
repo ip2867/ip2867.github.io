@@ -42,7 +42,15 @@ static const uint8_t Sbox[256] = {
 
 ### 1.3 实战题目：简化 AES 解密
 
-**题目来源**：`1-XDX-HB-AES/3`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | EZAES.exe |
+| 格式 | PE 64-bit (Windows EXE) |
+| 题型 | 逆向 — 简化 AES（2轮 + 自定义密钥扩展） |
+| 附件下载 | [EZAES.exe](/files/ctf-reverse-3/EZAES.exe) |
+| 解题脚本 | [solve_aes.py](/files/ctf-reverse-3/solve_aes.py) |
 
 CTF 中的 AES 题通常会做简化（减少轮数、自定义密钥扩展等）。本题使用 2 轮 AES + 自定义密钥扩展。
 
@@ -199,7 +207,15 @@ void decrypt(uint32_t *v, uint32_t *k) {
 
 ### 2.3 实战题目 1：魔改 TEA
 
-**题目来源**：`6-TEA/1`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | tea1_encrypt.c / tea1_decrypt.c |
+| 格式 | C 源码 + 编译后的 Windows EXE |
+| 题型 | 逆向 — 魔改 TEA（delta = 0xd33b470） |
+| 附件下载 | [tea1_encrypt.c](/files/ctf-reverse-3/tea1_encrypt.c) / [tea1_decrypt.c](/files/ctf-reverse-3/tea1_decrypt.c) |
+| 辅助脚本 | [tea1_hex.py](/files/ctf-reverse-3/tea1_hex.py) |
 
 本题的 delta 被改为 `0xd33b470`（不是标准的 `0x9E3779B9`），密钥为 `{1, 2, 3, 4}`。
 
@@ -248,7 +264,15 @@ int main() {
 
 ### 2.4 实战题目 2：XTEA
 
-**题目来源**：`6-TEA/2`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | xtea_challenge.exe |
+| 格式 | PE 32-bit (Windows EXE) |
+| 题型 | 逆向 — XTEA 分组加密 |
+| 附件下载 | [xtea_challenge.exe](/files/ctf-reverse-3/xtea_challenge.exe) |
+| 解题脚本 | [xtea_decrypt.c](/files/ctf-reverse-3/xtea_decrypt.c) |
 
 XTEA 是 TEA 的改进版，密钥调度不同。本题密钥为 `{13, 0, 7, 33}`。
 
@@ -283,7 +307,15 @@ void decrypt(uint32_t* v, uint32_t* k) {
 
 ### 3.1 实战题目：XXTEA + 滚动异或 + 乱序重排
 
-**题目来源**：`6-TEA/3`
+**题目信息**
+
+| 项目 | 内容 |
+|------|------|
+| 文件名 | xxtea_challenge.exe |
+| 格式 | PE 32-bit (Windows EXE) |
+| 题型 | 逆向 — XXTEA + 滚动异或 + 乱序重排（三层混淆） |
+| 附件下载 | [xxtea_challenge.exe](/files/ctf-reverse-3/xxtea_challenge.exe) |
+| 解题脚本 | [xxtea_decrypt.c](/files/ctf-reverse-3/xxtea_decrypt.c) |
 
 这道题是本系列中最复杂的题目，包含**三层混淆** + XXTEA 加密：
 
