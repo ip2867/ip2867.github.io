@@ -63,10 +63,10 @@ def rc4_crypt(S, data):
 
 | 项目 | 内容 |
 |------|------|
-| 文件名 | 5.exe |
+| 文件名 | rc4_challenge.exe |
 | 格式 | PE 32-bit (Windows EXE) |
 | 题型 | 逆向 — RC4 流密码 |
-| 附件下载 | [5.exe](/files/ctf-reverse-2/rc4_challenge.exe) |
+| 附件下载 | [rc4_challenge.exe](/files/ctf-reverse-2/rc4_challenge.exe) |
 | 解题脚本 | [solve_rc4.py](/files/ctf-reverse-2/solve_rc4.py) |
 
 在 IDA 中定位到 RC4 加密函数，提取密文和密钥后，直接套用标准 RC4 脚本：

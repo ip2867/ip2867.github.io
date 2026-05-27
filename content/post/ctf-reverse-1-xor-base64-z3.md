@@ -175,9 +175,11 @@ CTF 中最常见的 Base64 变体——**替换索引表**。出题者用一张�
 |------|------|
 | 文件名 | EZBASE.exe |
 | 格式 | PE 64-bit (Windows EXE) |
-| 题型 | 逆向 — 换表 Base64 + Z3 约束求解 |
+| 题型 | 逆向 — 换表 Base64 编码 |
 | 附件下载 | [EZBASE.exe](/files/ctf-reverse-1/EZBASE.exe) |
 | 解题脚本 | [solve_base64.py](/files/ctf-reverse-1/solve_base64.py) |
+
+> 本题同时涉及换表 Base64 和 Z3 约束求解两个知识点，此处讲解 Base64 解密部分，Z3 求解见第四节。
 
 在 IDA 中找到自定义表和密文后，编写解密脚本：
 
@@ -238,9 +240,11 @@ Z3 是微软开发的 SMT（Satisfiability Modulo Theories）求解器。在 CTF
 |------|------|
 | 文件名 | EZBASE.exe |
 | 格式 | PE 64-bit (Windows EXE) |
-| 题型 | 逆向 — 换表 Base64 + Z3 约束求解 |
+| 题型 | 逆向 — Z3 约束求解 |
 | 附件下载 | [EZBASE.exe](/files/ctf-reverse-1/EZBASE.exe) |
 | 解题脚本 | [solve_z3.py](/files/ctf-reverse-1/solve_z3.py) |
+
+> 本题同时涉及换表 Base64 和 Z3 约束求解两个知识点，此处讲解 Z3 求解部分，Base64 解密见第三节。
 
 **Step 1：在 IDA 中找到校验方程**
 

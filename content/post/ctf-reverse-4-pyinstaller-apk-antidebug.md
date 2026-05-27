@@ -213,10 +213,10 @@ if (ptrace(PTRACE_TRACEME, 0, 0, 0) == -1) {
 
 | 项目 | 内容 |
 |------|------|
-| 文件名 | 3.exe |
+| 文件名 | rc4_antidebug.exe |
 | 格式 | PE 32-bit (Windows EXE) |
 | 题型 | 逆向 — RC4 + IsDebuggerPresent 反调试 |
-| 附件下载 | [3.exe](/files/ctf-reverse-4/rc4_antidebug.exe) |
+| 附件下载 | [rc4_antidebug.exe](/files/ctf-reverse-4/rc4_antidebug.exe) |
 | 解题脚本 | [solve_rc4.py](/files/ctf-reverse-4/solve_rc4.py) |
 
 题目特征：程序包含反调试检测 + RC4 加密。反调试检测通过后才会执行正确的 RC4 解密；如果检测到调试器，会使用错误的密钥。
