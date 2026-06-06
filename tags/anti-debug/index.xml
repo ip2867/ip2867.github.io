@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Anti-Debug on Ip2867</title><link>https://ip2867.github.io/tags/anti-debug/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 06 Jun 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/anti-debug/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF 逆向入门(六)：反调试技术与绕过方法</title><link>https://ip2867.github.io/post/ctf-anti-debug-bypass/</link><pubDate>Sat, 06 Jun 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-anti-debug-bypass/</guid><description>
+<![CDATA[<h1>CTF 逆向入门(六)：反调试技术与绕过方法</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>CTF 逆向系列第六篇，系统介绍 Windows 和 Linux 平台下的反调试技术及其绕过方法。反调试是出题者用来阻止选手用调试器分析程序的手段，本文先梳理各类反调试的原理和识别特征，再演示在 IDA 和 x64dbg 中的绕过技巧。</p>
+        
+        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item></channel></rss>
