@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Opaque Predicate on Ip2867</title><link>https://ip2867.github.io/tags/opaque-predicate/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 06 Jun 2026 11:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/opaque-predicate/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF 逆向入门(五)：花指令识别与去除</title><link>https://ip2867.github.io/post/ctf-flower-code/</link><pubDate>Sat, 06 Jun 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-flower-code/</guid><description>
+<![CDATA[<h1>CTF 逆向入门(五)：花指令识别与去除</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>CTF 逆向系列第五篇，介绍花指令（Junk Code / Opaque Predicate）的识别与去除。花指令是出题者在程序中插入的无用代码，目的是干扰 IDA 的反编译引擎，让 F5 输出变成一堆 goto 或无法反编译。本文先讲知识点，再通过四道实战题目演示不同类型的花指令解法。</p>
+        
+        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item></channel></rss>
