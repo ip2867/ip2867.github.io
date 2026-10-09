@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip2867</title><link>https://ip2867.github.io/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 06 Jun 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF 逆向入门(六)：反调试技术与绕过方法</title><link>https://ip2867.github.io/post/ctf-anti-debug-bypass/</link><pubDate>Sat, 06 Jun 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-anti-debug-bypass/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip2867</title><link>https://ip2867.github.io/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Fri, 09 Oct 2026 22:40:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</title><link>https://ip2867.github.io/post/ctf-re-tool-intro/</link><pubDate>Fri, 09 Oct 2026 22:40:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-intro/</guid><description>
+<![CDATA[<h1>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>一个基于 Electron 的 CTF 逆向工程辅助工具：集成 AI 分析引擎、一键调用逆向工具、Frida 自动 Hook、解密脚本生成，内置 11 个逆向方法论 Skills 与可检索知识库，并通过 MCP 实时接入 IDA / JEB / Burp。</p>
+        
+        <hr><p>本文2026-10-09首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-09</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(六)：反调试技术与绕过方法</title><link>https://ip2867.github.io/post/ctf-anti-debug-bypass/</link><pubDate>Sat, 06 Jun 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-anti-debug-bypass/</guid><description>
 <![CDATA[<h1>CTF 逆向入门(六)：反调试技术与绕过方法</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -60,13 +66,5 @@
 <a class="header-anchor" href="#%e4%b8%80bytes-vs-string90-%e6%8a%a5%e9%94%99%e7%9a%84%e6%a0%b9%e6%ba%90"></a>
 一、Bytes vs String（90% 报错的根源）
 </h2><p>Python 3 严格区分文本（str）和字节（bytes），<strong>逆向只认 bytes</strong>。</p>
-        
-        <hr><p>本文2026-05-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-26</p>]]></description><category>逆向</category></item><item><title>x86/x64 汇编指令速查手册（逆向工程版）</title><link>https://ip2867.github.io/post/x86-assembly-cheatsheet/</link><pubDate>Tue, 26 May 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/x86-assembly-cheatsheet/</guid><description>
-<![CDATA[<h1>x86/x64 汇编指令速查手册（逆向工程版）</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <h2 id="前言">
-<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
-前言
-</h2><p>本文面向 CTF 逆向工程方向，覆盖 x86 和 x86-64 架构下最常用的汇编指令。重点不在&quot;怎么写汇编&quot;，而在&quot;在 IDA 里看到这行代码时，它在干什么&quot;。</p>
         
         <hr><p>本文2026-05-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-26</p>]]></description><category>逆向</category></item></channel></rss>
