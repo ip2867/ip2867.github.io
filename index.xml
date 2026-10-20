@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip2867</title><link>https://ip2867.github.io/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 20 Oct 2026 14:50:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</title><link>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</link><pubDate>Tue, 20 Oct 2026 14:50:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip2867</title><link>https://ip2867.github.io/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 20 Oct 2026 17:20:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>把 AI 当团队管理：规划、派活、调研与交接的四条实践</title><link>https://ip2867.github.io/post/ai-agent-workflow-practices/</link><pubDate>Tue, 20 Oct 2026 17:20:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ai-agent-workflow-practices/</guid><description>
+<![CDATA[<h1>把 AI 当团队管理：规划、派活、调研与交接的四条实践</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>单会话聊到第 50 轮之后，你会发现一个问题：<strong>它开始忘事，而你开始替它记。</strong></p>
+<p>上下文压缩不是免费的。每压缩一次，模型就要重新理解一遍&quot;我们到底在干什么&quot;，反应变慢、判断变钝。
+这篇记录我目前跑通的四条做法：把 AI 当团队管理，而不是当聊天对象。</p>
+        
+        <hr><p>本文2026-10-20首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-20</p>]]></description><category>AI</category></item><item><title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</title><link>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</link><pubDate>Tue, 20 Oct 2026 14:50:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</guid><description>
 <![CDATA[<h1>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -52,11 +60,5 @@
         
           <blockquote>
 <p>CTF 逆向系列第二篇，覆盖四种常见加密题型：RC4 流密码、索引置换加密、位运算加密、累加异或（Prefix XOR）。每种算法先讲原理，再用实际题目演示解题过程。</p>
-        
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</title><link>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</link><pubDate>Wed, 27 May 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>本系列基于实际 CTF 逆向训练题目，系统介绍逆向工程中常见的加密算法与解题技巧。第一篇覆盖最基础的四种题型：XOR 异或加密、小端序处理、换表 Base64 编码、Z3 约束求解。</p>
         
         <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item></channel></rss>

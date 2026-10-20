@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GPT on Ip2867</title><link>https://ip2867.github.io/tags/gpt/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 20 Oct 2026 17:20:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/gpt/index.xml" rel="self" type="application/rss+xml"/><item><title>把 AI 当团队管理：规划、派活、调研与交接的四条实践</title><link>https://ip2867.github.io/post/ai-agent-workflow-practices/</link><pubDate>Tue, 20 Oct 2026 17:20:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ai-agent-workflow-practices/</guid><description>
+<![CDATA[<h1>把 AI 当团队管理：规划、派活、调研与交接的四条实践</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>单会话聊到第 50 轮之后，你会发现一个问题：<strong>它开始忘事，而你开始替它记。</strong></p>
+<p>上下文压缩不是免费的。每压缩一次，模型就要重新理解一遍&quot;我们到底在干什么&quot;，反应变慢、判断变钝。
+这篇记录我目前跑通的四条做法：把 AI 当团队管理，而不是当聊天对象。</p>
+        
+        <hr><p>本文2026-10-20首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-20</p>]]></description><category>AI</category></item></channel></rss>
