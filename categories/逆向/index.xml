@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/categories/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 20 Oct 2026 14:50:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</title><link>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</link><pubDate>Tue, 20 Oct 2026 14:50:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/categories/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Thu, 22 Oct 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</title><link>https://ip2867.github.io/post/cheat-engine-tutorial/</link><pubDate>Thu, 22 Oct 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/cheat-engine-tutorial/</guid><description>
+<![CDATA[<h1>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>Cheat Engine 自带的九关教程，本质上是一条很完整的逆向入门路线：先学会在内存里找值，再顺着值找到改值的代码，最后读懂并改写这段代码。九关走完，动态调试的基本功就齐了。</p>
+        
+        <hr><p>本文2026-10-22首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-22</p>]]></description><category>逆向</category></item><item><title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</title><link>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</link><pubDate>Tue, 20 Oct 2026 14:50:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</guid><description>
 <![CDATA[<h1>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -52,11 +58,5 @@
         
           <blockquote>
 <p>CTF 逆向系列第二篇，覆盖四种常见加密题型：RC4 流密码、索引置换加密、位运算加密、累加异或（Prefix XOR）。每种算法先讲原理，再用实际题目演示解题过程。</p>
-        
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</title><link>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</link><pubDate>Wed, 27 May 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>本系列基于实际 CTF 逆向训练题目，系统介绍逆向工程中常见的加密算法与解题技巧。第一篇覆盖最基础的四种题型：XOR 异或加密、小端序处理、换表 Base64 编码、Z3 约束求解。</p>
         
         <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item></channel></rss>

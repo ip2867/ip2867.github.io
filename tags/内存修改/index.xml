@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>内存修改 on Ip2867</title><link>https://ip2867.github.io/tags/%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Thu, 22 Oct 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9/index.xml" rel="self" type="application/rss+xml"/><item><title>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</title><link>https://ip2867.github.io/post/cheat-engine-tutorial/</link><pubDate>Thu, 22 Oct 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/cheat-engine-tutorial/</guid><description>
+<![CDATA[<h1>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>Cheat Engine 自带的九关教程，本质上是一条很完整的逆向入门路线：先学会在内存里找值，再顺着值找到改值的代码，最后读懂并改写这段代码。九关走完，动态调试的基本功就齐了。</p>
+        
+        <hr><p>本文2026-10-22首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-22</p>]]></description><category>逆向</category></item></channel></rss>
