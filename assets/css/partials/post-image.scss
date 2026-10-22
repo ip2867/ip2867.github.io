@@ -1,0 +1,41 @@
+// 文章正文配图尺寸控制
+// 截图类原图很大，若按 100% 宽度铺满正文会压过文字；这里按图片宽高比分类限宽。
+// 超宽长条（宽高比 >= 2.5）通常是工具界面的横向切片，铺满才看得清，不缩。
+
+.article-entry {
+  .post-img {
+    height: auto;
+    display: block;
+    margin: 1.2em auto;
+  }
+
+  // 普通截图（宽高比 1.0 ~ 2.5）：限制最大宽度，两侧留白
+  .post-img-normal {
+    max-width: 640px;
+    width: 100%;
+  }
+
+  // 竖长截图（宽高比 < 1.0）：限制高度，避免长图占据整屏
+  .post-img-tall {
+    max-height: 620px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  // 超宽横条：保持铺满，但不再占满整个正文高度
+  .post-img-wide {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  // 窄屏下取消固定限宽，避免小屏幕上出现过大留白
+  @media (max-width: 768px) {
+    .post-img-normal {
+      max-width: 100%;
+    }
+
+    .post-img-tall {
+      max-height: 70vh;
+    }
+  }
+}

@@ -387,3 +387,6 @@ a, .main-nav-icon, .popup-btn-close, button {
   background: var(--red-1);
 }
 {{ end }}
+
+// ---- post image sizing ----
+@import 'partials/post-image';

@@ -1,0 +1,14 @@
+{{- $dest := .Destination -}}
+{{- $path := strings.TrimPrefix "/" $dest -}}
+{{- with resources.Get $path -}}
+  {{- $ratio := div (float .Width) (float .Height) -}}
+  {{- $class := "post-img post-img-normal" -}}
+  {{- if ge $ratio 2.5 -}}
+    {{- $class = "post-img post-img-wide" -}}
+  {{- else if lt $ratio 1.0 -}}
+    {{- $class = "post-img post-img-tall" -}}
+  {{- end -}}
+  <img src="{{ .RelPermalink }}" alt="{{ $.Text }}" class="{{ $class }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+{{- else -}}
+  <img src="{{ $dest | safeURL }}" alt="{{ .Text }}" loading="lazy">
+{{- end -}}
