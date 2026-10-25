@@ -1,52 +1,822 @@
-<!doctype html><html lang=zh-CN data-theme-mode=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>把 AI 当团队管理：规划、派活、调研与交接的四条实践 | 栗悟饭与龟波功</title><meta name=description content="这一切都是命运石之门的选择！"><script>window.siteConfig=JSON.parse('{"anchor_icon":null,"base":"https://ip2867.github.io/","clipboard":{"copyright":{"count":50,"enable":false,"license_type":"by-nc-sa"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ","pt-br":"Falha ao copiar (ﾟ⊿ﾟ)ﾂ","zh-cn":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-tw":"複製失敗 (ﾟ⊿ﾟ)ﾂ"},"success":{"en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)","pt-br":"Copiado com sucesso (*^▽^*)","zh-cn":"复制成功 (*^▽^*)","zh-tw":"複製成功 (*^▽^*)"}},"code_block":{"expand":true},"icon_font":"4552607_4k4bc36ef96","outdate":{"daysago":180,"enable":false,"message":{"en":"This article was last updated on {time}. Please note that the content may no longer be applicable.","ja":"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。","pt-br":"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.","zh-cn":"本文最后更新于 {time}，请注意文中内容可能已不适用。","zh-tw":"本文最後更新於 {time}，請注意文中內容可能已不適用。"}}}')</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap" media=print onload='this.media="all"'><link rel=preload href=//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=stylesheet href=/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css><meta property="og:type" content="website"><meta property="og:title" content="把 AI 当团队管理：规划、派活、调研与交接的四条实践 | 栗悟饭与龟波功"><meta property="og:description" content="这一切都是命运石之门的选择！"><meta property="og:url" content="https://ip2867.github.io/post/ai-agent-workflow-practices/"><meta property="og:site_name" content="Ip2867"><meta property="og:image" content="/"><meta property="article:author" content="栗悟饭与龟波功"><meta property="article:published_time" content="2026-10-20T17:20:00+08:00"><meta property="article:modified_time" content="2026-10-20T17:20:00+08:00"><meta property="article:tag" content="AIAgent工作流工程实践ClaudeGPTDeepSeek"><meta name=twitter:card content="summary"><meta name=twitter:image content="/"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet href=/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css><link rel=preload as=style href=https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css integrity=sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE crossorigin=anonymous onload='this.onload=null,this.rel="stylesheet"'><link rel=preload as=style href=https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css integrity=sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI crossorigin=anonymous onload='this.onload=null,this.rel="stylesheet"'><script src=https://npm.webcache.cn/pace-js@1.2.4/pace.min.js integrity=sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8 crossorigin=anonymous></script><link rel=stylesheet href=https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css integrity=sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa crossorigin=anonymous></head><body><div id=loader><div class="loading-left-bg loading-bg"></div><div class="loading-right-bg loading-bg"></div><div class=spinner-box><div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" shape-rendering="geometricPrecision"><path d="M303.5 432a80 80 0 01-12 160 80 80 0 0112-160z" fill="var(--red-1, #ff5252)"/><path d="M512 65a447 447 0 010 894V929a417 417 0 000-834 417 417 0 000 834v30a447 447 0 010-894zm0 30A417 417 0 01929 512 208.5 208.5.0 01720.5 720.5V592a80 80 0 000-160 80 80 0 000 160V720.5A208.5 208.5.0 01512 512 208.5 208.5.0 00303.5 303.5 208.5 208.5.0 0095 512 417 417 0 01512 95z" fill="var(--red-1, #ff5252)"/></svg></div><div class=loading-word>EL PSY KONGROO</div></div></div></div><script>var time=null,loaderEl=document.getElementById("loader"),startLoading=()=>{time=Date.now(),loaderEl.classList.remove("loading")},hideLoader=()=>{document.body.style.overflow="auto",loader.classList.add("loading")},endLoading=()=>{time?Date.now()-time>500?(time=null,hideLoader()):(setTimeout(endLoading,500-(Date.now()-time)),time=null):hideLoader()};window.addEventListener("DOMContentLoaded",endLoading),loaderEl.addEventListener("click",endLoading)</script><div id=copy-tooltip></div><div id=lang-tooltip>本文章没有找到对应的语言版本</div><div id=heatmap-tooltip></div><div id=container><div id=wrap><div id=header-nav><nav id=main-nav aria-label="Primary navigation"><a class=main-nav-link-wrap href=/><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>首页</span>
-</a><a class=main-nav-link-wrap href=/archives><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>归档</span>
-</a><a class=main-nav-link-wrap href=/about><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>关于</span>
-</a><a class=main-nav-link-wrap href=/friend><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>友链</span>
-</a><a id=main-nav-toggle class=nav-icon aria-label="Toggle navigation" role=button></a></nav><nav id=sub-nav aria-label="Secondary navigation"></nav></div><header id=header aria-label="Site header"><picture></picture><img fetchpriority=high src=/images/my-banner.webp alt="把 AI 当团队管理：规划、派活、调研与交接的四条实践"><div id=header-outer><div id=header-title><span id=logo><h1 data-aos=slide-up>把 AI 当团队管理：规划、派活、调研与交接的四条实践</h1></span><h2 id=subtitle-wrap data-aos=slide-down></h2></div></div></header><div id=content aria-label="Page content" class=sidebar-left><aside id=sidebar aria-label=Sidebar><div class="sidebar-wrapper-container sticky"><div class=sidebar-wrapper><div class=sidebar-wrap data-aos=fade-up><div class=sidebar-toc-sidebar><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><a href=#一规划与施工分离我只做规划审查和裁决>一、规划与施工分离：我只做规划、审查和裁决</a><ul><li><a href=#分工边界>分工边界</a></li><li><a href=#派活的颗粒度>派活的颗粒度</a></li><li><a href=#验收只认证据>验收只认证据</a></li><li><a href=#无人值守的现实约束>无人值守的现实约束</a></li><li><a href=#工程规范的长期管理>工程规范的长期管理</a></li></ul></li><li><a href=#二技术选型先调研再动手>二、技术选型：先调研，再动手</a></li><li><a href=#三把会话记录变成可检索的记忆库>三、把会话记录变成可检索的记忆库</a></li><li><a href=#四频繁压缩上下文会让-ai-变慢写交接文档不写项目总结>四、频繁压缩上下文会让 AI 变慢：写交接文档，不写项目总结</a><ul><li><a href=#四条铁律>四条铁律</a></li><li><a href=#判断标准>判断标准</a></li></ul></li><li><a href=#五小结>五、小结</a></li></ul></nav></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=/avatar/avatar.webp data-sizes=auto alt=栗悟饭与龟波功 class=lazyload><div class=sidebar-author-name>栗悟饭与龟波功</div><div class=sidebar-description>这一切都是命运石之门的选择！</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>16</div></div><a class=sidebar-state-category href=/categories/ aria-label=sidebar-state-category-link><div>分类</div><div class=sidebar-state-number>3</div></a><a class=sidebar-state-tag href=/tags/ aria-label=sidebar-state-tag-link><div>标签</div><div class=sidebar-state-number>60</div></a></div><div class=sidebar-social></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/ aria-label=首页></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/archives aria-label=归档></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/about aria-label=关于></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/friend aria-label=友链></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>友链</div></div></div></div><div class=sidebar-btn-wrapper style=position:static><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></div></div><div class=sidebar-widget></div></div></aside><section id=main aria-label="Main content"><article class="h-entry article" itemscope itemtype=https://schema.org/BlogPosting><div class=article-inner data-aos=fade-up><div class=article-meta><div class=article-date><span class="article-date-link icon-calendar" data-aos=zoom-in><time datetime="2026-10-20 17:20:00 +0800 CST" itemprop=datePublished>2026-10-20</time>
-<time style=display:none id=post-update-time>2026-10-20</time></span></div><div class=article-category><a class=article-category-link href=/categories/ai data-aos=zoom-in>AI</a></div></div><div class=hr-line></div><div class="e-content article-entry" itemprop=articleBody><blockquote><p>单会话聊到第 50 轮之后，你会发现一个问题：<strong>它开始忘事，而你开始替它记。</strong></p><p>上下文压缩不是免费的。每压缩一次，模型就要重新理解一遍"我们到底在干什么"，反应变慢、判断变钝。
-这篇记录我目前跑通的四条做法：把 AI 当团队管理，而不是当聊天对象。</p></blockquote><hr><h2 id=一规划与施工分离我只做规划审查和裁决><a class=header-anchor href=#%e4%b8%80%e8%a7%84%e5%88%92%e4%b8%8e%e6%96%bd%e5%b7%a5%e5%88%86%e7%a6%bb%e6%88%91%e5%8f%aa%e5%81%9a%e8%a7%84%e5%88%92%e5%ae%a1%e6%9f%a5%e5%92%8c%e8%a3%81%e5%86%b3></a>一、规划与施工分离：我只做规划、审查和裁决</h2><p>最早我是让一个会话从头干到尾：出方案、写代码、跑测试、改 bug。跑到中后期就开始失控——
-它会为了"把这一步做完"而临时改变架构，也会在你问"这样对吗"的时候顺着你的话说"对"。</p><p>后来改成两个角色：</p><ul><li><strong>规划会话</strong>：出计划、审阶段、裁决提案，<strong>不碰施工</strong></li><li><strong>施工会话</strong>：接计划、干活、交证据</li></ul><p>关键的一条是给施工方一个<strong>反问权</strong>：</p><blockquote><p>接到计划时，顺带判断「这一步对项目目标有没有正面作用」——抛开计划架构本身。
-有异议就写提案，但<strong>不停工</strong>。</p></blockquote><p>这条规则解决了一个很隐蔽的问题：计划是规划方写的，施工方最清楚现场。
-如果现场发现"这一版计划其实在给一个错误的架构添砖"，允许它说出来，但不允许它擅自停工等待——
-提案走裁决通道，活照干。两边都不被卡住。</p><h3 id=分工边界><a class=header-anchor href=#%e5%88%86%e5%b7%a5%e8%be%b9%e7%95%8c></a>分工边界</h3><p>我把整套协作类比成一家公司：</p><table><thead><tr><th>角色</th><th>谁</th><th>负责什么</th></tr></thead><tbody><tr><td>CTO</td><td>GPT</td><td>大方向统筹判断，把需求讲明白</td></tr><tr><td>我</td><td>人</td><td>阶段目标、依赖关系、关键取舍、质量门、最终放行</td></tr><tr><td>秘书</td><td>DeepSeek</td><td>读员工成果，提炼错误/遗漏/冲突/下一步，<strong>不让杂活回流到我这里</strong></td></tr><tr><td>员工</td><td>DeepSeek</td><td>具体调查、实现、测试、文档、证据整理</td></tr><tr><td>调度</td><td>Atlas 等</td><td>执行整份阶段计划，避免我逐个手动管几十个任务</td></tr></tbody></table><p>这条分工最重要的一点是<strong>秘书这个角色的存在</strong>。没有它，所有中间产物都会涌到我这，
-我变成瓶颈；有了它，我只看"提炼后的决策点"。</p><h3 id=派活的颗粒度><a class=header-anchor href=#%e6%b4%be%e6%b4%bb%e7%9a%84%e9%a2%97%e7%b2%92%e5%ba%a6></a>派活的颗粒度</h3><p>每个任务必须写清七件事，否则员工会在中途自己发明规矩：</p><pre tabindex=0><code>1. 上下文    —— 这件事为什么存在，前置结论是什么
+<!doctype html>
+<html
+  lang="zh-CN" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  把 AI 当团队管理：规划、派活、调研与交接的四条实践 | 栗悟饭与龟波功
+</title>
+<meta name="description" content="这一切都是命运石之门的选择！"/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://ip2867.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_4k4bc36ef96\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="把 AI 当团队管理：规划、派活、调研与交接的四条实践 | 栗悟饭与龟波功" />
+  <meta
+    property="og:description"
+    content="这一切都是命运石之门的选择！"
+  />
+  <meta property="og:url" content="https://ip2867.github.io/post/ai-agent-workflow-practices/" />
+  <meta
+    property="og:site_name"
+    content="Ip2867"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="栗悟饭与龟波功" />
+  <meta property="article:published_time" content="2026-10-20T17:20:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-10-20T17:20:00&#43;08:00" /><meta property="article:tag" content="AIAgent工作流工程实践ClaudeGPTDeepSeek" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">EL PSY KONGROO</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/my-banner.webp" alt="把 AI 当团队管理：规划、派活、调研与交接的四条实践"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">把 AI 当团队管理：规划、派活、调研与交接的四条实践</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一规划与施工分离我只做规划审查和裁决">一、规划与施工分离：我只做规划、审查和裁决</a>
+      <ul>
+        <li><a href="#分工边界">分工边界</a></li>
+        <li><a href="#派活的颗粒度">派活的颗粒度</a></li>
+        <li><a href="#验收只认证据">验收只认证据</a></li>
+        <li><a href="#无人值守的现实约束">无人值守的现实约束</a></li>
+        <li><a href="#工程规范的长期管理">工程规范的长期管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#二技术选型先调研再动手">二、技术选型：先调研，再动手</a></li>
+    <li><a href="#三把会话记录变成可检索的记忆库">三、把会话记录变成可检索的记忆库</a></li>
+    <li><a href="#四频繁压缩上下文会让-ai-变慢写交接文档不写项目总结">四、频繁压缩上下文会让 AI 变慢：写交接文档，不写项目总结</a>
+      <ul>
+        <li><a href="#四条铁律">四条铁律</a></li>
+        <li><a href="#判断标准">判断标准</a></li>
+      </ul>
+    </li>
+    <li><a href="#五小结">五、小结</a></li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="栗悟饭与龟波功"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">栗悟饭与龟波功</div>
+  <div class="sidebar-description">这一切都是命运石之门的选择！</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">17</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      3
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">64</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-10-20 17:20:00 &#43;0800 CST" itemprop="datePublished"
+      >2026-10-20</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-10-20</time
+    >
+  </span></div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/ai"
+      data-aos="zoom-in"
+      >AI</a
+    ></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><blockquote>
+<p>单会话聊到第 50 轮之后，你会发现一个问题：<strong>它开始忘事，而你开始替它记。</strong></p>
+<p>上下文压缩不是免费的。每压缩一次，模型就要重新理解一遍&quot;我们到底在干什么&quot;，反应变慢、判断变钝。
+这篇记录我目前跑通的四条做法：把 AI 当团队管理，而不是当聊天对象。</p>
+</blockquote>
+<hr>
+<h2 id="一规划与施工分离我只做规划审查和裁决">
+<a class="header-anchor" href="#%e4%b8%80%e8%a7%84%e5%88%92%e4%b8%8e%e6%96%bd%e5%b7%a5%e5%88%86%e7%a6%bb%e6%88%91%e5%8f%aa%e5%81%9a%e8%a7%84%e5%88%92%e5%ae%a1%e6%9f%a5%e5%92%8c%e8%a3%81%e5%86%b3"></a>
+一、规划与施工分离：我只做规划、审查和裁决
+</h2><p>最早我是让一个会话从头干到尾：出方案、写代码、跑测试、改 bug。跑到中后期就开始失控——
+它会为了&quot;把这一步做完&quot;而临时改变架构，也会在你问&quot;这样对吗&quot;的时候顺着你的话说&quot;对&quot;。</p>
+<p>后来改成两个角色：</p>
+<ul>
+<li><strong>规划会话</strong>：出计划、审阶段、裁决提案，<strong>不碰施工</strong></li>
+<li><strong>施工会话</strong>：接计划、干活、交证据</li>
+</ul>
+<p>关键的一条是给施工方一个<strong>反问权</strong>：</p>
+<blockquote>
+<p>接到计划时，顺带判断「这一步对项目目标有没有正面作用」——抛开计划架构本身。
+有异议就写提案，但<strong>不停工</strong>。</p>
+</blockquote>
+<p>这条规则解决了一个很隐蔽的问题：计划是规划方写的，施工方最清楚现场。
+如果现场发现&quot;这一版计划其实在给一个错误的架构添砖&quot;，允许它说出来，但不允许它擅自停工等待——
+提案走裁决通道，活照干。两边都不被卡住。</p>
+<h3 id="分工边界">
+<a class="header-anchor" href="#%e5%88%86%e5%b7%a5%e8%be%b9%e7%95%8c"></a>
+分工边界
+</h3><p>我把整套协作类比成一家公司：</p>
+<table>
+  <thead>
+      <tr>
+          <th>角色</th>
+          <th>谁</th>
+          <th>负责什么</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CTO</td>
+          <td>GPT</td>
+          <td>大方向统筹判断，把需求讲明白</td>
+      </tr>
+      <tr>
+          <td>我</td>
+          <td>人</td>
+          <td>阶段目标、依赖关系、关键取舍、质量门、最终放行</td>
+      </tr>
+      <tr>
+          <td>秘书</td>
+          <td>DeepSeek</td>
+          <td>读员工成果，提炼错误/遗漏/冲突/下一步，<strong>不让杂活回流到我这里</strong></td>
+      </tr>
+      <tr>
+          <td>员工</td>
+          <td>DeepSeek</td>
+          <td>具体调查、实现、测试、文档、证据整理</td>
+      </tr>
+      <tr>
+          <td>调度</td>
+          <td>Atlas 等</td>
+          <td>执行整份阶段计划，避免我逐个手动管几十个任务</td>
+      </tr>
+  </tbody>
+</table>
+<p>这条分工最重要的一点是<strong>秘书这个角色的存在</strong>。没有它，所有中间产物都会涌到我这，
+我变成瓶颈；有了它，我只看&quot;提炼后的决策点&quot;。</p>
+<h3 id="派活的颗粒度">
+<a class="header-anchor" href="#%e6%b4%be%e6%b4%bb%e7%9a%84%e9%a2%97%e7%b2%92%e5%ba%a6"></a>
+派活的颗粒度
+</h3><p>每个任务必须写清七件事，否则员工会在中途自己发明规矩：</p>
+<pre tabindex="0"><code>1. 上下文    —— 这件事为什么存在，前置结论是什么
 2. 文件范围  —— 允许改哪些文件，禁止碰哪些
 3. 步骤      —— 按顺序给出可执行动作
 4. 工具      —— 用哪个工具/命令，参数怎么写
 5. 验收      —— 怎么算完成（可测量）
 6. 停止条件  —— 什么情况下停手并上报，而不是硬试
 7. 交付路径  —— 结果写到哪里，证据放哪里
-</code></pre><p>配套的两条硬规矩：</p><ul><li><strong>每个新员工先读指定文件</strong>。不要假设它继承了当前会话——它没有。</li><li><strong>并行只用于互不冲突的工作</strong>；有依赖的任务严格按门推进。</li></ul><h3 id=验收只认证据><a class=header-anchor href=#%e9%aa%8c%e6%94%b6%e5%8f%aa%e8%ae%a4%e8%af%81%e6%8d%ae></a>验收只认证据</h3><p>这一条是踩过坑之后加的：</p><blockquote><p>每次交付都检查<strong>真实文件、哈希、解析结果和实际证据</strong>，
-不以"完成"状态代替交付。</p></blockquote><p>&ldquo;完成了"是一句话，<code>sha256sum</code> 是一个事实。状态字段可以被误填，文件不会。</p><p>错误也不浪费——<strong>记成下一轮派活的预防条件</strong>：</p><pre tabindex=0><code>[预防] 上次因为没检查 &lt;X&gt; 导致返工 → 本轮所有同类任务必须显式验证 &lt;X&gt;
-</code></pre><p>这样同一个坑只会踩一次。</p><h3 id=无人值守的现实约束><a class=header-anchor href=#%e6%97%a0%e4%ba%ba%e5%80%bc%e5%ae%88%e7%9a%84%e7%8e%b0%e5%ae%9e%e7%ba%a6%e6%9d%9f></a>无人值守的现实约束</h3><p>我也不会假装 AI 能"自动运行&rdquo;：</p><ul><li>没有系统通知时，<strong>不能假装收到了员工结果</strong></li><li>不让一个员工无限循环</li><li>不让多个员工同时写同一份权威文件</li></ul><p>所以任务按<strong>波次</strong>推进：派一波 → 等系统提醒 → 收集、审阅、派下一波。
-这不是效率损失，是避免"三个人同时改同一个文件"这类灾难。</p><h3 id=工程规范的长期管理><a class=header-anchor href=#%e5%b7%a5%e7%a8%8b%e8%a7%84%e8%8c%83%e7%9a%84%e9%95%bf%e6%9c%9f%e7%ae%a1%e7%90%86></a>工程规范的长期管理</h3><p>顺手记几条容易忽略但影响很大的：</p><ul><li>目录、命名、脚本、变量、上下文和状态文档都按<strong>长期工程规范</strong>管理，临时文件不堆在项目根目录</li><li>原型归档；新重写按契约从 Phase 0 开始，<strong>不把旧 JSON 管线、大文件逻辑或旧目录结构偷偷带回新架构</strong></li><li>代码冻结、许可证、原版证明、判定数值、外部资源边界按既定门管理，<strong>不为了"无人值守"而越权</strong></li></ul><p>最后一条的实际含义：无人值守只延长了时间，不降低标准。不能因为没人盯着就把门放开。</p><hr><h2 id=二技术选型先调研再动手><a class=header-anchor href=#%e4%ba%8c%e6%8a%80%e6%9c%af%e9%80%89%e5%9e%8b%e5%85%88%e8%b0%83%e7%a0%94%e5%86%8d%e5%8a%a8%e6%89%8b></a>二、技术选型：先调研，再动手</h2><p>第二个习惯改自我自己的一个毛病：想做个东西，直接让 AI 开始写代码。</p><p>现在的固定话术是：</p><blockquote><p><strong>我要做一个 XXX，先不要写代码。</strong>
+</code></pre><p>配套的两条硬规矩：</p>
+<ul>
+<li><strong>每个新员工先读指定文件</strong>。不要假设它继承了当前会话——它没有。</li>
+<li><strong>并行只用于互不冲突的工作</strong>；有依赖的任务严格按门推进。</li>
+</ul>
+<h3 id="验收只认证据">
+<a class="header-anchor" href="#%e9%aa%8c%e6%94%b6%e5%8f%aa%e8%ae%a4%e8%af%81%e6%8d%ae"></a>
+验收只认证据
+</h3><p>这一条是踩过坑之后加的：</p>
+<blockquote>
+<p>每次交付都检查<strong>真实文件、哈希、解析结果和实际证据</strong>，
+不以&quot;完成&quot;状态代替交付。</p>
+</blockquote>
+<p>&ldquo;完成了&quot;是一句话，<code>sha256sum</code> 是一个事实。状态字段可以被误填，文件不会。</p>
+<p>错误也不浪费——<strong>记成下一轮派活的预防条件</strong>：</p>
+<pre tabindex="0"><code>[预防] 上次因为没检查 &lt;X&gt; 导致返工 → 本轮所有同类任务必须显式验证 &lt;X&gt;
+</code></pre><p>这样同一个坑只会踩一次。</p>
+<h3 id="无人值守的现实约束">
+<a class="header-anchor" href="#%e6%97%a0%e4%ba%ba%e5%80%bc%e5%ae%88%e7%9a%84%e7%8e%b0%e5%ae%9e%e7%ba%a6%e6%9d%9f"></a>
+无人值守的现实约束
+</h3><p>我也不会假装 AI 能&quot;自动运行&rdquo;：</p>
+<ul>
+<li>没有系统通知时，<strong>不能假装收到了员工结果</strong></li>
+<li>不让一个员工无限循环</li>
+<li>不让多个员工同时写同一份权威文件</li>
+</ul>
+<p>所以任务按<strong>波次</strong>推进：派一波 → 等系统提醒 → 收集、审阅、派下一波。
+这不是效率损失，是避免&quot;三个人同时改同一个文件&quot;这类灾难。</p>
+<h3 id="工程规范的长期管理">
+<a class="header-anchor" href="#%e5%b7%a5%e7%a8%8b%e8%a7%84%e8%8c%83%e7%9a%84%e9%95%bf%e6%9c%9f%e7%ae%a1%e7%90%86"></a>
+工程规范的长期管理
+</h3><p>顺手记几条容易忽略但影响很大的：</p>
+<ul>
+<li>目录、命名、脚本、变量、上下文和状态文档都按<strong>长期工程规范</strong>管理，临时文件不堆在项目根目录</li>
+<li>原型归档；新重写按契约从 Phase 0 开始，<strong>不把旧 JSON 管线、大文件逻辑或旧目录结构偷偷带回新架构</strong></li>
+<li>代码冻结、许可证、原版证明、判定数值、外部资源边界按既定门管理，<strong>不为了&quot;无人值守&quot;而越权</strong></li>
+</ul>
+<p>最后一条的实际含义：无人值守只延长了时间，不降低标准。不能因为没人盯着就把门放开。</p>
+<hr>
+<h2 id="二技术选型先调研再动手">
+<a class="header-anchor" href="#%e4%ba%8c%e6%8a%80%e6%9c%af%e9%80%89%e5%9e%8b%e5%85%88%e8%b0%83%e7%a0%94%e5%86%8d%e5%8a%a8%e6%89%8b"></a>
+二、技术选型：先调研，再动手
+</h2><p>第二个习惯改自我自己的一个毛病：想做个东西，直接让 AI 开始写代码。</p>
+<p>现在的固定话术是：</p>
+<blockquote>
+<p><strong>我要做一个 XXX，先不要写代码。</strong>
 去 GitHub 找能直接使用或二次开发的开源项目，确认：
 是否在维护、部署是否麻烦、哪些功能可以复用。
 最后告诉我：应该直接用、基于现有项目改、还是自己开发，
-并给出最简单的 MVP 方案。<strong>等我确认后再动手。</strong></p></blockquote><p>这个流程的价值不在于"少写代码"，而在于<strong>在投入前暴露真实成本</strong>。</p><p>AI 去查开源项目时，会自然回答出几个关键问题：</p><ul><li>最近一次 commit 是什么时候（判断是否还在维护）</li><li>star 数只是参考，<strong>issue 的响应速度更真实</strong></li><li>部署需要几个依赖、有没有 Docker、文档是否过期</li><li>哪些模块能直接拿来用，哪些必须重写</li><li>许可证是否允许你的使用场景</li></ul><p>最后必须落到三选一：</p><pre tabindex=0><code>A. 直接用（部署成本 &lt; 自研成本）
+并给出最简单的 MVP 方案。<strong>等我确认后再动手。</strong></p>
+</blockquote>
+<p>这个流程的价值不在于&quot;少写代码&quot;，而在于<strong>在投入前暴露真实成本</strong>。</p>
+<p>AI 去查开源项目时，会自然回答出几个关键问题：</p>
+<ul>
+<li>最近一次 commit 是什么时候（判断是否还在维护）</li>
+<li>star 数只是参考，<strong>issue 的响应速度更真实</strong></li>
+<li>部署需要几个依赖、有没有 Docker、文档是否过期</li>
+<li>哪些模块能直接拿来用，哪些必须重写</li>
+<li>许可证是否允许你的使用场景</li>
+</ul>
+<p>最后必须落到三选一：</p>
+<pre tabindex="0"><code>A. 直接用（部署成本 &lt; 自研成本）
 B. 基于现有项目改（核心可复用，边界清晰）
 C. 自己开发（现有项目都不匹配，或改造成本高于重写）
-</code></pre><p>并给出 MVP——<strong>能验证核心假设的最小版本</strong>。</p><p>这一步实际上省掉了我最多的返工。很多想法在调研阶段就被证明"有人做过且做得更好"，直接省下一周。</p><hr><h2 id=三把会话记录变成可检索的记忆库><a class=header-anchor href=#%e4%b8%89%e6%8a%8a%e4%bc%9a%e8%af%9d%e8%ae%b0%e5%bd%95%e5%8f%98%e6%88%90%e5%8f%af%e6%a3%80%e7%b4%a2%e7%9a%84%e8%ae%b0%e5%bf%86%e5%ba%93></a>三、把会话记录变成可检索的记忆库</h2><p>这是最近在做的一件事：<strong>让 AI 自己把 jsonl 会话文件转成 Markdown，再经由 LLM wiki 做成大型记忆知识库。</strong></p><p>思路很直接：</p><pre tabindex=0><code>原始会话（jsonl，含完整工具调用与结果）
+</code></pre><p>并给出 MVP——<strong>能验证核心假设的最小版本</strong>。</p>
+<p>这一步实际上省掉了我最多的返工。很多想法在调研阶段就被证明&quot;有人做过且做得更好&quot;，直接省下一周。</p>
+<hr>
+<h2 id="三把会话记录变成可检索的记忆库">
+<a class="header-anchor" href="#%e4%b8%89%e6%8a%8a%e4%bc%9a%e8%af%9d%e8%ae%b0%e5%bd%95%e5%8f%98%e6%88%90%e5%8f%af%e6%a3%80%e7%b4%a2%e7%9a%84%e8%ae%b0%e5%bf%86%e5%ba%93"></a>
+三、把会话记录变成可检索的记忆库
+</h2><p>这是最近在做的一件事：<strong>让 AI 自己把 jsonl 会话文件转成 Markdown，再经由 LLM wiki 做成大型记忆知识库。</strong></p>
+<p>思路很直接：</p>
+<pre tabindex="0"><code>原始会话（jsonl，含完整工具调用与结果）
   → 提取：任务目标、关键决策、失败尝试、验证证据
   → 转成结构化 Markdown（带 tags / 结论 / 避坑）
   → 灌进 wiki，按关键词加权检索
   → 下次遇到同类问题，自动命中过往经验
-</code></pre><p>为什么值得做：</p><ul><li><strong>会话记录里最有价值的不是结论，是过程</strong>——尤其是"试过什么、为什么不行"</li><li>单次会话的上下文会丢，但事实不会消失，只是没人整理</li><li>检索比"重新想一遍"便宜得多</li></ul><p>实现上有几个坑我提前踩过：</p><ol><li><strong>不要把整个 jsonl 直接转文本</strong>。里面有大量重复的工具输出，会淹没真正的信息。</li><li><strong>必须标注来源</strong>：这条结论是用户说的、AI 推断的、还是工具验证过的？三者权重完全不同。</li><li><strong>失败路径要和成功路径同等对待</strong>。只存"怎么做对了"，下次还会在同一个地方摔倒。</li></ol><p>这个方向还在做，但已经能感觉到：<strong>知识库的价值不在于"多"，而在于"命中"</strong>。
-写了 100 篇没人检索到，等于没写。</p><p>（这一点在上一篇里有具体数据：方法论写完之后，自动预取的检索词根本选不到它。
-页面存在、检索函数正常，但 AI 永远看不到——这是最难发现的一种失效。）</p><hr><h2 id=四频繁压缩上下文会让-ai-变慢写交接文档不写项目总结><a class=header-anchor href=#%e5%9b%9b%e9%a2%91%e7%b9%81%e5%8e%8b%e7%bc%a9%e4%b8%8a%e4%b8%8b%e6%96%87%e4%bc%9a%e8%ae%a9-ai-%e5%8f%98%e6%85%a2%e5%86%99%e4%ba%a4%e6%8e%a5%e6%96%87%e6%a1%a3%e4%b8%8d%e5%86%99%e9%a1%b9%e7%9b%ae%e6%80%bb%e7%bb%93></a>四、频繁压缩上下文会让 AI 变慢：写交接文档，不写项目总结</h2><p>这条是体感最明显的：</p><blockquote><p><strong>上下文压缩次数多了，AI 会变慢、变笨。</strong></p></blockquote><p>原因不难理解——每次压缩都是一次"有损转述"。细节被概括，概括再被概括，
-到后面模型手里只剩一层抽象，却还要假装知道具体怎么做。</p><p>解法不是"少压缩"，而是<strong>在压缩之前把该留的东西留下来</strong>。</p><p>我现在的做法是让 AI 写一份 <code>prompt.txt</code>，目标写得很明确：</p><blockquote><p><strong>让一个没有本对话历史的下一个 agent 能立刻接手，而不是写一篇项目总结。</strong></p></blockquote><p>这两者的区别是决定性的：</p><table><thead><tr><th>项目总结</th><th>交接文档</th></tr></thead><tbody><tr><td>我们做了什么</td><td><strong>下一步该做什么</strong></td></tr><tr><td>架构演进史</td><td>当前状态 + 入口命令</td></tr><tr><td>抽象的成果描述</td><td>精确的文件路径与行号</td></tr><tr><td>&ldquo;优化了性能&rdquo;</td><td><code>p95 从 320ms 降到 110ms，命令：...</code></td></tr></tbody></table><h3 id=四条铁律><a class=header-anchor href=#%e5%9b%9b%e6%9d%a1%e9%93%81%e5%be%8b></a>四条铁律</h3><p>写这份文档时，有四条不能破：</p><ol><li><strong>禁止编造</strong>——不知道就写「未知」。不要用合理的推测填补空白。</li><li><strong>以项目现场为准</strong>——先查 Git、文件、日志，别只靠聊天记忆。</li><li><strong>区分信息来源</strong>——每条结论标明：<code>已验证</code> / <code>用户提供</code> / <code>推断</code> / <code>未知</code>。</li><li><strong>保留失败尝试和精确命令/报错</strong>——不要只写抽象概括。</li></ol><p>第 4 条最容易被忽略，也最有用。写"试过修复但失败了"是废话；
-写"执行 <code>npm run build</code> 报 <code>EBUSY: app.asar</code>，原因是 Windows Defender 实时防护持有句柄，
-尝试 <code>unlink</code>/<code>rename</code>/<code>MoveFileEx</code> 均失败，需要管理员权限加排除项"——下一个 agent 可以直接跳过这段。</p><h3 id=判断标准><a class=header-anchor href=#%e5%88%a4%e6%96%ad%e6%a0%87%e5%87%86></a>判断标准</h3><p>整份文档只有一个验收标准：</p><blockquote><p><strong>下一步必须可执行。</strong></p></blockquote><p>具体到：</p><ul><li>先读哪个文件</li><li>先跑哪条命令</li><li>改哪个函数</li><li>怎么算成功</li></ul><p>不能说"继续优化"&ldquo;进一步完善"这类话——那不是指令，是愿望。</p><hr><h2 id=五小结><a class=header-anchor href=#%e4%ba%94%e5%b0%8f%e7%bb%93></a>五、小结</h2><p>四条实践，本质上是同一个思路的不同侧面：</p><table><thead><tr><th>实践</th><th>解决的问题</th></tr></thead><tbody><tr><td>规划与施工分离</td><td>一个会话同时当裁判和运动员</td></tr><tr><td>先调研再动手</td><td>在投入前暴露真实成本</td></tr><tr><td>会话转记忆库</td><td>经验随会话消失</td></tr><tr><td>交接文档</td><td>上下文压缩导致能力衰减</td></tr></tbody></table><p>如果只让我留一条，我会留<strong>交接文档</strong>那条。</p><p>因为其他三条都是在优化"这一次做得好不好&rdquo;，
-而交接文档决定的是——<strong>下一次开始的时候，是原地起步，还是从零起步。</strong></p></div><footer class=article-footer><ul class=article-tag-list itemprop=keywords><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ai rel=tag>AI</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/agent rel=tag>AGENT</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e5%b7%a5%e4%bd%9c%e6%b5%81 rel=tag>工作流</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e5%b7%a5%e7%a8%8b%e5%ae%9e%e8%b7%b5 rel=tag>工程实践</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/claude rel=tag>CLAUDE</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/gpt rel=tag>GPT</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/deepseek rel=tag>DEEPSEEK</a></li></ul></footer></div><nav id=article-nav aria-label="Article navigation" data-aos=fade-up><div class="article-nav-link-wrap left"><img data-src=/covers/cover1.webp data-sizes=auto alt="CTF-RE-TOOL v1.8：让 AI 真的会用调试器" class=lazyload><a href=/post/ctf-re-tool-v1.8-dynamic-debugging/ aria-label="前一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器" title="前一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器"></a><div class=article-nav-caption>前一篇</div><h3 class=article-nav-title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h3></div><div class="article-nav-link-wrap right"><img data-src=/covers/cover1.webp data-sizes=auto alt="Cheat Engine 九关教程通关笔记：从数值扫描到代码注入" class=lazyload><a href=/post/cheat-engine-tutorial/ aria-label="后一篇:Cheat Engine 九关教程通关笔记：从数值扫描到代码注入" title="后一篇:Cheat Engine 九关教程通关笔记：从数值扫描到代码注入"></a><div class=article-nav-caption>后一篇</div><h3 class=article-nav-title>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</h3></div></nav></article><section id=comments data-aos=fade-up><div class=comment-header><h2 class=comment-title>说些什么吧！</h2><div class=comment-selector><div class=comment-selector-wrap><div class=selector-item data-selector=giscus><span>giscus</span></div></div></div></div><div class=comment-content><div class="comment giscus-comment" data-aos=fade-up></div></div></section></section></div><footer id=footer aria-label="Site footer"><div style=width:100%;overflow:hidden><div class=footer-line></div></div><div id=footer-info><div><span class=icon-copyright></span>2020-2026<span class="footer-info-sep rotate"></span>
-栗悟饭与龟波功</div><div>基于&nbsp;<a href=https://gohugo.io/ target=_blank rel="noopener nofollow noreferrer">Hugo</a>&nbsp; Theme.<a href=https://github.com/D-Sketon/hugo-theme-reimu target=_blank rel="noopener nofollow noreferrer">Reimu</a></div><div><span class=icon-brush>&nbsp;56.1k</span>
-&nbsp;|&nbsp;
-<span class=icon-coffee>&nbsp;01:58</span></div><div><span class=icon-eye></span>
-<span id=busuanzi_container_site_pv>总访问量&nbsp;<span id=busuanzi_value_site_pv></span></span>
-&nbsp;|&nbsp;
-<span class=icon-user></span>
-<span id=busuanzi_container_site_uv>总访客量&nbsp;<span id=busuanzi_value_site_uv></span></span></div></div></footer><div class=sidebar-top><div class="sidebar-top-taichi rotate"></div><div class=arrow-up></div></div><div id=mask class=hide></div></div><nav id=mobile-nav aria-label="Mobile navigation"><div class=sidebar-wrap><div class=sidebar-toc-sidebar><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><a href=#一规划与施工分离我只做规划审查和裁决>一、规划与施工分离：我只做规划、审查和裁决</a><ul><li><a href=#分工边界>分工边界</a></li><li><a href=#派活的颗粒度>派活的颗粒度</a></li><li><a href=#验收只认证据>验收只认证据</a></li><li><a href=#无人值守的现实约束>无人值守的现实约束</a></li><li><a href=#工程规范的长期管理>工程规范的长期管理</a></li></ul></li><li><a href=#二技术选型先调研再动手>二、技术选型：先调研，再动手</a></li><li><a href=#三把会话记录变成可检索的记忆库>三、把会话记录变成可检索的记忆库</a></li><li><a href=#四频繁压缩上下文会让-ai-变慢写交接文档不写项目总结>四、频繁压缩上下文会让 AI 变慢：写交接文档，不写项目总结</a><ul><li><a href=#四条铁律>四条铁律</a></li><li><a href=#判断标准>判断标准</a></li></ul></li><li><a href=#五小结>五、小结</a></li></ul></nav></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=/avatar/avatar.webp data-sizes=auto alt=栗悟饭与龟波功 class=lazyload><div class=sidebar-author-name>栗悟饭与龟波功</div><div class=sidebar-description>这一切都是命运石之门的选择！</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>16</div></div><a class=sidebar-state-category href=/categories/ aria-label=sidebar-state-category-link><div>分类</div><div class=sidebar-state-number>3</div></a><a class=sidebar-state-tag href=/tags/ aria-label=sidebar-state-tag-link><div>标签</div><div class=sidebar-state-number>60</div></a></div><div class=sidebar-social></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/ aria-label=首页></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/archives aria-label=归档></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/about aria-label=关于></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/friend aria-label=友链></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>友链</div></div></div></div></div><div class=sidebar-btn-wrapper><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></nav></div><script src=https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js integrity=sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e crossorigin=anonymous></script><script src=https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js integrity=sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q crossorigin=anonymous></script><script src=/js/main.js integrity crossorigin=anonymous></script><script src=/js/aos.js integrity crossorigin=anonymous></script><script>var aosInit=()=>{AOS.init({duration:1e3,easing:"ease",once:!0,offset:50})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",aosInit):aosInit()</script><script src=/js/pjax_main.js integrity crossorigin=anonymous data-pjax></script><script>var setupFirework=()=>{if((!!1||!window.matchMedia("(max-width: 768px)").matches)&&window.firework){const e=JSON.parse('{"excludeelements":["a","button"],"particles":[{"colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"duration":[1200,1800],"easing":"easeOutExpo","move":["emit"],"number":20,"shape":"circle","shapeOptions":{"alpha":[0.3,0.5],"radius":[16,32]}},{"colors":["var(--red-0)"],"duration":[1200,1800],"easing":"easeOutExpo","move":["diffuse"],"number":1,"shape":"circle","shapeOptions":{"alpha":[0.2,0.5],"lineWidth":6,"radius":20}}]}');e.excludeElements=e.excludeelements,delete e.excludeelements,window.firework(e)}}</script><script src=https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js defer onload=setupFirework() integrity=sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T crossorigin=anonymous></script><div id=lazy-script><div><script data-pjax>window.REIMU_POST={author:"栗悟饭与龟波功",title:"把 AI 当团队管理：规划、派活、调研与交接的四条实践",url:"https://ip2867.github.io/post/ai-agent-workflow-practices/",description:` 单会话聊到第 50 轮之后，你会发现一个问题：它开始忘事，而你开始替它记。
-上下文压缩不是免费的。每压缩一次，模型就要重新理解一遍&quot;我们到底在干什么&quot;，反应变慢、判断变钝。 这篇记录我目前跑通的四条做法：把 AI 当团队管理，而不是当聊天对象。
-`,cover:"https://ip2867.github.io/images/my-banner.webp"}</script><script src=/js/insert_highlight.js integrity crossorigin=anonymous data-pjax></script><script src=/js/tabs.js integrity crossorigin=anonymous data-pjax defer></script><script type=module data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+</code></pre><p>为什么值得做：</p>
+<ul>
+<li><strong>会话记录里最有价值的不是结论，是过程</strong>——尤其是&quot;试过什么、为什么不行&quot;</li>
+<li>单次会话的上下文会丢，但事实不会消失，只是没人整理</li>
+<li>检索比&quot;重新想一遍&quot;便宜得多</li>
+</ul>
+<p>实现上有几个坑我提前踩过：</p>
+<ol>
+<li><strong>不要把整个 jsonl 直接转文本</strong>。里面有大量重复的工具输出，会淹没真正的信息。</li>
+<li><strong>必须标注来源</strong>：这条结论是用户说的、AI 推断的、还是工具验证过的？三者权重完全不同。</li>
+<li><strong>失败路径要和成功路径同等对待</strong>。只存&quot;怎么做对了&quot;，下次还会在同一个地方摔倒。</li>
+</ol>
+<p>这个方向还在做，但已经能感觉到：<strong>知识库的价值不在于&quot;多&quot;，而在于&quot;命中&quot;</strong>。
+写了 100 篇没人检索到，等于没写。</p>
+<p>（这一点在上一篇里有具体数据：方法论写完之后，自动预取的检索词根本选不到它。
+页面存在、检索函数正常，但 AI 永远看不到——这是最难发现的一种失效。）</p>
+<hr>
+<h2 id="四频繁压缩上下文会让-ai-变慢写交接文档不写项目总结">
+<a class="header-anchor" href="#%e5%9b%9b%e9%a2%91%e7%b9%81%e5%8e%8b%e7%bc%a9%e4%b8%8a%e4%b8%8b%e6%96%87%e4%bc%9a%e8%ae%a9-ai-%e5%8f%98%e6%85%a2%e5%86%99%e4%ba%a4%e6%8e%a5%e6%96%87%e6%a1%a3%e4%b8%8d%e5%86%99%e9%a1%b9%e7%9b%ae%e6%80%bb%e7%bb%93"></a>
+四、频繁压缩上下文会让 AI 变慢：写交接文档，不写项目总结
+</h2><p>这条是体感最明显的：</p>
+<blockquote>
+<p><strong>上下文压缩次数多了，AI 会变慢、变笨。</strong></p>
+</blockquote>
+<p>原因不难理解——每次压缩都是一次&quot;有损转述&quot;。细节被概括，概括再被概括，
+到后面模型手里只剩一层抽象，却还要假装知道具体怎么做。</p>
+<p>解法不是&quot;少压缩&quot;，而是<strong>在压缩之前把该留的东西留下来</strong>。</p>
+<p>我现在的做法是让 AI 写一份 <code>prompt.txt</code>，目标写得很明确：</p>
+<blockquote>
+<p><strong>让一个没有本对话历史的下一个 agent 能立刻接手，而不是写一篇项目总结。</strong></p>
+</blockquote>
+<p>这两者的区别是决定性的：</p>
+<table>
+  <thead>
+      <tr>
+          <th>项目总结</th>
+          <th>交接文档</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>我们做了什么</td>
+          <td><strong>下一步该做什么</strong></td>
+      </tr>
+      <tr>
+          <td>架构演进史</td>
+          <td>当前状态 + 入口命令</td>
+      </tr>
+      <tr>
+          <td>抽象的成果描述</td>
+          <td>精确的文件路径与行号</td>
+      </tr>
+      <tr>
+          <td>&ldquo;优化了性能&rdquo;</td>
+          <td><code>p95 从 320ms 降到 110ms，命令：...</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="四条铁律">
+<a class="header-anchor" href="#%e5%9b%9b%e6%9d%a1%e9%93%81%e5%be%8b"></a>
+四条铁律
+</h3><p>写这份文档时，有四条不能破：</p>
+<ol>
+<li><strong>禁止编造</strong>——不知道就写「未知」。不要用合理的推测填补空白。</li>
+<li><strong>以项目现场为准</strong>——先查 Git、文件、日志，别只靠聊天记忆。</li>
+<li><strong>区分信息来源</strong>——每条结论标明：<code>已验证</code> / <code>用户提供</code> / <code>推断</code> / <code>未知</code>。</li>
+<li><strong>保留失败尝试和精确命令/报错</strong>——不要只写抽象概括。</li>
+</ol>
+<p>第 4 条最容易被忽略，也最有用。写&quot;试过修复但失败了&quot;是废话；
+写&quot;执行 <code>npm run build</code> 报 <code>EBUSY: app.asar</code>，原因是 Windows Defender 实时防护持有句柄，
+尝试 <code>unlink</code>/<code>rename</code>/<code>MoveFileEx</code> 均失败，需要管理员权限加排除项&quot;——下一个 agent 可以直接跳过这段。</p>
+<h3 id="判断标准">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%ad%e6%a0%87%e5%87%86"></a>
+判断标准
+</h3><p>整份文档只有一个验收标准：</p>
+<blockquote>
+<p><strong>下一步必须可执行。</strong></p>
+</blockquote>
+<p>具体到：</p>
+<ul>
+<li>先读哪个文件</li>
+<li>先跑哪条命令</li>
+<li>改哪个函数</li>
+<li>怎么算成功</li>
+</ul>
+<p>不能说&quot;继续优化&quot;&ldquo;进一步完善&quot;这类话——那不是指令，是愿望。</p>
+<hr>
+<h2 id="五小结">
+<a class="header-anchor" href="#%e4%ba%94%e5%b0%8f%e7%bb%93"></a>
+五、小结
+</h2><p>四条实践，本质上是同一个思路的不同侧面：</p>
+<table>
+  <thead>
+      <tr>
+          <th>实践</th>
+          <th>解决的问题</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>规划与施工分离</td>
+          <td>一个会话同时当裁判和运动员</td>
+      </tr>
+      <tr>
+          <td>先调研再动手</td>
+          <td>在投入前暴露真实成本</td>
+      </tr>
+      <tr>
+          <td>会话转记忆库</td>
+          <td>经验随会话消失</td>
+      </tr>
+      <tr>
+          <td>交接文档</td>
+          <td>上下文压缩导致能力衰减</td>
+      </tr>
+  </tbody>
+</table>
+<p>如果只让我留一条，我会留<strong>交接文档</strong>那条。</p>
+<p>因为其他三条都是在优化&quot;这一次做得好不好&rdquo;，
+而交接文档决定的是——<strong>下一次开始的时候，是原地起步，还是从零起步。</strong></p>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/ai"
+        rel="tag"
+        >AI</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/agent"
+        rel="tag"
+        >AGENT</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e5%b7%a5%e4%bd%9c%e6%b5%81"
+        rel="tag"
+        >工作流</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e5%b7%a5%e7%a8%8b%e5%ae%9e%e8%b7%b5"
+        rel="tag"
+        >工程实践</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/claude"
+        rel="tag"
+        >CLAUDE</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/gpt"
+        rel="tag"
+        >GPT</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/deepseek"
+        rel="tag"
+        >DEEPSEEK</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/covers/cover1.webp"
+              data-sizes="auto"
+              alt="CTF-RE-TOOL v1.8：让 AI 真的会用调试器"
+              class="lazyload"
+            /><a
+          href="/post/ctf-re-tool-v1.8-dynamic-debugging/"
+          aria-label="前一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器"
+          title="前一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/covers/cover1.webp"
+              data-sizes="auto"
+              alt="Cheat Engine 九关教程通关笔记：从数值扫描到代码注入"
+              class="lazyload"
+            /><a
+          href="/post/cheat-engine-tutorial/"
+          aria-label="后一篇:Cheat Engine 九关教程通关笔记：从数值扫描到代码注入"
+          title="后一篇:Cheat Engine 九关教程通关笔记：从数值扫描到代码注入"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</h3>
+      </div></nav></article><section id="comments" data-aos="fade-up">
+<div class="comment-header"><h2 class="comment-title">说些什么吧！</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap"><div class="selector-item" data-selector="giscus">
+          <span>giscus</span>
+        </div></div>
+  </div>
+</div>
+
+<div class="comment-content"><div class="comment giscus-comment" data-aos="fade-up"
+     >
+    </div></div>
+</section></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2026<span class="footer-info-sep rotate"></span>
+      栗悟饭与龟波功
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;63.9k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;02:14</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一规划与施工分离我只做规划审查和裁决">一、规划与施工分离：我只做规划、审查和裁决</a>
+      <ul>
+        <li><a href="#分工边界">分工边界</a></li>
+        <li><a href="#派活的颗粒度">派活的颗粒度</a></li>
+        <li><a href="#验收只认证据">验收只认证据</a></li>
+        <li><a href="#无人值守的现实约束">无人值守的现实约束</a></li>
+        <li><a href="#工程规范的长期管理">工程规范的长期管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#二技术选型先调研再动手">二、技术选型：先调研，再动手</a></li>
+    <li><a href="#三把会话记录变成可检索的记忆库">三、把会话记录变成可检索的记忆库</a></li>
+    <li><a href="#四频繁压缩上下文会让-ai-变慢写交接文档不写项目总结">四、频繁压缩上下文会让 AI 变慢：写交接文档，不写项目总结</a>
+      <ul>
+        <li><a href="#四条铁律">四条铁律</a></li>
+        <li><a href="#判断标准">判断标准</a></li>
+      </ul>
+    </li>
+    <li><a href="#五小结">五、小结</a></li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="栗悟饭与龟波功"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">栗悟饭与龟波功</div>
+  <div class="sidebar-description">这一切都是命运石之门的选择！</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">17</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      3
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">64</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "栗悟饭与龟波功",
+          title: "把 AI 当团队管理：规划、派活、调研与交接的四条实践",
+          url: "https:\/\/ip2867.github.io\/post\/ai-agent-workflow-practices\/",
+          description: " 单会话聊到第 50 轮之后，你会发现一个问题：它开始忘事，而你开始替它记。\n上下文压缩不是免费的。每压缩一次，模型就要重新理解一遍\u0026quot;我们到底在干什么\u0026quot;，反应变慢、判断变钝。 这篇记录我目前跑通的四条做法：把 AI 当团队管理，而不是当聊天对象。\n",
+          cover: "https:\/\/ip2867.github.io\/images\/my-banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
           if (_$$(`${gallery} ${children}`).length > 0) {
             new PhotoSwipeLightbox({
               gallery,
@@ -64,11 +834,203 @@ C. 自己开发（现有项目都不匹配，或改造成本高于重写）
         } else {
           window.addEventListener('lightbox:ready', pswp);
         }
-      </script><script data-pjax>var defaultComment,savedCommentType,configDefault,loadScript=(e,t)=>{const n=document.createElement("script");return n.src=e,t&&(n.integrity=t),n.crossOrigin="anonymous",n},commentConfigKeys=["valine","waline","twikoo","gitalk","giscus","disqus"],commentConfig={giscus:{enable:!0,load:()=>{const t=document.querySelector(".giscus-comment");if(!t)return;t.style.display="block";const s=t.querySelector('script[src*="giscus.app/client.js"]');s&&s.remove();const o=document.querySelector("iframe.giscus-frame");o&&o.remove();const e=document.createElement("script"),r=document.documentElement.getAttribute("data-theme"),n=document.documentElement.lang||"en",i=n.split("-")[0],a=["ar","be","bg","ca","cs","da","de","en","eo","es","eu","fa","fr","gr","hbs","he","hu","id","it","ja","kh","ko","nl","pl","pt","ro","ru","th","tr","uk","uz","vi","zh-CN","zh-HK","zh-TW"],c=a.includes(n)?n:a.includes(i)?i:"en";e.src="https://giscus.app/client.js",e.setAttribute("data-repo","ip2867/ip2867.github.io"),e.setAttribute("data-repo-id","R_kgDOQvgvJA"),e.setAttribute("data-category","Announcements"),e.setAttribute("data-category-id","DIC_kwDOQvgvJM4C0R79"),e.setAttribute("data-mapping","0"),e.setAttribute("data-strict","0"),e.setAttribute("data-reactions-enabled","1"),e.setAttribute("data-emit-metadata","0"),e.setAttribute("data-input-position","bottom"),e.setAttribute("data-theme",r==="dark"?"dark":"light"),e.setAttribute("data-lang",c),e.setAttribute("crossorigin","anonymous"),e.async=!0,t.appendChild(e),document.body.addEventListener("light-theme-set",()=>{const e=document.querySelector("iframe.giscus-frame");if(!e)return;e.contentWindow.postMessage({giscus:{setConfig:{theme:"light"}}},"https://giscus.app")}),document.body.addEventListener("dark-theme-set",()=>{const e=document.querySelector("iframe.giscus-frame");if(!e)return;e.contentWindow.postMessage({giscus:{setConfig:{theme:"dark"}}},"https://giscus.app")})}}};commentConfig.enable=commentConfigKeys.some(e=>commentConfig?.[e]?.enable),defaultComment="",commentConfig.enable&&(savedCommentType=localStorage.getItem("commentType"),savedCommentType&&commentConfig[savedCommentType]?.enable&&(defaultComment=savedCommentType),defaultComment||(configDefault="giscus",commentConfig[configDefault]?.enable&&(defaultComment=configDefault)),defaultComment||(defaultComment=commentConfigKeys.find(e=>commentConfig?.[e]?.enable)||""));function loadComments(){if(!commentConfig.enable)return;const e={valine:!1,waline:!1,twikoo:!1,gitalk:!1,giscus:!1},s=()=>{const e=document.querySelectorAll(".comment");e.forEach(e=>{e.style.display="none"})},t=t=>{if(e[t]){document.querySelector(`.${t}-comment`).style.display="block";return}commentConfig[t]?.load(),e[t]=!0},o=e=>{const n=document.querySelectorAll(".selector-item");for(let e=0;e<n.length;e++)n[e].classList.remove("active");e.classList.add("active");const o=e.getAttribute("data-selector");s(),t(o)},n=()=>{const e=document.querySelectorAll(".selector-item");for(let t of e)t.addEventListener("click",()=>{const e=t.getAttribute("data-selector");window.localStorage.setItem("commentType",e),o(t)});if(defaultComment){const e=document.querySelector(`[data-selector="${defaultComment}"]`);if(!e)return;e.style.display="block",e.classList.add("active"),t(defaultComment)}};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n()}loadComments()</script></div></div><script src=https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js async integrity=sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S crossorigin=anonymous></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.unregister()})</script><script>const reimuCopyright=String.raw`
+      </script><script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus', 'disqus'];
+  var commentConfig = {giscus: {
+      enable: true,
+      load: () => {
+        const container = document.querySelector('.giscus-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
+        if (existingScript) existingScript.remove();
+        const existingFrame = document.querySelector('iframe.giscus-frame');
+        if (existingFrame) existingFrame.remove();
+
+        
+        const giscusScript = document.createElement('script');
+        const domMode = document.documentElement.getAttribute("data-theme");
+
+        const docLang = document.documentElement.lang || 'en';
+        const langBase = docLang.split('-')[0];
+        const supportedLangs = ['ar', 'be', 'bg', 'ca', 'cs', 'da', 'de', 'en', 
+        'eo', 'es', 'eu', 'fa', 'fr', 'gr', 'hbs', 'he', 'hu', 'id', 'it', 'ja', 
+        'kh', 'ko', 'nl', 'pl', 'pt', 'ro', 'ru', 'th', 'tr', 'uk', 'uz', 'vi', 'zh-CN', 'zh-HK', 'zh-TW'];
+        const giscusLang = supportedLangs.includes(docLang) ? docLang : supportedLangs.includes(langBase) ? langBase : 'en';
+
+        giscusScript.src = 'https://giscus.app/client.js';
+        giscusScript.setAttribute('data-repo', 'ip2867\/ip2867.github.io');
+        giscusScript.setAttribute('data-repo-id', 'R_kgDOQvgvJA');
+        giscusScript.setAttribute('data-category', 'Announcements');
+        giscusScript.setAttribute('data-category-id', 'DIC_kwDOQvgvJM4C0R79');
+        giscusScript.setAttribute('data-mapping', '0');
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '0');
+        giscusScript.setAttribute('data-input-position', 'bottom');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-lang', giscusLang);
+        giscusScript.setAttribute('crossorigin', 'anonymous');
+        giscusScript.async = true;
+        container.appendChild(giscusScript);
+        document.body.addEventListener('light-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+        });
+        document.body.addEventListener('dark-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
+        });
+      }
+    },};
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig?.[key]?.enable);
+
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      var configDefault = 'giscus';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig?.[sys]?.enable) || '';
+    }
+  }
+
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
+
+    
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+    };
+
+    
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      
+      const commentType = item.getAttribute('data-selector');
+
+      
+      hideAllComments();
+
+      
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          
+          changeActiveCommentItems(item);
+        });
+      }
+
+      
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
    ______     ______     __     __    __     __  __    
   /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
   \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
    \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
     \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
                                                     
-  `;console.log(String.raw`%c ${reimuCopyright}`,"color: #ff5252;"),console.log("%c Theme.Reimu %c https://github.com/D-Sketon/hugo-theme-reimu ","color: white; background: #ff5252; padding:5px 0;","padding:4px;border:1px solid #ff5252;")</script></body></html>
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

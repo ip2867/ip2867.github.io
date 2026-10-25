@@ -1,62 +1,234 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CTF on Ip2867</title><link>https://ip2867.github.io/tags/ctf/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 20 Oct 2026 14:50:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</title><link>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</link><pubDate>Tue, 20 Oct 2026 14:50:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</guid><description>
-<![CDATA[<h1>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on Ip2867</title>
+    <link>https://ip2867.github.io/tags/ctf/</link>
+    <description>Recent content from Ip2867</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    
+    <managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor>
+    <webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Tue, 20 Oct 2026 14:50:00 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://ip2867.github.io/tags/ctf/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</title>
+      <link>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</link>
+      <pubDate>Tue, 20 Oct 2026 14:50:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-re-tool-v1.8-dynamic-debugging/</guid>
+      <description>
+        <![CDATA[<h1>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>上一篇写这个工具时，我说核心是「AI 自主调用工具解题」。十多天过去，我发现这句话有个漏洞：
 <strong>工具&quot;能调用&quot;和工具&quot;能解题&quot;之间，隔着几个必须靠实测才能发现的坑。</strong></p>
         
-        <hr><p>本文2026-10-20首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-20</p>]]></description><category>逆向</category></item><item><title>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</title><link>https://ip2867.github.io/post/ctf2-arena-8-challenges/</link><pubDate>Fri, 16 Oct 2026 10:30:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf2-arena-8-challenges/</guid><description>
-<![CDATA[<h1>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-10-20首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-20</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</title>
+      <link>https://ip2867.github.io/post/ctf2-arena-8-challenges/</link>
+      <pubDate>Fri, 16 Oct 2026 10:30:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf2-arena-8-challenges/</guid>
+      <description>
+        <![CDATA[<h1>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>把 CTF-RE-TOOL 接入 CTF² Agent Arena 真实解题：<strong>8 道逆向题全部解出并提交通过</strong>——从 Hard 的 Excel 神经网络校验器到 15 秒全自动拿分的 satellite 题。本文是完整 Writeup + 期间暴露并修复的 9 个工具缺陷 + 方法论沉淀。工具在实战里进化，而不是在想象里设计。</p>
         
-        <hr><p>本文2026-10-16首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-16</p>]]></description><category>逆向</category></item><item><title>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</title><link>https://ip2867.github.io/post/ctf-re-tool-intro/</link><pubDate>Fri, 09 Oct 2026 22:40:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-re-tool-intro/</guid><description>
-<![CDATA[<h1>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-10-16首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-16</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</title>
+      <link>https://ip2867.github.io/post/ctf-re-tool-intro/</link>
+      <pubDate>Fri, 09 Oct 2026 22:40:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-re-tool-intro/</guid>
+      <description>
+        <![CDATA[<h1>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>一个基于 Electron 的 CTF 逆向工程辅助工具：集成 AI 分析引擎、一键调用逆向工具、Frida 自动 Hook、解密脚本生成，内置 11 个逆向方法论 Skills 与可检索知识库，并通过 MCP 实时接入 IDA / JEB / Burp。</p>
         
-        <hr><p>本文2026-10-09首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-09</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(六)：反调试技术与绕过方法</title><link>https://ip2867.github.io/post/ctf-anti-debug-bypass/</link><pubDate>Sat, 06 Jun 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-anti-debug-bypass/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(六)：反调试技术与绕过方法</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-10-09首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-09</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 逆向入门(六)：反调试技术与绕过方法</title>
+      <link>https://ip2867.github.io/post/ctf-anti-debug-bypass/</link>
+      <pubDate>Sat, 06 Jun 2026 12:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-anti-debug-bypass/</guid>
+      <description>
+        <![CDATA[<h1>CTF 逆向入门(六)：反调试技术与绕过方法</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>CTF 逆向系列第六篇，系统介绍 Windows 和 Linux 平台下的反调试技术及其绕过方法。反调试是出题者用来阻止选手用调试器分析程序的手段，本文先梳理各类反调试的原理和识别特征，再演示在 IDA 和 x64dbg 中的绕过技巧。</p>
         
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(五)：花指令识别与去除</title><link>https://ip2867.github.io/post/ctf-flower-code/</link><pubDate>Sat, 06 Jun 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-flower-code/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(五)：花指令识别与去除</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 逆向入门(五)：花指令识别与去除</title>
+      <link>https://ip2867.github.io/post/ctf-flower-code/</link>
+      <pubDate>Sat, 06 Jun 2026 11:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-flower-code/</guid>
+      <description>
+        <![CDATA[<h1>CTF 逆向入门(五)：花指令识别与去除</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>CTF 逆向系列第五篇，介绍花指令（Junk Code / Opaque Predicate）的识别与去除。花指令是出题者在程序中插入的无用代码，目的是干扰 IDA 的反编译引擎，让 F5 输出变成一堆 goto 或无法反编译。本文先讲知识点，再通过四道实战题目演示不同类型的花指令解法。</p>
         
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</title><link>https://ip2867.github.io/post/ctf-firmware-analysis/</link><pubDate>Sat, 06 Jun 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-firmware-analysis/</guid><description>
-<![CDATA[<h1>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</title>
+      <link>https://ip2867.github.io/post/ctf-firmware-analysis/</link>
+      <pubDate>Sat, 06 Jun 2026 10:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-firmware-analysis/</guid>
+      <description>
+        <![CDATA[<h1>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>CTF 中的固件题（Firmware Reverse）是一类结合逆向工程与 IoT 安全的综合题型。选手需要从路由器、工控设备等固件镜像中提取文件系统、定位后门或硬编码凭证、逆向分析关键程序，最终拿到 flag。本文先系统梳理固件分析的核心知识点，再通过三道真实 CTF 赛题演示完整的解题流程。</p>
         
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(四)：PyInstaller解包、APK逆向与反调试绕过</title><link>https://ip2867.github.io/post/ctf-reverse-4-pyinstaller-apk-antidebug/</link><pubDate>Wed, 27 May 2026 13:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-4-pyinstaller-apk-antidebug/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(四)：PyInstaller解包、APK逆向与反调试绕过</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 逆向入门(四)：PyInstaller解包、APK逆向与反调试绕过</title>
+      <link>https://ip2867.github.io/post/ctf-reverse-4-pyinstaller-apk-antidebug/</link>
+      <pubDate>Wed, 27 May 2026 13:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-reverse-4-pyinstaller-apk-antidebug/</guid>
+      <description>
+        <![CDATA[<h1>CTF 逆向入门(四)：PyInstaller解包、APK逆向与反调试绕过</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>CTF 逆向系列第四篇，覆盖三种实用技能：PyInstaller 打包程序的解包与逆向、Android APK 逆向入门、反调试技术与绕过方法。这些是 CTF 逆向题中常见的&quot;非加密&quot;考点。</p>
         
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</title><link>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</link><pubDate>Wed, 27 May 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</title>
+      <link>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</link>
+      <pubDate>Wed, 27 May 2026 12:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</guid>
+      <description>
+        <![CDATA[<h1>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>CTF 逆向系列第三篇，深入两种重要的分组加密算法：AES（高级加密标准）和 TEA 家族（TEA/XTEA/XXTEA）。每种算法先讲原理和识别特征，再用实际题目演示完整的解题过程。</p>
         
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(二)：RC4流密码、索引置换、位运算与累加异或</title><link>https://ip2867.github.io/post/ctf-reverse-2-rc4-permutation/</link><pubDate>Wed, 27 May 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-2-rc4-permutation/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(二)：RC4流密码、索引置换、位运算与累加异或</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 逆向入门(二)：RC4流密码、索引置换、位运算与累加异或</title>
+      <link>https://ip2867.github.io/post/ctf-reverse-2-rc4-permutation/</link>
+      <pubDate>Wed, 27 May 2026 11:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-reverse-2-rc4-permutation/</guid>
+      <description>
+        <![CDATA[<h1>CTF 逆向入门(二)：RC4流密码、索引置换、位运算与累加异或</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>CTF 逆向系列第二篇，覆盖四种常见加密题型：RC4 流密码、索引置换加密、位运算加密、累加异或（Prefix XOR）。每种算法先讲原理，再用实际题目演示解题过程。</p>
         
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</title><link>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</link><pubDate>Wed, 27 May 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</title>
+      <link>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</link>
+      <pubDate>Wed, 27 May 2026 10:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/ctf-reverse-1-xor-base64-z3/</guid>
+      <description>
+        <![CDATA[<h1>CTF 逆向入门(一)：XOR加密、小端序、换表Base64与Z3求解</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>本系列基于实际 CTF 逆向训练题目，系统介绍逆向工程中常见的加密算法与解题技巧。第一篇覆盖最基础的四种题型：XOR 异或加密、小端序处理、换表 Base64 编码、Z3 约束求解。</p>
         
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item></channel></rss>
+        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+  </channel>
+</rss>

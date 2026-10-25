@@ -1,95 +1,1152 @@
-<!doctype html><html lang=zh-CN data-theme-mode=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史） | 栗悟饭与龟波功</title><meta name=description content="这一切都是命运石之门的选择！"><script>window.siteConfig=JSON.parse('{"anchor_icon":null,"base":"https://ip2867.github.io/","clipboard":{"copyright":{"count":50,"enable":false,"license_type":"by-nc-sa"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ","pt-br":"Falha ao copiar (ﾟ⊿ﾟ)ﾂ","zh-cn":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-tw":"複製失敗 (ﾟ⊿ﾟ)ﾂ"},"success":{"en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)","pt-br":"Copiado com sucesso (*^▽^*)","zh-cn":"复制成功 (*^▽^*)","zh-tw":"複製成功 (*^▽^*)"}},"code_block":{"expand":true},"icon_font":"4552607_4k4bc36ef96","outdate":{"daysago":180,"enable":false,"message":{"en":"This article was last updated on {time}. Please note that the content may no longer be applicable.","ja":"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。","pt-br":"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.","zh-cn":"本文最后更新于 {time}，请注意文中内容可能已不适用。","zh-tw":"本文最後更新於 {time}，請注意文中內容可能已不適用。"}}}')</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap" media=print onload='this.media="all"'><link rel=preload href=//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=stylesheet href=/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css><meta property="og:type" content="website"><meta property="og:title" content="AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史） | 栗悟饭与龟波功"><meta property="og:description" content="这一切都是命运石之门的选择！"><meta property="og:url" content="https://ip2867.github.io/post/ctf2-arena-8-challenges/"><meta property="og:site_name" content="Ip2867"><meta property="og:image" content="/"><meta property="article:author" content="栗悟饭与龟波功"><meta property="article:published_time" content="2026-10-16T10:30:00+08:00"><meta property="article:modified_time" content="2026-10-16T10:30:00+08:00"><meta property="article:tag" content="CTF逆向AIWriteup自动化IDA验证闭环"><meta name=twitter:card content="summary"><meta name=twitter:image content="/"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet href=/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css><link rel=preload as=style href=https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css integrity=sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE crossorigin=anonymous onload='this.onload=null,this.rel="stylesheet"'><link rel=preload as=style href=https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css integrity=sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI crossorigin=anonymous onload='this.onload=null,this.rel="stylesheet"'><script src=https://npm.webcache.cn/pace-js@1.2.4/pace.min.js integrity=sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8 crossorigin=anonymous></script><link rel=stylesheet href=https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css integrity=sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa crossorigin=anonymous></head><body><div id=loader><div class="loading-left-bg loading-bg"></div><div class="loading-right-bg loading-bg"></div><div class=spinner-box><div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" shape-rendering="geometricPrecision"><path d="M303.5 432a80 80 0 01-12 160 80 80 0 0112-160z" fill="var(--red-1, #ff5252)"/><path d="M512 65a447 447 0 010 894V929a417 417 0 000-834 417 417 0 000 834v30a447 447 0 010-894zm0 30A417 417 0 01929 512 208.5 208.5.0 01720.5 720.5V592a80 80 0 000-160 80 80 0 000 160V720.5A208.5 208.5.0 01512 512 208.5 208.5.0 00303.5 303.5 208.5 208.5.0 0095 512 417 417 0 01512 95z" fill="var(--red-1, #ff5252)"/></svg></div><div class=loading-word>EL PSY KONGROO</div></div></div></div><script>var time=null,loaderEl=document.getElementById("loader"),startLoading=()=>{time=Date.now(),loaderEl.classList.remove("loading")},hideLoader=()=>{document.body.style.overflow="auto",loader.classList.add("loading")},endLoading=()=>{time?Date.now()-time>500?(time=null,hideLoader()):(setTimeout(endLoading,500-(Date.now()-time)),time=null):hideLoader()};window.addEventListener("DOMContentLoaded",endLoading),loaderEl.addEventListener("click",endLoading)</script><div id=copy-tooltip></div><div id=lang-tooltip>本文章没有找到对应的语言版本</div><div id=heatmap-tooltip></div><div id=container><div id=wrap><div id=header-nav><nav id=main-nav aria-label="Primary navigation"><a class=main-nav-link-wrap href=/><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>首页</span>
-</a><a class=main-nav-link-wrap href=/archives><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>归档</span>
-</a><a class=main-nav-link-wrap href=/about><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>关于</span>
-</a><a class=main-nav-link-wrap href=/friend><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>友链</span>
-</a><a id=main-nav-toggle class=nav-icon aria-label="Toggle navigation" role=button></a></nav><nav id=sub-nav aria-label="Secondary navigation"></nav></div><header id=header aria-label="Site header"><picture></picture><img fetchpriority=high src=/images/my-banner.webp alt="AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）"><div id=header-outer><div id=header-title><span id=logo><h1 data-aos=slide-up>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</h1></span><h2 id=subtitle-wrap data-aos=slide-down></h2></div></div></header><div id=content aria-label="Page content" class=sidebar-left><aside id=sidebar aria-label=Sidebar><div class="sidebar-wrapper-container sticky"><div class=sidebar-wrapper><div class=sidebar-wrap data-aos=fade-up><div class=sidebar-toc-sidebar><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><a href=#零tldr两天战绩>零、TL;DR：两天战绩</a></li><li><a href=#一time-travel--定点数-laplace-行列式>一、time-travel — 定点数 Laplace 行列式</a><ul><li><a href=#静态侦察>静态侦察</a></li><li><a href=#算法分析>算法分析</a></li><li><a href=#反演与验证>反演与验证</a></li></ul></li><li><a href=#二not-baby-parallelism--blelloch-并行前缀扫描>二、not-baby-parallelism — Blelloch 并行前缀扫描</a><ul><li><a href=#前几轮为什么失败工具存档的真实记录>前几轮为什么失败（工具存档的真实记录）</a></li><li><a href=#静态侦察最终轮>静态侦察（最终轮）</a></li><li><a href=#核心算法sub_336c>核心算法（sub_336C）</a></li><li><a href=#反演>反演</a></li></ul></li><li><a href=#三parallelism--mpi-三级置换网络>三、parallelism — MPI 三级置换网络</a><ul><li><a href=#静态侦察-1>静态侦察</a></li><li><a href=#反演不模拟真实-mpi>反演（不模拟真实 MPI）</a></li><li><a href=#一个值得记录的工具缺陷>一个值得记录的工具缺陷</a></li></ul></li><li><a href=#四excellm--用-excel-公式搭的神经网络>四、ExceLLM — 用 Excel 公式搭的神经网络</a><ul><li><a href=#解压与定位>解压与定位</a></li><li><a href=#把-excel-当反汇编读>把 Excel 当反汇编读</a></li><li><a href=#反演逐字符独立枚举>反演（逐字符独立枚举）</a></li><li><a href=#验证>验证</a></li></ul></li><li><a href=#五romanromance--caesar-移位>五、RomanRomance — Caesar 移位</a></li><li><a href=#六palatinepack--三层-nibble-展开--flipbits>六、PalatinePack — 三层 nibble 展开 + flipBits</a><ul><li><a href=#静态侦察与方向判定>静态侦察与方向判定</a></li><li><a href=#变换语义>变换语义</a></li><li><a href=#反演与验证-1>反演与验证</a></li></ul></li><li><a href=#七missioncritical1--全自动闭环示范15-秒从下载到提交>七、missioncritical1 — 全自动闭环示范（15 秒从下载到提交）</a><ul><li><a href=#闭环时间线>闭环时间线</a></li></ul></li><li><a href=#八plutochat--lcg-密钥派生--rc4-聊天记录>八、PlutoChat — LCG 密钥派生 + RC4 聊天记录</a><ul><li><a href=#静态侦察-2>静态侦察</a></li><li><a href=#关键坑未初始化的-v9>关键坑：未初始化的 v9</a></li><li><a href=#解密与取证>解密与取证</a></li></ul></li><li><a href=#九方法论沉淀已入工具知识库自动检索复用>九、方法论沉淀（已入工具知识库，自动检索复用）</a></li><li><a href=#十实战暴露的-9-个工具缺陷与修复>十、实战暴露的 9 个工具缺陷与修复</a></li><li><a href=#结语>结语</a></li></ul></nav></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=/avatar/avatar.webp data-sizes=auto alt=栗悟饭与龟波功 class=lazyload><div class=sidebar-author-name>栗悟饭与龟波功</div><div class=sidebar-description>这一切都是命运石之门的选择！</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>16</div></div><a class=sidebar-state-category href=/categories/ aria-label=sidebar-state-category-link><div>分类</div><div class=sidebar-state-number>3</div></a><a class=sidebar-state-tag href=/tags/ aria-label=sidebar-state-tag-link><div>标签</div><div class=sidebar-state-number>60</div></a></div><div class=sidebar-social></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/ aria-label=首页></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/archives aria-label=归档></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/about aria-label=关于></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/friend aria-label=友链></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>友链</div></div></div></div><div class=sidebar-btn-wrapper style=position:static><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></div></div><div class=sidebar-widget></div></div></aside><section id=main aria-label="Main content"><article class="h-entry article" itemscope itemtype=https://schema.org/BlogPosting><div class=article-inner data-aos=fade-up><div class=article-meta><div class=article-date><span class="article-date-link icon-calendar" data-aos=zoom-in><time datetime="2026-10-16 10:30:00 +0800 CST" itemprop=datePublished>2026-10-16</time>
-<time style=display:none id=post-update-time>2026-10-16</time></span></div><div class=article-category><a class=article-category-link href=/categories/%e9%80%86%e5%90%91 data-aos=zoom-in>逆向</a></div></div><div class=hr-line></div><div class="e-content article-entry" itemprop=articleBody><blockquote><p>把 CTF-RE-TOOL 接入 CTF² Agent Arena 真实解题：<strong>8 道逆向题全部解出并提交通过</strong>——从 Hard 的 Excel 神经网络校验器到 15 秒全自动拿分的 satellite 题。本文是完整 Writeup + 期间暴露并修复的 9 个工具缺陷 + 方法论沉淀。工具在实战里进化，而不是在想象里设计。</p><p>项目地址：<a href=https://github.com/ip2867/ctf-re-tool>https://github.com/ip2867/ctf-re-tool</a>　·　<a href=/post/ctf-re-tool-intro/>工具介绍</a>　·　下载：<a href=https://github.com/ip2867/ctf-re-tool/releases>Releases</a></p></blockquote><hr><h2 id=零tldr两天战绩><a class=header-anchor href=#%e9%9b%b6tldr%e4%b8%a4%e5%a4%a9%e6%88%98%e7%bb%a9></a>零、TL;DR：两天战绩</h2><table><thead><tr><th>#</th><th>题目</th><th>难度</th><th>载体</th><th>核心考点</th><th>AI 求解耗时*</th><th>提交方式</th></tr></thead><tbody><tr><td>1</td><td>time-travel</td><td>Hard</td><td>ELF</td><td>定点数 Laplace 行列式递归</td><td>457s</td><td>工具解出，人工提交</td></tr><tr><td>2</td><td>not-baby-parallelism</td><td>Hard</td><td>ELF</td><td>Blelloch 并行前缀扫描反演</td><td>4 轮（跨日）</td><td>工具解出，人工提交</td></tr><tr><td>3</td><td>parallelism</td><td>Medium</td><td>ELF(MPI)</td><td>三级置换网络静态反演</td><td>22s</td><td>工具解出，人工提交</td></tr><tr><td>4</td><td>ExceLLM</td><td>Hard</td><td>XLSX</td><td>Excel 公式神经网络校验器</td><td>63s</td><td>工具解出，人工提交</td></tr><tr><td>5</td><td>RomanRomance</td><td>Easy</td><td>TXT</td><td>Caesar +1 移位</td><td>48s</td><td>工具解出，人工提交</td></tr><tr><td>6</td><td>PalatinePack</td><td>Medium</td><td>ELF+BIN</td><td>三层 nibble 展开 + flipBits</td><td>321s</td><td>工具解出，人工提交</td></tr><tr><td>7</td><td>missioncritical1</td><td>Easy</td><td>ELF</td><td>sprintf 拼接 + strcmp</td><td><strong>5.8s</strong></td><td><strong>全自动提交 +100</strong></td></tr><tr><td>8</td><td>PlutoChat</td><td>Medium</td><td>ELF+PCAP</td><td>LCG 密钥派生 + RC4</td><td>152s</td><td>工具解出，人工提交</td></tr></tbody></table><p>* AI 分析阶段时长（CASE 目录 timeline 口径，不含下载与 IDA 冷启动）。</p><p>最有价值的趋势是最后一行数据的变化：<strong>人工干预从第 1 题的全程辅助，收敛到第 7 题的零干预全自动</strong>——下载、IDA 分析、AI 求解、本地验证、平台提交、进程清理，15 秒一条龙。期间工具暴露了 9 个真实缺陷，全部当日修复并回归验证（见第十章）。这些缺陷没有一个是靠"想"出来的：xlsx 解压器不认 xlsx、验证脚本不认单参函数、RC4 明文被协议头坑掉——全部是真实数据砸出来的。</p><hr><h2 id=一time-travel--定点数-laplace-行列式><a class=header-anchor href=#%e4%b8%80time-travel--%e5%ae%9a%e7%82%b9%e6%95%b0-laplace-%e8%a1%8c%e5%88%97%e5%bc%8f></a>一、time-travel — 定点数 Laplace 行列式</h2><p><strong>附件</strong>：<code>time_travel</code>（ELF x64）+ <code>input.bin</code></p><h3 id=静态侦察><a class=header-anchor href=#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f></a>静态侦察</h3><p>main 的反编译只有 11 行，逻辑一目了然：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>input <span style=color:#f92672>=</span> <span style=color:#a6e22e>read_input</span>(argv[<span style=color:#ae81ff>1</span>]);
-</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (n63 <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; n63 <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>63</span>; <span style=color:#f92672>++</span>n63) {              <span style=color:#75715e>// 64 个矩阵
-</span></span></span><span style=display:flex><span>    v7 <span style=color:#f92672>=</span> <span style=color:#a6e22e>sub_1423</span>(<span style=color:#f92672>*</span>input);                      <span style=color:#75715e>// 分配 N×N 指针数组
-</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#f92672>*</span>input; <span style=color:#f92672>++</span>i)
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>memcpy</span>(<span style=color:#f92672>*</span>(<span style=color:#66d9ef>void</span> <span style=color:#f92672>**</span>)(<span style=color:#ae81ff>8LL</span><span style=color:#f92672>*</span>i <span style=color:#f92672>+</span> v7), <span style=color:#f92672>&amp;</span>input[<span style=color:#ae81ff>650</span><span style=color:#f92672>*</span>n63 <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>36</span><span style=color:#f92672>*</span>i], <span style=color:#ae81ff>0x90u</span>);
-</span></span><span style=display:flex><span>    v8 <span style=color:#f92672>=</span> <span style=color:#a6e22e>sub_1638</span>(v7, <span style=color:#f92672>*</span>input);                  <span style=color:#75715e>// ← 核心函数
-</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>putchar</span>((<span style=color:#66d9ef>char</span>)(<span style=color:#f92672>*</span>(_QWORD <span style=color:#f92672>*</span>)<span style=color:#f92672>&amp;</span>input[<span style=color:#ae81ff>650</span><span style=color:#f92672>*</span>n63 <span style=color:#f92672>+</span> <span style=color:#ae81ff>649</span>] <span style=color:#f92672>-</span> v8) <span style=color:#f92672>+</span> n63);
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>三个关键观察：</p><ol><li><strong>输入布局</strong>：每矩阵 650 个 dword = 1（N）+ 36×18（矩阵数据）+ 1（目标值）；<code>0x90</code> 字节/行 = 18 个 qword → N=18，<strong>元素按 64 位定点数处理</strong></li><li><strong>输出公式</strong>：<code>putchar(target_qword - det(矩阵) + n63)</code> —— 明文字符 = 目标值 − 行列式 + 索引</li><li><code>sub_1638</code> 是核心行列式函数</li></ol><h3 id=算法分析><a class=header-anchor href=#%e7%ae%97%e6%b3%95%e5%88%86%e6%9e%90></a>算法分析</h3><p><code>sub_1638</code> 是教科书级的 <strong>Laplace 余子式递归</strong>：对每列删行删列（<code>sub_1570</code> 构造子矩阵）→ 递归求 det → 符号交替；递归基 1×1 返回唯一元素；所有元素按 qword 定点数参与乘加。</p><h3 id=反演与验证><a class=header-anchor href=#%e5%8f%8d%e6%bc%94%e4%b8%8e%e9%aa%8c%e8%af%81></a>反演与验证</h3><p>flag 第 n 字符满足 <code>flag[n] = (target_n - det_n + n) & 0xff</code>。AI 写 Python 按同样布局解析 64 个矩阵（每矩阵取前 18×18 个 qword + 末尾目标 qword），逐个求行列式后按公式拼出 64 字节明文。正向复算 <code>target_qword == flag[n] + det_n - n</code>，64 个矩阵全部对上，无歧义。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>dice{d3t4rm1n1NanT5_c4n_b3_F4sT_1a7sN2j1867327mA6jmapc817jgd6m0}
-</span></span></code></pre></div><blockquote><p><strong>工具视角</strong>：这道题是"开局人工辅助"的典型——工具流水线当时还没有把伴生 <code>input.bin</code> 自动喂给 AI 的完整链路，矩阵布局的判定靠人工搭了第一把手。这个缺口正是后来 §修复 #7（伴生文件全量登记）的诱因之一。</p></blockquote><hr><h2 id=二not-baby-parallelism--blelloch-并行前缀扫描><a class=header-anchor href=#%e4%ba%8cnot-baby-parallelism--blelloch-%e5%b9%b6%e8%a1%8c%e5%89%8d%e7%bc%80%e6%89%ab%e6%8f%8f></a>二、not-baby-parallelism — Blelloch 并行前缀扫描</h2><p><strong>附件</strong>：<code>pppp</code>（ELF x64，C++ 多线程）+ <code>flag.out</code>（51 个整数）</p><p>这道题跨了 4 轮，是<strong>成长闭环最完整的案例</strong>：前 3 轮失败的方向被逐条存档，第 4 轮 AI 带着完整的"已排除路"清单一次解出。</p><h3 id=前几轮为什么失败工具存档的真实记录><a class=header-anchor href=#%e5%89%8d%e5%87%a0%e8%bd%ae%e4%b8%ba%e4%bb%80%e4%b9%88%e5%a4%b1%e8%b4%a5%e5%b7%a5%e5%85%b7%e5%ad%98%e6%a1%a3%e7%9a%84%e7%9c%9f%e5%ae%9e%e8%ae%b0%e5%bd%95></a>前几轮为什么失败（工具存档的真实记录）</h3><table><thead><tr><th>轮次</th><th>误判</th><th>实际</th></tr></thead><tbody><tr><td>1</td><td><code>flag.out</code> 首值 100 被当成"元素个数"</td><td>100 是 ASCII <code>'d'</code>，是<strong>数据本身</strong></td></tr><tr><td>2</td><td>worker 被当成朴素并行 <code>out[i] = op(data[i-1])</code></td><td>是 <strong>Blelloch work-efficient scan</strong>（up-sweep + down-sweep 两阶段树形扫描）</td></tr><tr><td>3</td><td>预算烧在复现 glibc rand() 上</td><td>洗牌结果对任意种子恒为 <code>['xor','add','mul']</code>，<strong>根本不用复现 rand</strong></td></tr></tbody></table><h3 id=静态侦察最终轮><a class=header-anchor href=#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f%e6%9c%80%e7%bb%88%e8%bd%ae></a>静态侦察（最终轮）</h3><p>main 骨架：getopt 解析 <code>-n</code>(线程数)/<code>-i</code>(输入)/<code>-o</code>(输出) → 读 N 个整数 → <code>srand(threads ^ N)</code> 洗牌 3 个算子 → 计时调用核心扫描 → 写出结果。三个算子反编译直接可读：<code>sub_330A = a+b</code>、<code>sub_3323 = a*b</code>、<code>sub_333A = a^b</code>。</p><p>核心函数藏在 <strong>C++ lambda 深链</strong>里：<code>off_7D10</code>（vtable）→ 槽位 0x4a18（invoke）→ sub_4A18/4A44 → 4A64 → 4A80 → 4ADB → 4B18 → <strong>sub_336C</strong>。顺着 vtable 槽位一路追才找到真身——这也是前几轮放弃的原因之一。</p><h3 id=核心算法sub_336c><a class=header-anchor href=#%e6%a0%b8%e5%bf%83%e7%ae%97%e6%b3%95sub_336c></a>核心算法（sub_336C）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>每层 stride i（1,2,4,...）：算子 = table[round(log2(i)) % 3] = [&#39;xor&#39;,&#39;add&#39;,&#39;mul&#39;] 交替
-</span></span><span style=display:flex><span>up-sweep:   for k: u = 2*i*k - 1;  if (i+u &lt; n) a[i+u] = op(a[u], a[i+u])
-</span></span><span style=display:flex><span>down-sweep: for k: u = 2*i*k - 1;  a[u] = op(a[u-i], a[u])
-</span></span></code></pre></div><p>标准 <strong>Blelloch work-efficient prefix scan</strong>：up-sweep 归约建树，down-sweep 下扫求前缀。</p><h3 id=反演><a class=header-anchor href=#%e5%8f%8d%e6%bc%94></a>反演</h3><p><code>flag.out</code> 的 51 个值就是扫描输出。反演 = <strong>逆 down-sweep（按 up 层级顺序）→ 逆 up-sweep（按 down 层级顺序）</strong>，每步用伙伴元素反解：<code>add</code> 逆 = 减、<code>xor</code> 逆 = 再异或、<code>mul</code> 逆 = 整除（需除数非零检查）。线程数未知 → 暴力 1..64，配合"结果全可打印 ASCII"约束锁定唯一明文。</p><p>AI 交出的 [VERIFY] 契约用 Python 实现了精确逆过程：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>tbl <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;xor&#39;</span>,<span style=color:#e6db74>&#39;add&#39;</span>,<span style=color:#e6db74>&#39;mul&#39;</span>]
-</span></span><span style=display:flex><span>lv  <span style=color:#f92672>=</span> <span style=color:#66d9ef>lambda</span> i: int(round(math<span style=color:#f92672>.</span>log2(i))) <span style=color:#f92672>%</span> <span style=color:#ae81ff>3</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>decrypt</span>(out):
-</span></span><span style=display:flex><span>    a <span style=color:#f92672>=</span> out[:]; n <span style=color:#f92672>=</span> len(a)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> levels_up(n):                 <span style=color:#75715e># 逆 down-sweep</span>
-</span></span><span style=display:flex><span>        invf <span style=color:#f92672>=</span> inv[tbl[lv(i)]]; k <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>*</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> n:
-</span></span><span style=display:flex><span>            u <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>*</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> i<span style=color:#f92672>+</span>u <span style=color:#f92672>&lt;</span> n: a[i<span style=color:#f92672>+</span>u] <span style=color:#f92672>=</span> invf(a[i<span style=color:#f92672>+</span>u], a[u])
-</span></span><span style=display:flex><span>            k <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> reversed(levels_up(n)):       <span style=color:#75715e># 逆 up-sweep</span>
-</span></span><span style=display:flex><span>        invf <span style=color:#f92672>=</span> inv[tbl[lv(i)]]; k <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>*</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> n:
-</span></span><span style=display:flex><span>            u <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>*</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; a[u] <span style=color:#f92672>=</span> invf(a[u], a[u<span style=color:#f92672>-</span>i]); k <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> bytes(a)
-</span></span></code></pre></div><p>正向回验：反演结果重跑 Blelloch 扫描，51 个输出逐一复现 <code>flag.out</code> ✓。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>dice{p4r411el_pref1x_sc4ns_w0rk_efficient_but_sl0w}
-</span></span></code></pre></div><blockquote><p><strong>工具视角</strong>：失败档案机制在这里兑现了设计初衷——每轮失败的"方向结论"注入下一轮提示词，AI 不再重复烧预算在已排除的路上。这 4 轮的失败记录后来沉淀成知识库的<a href=https://github.com/ip2867/ctf-re-tool/blob/main/wiki/reverse/method_runtime_challenges.md>运行型反演方法论</a>。</p></blockquote><hr><h2 id=三parallelism--mpi-三级置换网络><a class=header-anchor href=#%e4%b8%89parallelism--mpi-%e4%b8%89%e7%ba%a7%e7%bd%ae%e6%8d%a2%e7%bd%91%e7%bb%9c></a>三、parallelism — MPI 三级置换网络</h2><p><strong>附件</strong>：<code>parallelism</code>（ELF x64，链接 libmpi）。题面直接给出用法：<code>mpirun --oversubscribe -np 8 ./parallelism</code>。</p><h3 id=静态侦察-1><a class=header-anchor href=#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f-1></a>静态侦察</h3><p>main（1118 字符）非常短：<code>MPI_Comm_size==8</code> 后串联三个校验函数，全过则 rank 0 打印 <code>Correct!</code>。</p><table><thead><tr><th>阶段</th><th>函数</th><th>逻辑</th></tr></thead><tbody><tr><td>Stage 1</td><td><code>sub_1369</code></td><td>输入 64 字符；常量表 <code>v4[32]</code> 做 32 次 <code>s[n] ↔ s[v4[n]+31]</code> 交换（固定置换）</td></tr><tr><td>Stage 2</td><td><code>sub_1625</code></td><td>10000 轮环形搬运：rank R 从 <code>(R+n)%8</code> 号进程取 slot <code>n%8</code> 写入本地 slot <code>n%8</code> —— 全局确定性置换 P</td></tr><tr><td>Stage 3</td><td><code>sub_179C</code></td><td><code>MPI_Gather</code> 汇总后 <code>memcmp</code> 目标常量 <code>m_ERpmfrNkekU4_...</code></td></tr></tbody></table><h3 id=反演不模拟真实-mpi><a class=header-anchor href=#%e5%8f%8d%e6%bc%94%e4%b8%8d%e6%a8%a1%e6%8b%9f%e7%9c%9f%e5%ae%9e-mpi></a>反演（不模拟真实 MPI）</h3><p>关键洞察：Stage 2 虽然跑了 10000 轮跨进程通信，但<strong>它是确定性置换</strong>——用"单位标签"（0..63 依次编号）跑一遍同样的轮次逻辑即可得到 <code>perm_out</code>，无需真的起 8 个进程：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sim</span>(data):                      <span style=color:#75715e># 用标签数组模拟 10000 轮</span>
-</span></span><span style=display:flex><span>    rb <span style=color:#f92672>=</span> [list(data[i<span style=color:#f92672>*</span><span style=color:#ae81ff>8</span>:(i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span><span style=color:#ae81ff>8</span>]) <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>8</span>)]
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> n <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10000</span>):
-</span></span><span style=display:flex><span>        new <span style=color:#f92672>=</span> [<span style=color:#66d9ef>None</span>]<span style=color:#f92672>*</span><span style=color:#ae81ff>8</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> R <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>8</span>): new[R] <span style=color:#f92672>=</span> rb[(R<span style=color:#f92672>+</span>n)<span style=color:#f92672>%</span><span style=color:#ae81ff>8</span>][n<span style=color:#f92672>%</span><span style=color:#ae81ff>8</span>]
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> R <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>8</span>): rb[R][n<span style=color:#f92672>%</span><span style=color:#ae81ff>8</span>] <span style=color:#f92672>=</span> new[R]
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> [c <span style=color:#66d9ef>for</span> r <span style=color:#f92672>in</span> rb <span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> r]
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>perm_out <span style=color:#f92672>=</span> sim(list(range(<span style=color:#ae81ff>64</span>)))     <span style=color:#75715e># 置换表</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>inv_stage2</span>(out):
-</span></span><span style=display:flex><span>    res <span style=color:#f92672>=</span> [<span style=color:#66d9ef>None</span>]<span style=color:#f92672>*</span><span style=color:#ae81ff>64</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> k <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>64</span>): res[perm_out[k]] <span style=color:#f92672>=</span> out[k]
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> res
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>inv_stage1</span>(s):                  <span style=color:#75715e># 逆 Stage 1：反向重做同一交换</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> n <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>31</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
-</span></span><span style=display:flex><span>        idx <span style=color:#f92672>=</span> v4[n]<span style=color:#f92672>+</span><span style=color:#ae81ff>31</span>; s[n], s[idx] <span style=color:#f92672>=</span> s[idx], s[n]
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> s
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>flag <span style=color:#f92672>=</span> inv_stage1(inv_stage2(list(target)))
-</span></span></code></pre></div><p>正向 <code>encrypt(flag) == target</code> 逐字符 64/64 匹配，字节级复算 mismatch = 0。</p><h3 id=一个值得记录的工具缺陷><a class=header-anchor href=#%e4%b8%80%e4%b8%aa%e5%80%bc%e5%be%97%e8%ae%b0%e5%bd%95%e7%9a%84%e5%b7%a5%e5%85%b7%e7%bc%ba%e9%99%b7></a>一个值得记录的工具缺陷</h3><p>AI 的正向复现已完全匹配，但 [VERIFY] 契约里 <code>decrypt(target)</code> 是<strong>单参</strong>函数、<code>expected</code> 只写了 flag 前 54 字符——工具按双参调用 + 全等比对判「无命中」，拒绝自动提交。这就是后文 §修复 #2/#3 的直接来源（修复后回归同一契约直接命中）。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>dice{P4ral1isM_m4kEs_eV3ryt4InG_sUp3r_f4ST_aND_s3CuRE_a17m4k9l4}
-</span></span></code></pre></div><hr><h2 id=四excellm--用-excel-公式搭的神经网络><a class=header-anchor href=#%e5%9b%9bexcellm--%e7%94%a8-excel-%e5%85%ac%e5%bc%8f%e6%90%ad%e7%9a%84%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c></a>四、ExceLLM — 用 Excel 公式搭的神经网络</h2><p><strong>附件</strong>：<code>ExceLLM.xlsx</code>（27.8 KB，4 个 sheet：LLM / BITS / WEIGHTS / VERIFY，后三个隐藏）</p><h3 id=解压与定位><a class=header-anchor href=#%e8%a7%a3%e5%8e%8b%e4%b8%8e%e5%ae%9a%e4%bd%8d></a>解压与定位</h3><p>xlsx 本质是 OOXML zip。解压后按"公式数"定位主战场：</p><table><thead><tr><th>文件</th><th>内容</th><th>判定</th></tr></thead><tbody><tr><td><code>xl/workbook.xml</code></td><td>sheet 清单：LLM(可见)、BITS/WEIGHTS/VERIFY(hidden)</td><td>结构</td></tr><tr><td><code>sheet1.xml</code></td><td>2.5KB，只有 <code>IF(VERIFY!Z1=1,"Correct","Incorrect")</code></td><td>展示壳（1 个公式）</td></tr><tr><td><code>sheet2.xml</code></td><td>58KB，216 个公式</td><td>BITS（位展开）</td></tr><tr><td><code>sheet3.xml</code></td><td>164KB，纯常量</td><td>WEIGHTS</td></tr><tr><td><code>sheet4.xml</code></td><td>57KB，<strong>244 个公式</strong></td><td>VERIFY（校验器）← 主文件</td></tr></tbody></table><h3 id=把-excel-当反汇编读><a class=header-anchor href=#%e6%8a%8a-excel-%e5%bd%93%e5%8f%8d%e6%b1%87%e7%bc%96%e8%af%bb></a>把 Excel 当反汇编读</h3><p>BITS 表把每个输入字符按 ASCII 展开 8 位（MSB first）：<code>MOD(QUOTIENT(CODE(MID(LLM!B2, pos, 1)), 2^k), 2)</code>。VERIFY 表是三层网络：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>C{row} = MAX(0, (SUMPRODUCT(BITS!B{8位区间}, WEIGHTS!列k) + WEIGHTS!A{bias}) / 100)
-</span></span><span style=display:flex><span>H{row} = --( (SUMPRODUCT(C{8行组}, W2) + b2) / 100 &gt; 0 )
-</span></span><span style=display:flex><span>Z1     = --( SUM(H10, H30, ..., H530) = 27 )
-</span></span></code></pre></div><p>对照机器学习语义：<code>SUMPRODUCT</code> = 全连接层矩阵乘，<code>MAX(0,·)</code> = <strong>ReLU</strong>，<code>--(·>0)</code> = <strong>阶跃激活</strong>，<code>Z1</code> = 要求 27 组输出神经元全部为 1。</p><h3 id=反演逐字符独立枚举><a class=header-anchor href=#%e5%8f%8d%e6%bc%94%e9%80%90%e5%ad%97%e7%ac%a6%e7%8b%ac%e7%ab%8b%e6%9e%9a%e4%b8%be></a>反演（逐字符独立枚举）</h3><p>关键结构：每组校验<strong>只依赖该位置字符的 8 位</strong>，组间无耦合 → 每位暴力枚举 32..126 的可打印 ASCII，H(该组)=1 的唯一字符即答案。27 次独立枚举，无需全局搜索。</p><p>AI 在此踩了一个关键坑并自我修正：<strong>WEIGHTS 表是列主序 + 每组固定 stride=26 行</strong>（W1 8 行 + bias 8 行 + W2 8 行 + H-bias 1 行）。最初误用 stride=20 时每个位置的候选集爆炸（0~95 个解）；改从 VERIFY 公式里的行号锚点（C10→A2:A9/A10，C30→A28:A35/A36，差 26）反推后，<strong>每组恰好剩唯一解</strong>——解集是否唯一本身就是 stride 正确性的判据。</p><h3 id=验证><a class=header-anchor href=#%e9%aa%8c%e8%af%81></a>验证</h3><p>拼出 27 字符 flag 后前向复算：27 个 H 全为 1，<code>SUM=27</code>，与 <code>VERIFY!Z1=1</code> 一致。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sun{n0t_qu1t3_ch4t_GPT_l0l}
-</span></span></code></pre></div><blockquote><p><strong>工具视角</strong>：这题的工具进化密度最高——xlsx 被解压器拒收（§#4）、主文件选错到元数据（§#5）、XML 误进固件流程白烧 60 秒（§#6）、最后 AI 自己 read_file 伴生 sheet 完成全部分析。一轮 Hard 题砸出了三个修复。</p></blockquote><hr><h2 id=五romanromance--caesar-移位><a class=header-anchor href=#%e4%ba%94romanromance--caesar-%e7%a7%bb%e4%bd%8d></a>五、RomanRomance — Caesar 移位</h2><p><strong>附件</strong>：<code>enc.txt</code>（34 B）+ <code>romanromance</code>（ELF）。题面 &ldquo;When in Rome&mldr;"（暗示 Caesar），并注明非标准前缀 <code>sunshine{...}</code>。</p><p>密文 34 字符：<code>tvotijof|lO1x</code>z1v5<code>s1nAo</code>iJ6u1sZ~`</p><p>单字节移位全扫（±1..32）+ flag 前缀匹配，<strong>+1 移位</strong>命中：<code>tvotijof</code> +1 = <code>sunshine</code>，整段可读，无歧义。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sunshine{kN0w_y0u4_r0m@n_hI5t0rY}
-</span></span></code></pre></div><blockquote><p><strong>工具视角</strong>：这题暴露了整场实战<strong>最隐蔽</strong>的缺陷——共享下载目录让 AI 把<strong>上一题 ExceLLM 的 sheet 和 flag</strong> 当成本题结论（§#7）。修复后每题附件进独立子目录 + 提示词加"题目边界"声明，此类串扰再未复发。</p></blockquote><hr><h2 id=六palatinepack--三层-nibble-展开--flipbits><a class=header-anchor href=#%e5%85%adpalatinepack--%e4%b8%89%e5%b1%82-nibble-%e5%b1%95%e5%bc%80--flipbits></a>六、PalatinePack — 三层 nibble 展开 + flipBits</h2><p><strong>附件</strong>：<code>palatinepack.zip</code> → <code>palatinepack</code>（ELF）+ <code>flag.txt</code>（296 B 密文）</p><h3 id=静态侦察与方向判定><a class=header-anchor href=#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f%e4%b8%8e%e6%96%b9%e5%90%91%e5%88%a4%e5%ae%9a></a>静态侦察与方向判定</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>stream <span style=color:#f92672>=</span> <span style=color:#a6e22e>fopen</span>(<span style=color:#e6db74>&#34;palatinepackflag.txt&#34;</span>, <span style=color:#e6db74>&#34;r&#34;</span>);   <span style=color:#75715e>// ← 读&#34;密码&#34;（真 flag 是输入！）
-</span></span></span><span style=display:flex><span>n <span style=color:#f92672>=</span> <span style=color:#a6e22e>ftell</span>(stream) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;                          <span style=color:#75715e>// = 37
-</span></span></span><span style=display:flex><span><span style=color:#a6e22e>fgets</span>(s_, n, stream);
-</span></span><span style=display:flex><span><span style=color:#a6e22e>flipBits</span>(s, n);                                 <span style=color:#75715e>// 自逆变换
-</span></span></span><span style=display:flex><span>s_1  <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand</span>(s,  n);                           <span style=color:#75715e>// n  → 2n
-</span></span></span><span style=display:flex><span>s_2  <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand</span>(s_1, <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n);                        <span style=color:#75715e>// 2n → 4n
-</span></span></span><span style=display:flex><span>ptr  <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand</span>(s_2, <span style=color:#ae81ff>4</span><span style=color:#f92672>*</span>n);                        <span style=color:#75715e>// 4n → 8n（37→74→148→296）
-</span></span></span><span style=display:flex><span><span style=color:#a6e22e>anti_debug</span>();
-</span></span><span style=display:flex><span><span style=color:#a6e22e>fwrite</span>(ptr, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>8</span><span style=color:#f92672>*</span>n, <span style=color:#a6e22e>fopen</span>(<span style=color:#e6db74>&#34;flag.txt&#34;</span>, <span style=color:#e6db74>&#34;wb&#34;</span>));   <span style=color:#75715e>// 写出 296B 密文
-</span></span></span></code></pre></div><p>题目给的是程序<strong>输出</strong>，真 flag 是程序<strong>输入</strong>——必须逆变换。</p><h3 id=变换语义><a class=header-anchor href=#%e5%8f%98%e6%8d%a2%e8%af%ad%e4%b9%89></a>变换语义</h3><ul><li><code>flipBits</code>（0x1565）：交替「偶索引逐字节取反 / 奇索引异或流 <code>n105 += 32</code>（初值 105）」，<strong>自逆</strong></li><li><code>expand</code>（0x16b9）：每字节拆 2 字节，nibble 按 <code>v4</code> 交替摆放，伴随状态 <code>n105 = n105*11 mod 256</code>，初值 105</li><li>干扰项：<code>doWeedStuff</code> / <code>rotate_block_left</code> / <code>SBOX</code>（AES S 盒）在 main 里<strong>无 xrefs</strong>，纯干扰——先查 xrefs 再决定要不要逆</li><li>关键坑：<code>teehee</code> 函数用 <code>mprotect</code> 试图把 expand 里的立即数 <code>0x69</code>（105）打补丁成 <code>0x01</code>——<strong>但正向复现证明运行态仍是 105</strong>。反推结果用 {105, 1} 两值分别回验，只有 105 能 100% 复现 flag.txt 全部 296 字节</li></ul><h3 id=反演与验证-1><a class=header-anchor href=#%e5%8f%8d%e6%bc%94%e4%b8%8e%e9%aa%8c%e8%af%81-1></a>反演与验证</h3><p>逆 <code>expand</code> 三次（读 nibble 重组）→ 逆 <code>flipBits</code>（自逆，再做一遍）→ 得 <code>sunshine{...}\0</code>。正向回验：三层变换对 flag 正向展开，输出与 flag.txt <strong>296 字节逐字节一致</strong>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sunshine{C3A5ER_CR055ED_TH3_RUB1C0N}
-</span></span></code></pre></div><hr><h2 id=七missioncritical1--全自动闭环示范15-秒从下载到提交><a class=header-anchor href=#%e4%b8%83missioncritical1--%e5%85%a8%e8%87%aa%e5%8a%a8%e9%97%ad%e7%8e%af%e7%a4%ba%e8%8c%8315-%e7%a7%92%e4%bb%8e%e4%b8%8b%e8%bd%bd%e5%88%b0%e6%8f%90%e4%ba%a4></a>七、missioncritical1 — 全自动闭环示范（15 秒从下载到提交）</h2><p><strong>附件</strong>：<code>chall</code>（ELF x64，14.1 KB）</p><p>main 只有 15 行，校验逻辑直接写在 <code>sprintf</code> 里：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#a6e22e>sprintf</span>(s_, <span style=color:#e6db74>&#34;sun{%s_%s_%s}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, <span style=color:#e6db74>&#34;e4sy&#34;</span>, <span style=color:#e6db74>&#34;s4t3ll1t3&#34;</span>, <span style=color:#e6db74>&#34;3131&#34;</span>);
-</span></span><span style=display:flex><span><span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Enter satellite command: &#34;</span>);
-</span></span><span style=display:flex><span><span style=color:#a6e22e>fgets</span>(s, <span style=color:#ae81ff>50</span>, stdin);
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>strcmp</span>(s, s_)) <span style=color:#a6e22e>puts</span>(<span style=color:#e6db74>&#34;Access Granted!&#34;</span>);
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>                <span style=color:#a6e22e>puts</span>(<span style=color:#e6db74>&#34;Access Denied!&#34;</span>);
-</span></span></code></pre></div><p>三个片段直接来自字符串表（<code>a3131</code>、<code>aS4t3ll1t3</code>、<code>aE4sy</code>），AI 一轮分析即拼出完整 flag。</p><h3 id=闭环时间线><a class=header-anchor href=#%e9%97%ad%e7%8e%af%e6%97%b6%e9%97%b4%e7%ba%bf></a>闭环时间线</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>17:38:33  平台拉题 → 下载 chall → 识别 ELF
-</span></span><span style=display:flex><span>17:38:34  IDA 启动 → 17:38:40 MCP 连接（6 秒冷启动）
-</span></span><span style=display:flex><span>17:38:41  阶段1 采集（函数列表/字符串/反编译/全局表）
-</span></span><span style=display:flex><span>17:38:47  AI 5.8 秒出结论 + [VERIFY] 契约
-</span></span><span style=display:flex><span>17:38:47  本地复现 [HIT] → flag 标记已验证 → 自动沉淀经验入库
-</span></span><span style=display:flex><span>17:38:47  自动提交平台 → {&#34;accepted&#34;:true, &#34;earned_points&#34;:100}
-</span></span><span style=display:flex><span>17:38:49  题后清理 IDA/java 进程
-</span></span></code></pre></div><p><strong>从拉题到平台判对共 15 秒，全程零人工干预。</strong> 验证闭环（[VERIFY] 契约本地复现）在此题一次通过，&ldquo;flag 未验证不提交"的防线也完整走通。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sun{e4sy_s4t3ll1t3_3131}
-</span></span></code></pre></div><hr><h2 id=八plutochat--lcg-密钥派生--rc4-聊天记录><a class=header-anchor href=#%e5%85%abplutochat--lcg-%e5%af%86%e9%92%a5%e6%b4%be%e7%94%9f--rc4-%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95></a>八、PlutoChat — LCG 密钥派生 + RC4 聊天记录</h2><p><strong>附件</strong>：<code>plutochat</code>（ELF）+ evidence.pcap（聊天流量）</p><h3 id=静态侦察-2><a class=header-anchor href=#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f-2></a>静态侦察</h3><p>main 是个 TCP 客户端（<code>socket</code> + <code>connect 127.0.0.1:31337</code>），但真 flag 不在本地校验里——在<strong>加密的聊天记录</strong>里。AI 从二进制抽出完整密码学链路：</p><table><thead><tr><th>函数</th><th>语义</th></tr></thead><tbody><tr><td><code>sub_1389</code> + <code>sub_1452</code> + <code>sub_12E5</code> + <code>sub_1285</code></td><td>标准 <strong>RC4</strong>（KSA / swap / PRGA）</td></tr><tr><td><code>sub_1510</code></td><td>80 字节 RC4 key 派生：seed 经 <code>ROL32(x, x&amp;0xf)</code> 递推填 20 个 int → <code>byte_4100</code> 置换表 → <code>byte_4120</code> 表 XOR 传播链</td></tr><tr><td>包格式</td><td><code>[4B seed][4B len][RC4 密文]</code></td></tr></tbody></table><h3 id=关键坑未初始化的-v9><a class=header-anchor href=#%e5%85%b3%e9%94%ae%e5%9d%91%e6%9c%aa%e5%88%9d%e5%a7%8b%e5%8c%96%e7%9a%84-v9></a>关键坑：未初始化的 v9</h3><p><code>sub_1510</code> 的 XOR 传播链用<strong>未初始化的栈变量 v9</strong> 作初值（<code>rbp-1</code>）——反编译默认值不可信。AI 用<strong>已知明文攻击</strong>锁定：登录成功消息首字节类型 = 1，爆破 v9 初值，<code>v9_0 = 0</code> 时 RC4 首字节恰好解出 <code>1</code>，唯一命中。</p><h3 id=解密与取证><a class=header-anchor href=#%e8%a7%a3%e5%af%86%e4%b8%8e%e5%8f%96%e8%af%81></a>解密与取证</h3><p>用 <code>gen_key(seed) + RC4</code> 解开 pcap 里全部消息，聊天记录完全可读：用户 <code>topsecretengineer</code>（密码 <code>PlutoMars23!</code>）与 <code>givemethemoney</code>（密码 <code>Sellurdata12!</code>）对话，后者询问敏感 key，前者回复：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>Of course! It&#39;s: sun{S3cur1ty_thr0ugh_Obscur1ty_1s_B4D}
-</span></span></code></pre></div><blockquote><p><strong>工具视角</strong>：解密明文带 <code>\x03\x11</code> 协议头（<code>[类型][len 用户名]</code> 封装），<code>printable()</code> 整段判"不可打印"回退成 hex，flag 被埋进 hex 里导致验证闭环无命中——修复"剥首尾控制字符&rdquo;（§#8）后重跑同一契约直接 <code>[HIT]</code>。</p></blockquote><hr><h2 id=九方法论沉淀已入工具知识库自动检索复用><a class=header-anchor href=#%e4%b9%9d%e6%96%b9%e6%b3%95%e8%ae%ba%e6%b2%89%e6%b7%80%e5%b7%b2%e5%85%a5%e5%b7%a5%e5%85%b7%e7%9f%a5%e8%af%86%e5%ba%93%e8%87%aa%e5%8a%a8%e6%a3%80%e7%b4%a2%e5%a4%8d%e7%94%a8></a>九、方法论沉淀（已入工具知识库，自动检索复用）</h2><p>以下条目已写入 CTF-RE-TOOL 的可检索知识库（<code>wiki/reverse/method_*.md</code>，含 attack_chain 与 failed_attempts），下次同类题工具会<strong>在分析前自动把攻略内联进 AI 提示词</strong>：</p><ul><li><strong>并行扫描/置换网络</strong>：Blelloch up/down-sweep 精确逆序（错一层全盘错）；MPI 环形搬运 = 确定性置换，用单位标签模拟求逆，别模拟真实运行时</li><li><strong>Excel 公式逆向</strong>：<code>SUMPRODUCT</code>=矩阵乘、<code>MAX(0,.)</code>=ReLU、<code>--(...)</code>=布尔；先读 <code>workbook.xml.rels</code> 搞清 sheet 映射；权重表 stride 从公式行号锚点反推（解集唯一 = stride 正确的判据）</li><li><strong>方向判定</strong>：输入→变换→输出型（读 x 写 y）的题，<strong>flag 往往是输入不是输出</strong>，拿到密文先判方向</li><li><strong>自改代码不可信</strong>：<code>mprotect</code> 打补丁的立即数反编译不可信，对候选常量（105/1）逐一正向回验择真</li><li><strong>短密文分诊</strong>：先单字节 XOR/移位全扫 + flag 前缀匹配（含非标准前缀 sunshine/sun/dice），30 秒内出结果再考虑复杂算法</li><li><strong>RC4 密钥流题</strong>：先找 LCG/置换/XOR 链常量表定 seed 关系；key 派生读未初始化变量时用已知明文爆破初值</li><li><strong>干扰项识别</strong>：无 xrefs 的花函数（AES S 盒等）= 纯干扰，先查 xrefs 再决定要不要逆</li></ul><h2 id=十实战暴露的-9-个工具缺陷与修复><a class=header-anchor href=#%e5%8d%81%e5%ae%9e%e6%88%98%e6%9a%b4%e9%9c%b2%e7%9a%84-9-%e4%b8%aa%e5%b7%a5%e5%85%b7%e7%bc%ba%e9%99%b7%e4%b8%8e%e4%bf%ae%e5%a4%8d></a>十、实战暴露的 9 个工具缺陷与修复</h2><p>全部当日修复并回归验证（custom 契约命中率 0/3 → 3/3）：</p><table><thead><tr><th>#</th><th>缺陷</th><th>根因 → 修复</th></tr></thead><tbody><tr><td>1</td><td>下载器目录碰撞（EISDIR 整轮中止）</td><td>附件与同名目录冲突 → 写入前 statSync 检查，自动改名重试</td></tr><tr><td>2</td><td>验证契约只试双参调用</td><td>AI 常写单参 <code>decrypt(target)</code> → 按 <code>inspect.signature</code> 自动尝试五种调用形态</td></tr><tr><td>3</td><td>expected 截断全等必败</td><td>AI 只给 flag 前缀 → 命中判定改双向包含，优先取 FLAG_RE 完整匹配</td></tr><tr><td>4</td><td>xlsx 被拒解压</td><td>白名单只有 .zip → 扩到 OOXML 全家 + PK 魔数兜底</td></tr><tr><td>5</td><td>OOXML 主文件挑错（元数据/展示壳）</td><td>无语义打分 → docProps 沉底 + 公式数主导因子</td></tr><tr><td>6</td><td>XML/TXT 误进 Kali 固件流程（白烧 60s）</td><td>类型不识别 → 新增 XML/TXT 两类 + <code>analyzeXMLText()</code> 直读求解</td></tr><tr><td>7</td><td><strong>跨题文件串扰</strong>（AI 拿上题结论答本题）</td><td>共享下载目录 + workdir=根目录 → 每题独立子目录 + 多附件主文件权重 + 提示词题目边界</td></tr><tr><td>8</td><td><code>printable()</code> 控制字符吞 flag</td><td>协议头 <code>\x03\x11</code> 致整段回退 hex → 剥首尾控制符再判可打印</td></tr><tr><td>9</td><td>经验跨题注入（预防性）</td><td>上题经验进下题提示词 → 由 #7 的边界声明兜住：经验只作方法参考</td></tr></tbody></table><p>修复过程遵循一个原则：<strong>每个缺陷都来自真实解题数据，修完必须用当时的真实契约回归</strong>。比如 #2/#3/#8 修复后，用 parallelism、PlutoChat 的原契约重跑全部 <code>[HIT]</code>。</p><h2 id=结语><a class=header-anchor href=#%e7%bb%93%e8%af%ad></a>结语</h2><p>这轮实战最说明问题的不是 8/8 的战绩，而是两个收敛：</p><ol><li><strong>人工干预收敛</strong>：第 1 题人工辅助反汇编 → 第 7 题 15 秒全自动拿分。工具在真实数据里暴露缺陷、当场修复、立刻在下一题受益。</li><li><strong>知识沉淀收敛</strong>：4 轮失败换来的 Blelloch 反演经验没有停留在聊天记录里——它进了知识库，被检索、被注入、被下一次解题直接复用。</li></ol><p>AI 解题的天花板不在于模型多聪明，而在于<strong>喂给它的数据链路有多完整、验证闭环有多严格、失败能不能变成资产</strong>。</p><blockquote><p>工具开源：<a href=https://github.com/ip2867/ctf-re-tool>https://github.com/ip2867/ctf-re-tool</a>　·　本文涉及的方法论页面在仓库 <code>wiki/reverse/</code> 目录</p></blockquote></div><footer class=article-footer><ul class=article-tag-list itemprop=keywords><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ctf rel=tag>CTF</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e9%80%86%e5%90%91 rel=tag>逆向</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ai rel=tag>AI</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/writeup rel=tag>WRITEUP</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e8%87%aa%e5%8a%a8%e5%8c%96 rel=tag>自动化</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ida rel=tag>IDA</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e9%aa%8c%e8%af%81%e9%97%ad%e7%8e%af rel=tag>验证闭环</a></li></ul></footer></div><nav id=article-nav aria-label="Article navigation" data-aos=fade-up><div class="article-nav-link-wrap left"><img data-src=/covers/cover1.webp data-sizes=auto alt=CTF-RE-TOOL：把逆向工作流装进一个桌面工具 class=lazyload><a href=/post/ctf-re-tool-intro/ aria-label=前一篇:CTF-RE-TOOL：把逆向工作流装进一个桌面工具 title=前一篇:CTF-RE-TOOL：把逆向工作流装进一个桌面工具></a><div class=article-nav-caption>前一篇</div><h3 class=article-nav-title>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h3></div><div class="article-nav-link-wrap right"><img data-src=/covers/cover1.webp data-sizes=auto alt="CTF-RE-TOOL v1.8：让 AI 真的会用调试器" class=lazyload><a href=/post/ctf-re-tool-v1.8-dynamic-debugging/ aria-label="后一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器" title="后一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器"></a><div class=article-nav-caption>后一篇</div><h3 class=article-nav-title>CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h3></div></nav></article><section id=comments data-aos=fade-up><div class=comment-header><h2 class=comment-title>说些什么吧！</h2><div class=comment-selector><div class=comment-selector-wrap><div class=selector-item data-selector=giscus><span>giscus</span></div></div></div></div><div class=comment-content><div class="comment giscus-comment" data-aos=fade-up></div></div></section></section></div><footer id=footer aria-label="Site footer"><div style=width:100%;overflow:hidden><div class=footer-line></div></div><div id=footer-info><div><span class=icon-copyright></span>2020-2026<span class="footer-info-sep rotate"></span>
-栗悟饭与龟波功</div><div>基于&nbsp;<a href=https://gohugo.io/ target=_blank rel="noopener nofollow noreferrer">Hugo</a>&nbsp; Theme.<a href=https://github.com/D-Sketon/hugo-theme-reimu target=_blank rel="noopener nofollow noreferrer">Reimu</a></div><div><span class=icon-brush>&nbsp;56.1k</span>
-&nbsp;|&nbsp;
-<span class=icon-coffee>&nbsp;01:58</span></div><div><span class=icon-eye></span>
-<span id=busuanzi_container_site_pv>总访问量&nbsp;<span id=busuanzi_value_site_pv></span></span>
-&nbsp;|&nbsp;
-<span class=icon-user></span>
-<span id=busuanzi_container_site_uv>总访客量&nbsp;<span id=busuanzi_value_site_uv></span></span></div></div></footer><div class=sidebar-top><div class="sidebar-top-taichi rotate"></div><div class=arrow-up></div></div><div id=mask class=hide></div></div><nav id=mobile-nav aria-label="Mobile navigation"><div class=sidebar-wrap><div class=sidebar-toc-sidebar><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><a href=#零tldr两天战绩>零、TL;DR：两天战绩</a></li><li><a href=#一time-travel--定点数-laplace-行列式>一、time-travel — 定点数 Laplace 行列式</a><ul><li><a href=#静态侦察>静态侦察</a></li><li><a href=#算法分析>算法分析</a></li><li><a href=#反演与验证>反演与验证</a></li></ul></li><li><a href=#二not-baby-parallelism--blelloch-并行前缀扫描>二、not-baby-parallelism — Blelloch 并行前缀扫描</a><ul><li><a href=#前几轮为什么失败工具存档的真实记录>前几轮为什么失败（工具存档的真实记录）</a></li><li><a href=#静态侦察最终轮>静态侦察（最终轮）</a></li><li><a href=#核心算法sub_336c>核心算法（sub_336C）</a></li><li><a href=#反演>反演</a></li></ul></li><li><a href=#三parallelism--mpi-三级置换网络>三、parallelism — MPI 三级置换网络</a><ul><li><a href=#静态侦察-1>静态侦察</a></li><li><a href=#反演不模拟真实-mpi>反演（不模拟真实 MPI）</a></li><li><a href=#一个值得记录的工具缺陷>一个值得记录的工具缺陷</a></li></ul></li><li><a href=#四excellm--用-excel-公式搭的神经网络>四、ExceLLM — 用 Excel 公式搭的神经网络</a><ul><li><a href=#解压与定位>解压与定位</a></li><li><a href=#把-excel-当反汇编读>把 Excel 当反汇编读</a></li><li><a href=#反演逐字符独立枚举>反演（逐字符独立枚举）</a></li><li><a href=#验证>验证</a></li></ul></li><li><a href=#五romanromance--caesar-移位>五、RomanRomance — Caesar 移位</a></li><li><a href=#六palatinepack--三层-nibble-展开--flipbits>六、PalatinePack — 三层 nibble 展开 + flipBits</a><ul><li><a href=#静态侦察与方向判定>静态侦察与方向判定</a></li><li><a href=#变换语义>变换语义</a></li><li><a href=#反演与验证-1>反演与验证</a></li></ul></li><li><a href=#七missioncritical1--全自动闭环示范15-秒从下载到提交>七、missioncritical1 — 全自动闭环示范（15 秒从下载到提交）</a><ul><li><a href=#闭环时间线>闭环时间线</a></li></ul></li><li><a href=#八plutochat--lcg-密钥派生--rc4-聊天记录>八、PlutoChat — LCG 密钥派生 + RC4 聊天记录</a><ul><li><a href=#静态侦察-2>静态侦察</a></li><li><a href=#关键坑未初始化的-v9>关键坑：未初始化的 v9</a></li><li><a href=#解密与取证>解密与取证</a></li></ul></li><li><a href=#九方法论沉淀已入工具知识库自动检索复用>九、方法论沉淀（已入工具知识库，自动检索复用）</a></li><li><a href=#十实战暴露的-9-个工具缺陷与修复>十、实战暴露的 9 个工具缺陷与修复</a></li><li><a href=#结语>结语</a></li></ul></nav></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=/avatar/avatar.webp data-sizes=auto alt=栗悟饭与龟波功 class=lazyload><div class=sidebar-author-name>栗悟饭与龟波功</div><div class=sidebar-description>这一切都是命运石之门的选择！</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>16</div></div><a class=sidebar-state-category href=/categories/ aria-label=sidebar-state-category-link><div>分类</div><div class=sidebar-state-number>3</div></a><a class=sidebar-state-tag href=/tags/ aria-label=sidebar-state-tag-link><div>标签</div><div class=sidebar-state-number>60</div></a></div><div class=sidebar-social></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/ aria-label=首页></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/archives aria-label=归档></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/about aria-label=关于></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/friend aria-label=友链></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>友链</div></div></div></div></div><div class=sidebar-btn-wrapper><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></nav></div><script src=https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js integrity=sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e crossorigin=anonymous></script><script src=https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js integrity=sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q crossorigin=anonymous></script><script src=/js/main.js integrity crossorigin=anonymous></script><script src=/js/aos.js integrity crossorigin=anonymous></script><script>var aosInit=()=>{AOS.init({duration:1e3,easing:"ease",once:!0,offset:50})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",aosInit):aosInit()</script><script src=/js/pjax_main.js integrity crossorigin=anonymous data-pjax></script><script>var setupFirework=()=>{if((!!1||!window.matchMedia("(max-width: 768px)").matches)&&window.firework){const e=JSON.parse('{"excludeelements":["a","button"],"particles":[{"colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"duration":[1200,1800],"easing":"easeOutExpo","move":["emit"],"number":20,"shape":"circle","shapeOptions":{"alpha":[0.3,0.5],"radius":[16,32]}},{"colors":["var(--red-0)"],"duration":[1200,1800],"easing":"easeOutExpo","move":["diffuse"],"number":1,"shape":"circle","shapeOptions":{"alpha":[0.2,0.5],"lineWidth":6,"radius":20}}]}');e.excludeElements=e.excludeelements,delete e.excludeelements,window.firework(e)}}</script><script src=https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js defer onload=setupFirework() integrity=sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T crossorigin=anonymous></script><div id=lazy-script><div><script data-pjax>window.REIMU_POST={author:"栗悟饭与龟波功",title:"AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）",url:"https://ip2867.github.io/post/ctf2-arena-8-challenges/",description:` 把 CTF-RE-TOOL 接入 CTF² Agent Arena 真实解题：8 道逆向题全部解出并提交通过——从 Hard 的 Excel 神经网络校验器到 15 秒全自动拿分的 satellite 题。本文是完整 Writeup + 期间暴露并修复的 9 个工具缺陷 + 方法论沉淀。工具在实战里进化，而不是在想象里设计。
-`,cover:"https://ip2867.github.io/images/my-banner.webp"}</script><script src=/js/insert_highlight.js integrity crossorigin=anonymous data-pjax></script><script src=/js/tabs.js integrity crossorigin=anonymous data-pjax defer></script><script type=module data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+<!doctype html>
+<html
+  lang="zh-CN" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史） | 栗悟饭与龟波功
+</title>
+<meta name="description" content="这一切都是命运石之门的选择！"/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://ip2867.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_4k4bc36ef96\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史） | 栗悟饭与龟波功" />
+  <meta
+    property="og:description"
+    content="这一切都是命运石之门的选择！"
+  />
+  <meta property="og:url" content="https://ip2867.github.io/post/ctf2-arena-8-challenges/" />
+  <meta
+    property="og:site_name"
+    content="Ip2867"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="栗悟饭与龟波功" />
+  <meta property="article:published_time" content="2026-10-16T10:30:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-10-16T10:30:00&#43;08:00" /><meta property="article:tag" content="CTF逆向AIWriteup自动化IDA验证闭环" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">EL PSY KONGROO</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/my-banner.webp" alt="AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#零tldr两天战绩">零、TL;DR：两天战绩</a></li>
+    <li><a href="#一time-travel--定点数-laplace-行列式">一、time-travel — 定点数 Laplace 行列式</a>
+      <ul>
+        <li><a href="#静态侦察">静态侦察</a></li>
+        <li><a href="#算法分析">算法分析</a></li>
+        <li><a href="#反演与验证">反演与验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#二not-baby-parallelism--blelloch-并行前缀扫描">二、not-baby-parallelism — Blelloch 并行前缀扫描</a>
+      <ul>
+        <li><a href="#前几轮为什么失败工具存档的真实记录">前几轮为什么失败（工具存档的真实记录）</a></li>
+        <li><a href="#静态侦察最终轮">静态侦察（最终轮）</a></li>
+        <li><a href="#核心算法sub_336c">核心算法（sub_336C）</a></li>
+        <li><a href="#反演">反演</a></li>
+      </ul>
+    </li>
+    <li><a href="#三parallelism--mpi-三级置换网络">三、parallelism — MPI 三级置换网络</a>
+      <ul>
+        <li><a href="#静态侦察-1">静态侦察</a></li>
+        <li><a href="#反演不模拟真实-mpi">反演（不模拟真实 MPI）</a></li>
+        <li><a href="#一个值得记录的工具缺陷">一个值得记录的工具缺陷</a></li>
+      </ul>
+    </li>
+    <li><a href="#四excellm--用-excel-公式搭的神经网络">四、ExceLLM — 用 Excel 公式搭的神经网络</a>
+      <ul>
+        <li><a href="#解压与定位">解压与定位</a></li>
+        <li><a href="#把-excel-当反汇编读">把 Excel 当反汇编读</a></li>
+        <li><a href="#反演逐字符独立枚举">反演（逐字符独立枚举）</a></li>
+        <li><a href="#验证">验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#五romanromance--caesar-移位">五、RomanRomance — Caesar 移位</a></li>
+    <li><a href="#六palatinepack--三层-nibble-展开--flipbits">六、PalatinePack — 三层 nibble 展开 + flipBits</a>
+      <ul>
+        <li><a href="#静态侦察与方向判定">静态侦察与方向判定</a></li>
+        <li><a href="#变换语义">变换语义</a></li>
+        <li><a href="#反演与验证-1">反演与验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#七missioncritical1--全自动闭环示范15-秒从下载到提交">七、missioncritical1 — 全自动闭环示范（15 秒从下载到提交）</a>
+      <ul>
+        <li><a href="#闭环时间线">闭环时间线</a></li>
+      </ul>
+    </li>
+    <li><a href="#八plutochat--lcg-密钥派生--rc4-聊天记录">八、PlutoChat — LCG 密钥派生 + RC4 聊天记录</a>
+      <ul>
+        <li><a href="#静态侦察-2">静态侦察</a></li>
+        <li><a href="#关键坑未初始化的-v9">关键坑：未初始化的 v9</a></li>
+        <li><a href="#解密与取证">解密与取证</a></li>
+      </ul>
+    </li>
+    <li><a href="#九方法论沉淀已入工具知识库自动检索复用">九、方法论沉淀（已入工具知识库，自动检索复用）</a></li>
+    <li><a href="#十实战暴露的-9-个工具缺陷与修复">十、实战暴露的 9 个工具缺陷与修复</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="栗悟饭与龟波功"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">栗悟饭与龟波功</div>
+  <div class="sidebar-description">这一切都是命运石之门的选择！</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">17</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      3
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">64</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-10-16 10:30:00 &#43;0800 CST" itemprop="datePublished"
+      >2026-10-16</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-10-16</time
+    >
+  </span></div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/%e9%80%86%e5%90%91"
+      data-aos="zoom-in"
+      >逆向</a
+    ></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><blockquote>
+<p>把 CTF-RE-TOOL 接入 CTF² Agent Arena 真实解题：<strong>8 道逆向题全部解出并提交通过</strong>——从 Hard 的 Excel 神经网络校验器到 15 秒全自动拿分的 satellite 题。本文是完整 Writeup + 期间暴露并修复的 9 个工具缺陷 + 方法论沉淀。工具在实战里进化，而不是在想象里设计。</p>
+<p>项目地址：<a href="https://github.com/ip2867/ctf-re-tool">https://github.com/ip2867/ctf-re-tool</a>　·　<a href="/post/ctf-re-tool-intro/">工具介绍</a>　·　下载：<a href="https://github.com/ip2867/ctf-re-tool/releases">Releases</a></p>
+</blockquote>
+<hr>
+<h2 id="零tldr两天战绩">
+<a class="header-anchor" href="#%e9%9b%b6tldr%e4%b8%a4%e5%a4%a9%e6%88%98%e7%bb%a9"></a>
+零、TL;DR：两天战绩
+</h2><table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>题目</th>
+          <th>难度</th>
+          <th>载体</th>
+          <th>核心考点</th>
+          <th>AI 求解耗时*</th>
+          <th>提交方式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>time-travel</td>
+          <td>Hard</td>
+          <td>ELF</td>
+          <td>定点数 Laplace 行列式递归</td>
+          <td>457s</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>not-baby-parallelism</td>
+          <td>Hard</td>
+          <td>ELF</td>
+          <td>Blelloch 并行前缀扫描反演</td>
+          <td>4 轮（跨日）</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>parallelism</td>
+          <td>Medium</td>
+          <td>ELF(MPI)</td>
+          <td>三级置换网络静态反演</td>
+          <td>22s</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>ExceLLM</td>
+          <td>Hard</td>
+          <td>XLSX</td>
+          <td>Excel 公式神经网络校验器</td>
+          <td>63s</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>RomanRomance</td>
+          <td>Easy</td>
+          <td>TXT</td>
+          <td>Caesar +1 移位</td>
+          <td>48s</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>PalatinePack</td>
+          <td>Medium</td>
+          <td>ELF+BIN</td>
+          <td>三层 nibble 展开 + flipBits</td>
+          <td>321s</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>missioncritical1</td>
+          <td>Easy</td>
+          <td>ELF</td>
+          <td>sprintf 拼接 + strcmp</td>
+          <td><strong>5.8s</strong></td>
+          <td><strong>全自动提交 +100</strong></td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>PlutoChat</td>
+          <td>Medium</td>
+          <td>ELF+PCAP</td>
+          <td>LCG 密钥派生 + RC4</td>
+          <td>152s</td>
+          <td>工具解出，人工提交</td>
+      </tr>
+  </tbody>
+</table>
+<p>* AI 分析阶段时长（CASE 目录 timeline 口径，不含下载与 IDA 冷启动）。</p>
+<p>最有价值的趋势是最后一行数据的变化：<strong>人工干预从第 1 题的全程辅助，收敛到第 7 题的零干预全自动</strong>——下载、IDA 分析、AI 求解、本地验证、平台提交、进程清理，15 秒一条龙。期间工具暴露了 9 个真实缺陷，全部当日修复并回归验证（见第十章）。这些缺陷没有一个是靠&quot;想&quot;出来的：xlsx 解压器不认 xlsx、验证脚本不认单参函数、RC4 明文被协议头坑掉——全部是真实数据砸出来的。</p>
+<hr>
+<h2 id="一time-travel--定点数-laplace-行列式">
+<a class="header-anchor" href="#%e4%b8%80time-travel--%e5%ae%9a%e7%82%b9%e6%95%b0-laplace-%e8%a1%8c%e5%88%97%e5%bc%8f"></a>
+一、time-travel — 定点数 Laplace 行列式
+</h2><p><strong>附件</strong>：<code>time_travel</code>（ELF x64）+ <code>input.bin</code></p>
+<h3 id="静态侦察">
+<a class="header-anchor" href="#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f"></a>
+静态侦察
+</h3><p>main 的反编译只有 11 行，逻辑一目了然：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>input <span style="color:#f92672">=</span> <span style="color:#a6e22e">read_input</span>(argv[<span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (n63 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; n63 <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">63</span>; <span style="color:#f92672">++</span>n63) {              <span style="color:#75715e">// 64 个矩阵
+</span></span></span><span style="display:flex;"><span>    v7 <span style="color:#f92672">=</span> <span style="color:#a6e22e">sub_1423</span>(<span style="color:#f92672">*</span>input);                      <span style="color:#75715e">// 分配 N×N 指针数组
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#f92672">*</span>input; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">memcpy</span>(<span style="color:#f92672">*</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">**</span>)(<span style="color:#ae81ff">8LL</span><span style="color:#f92672">*</span>i <span style="color:#f92672">+</span> v7), <span style="color:#f92672">&amp;</span>input[<span style="color:#ae81ff">650</span><span style="color:#f92672">*</span>n63 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">36</span><span style="color:#f92672">*</span>i], <span style="color:#ae81ff">0x90u</span>);
+</span></span><span style="display:flex;"><span>    v8 <span style="color:#f92672">=</span> <span style="color:#a6e22e">sub_1638</span>(v7, <span style="color:#f92672">*</span>input);                  <span style="color:#75715e">// ← 核心函数
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">putchar</span>((<span style="color:#66d9ef">char</span>)(<span style="color:#f92672">*</span>(_QWORD <span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>input[<span style="color:#ae81ff">650</span><span style="color:#f92672">*</span>n63 <span style="color:#f92672">+</span> <span style="color:#ae81ff">649</span>] <span style="color:#f92672">-</span> v8) <span style="color:#f92672">+</span> n63);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>三个关键观察：</p>
+<ol>
+<li><strong>输入布局</strong>：每矩阵 650 个 dword = 1（N）+ 36×18（矩阵数据）+ 1（目标值）；<code>0x90</code> 字节/行 = 18 个 qword → N=18，<strong>元素按 64 位定点数处理</strong></li>
+<li><strong>输出公式</strong>：<code>putchar(target_qword - det(矩阵) + n63)</code> —— 明文字符 = 目标值 − 行列式 + 索引</li>
+<li><code>sub_1638</code> 是核心行列式函数</li>
+</ol>
+<h3 id="算法分析">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95%e5%88%86%e6%9e%90"></a>
+算法分析
+</h3><p><code>sub_1638</code> 是教科书级的 <strong>Laplace 余子式递归</strong>：对每列删行删列（<code>sub_1570</code> 构造子矩阵）→ 递归求 det → 符号交替；递归基 1×1 返回唯一元素；所有元素按 qword 定点数参与乘加。</p>
+<h3 id="反演与验证">
+<a class="header-anchor" href="#%e5%8f%8d%e6%bc%94%e4%b8%8e%e9%aa%8c%e8%af%81"></a>
+反演与验证
+</h3><p>flag 第 n 字符满足 <code>flag[n] = (target_n - det_n + n) &amp; 0xff</code>。AI 写 Python 按同样布局解析 64 个矩阵（每矩阵取前 18×18 个 qword + 末尾目标 qword），逐个求行列式后按公式拼出 64 字节明文。正向复算 <code>target_qword == flag[n] + det_n - n</code>，64 个矩阵全部对上，无歧义。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>dice{d3t4rm1n1NanT5_c4n_b3_F4sT_1a7sN2j1867327mA6jmapc817jgd6m0}
+</span></span></code></pre></div><blockquote>
+<p><strong>工具视角</strong>：这道题是&quot;开局人工辅助&quot;的典型——工具流水线当时还没有把伴生 <code>input.bin</code> 自动喂给 AI 的完整链路，矩阵布局的判定靠人工搭了第一把手。这个缺口正是后来 §修复 #7（伴生文件全量登记）的诱因之一。</p>
+</blockquote>
+<hr>
+<h2 id="二not-baby-parallelism--blelloch-并行前缀扫描">
+<a class="header-anchor" href="#%e4%ba%8cnot-baby-parallelism--blelloch-%e5%b9%b6%e8%a1%8c%e5%89%8d%e7%bc%80%e6%89%ab%e6%8f%8f"></a>
+二、not-baby-parallelism — Blelloch 并行前缀扫描
+</h2><p><strong>附件</strong>：<code>pppp</code>（ELF x64，C++ 多线程）+ <code>flag.out</code>（51 个整数）</p>
+<p>这道题跨了 4 轮，是<strong>成长闭环最完整的案例</strong>：前 3 轮失败的方向被逐条存档，第 4 轮 AI 带着完整的&quot;已排除路&quot;清单一次解出。</p>
+<h3 id="前几轮为什么失败工具存档的真实记录">
+<a class="header-anchor" href="#%e5%89%8d%e5%87%a0%e8%bd%ae%e4%b8%ba%e4%bb%80%e4%b9%88%e5%a4%b1%e8%b4%a5%e5%b7%a5%e5%85%b7%e5%ad%98%e6%a1%a3%e7%9a%84%e7%9c%9f%e5%ae%9e%e8%ae%b0%e5%bd%95"></a>
+前几轮为什么失败（工具存档的真实记录）
+</h3><table>
+  <thead>
+      <tr>
+          <th>轮次</th>
+          <th>误判</th>
+          <th>实际</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td><code>flag.out</code> 首值 100 被当成&quot;元素个数&quot;</td>
+          <td>100 是 ASCII <code>'d'</code>，是<strong>数据本身</strong></td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>worker 被当成朴素并行 <code>out[i] = op(data[i-1])</code></td>
+          <td>是 <strong>Blelloch work-efficient scan</strong>（up-sweep + down-sweep 两阶段树形扫描）</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>预算烧在复现 glibc rand() 上</td>
+          <td>洗牌结果对任意种子恒为 <code>['xor','add','mul']</code>，<strong>根本不用复现 rand</strong></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="静态侦察最终轮">
+<a class="header-anchor" href="#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f%e6%9c%80%e7%bb%88%e8%bd%ae"></a>
+静态侦察（最终轮）
+</h3><p>main 骨架：getopt 解析 <code>-n</code>(线程数)/<code>-i</code>(输入)/<code>-o</code>(输出) → 读 N 个整数 → <code>srand(threads ^ N)</code> 洗牌 3 个算子 → 计时调用核心扫描 → 写出结果。三个算子反编译直接可读：<code>sub_330A = a+b</code>、<code>sub_3323 = a*b</code>、<code>sub_333A = a^b</code>。</p>
+<p>核心函数藏在 <strong>C++ lambda 深链</strong>里：<code>off_7D10</code>（vtable）→ 槽位 0x4a18（invoke）→ sub_4A18/4A44 → 4A64 → 4A80 → 4ADB → 4B18 → <strong>sub_336C</strong>。顺着 vtable 槽位一路追才找到真身——这也是前几轮放弃的原因之一。</p>
+<h3 id="核心算法sub_336c">
+<a class="header-anchor" href="#%e6%a0%b8%e5%bf%83%e7%ae%97%e6%b3%95sub_336c"></a>
+核心算法（sub_336C）
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>每层 stride i（1,2,4,...）：算子 = table[round(log2(i)) % 3] = [&#39;xor&#39;,&#39;add&#39;,&#39;mul&#39;] 交替
+</span></span><span style="display:flex;"><span>up-sweep:   for k: u = 2*i*k - 1;  if (i+u &lt; n) a[i+u] = op(a[u], a[i+u])
+</span></span><span style="display:flex;"><span>down-sweep: for k: u = 2*i*k - 1;  a[u] = op(a[u-i], a[u])
+</span></span></code></pre></div><p>标准 <strong>Blelloch work-efficient prefix scan</strong>：up-sweep 归约建树，down-sweep 下扫求前缀。</p>
+<h3 id="反演">
+<a class="header-anchor" href="#%e5%8f%8d%e6%bc%94"></a>
+反演
+</h3><p><code>flag.out</code> 的 51 个值就是扫描输出。反演 = <strong>逆 down-sweep（按 up 层级顺序）→ 逆 up-sweep（按 down 层级顺序）</strong>，每步用伙伴元素反解：<code>add</code> 逆 = 减、<code>xor</code> 逆 = 再异或、<code>mul</code> 逆 = 整除（需除数非零检查）。线程数未知 → 暴力 1..64，配合&quot;结果全可打印 ASCII&quot;约束锁定唯一明文。</p>
+<p>AI 交出的 [VERIFY] 契约用 Python 实现了精确逆过程：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tbl <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;xor&#39;</span>,<span style="color:#e6db74">&#39;add&#39;</span>,<span style="color:#e6db74">&#39;mul&#39;</span>]
+</span></span><span style="display:flex;"><span>lv  <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> i: int(round(math<span style="color:#f92672">.</span>log2(i))) <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decrypt</span>(out):
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> out[:]; n <span style="color:#f92672">=</span> len(a)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> levels_up(n):                 <span style="color:#75715e"># 逆 down-sweep</span>
+</span></span><span style="display:flex;"><span>        invf <span style="color:#f92672">=</span> inv[tbl[lv(i)]]; k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">*</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> n:
+</span></span><span style="display:flex;"><span>            u <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">*</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> i<span style="color:#f92672">+</span>u <span style="color:#f92672">&lt;</span> n: a[i<span style="color:#f92672">+</span>u] <span style="color:#f92672">=</span> invf(a[i<span style="color:#f92672">+</span>u], a[u])
+</span></span><span style="display:flex;"><span>            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> reversed(levels_up(n)):       <span style="color:#75715e"># 逆 up-sweep</span>
+</span></span><span style="display:flex;"><span>        invf <span style="color:#f92672">=</span> inv[tbl[lv(i)]]; k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">*</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> n:
+</span></span><span style="display:flex;"><span>            u <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">*</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; a[u] <span style="color:#f92672">=</span> invf(a[u], a[u<span style="color:#f92672">-</span>i]); k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> bytes(a)
+</span></span></code></pre></div><p>正向回验：反演结果重跑 Blelloch 扫描，51 个输出逐一复现 <code>flag.out</code> ✓。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>dice{p4r411el_pref1x_sc4ns_w0rk_efficient_but_sl0w}
+</span></span></code></pre></div><blockquote>
+<p><strong>工具视角</strong>：失败档案机制在这里兑现了设计初衷——每轮失败的&quot;方向结论&quot;注入下一轮提示词，AI 不再重复烧预算在已排除的路上。这 4 轮的失败记录后来沉淀成知识库的<a href="https://github.com/ip2867/ctf-re-tool/blob/main/wiki/reverse/method_runtime_challenges.md">运行型反演方法论</a>。</p>
+</blockquote>
+<hr>
+<h2 id="三parallelism--mpi-三级置换网络">
+<a class="header-anchor" href="#%e4%b8%89parallelism--mpi-%e4%b8%89%e7%ba%a7%e7%bd%ae%e6%8d%a2%e7%bd%91%e7%bb%9c"></a>
+三、parallelism — MPI 三级置换网络
+</h2><p><strong>附件</strong>：<code>parallelism</code>（ELF x64，链接 libmpi）。题面直接给出用法：<code>mpirun --oversubscribe -np 8 ./parallelism</code>。</p>
+<h3 id="静态侦察-1">
+<a class="header-anchor" href="#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f-1"></a>
+静态侦察
+</h3><p>main（1118 字符）非常短：<code>MPI_Comm_size==8</code> 后串联三个校验函数，全过则 rank 0 打印 <code>Correct!</code>。</p>
+<table>
+  <thead>
+      <tr>
+          <th>阶段</th>
+          <th>函数</th>
+          <th>逻辑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Stage 1</td>
+          <td><code>sub_1369</code></td>
+          <td>输入 64 字符；常量表 <code>v4[32]</code> 做 32 次 <code>s[n] ↔ s[v4[n]+31]</code> 交换（固定置换）</td>
+      </tr>
+      <tr>
+          <td>Stage 2</td>
+          <td><code>sub_1625</code></td>
+          <td>10000 轮环形搬运：rank R 从 <code>(R+n)%8</code> 号进程取 slot <code>n%8</code> 写入本地 slot <code>n%8</code> —— 全局确定性置换 P</td>
+      </tr>
+      <tr>
+          <td>Stage 3</td>
+          <td><code>sub_179C</code></td>
+          <td><code>MPI_Gather</code> 汇总后 <code>memcmp</code> 目标常量 <code>m_ERpmfrNkekU4_...</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="反演不模拟真实-mpi">
+<a class="header-anchor" href="#%e5%8f%8d%e6%bc%94%e4%b8%8d%e6%a8%a1%e6%8b%9f%e7%9c%9f%e5%ae%9e-mpi"></a>
+反演（不模拟真实 MPI）
+</h3><p>关键洞察：Stage 2 虽然跑了 10000 轮跨进程通信，但<strong>它是确定性置换</strong>——用&quot;单位标签&quot;（0..63 依次编号）跑一遍同样的轮次逻辑即可得到 <code>perm_out</code>，无需真的起 8 个进程：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sim</span>(data):                      <span style="color:#75715e"># 用标签数组模拟 10000 轮</span>
+</span></span><span style="display:flex;"><span>    rb <span style="color:#f92672">=</span> [list(data[i<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>:(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>]) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10000</span>):
+</span></span><span style="display:flex;"><span>        new <span style="color:#f92672">=</span> [<span style="color:#66d9ef">None</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> R <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>): new[R] <span style="color:#f92672">=</span> rb[(R<span style="color:#f92672">+</span>n)<span style="color:#f92672">%</span><span style="color:#ae81ff">8</span>][n<span style="color:#f92672">%</span><span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> R <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>): rb[R][n<span style="color:#f92672">%</span><span style="color:#ae81ff">8</span>] <span style="color:#f92672">=</span> new[R]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [c <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> rb <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> r]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>perm_out <span style="color:#f92672">=</span> sim(list(range(<span style="color:#ae81ff">64</span>)))     <span style="color:#75715e"># 置换表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inv_stage2</span>(out):
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> [<span style="color:#66d9ef">None</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">64</span>): res[perm_out[k]] <span style="color:#f92672">=</span> out[k]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inv_stage1</span>(s):                  <span style="color:#75715e"># 逆 Stage 1：反向重做同一交换</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">31</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        idx <span style="color:#f92672">=</span> v4[n]<span style="color:#f92672">+</span><span style="color:#ae81ff">31</span>; s[n], s[idx] <span style="color:#f92672">=</span> s[idx], s[n]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flag <span style="color:#f92672">=</span> inv_stage1(inv_stage2(list(target)))
+</span></span></code></pre></div><p>正向 <code>encrypt(flag) == target</code> 逐字符 64/64 匹配，字节级复算 mismatch = 0。</p>
+<h3 id="一个值得记录的工具缺陷">
+<a class="header-anchor" href="#%e4%b8%80%e4%b8%aa%e5%80%bc%e5%be%97%e8%ae%b0%e5%bd%95%e7%9a%84%e5%b7%a5%e5%85%b7%e7%bc%ba%e9%99%b7"></a>
+一个值得记录的工具缺陷
+</h3><p>AI 的正向复现已完全匹配，但 [VERIFY] 契约里 <code>decrypt(target)</code> 是<strong>单参</strong>函数、<code>expected</code> 只写了 flag 前 54 字符——工具按双参调用 + 全等比对判「无命中」，拒绝自动提交。这就是后文 §修复 #2/#3 的直接来源（修复后回归同一契约直接命中）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>dice{P4ral1isM_m4kEs_eV3ryt4InG_sUp3r_f4ST_aND_s3CuRE_a17m4k9l4}
+</span></span></code></pre></div><hr>
+<h2 id="四excellm--用-excel-公式搭的神经网络">
+<a class="header-anchor" href="#%e5%9b%9bexcellm--%e7%94%a8-excel-%e5%85%ac%e5%bc%8f%e6%90%ad%e7%9a%84%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c"></a>
+四、ExceLLM — 用 Excel 公式搭的神经网络
+</h2><p><strong>附件</strong>：<code>ExceLLM.xlsx</code>（27.8 KB，4 个 sheet：LLM / BITS / WEIGHTS / VERIFY，后三个隐藏）</p>
+<h3 id="解压与定位">
+<a class="header-anchor" href="#%e8%a7%a3%e5%8e%8b%e4%b8%8e%e5%ae%9a%e4%bd%8d"></a>
+解压与定位
+</h3><p>xlsx 本质是 OOXML zip。解压后按&quot;公式数&quot;定位主战场：</p>
+<table>
+  <thead>
+      <tr>
+          <th>文件</th>
+          <th>内容</th>
+          <th>判定</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>xl/workbook.xml</code></td>
+          <td>sheet 清单：LLM(可见)、BITS/WEIGHTS/VERIFY(hidden)</td>
+          <td>结构</td>
+      </tr>
+      <tr>
+          <td><code>sheet1.xml</code></td>
+          <td>2.5KB，只有 <code>IF(VERIFY!Z1=1,&quot;Correct&quot;,&quot;Incorrect&quot;)</code></td>
+          <td>展示壳（1 个公式）</td>
+      </tr>
+      <tr>
+          <td><code>sheet2.xml</code></td>
+          <td>58KB，216 个公式</td>
+          <td>BITS（位展开）</td>
+      </tr>
+      <tr>
+          <td><code>sheet3.xml</code></td>
+          <td>164KB，纯常量</td>
+          <td>WEIGHTS</td>
+      </tr>
+      <tr>
+          <td><code>sheet4.xml</code></td>
+          <td>57KB，<strong>244 个公式</strong></td>
+          <td>VERIFY（校验器）← 主文件</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="把-excel-当反汇编读">
+<a class="header-anchor" href="#%e6%8a%8a-excel-%e5%bd%93%e5%8f%8d%e6%b1%87%e7%bc%96%e8%af%bb"></a>
+把 Excel 当反汇编读
+</h3><p>BITS 表把每个输入字符按 ASCII 展开 8 位（MSB first）：<code>MOD(QUOTIENT(CODE(MID(LLM!B2, pos, 1)), 2^k), 2)</code>。VERIFY 表是三层网络：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>C{row} = MAX(0, (SUMPRODUCT(BITS!B{8位区间}, WEIGHTS!列k) + WEIGHTS!A{bias}) / 100)
+</span></span><span style="display:flex;"><span>H{row} = --( (SUMPRODUCT(C{8行组}, W2) + b2) / 100 &gt; 0 )
+</span></span><span style="display:flex;"><span>Z1     = --( SUM(H10, H30, ..., H530) = 27 )
+</span></span></code></pre></div><p>对照机器学习语义：<code>SUMPRODUCT</code> = 全连接层矩阵乘，<code>MAX(0,·)</code> = <strong>ReLU</strong>，<code>--(·&gt;0)</code> = <strong>阶跃激活</strong>，<code>Z1</code> = 要求 27 组输出神经元全部为 1。</p>
+<h3 id="反演逐字符独立枚举">
+<a class="header-anchor" href="#%e5%8f%8d%e6%bc%94%e9%80%90%e5%ad%97%e7%ac%a6%e7%8b%ac%e7%ab%8b%e6%9e%9a%e4%b8%be"></a>
+反演（逐字符独立枚举）
+</h3><p>关键结构：每组校验<strong>只依赖该位置字符的 8 位</strong>，组间无耦合 → 每位暴力枚举 32..126 的可打印 ASCII，H(该组)=1 的唯一字符即答案。27 次独立枚举，无需全局搜索。</p>
+<p>AI 在此踩了一个关键坑并自我修正：<strong>WEIGHTS 表是列主序 + 每组固定 stride=26 行</strong>（W1 8 行 + bias 8 行 + W2 8 行 + H-bias 1 行）。最初误用 stride=20 时每个位置的候选集爆炸（0~95 个解）；改从 VERIFY 公式里的行号锚点（C10→A2:A9/A10，C30→A28:A35/A36，差 26）反推后，<strong>每组恰好剩唯一解</strong>——解集是否唯一本身就是 stride 正确性的判据。</p>
+<h3 id="验证">
+<a class="header-anchor" href="#%e9%aa%8c%e8%af%81"></a>
+验证
+</h3><p>拼出 27 字符 flag 后前向复算：27 个 H 全为 1，<code>SUM=27</code>，与 <code>VERIFY!Z1=1</code> 一致。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sun{n0t_qu1t3_ch4t_GPT_l0l}
+</span></span></code></pre></div><blockquote>
+<p><strong>工具视角</strong>：这题的工具进化密度最高——xlsx 被解压器拒收（§#4）、主文件选错到元数据（§#5）、XML 误进固件流程白烧 60 秒（§#6）、最后 AI 自己 read_file 伴生 sheet 完成全部分析。一轮 Hard 题砸出了三个修复。</p>
+</blockquote>
+<hr>
+<h2 id="五romanromance--caesar-移位">
+<a class="header-anchor" href="#%e4%ba%94romanromance--caesar-%e7%a7%bb%e4%bd%8d"></a>
+五、RomanRomance — Caesar 移位
+</h2><p><strong>附件</strong>：<code>enc.txt</code>（34 B）+ <code>romanromance</code>（ELF）。题面 &ldquo;When in Rome&hellip;&quot;（暗示 Caesar），并注明非标准前缀 <code>sunshine{...}</code>。</p>
+<p>密文 34 字符：<code>tvotijof|lO1x</code>z1v5<code>s1nAo</code>iJ6u1sZ~`</p>
+<p>单字节移位全扫（±1..32）+ flag 前缀匹配，<strong>+1 移位</strong>命中：<code>tvotijof</code> +1 = <code>sunshine</code>，整段可读，无歧义。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sunshine{kN0w_y0u4_r0m@n_hI5t0rY}
+</span></span></code></pre></div><blockquote>
+<p><strong>工具视角</strong>：这题暴露了整场实战<strong>最隐蔽</strong>的缺陷——共享下载目录让 AI 把<strong>上一题 ExceLLM 的 sheet 和 flag</strong> 当成本题结论（§#7）。修复后每题附件进独立子目录 + 提示词加&quot;题目边界&quot;声明，此类串扰再未复发。</p>
+</blockquote>
+<hr>
+<h2 id="六palatinepack--三层-nibble-展开--flipbits">
+<a class="header-anchor" href="#%e5%85%adpalatinepack--%e4%b8%89%e5%b1%82-nibble-%e5%b1%95%e5%bc%80--flipbits"></a>
+六、PalatinePack — 三层 nibble 展开 + flipBits
+</h2><p><strong>附件</strong>：<code>palatinepack.zip</code> → <code>palatinepack</code>（ELF）+ <code>flag.txt</code>（296 B 密文）</p>
+<h3 id="静态侦察与方向判定">
+<a class="header-anchor" href="#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f%e4%b8%8e%e6%96%b9%e5%90%91%e5%88%a4%e5%ae%9a"></a>
+静态侦察与方向判定
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>stream <span style="color:#f92672">=</span> <span style="color:#a6e22e">fopen</span>(<span style="color:#e6db74">&#34;palatinepackflag.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>);   <span style="color:#75715e">// ← 读&#34;密码&#34;（真 flag 是输入！）
+</span></span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> <span style="color:#a6e22e">ftell</span>(stream) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;                          <span style="color:#75715e">// = 37
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">fgets</span>(s_, n, stream);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">flipBits</span>(s, n);                                 <span style="color:#75715e">// 自逆变换
+</span></span></span><span style="display:flex;"><span>s_1  <span style="color:#f92672">=</span> <span style="color:#a6e22e">expand</span>(s,  n);                           <span style="color:#75715e">// n  → 2n
+</span></span></span><span style="display:flex;"><span>s_2  <span style="color:#f92672">=</span> <span style="color:#a6e22e">expand</span>(s_1, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>n);                        <span style="color:#75715e">// 2n → 4n
+</span></span></span><span style="display:flex;"><span>ptr  <span style="color:#f92672">=</span> <span style="color:#a6e22e">expand</span>(s_2, <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>n);                        <span style="color:#75715e">// 4n → 8n（37→74→148→296）
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">anti_debug</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fwrite</span>(ptr, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">8</span><span style="color:#f92672">*</span>n, <span style="color:#a6e22e">fopen</span>(<span style="color:#e6db74">&#34;flag.txt&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>));   <span style="color:#75715e">// 写出 296B 密文
+</span></span></span></code></pre></div><p>题目给的是程序<strong>输出</strong>，真 flag 是程序<strong>输入</strong>——必须逆变换。</p>
+<h3 id="变换语义">
+<a class="header-anchor" href="#%e5%8f%98%e6%8d%a2%e8%af%ad%e4%b9%89"></a>
+变换语义
+</h3><ul>
+<li><code>flipBits</code>（0x1565）：交替「偶索引逐字节取反 / 奇索引异或流 <code>n105 += 32</code>（初值 105）」，<strong>自逆</strong></li>
+<li><code>expand</code>（0x16b9）：每字节拆 2 字节，nibble 按 <code>v4</code> 交替摆放，伴随状态 <code>n105 = n105*11 mod 256</code>，初值 105</li>
+<li>干扰项：<code>doWeedStuff</code> / <code>rotate_block_left</code> / <code>SBOX</code>（AES S 盒）在 main 里<strong>无 xrefs</strong>，纯干扰——先查 xrefs 再决定要不要逆</li>
+<li>关键坑：<code>teehee</code> 函数用 <code>mprotect</code> 试图把 expand 里的立即数 <code>0x69</code>（105）打补丁成 <code>0x01</code>——<strong>但正向复现证明运行态仍是 105</strong>。反推结果用 {105, 1} 两值分别回验，只有 105 能 100% 复现 flag.txt 全部 296 字节</li>
+</ul>
+<h3 id="反演与验证-1">
+<a class="header-anchor" href="#%e5%8f%8d%e6%bc%94%e4%b8%8e%e9%aa%8c%e8%af%81-1"></a>
+反演与验证
+</h3><p>逆 <code>expand</code> 三次（读 nibble 重组）→ 逆 <code>flipBits</code>（自逆，再做一遍）→ 得 <code>sunshine{...}\0</code>。正向回验：三层变换对 flag 正向展开，输出与 flag.txt <strong>296 字节逐字节一致</strong>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sunshine{C3A5ER_CR055ED_TH3_RUB1C0N}
+</span></span></code></pre></div><hr>
+<h2 id="七missioncritical1--全自动闭环示范15-秒从下载到提交">
+<a class="header-anchor" href="#%e4%b8%83missioncritical1--%e5%85%a8%e8%87%aa%e5%8a%a8%e9%97%ad%e7%8e%af%e7%a4%ba%e8%8c%8315-%e7%a7%92%e4%bb%8e%e4%b8%8b%e8%bd%bd%e5%88%b0%e6%8f%90%e4%ba%a4"></a>
+七、missioncritical1 — 全自动闭环示范（15 秒从下载到提交）
+</h2><p><strong>附件</strong>：<code>chall</code>（ELF x64，14.1 KB）</p>
+<p>main 只有 15 行，校验逻辑直接写在 <code>sprintf</code> 里：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">sprintf</span>(s_, <span style="color:#e6db74">&#34;sun{%s_%s_%s}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;e4sy&#34;</span>, <span style="color:#e6db74">&#34;s4t3ll1t3&#34;</span>, <span style="color:#e6db74">&#34;3131&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Enter satellite command: &#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fgets</span>(s, <span style="color:#ae81ff">50</span>, stdin);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">strcmp</span>(s, s_)) <span style="color:#a6e22e">puts</span>(<span style="color:#e6db74">&#34;Access Granted!&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>                <span style="color:#a6e22e">puts</span>(<span style="color:#e6db74">&#34;Access Denied!&#34;</span>);
+</span></span></code></pre></div><p>三个片段直接来自字符串表（<code>a3131</code>、<code>aS4t3ll1t3</code>、<code>aE4sy</code>），AI 一轮分析即拼出完整 flag。</p>
+<h3 id="闭环时间线">
+<a class="header-anchor" href="#%e9%97%ad%e7%8e%af%e6%97%b6%e9%97%b4%e7%ba%bf"></a>
+闭环时间线
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>17:38:33  平台拉题 → 下载 chall → 识别 ELF
+</span></span><span style="display:flex;"><span>17:38:34  IDA 启动 → 17:38:40 MCP 连接（6 秒冷启动）
+</span></span><span style="display:flex;"><span>17:38:41  阶段1 采集（函数列表/字符串/反编译/全局表）
+</span></span><span style="display:flex;"><span>17:38:47  AI 5.8 秒出结论 + [VERIFY] 契约
+</span></span><span style="display:flex;"><span>17:38:47  本地复现 [HIT] → flag 标记已验证 → 自动沉淀经验入库
+</span></span><span style="display:flex;"><span>17:38:47  自动提交平台 → {&#34;accepted&#34;:true, &#34;earned_points&#34;:100}
+</span></span><span style="display:flex;"><span>17:38:49  题后清理 IDA/java 进程
+</span></span></code></pre></div><p><strong>从拉题到平台判对共 15 秒，全程零人工干预。</strong> 验证闭环（[VERIFY] 契约本地复现）在此题一次通过，&ldquo;flag 未验证不提交&quot;的防线也完整走通。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sun{e4sy_s4t3ll1t3_3131}
+</span></span></code></pre></div><hr>
+<h2 id="八plutochat--lcg-密钥派生--rc4-聊天记录">
+<a class="header-anchor" href="#%e5%85%abplutochat--lcg-%e5%af%86%e9%92%a5%e6%b4%be%e7%94%9f--rc4-%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95"></a>
+八、PlutoChat — LCG 密钥派生 + RC4 聊天记录
+</h2><p><strong>附件</strong>：<code>plutochat</code>（ELF）+ evidence.pcap（聊天流量）</p>
+<h3 id="静态侦察-2">
+<a class="header-anchor" href="#%e9%9d%99%e6%80%81%e4%be%a6%e5%af%9f-2"></a>
+静态侦察
+</h3><p>main 是个 TCP 客户端（<code>socket</code> + <code>connect 127.0.0.1:31337</code>），但真 flag 不在本地校验里——在<strong>加密的聊天记录</strong>里。AI 从二进制抽出完整密码学链路：</p>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>语义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>sub_1389</code> + <code>sub_1452</code> + <code>sub_12E5</code> + <code>sub_1285</code></td>
+          <td>标准 <strong>RC4</strong>（KSA / swap / PRGA）</td>
+      </tr>
+      <tr>
+          <td><code>sub_1510</code></td>
+          <td>80 字节 RC4 key 派生：seed 经 <code>ROL32(x, x&amp;0xf)</code> 递推填 20 个 int → <code>byte_4100</code> 置换表 → <code>byte_4120</code> 表 XOR 传播链</td>
+      </tr>
+      <tr>
+          <td>包格式</td>
+          <td><code>[4B seed][4B len][RC4 密文]</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="关键坑未初始化的-v9">
+<a class="header-anchor" href="#%e5%85%b3%e9%94%ae%e5%9d%91%e6%9c%aa%e5%88%9d%e5%a7%8b%e5%8c%96%e7%9a%84-v9"></a>
+关键坑：未初始化的 v9
+</h3><p><code>sub_1510</code> 的 XOR 传播链用<strong>未初始化的栈变量 v9</strong> 作初值（<code>rbp-1</code>）——反编译默认值不可信。AI 用<strong>已知明文攻击</strong>锁定：登录成功消息首字节类型 = 1，爆破 v9 初值，<code>v9_0 = 0</code> 时 RC4 首字节恰好解出 <code>1</code>，唯一命中。</p>
+<h3 id="解密与取证">
+<a class="header-anchor" href="#%e8%a7%a3%e5%af%86%e4%b8%8e%e5%8f%96%e8%af%81"></a>
+解密与取证
+</h3><p>用 <code>gen_key(seed) + RC4</code> 解开 pcap 里全部消息，聊天记录完全可读：用户 <code>topsecretengineer</code>（密码 <code>PlutoMars23!</code>）与 <code>givemethemoney</code>（密码 <code>Sellurdata12!</code>）对话，后者询问敏感 key，前者回复：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Of course! It&#39;s: sun{S3cur1ty_thr0ugh_Obscur1ty_1s_B4D}
+</span></span></code></pre></div><blockquote>
+<p><strong>工具视角</strong>：解密明文带 <code>\x03\x11</code> 协议头（<code>[类型][len 用户名]</code> 封装），<code>printable()</code> 整段判&quot;不可打印&quot;回退成 hex，flag 被埋进 hex 里导致验证闭环无命中——修复&quot;剥首尾控制字符&rdquo;（§#8）后重跑同一契约直接 <code>[HIT]</code>。</p>
+</blockquote>
+<hr>
+<h2 id="九方法论沉淀已入工具知识库自动检索复用">
+<a class="header-anchor" href="#%e4%b9%9d%e6%96%b9%e6%b3%95%e8%ae%ba%e6%b2%89%e6%b7%80%e5%b7%b2%e5%85%a5%e5%b7%a5%e5%85%b7%e7%9f%a5%e8%af%86%e5%ba%93%e8%87%aa%e5%8a%a8%e6%a3%80%e7%b4%a2%e5%a4%8d%e7%94%a8"></a>
+九、方法论沉淀（已入工具知识库，自动检索复用）
+</h2><p>以下条目已写入 CTF-RE-TOOL 的可检索知识库（<code>wiki/reverse/method_*.md</code>，含 attack_chain 与 failed_attempts），下次同类题工具会<strong>在分析前自动把攻略内联进 AI 提示词</strong>：</p>
+<ul>
+<li><strong>并行扫描/置换网络</strong>：Blelloch up/down-sweep 精确逆序（错一层全盘错）；MPI 环形搬运 = 确定性置换，用单位标签模拟求逆，别模拟真实运行时</li>
+<li><strong>Excel 公式逆向</strong>：<code>SUMPRODUCT</code>=矩阵乘、<code>MAX(0,.)</code>=ReLU、<code>--(...)</code>=布尔；先读 <code>workbook.xml.rels</code> 搞清 sheet 映射；权重表 stride 从公式行号锚点反推（解集唯一 = stride 正确的判据）</li>
+<li><strong>方向判定</strong>：输入→变换→输出型（读 x 写 y）的题，<strong>flag 往往是输入不是输出</strong>，拿到密文先判方向</li>
+<li><strong>自改代码不可信</strong>：<code>mprotect</code> 打补丁的立即数反编译不可信，对候选常量（105/1）逐一正向回验择真</li>
+<li><strong>短密文分诊</strong>：先单字节 XOR/移位全扫 + flag 前缀匹配（含非标准前缀 sunshine/sun/dice），30 秒内出结果再考虑复杂算法</li>
+<li><strong>RC4 密钥流题</strong>：先找 LCG/置换/XOR 链常量表定 seed 关系；key 派生读未初始化变量时用已知明文爆破初值</li>
+<li><strong>干扰项识别</strong>：无 xrefs 的花函数（AES S 盒等）= 纯干扰，先查 xrefs 再决定要不要逆</li>
+</ul>
+<h2 id="十实战暴露的-9-个工具缺陷与修复">
+<a class="header-anchor" href="#%e5%8d%81%e5%ae%9e%e6%88%98%e6%9a%b4%e9%9c%b2%e7%9a%84-9-%e4%b8%aa%e5%b7%a5%e5%85%b7%e7%bc%ba%e9%99%b7%e4%b8%8e%e4%bf%ae%e5%a4%8d"></a>
+十、实战暴露的 9 个工具缺陷与修复
+</h2><p>全部当日修复并回归验证（custom 契约命中率 0/3 → 3/3）：</p>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>缺陷</th>
+          <th>根因 → 修复</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>下载器目录碰撞（EISDIR 整轮中止）</td>
+          <td>附件与同名目录冲突 → 写入前 statSync 检查，自动改名重试</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>验证契约只试双参调用</td>
+          <td>AI 常写单参 <code>decrypt(target)</code> → 按 <code>inspect.signature</code> 自动尝试五种调用形态</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>expected 截断全等必败</td>
+          <td>AI 只给 flag 前缀 → 命中判定改双向包含，优先取 FLAG_RE 完整匹配</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>xlsx 被拒解压</td>
+          <td>白名单只有 .zip → 扩到 OOXML 全家 + PK 魔数兜底</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>OOXML 主文件挑错（元数据/展示壳）</td>
+          <td>无语义打分 → docProps 沉底 + 公式数主导因子</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>XML/TXT 误进 Kali 固件流程（白烧 60s）</td>
+          <td>类型不识别 → 新增 XML/TXT 两类 + <code>analyzeXMLText()</code> 直读求解</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td><strong>跨题文件串扰</strong>（AI 拿上题结论答本题）</td>
+          <td>共享下载目录 + workdir=根目录 → 每题独立子目录 + 多附件主文件权重 + 提示词题目边界</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td><code>printable()</code> 控制字符吞 flag</td>
+          <td>协议头 <code>\x03\x11</code> 致整段回退 hex → 剥首尾控制符再判可打印</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>经验跨题注入（预防性）</td>
+          <td>上题经验进下题提示词 → 由 #7 的边界声明兜住：经验只作方法参考</td>
+      </tr>
+  </tbody>
+</table>
+<p>修复过程遵循一个原则：<strong>每个缺陷都来自真实解题数据，修完必须用当时的真实契约回归</strong>。比如 #2/#3/#8 修复后，用 parallelism、PlutoChat 的原契约重跑全部 <code>[HIT]</code>。</p>
+<h2 id="结语">
+<a class="header-anchor" href="#%e7%bb%93%e8%af%ad"></a>
+结语
+</h2><p>这轮实战最说明问题的不是 8/8 的战绩，而是两个收敛：</p>
+<ol>
+<li><strong>人工干预收敛</strong>：第 1 题人工辅助反汇编 → 第 7 题 15 秒全自动拿分。工具在真实数据里暴露缺陷、当场修复、立刻在下一题受益。</li>
+<li><strong>知识沉淀收敛</strong>：4 轮失败换来的 Blelloch 反演经验没有停留在聊天记录里——它进了知识库，被检索、被注入、被下一次解题直接复用。</li>
+</ol>
+<p>AI 解题的天花板不在于模型多聪明，而在于<strong>喂给它的数据链路有多完整、验证闭环有多严格、失败能不能变成资产</strong>。</p>
+<blockquote>
+<p>工具开源：<a href="https://github.com/ip2867/ctf-re-tool">https://github.com/ip2867/ctf-re-tool</a>　·　本文涉及的方法论页面在仓库 <code>wiki/reverse/</code> 目录</p>
+</blockquote>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/ctf"
+        rel="tag"
+        >CTF</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e9%80%86%e5%90%91"
+        rel="tag"
+        >逆向</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/ai"
+        rel="tag"
+        >AI</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/writeup"
+        rel="tag"
+        >WRITEUP</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e8%87%aa%e5%8a%a8%e5%8c%96"
+        rel="tag"
+        >自动化</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/ida"
+        rel="tag"
+        >IDA</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e9%aa%8c%e8%af%81%e9%97%ad%e7%8e%af"
+        rel="tag"
+        >验证闭环</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/covers/cover1.webp"
+              data-sizes="auto"
+              alt="CTF-RE-TOOL：把逆向工作流装进一个桌面工具"
+              class="lazyload"
+            /><a
+          href="/post/ctf-re-tool-intro/"
+          aria-label="前一篇:CTF-RE-TOOL：把逆向工作流装进一个桌面工具"
+          title="前一篇:CTF-RE-TOOL：把逆向工作流装进一个桌面工具"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/covers/cover1.webp"
+              data-sizes="auto"
+              alt="CTF-RE-TOOL v1.8：让 AI 真的会用调试器"
+              class="lazyload"
+            /><a
+          href="/post/ctf-re-tool-v1.8-dynamic-debugging/"
+          aria-label="后一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器"
+          title="后一篇:CTF-RE-TOOL v1.8：让 AI 真的会用调试器"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">CTF-RE-TOOL v1.8：让 AI 真的会用调试器</h3>
+      </div></nav></article><section id="comments" data-aos="fade-up">
+<div class="comment-header"><h2 class="comment-title">说些什么吧！</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap"><div class="selector-item" data-selector="giscus">
+          <span>giscus</span>
+        </div></div>
+  </div>
+</div>
+
+<div class="comment-content"><div class="comment giscus-comment" data-aos="fade-up"
+     >
+    </div></div>
+</section></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2026<span class="footer-info-sep rotate"></span>
+      栗悟饭与龟波功
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;63.9k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;02:14</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#零tldr两天战绩">零、TL;DR：两天战绩</a></li>
+    <li><a href="#一time-travel--定点数-laplace-行列式">一、time-travel — 定点数 Laplace 行列式</a>
+      <ul>
+        <li><a href="#静态侦察">静态侦察</a></li>
+        <li><a href="#算法分析">算法分析</a></li>
+        <li><a href="#反演与验证">反演与验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#二not-baby-parallelism--blelloch-并行前缀扫描">二、not-baby-parallelism — Blelloch 并行前缀扫描</a>
+      <ul>
+        <li><a href="#前几轮为什么失败工具存档的真实记录">前几轮为什么失败（工具存档的真实记录）</a></li>
+        <li><a href="#静态侦察最终轮">静态侦察（最终轮）</a></li>
+        <li><a href="#核心算法sub_336c">核心算法（sub_336C）</a></li>
+        <li><a href="#反演">反演</a></li>
+      </ul>
+    </li>
+    <li><a href="#三parallelism--mpi-三级置换网络">三、parallelism — MPI 三级置换网络</a>
+      <ul>
+        <li><a href="#静态侦察-1">静态侦察</a></li>
+        <li><a href="#反演不模拟真实-mpi">反演（不模拟真实 MPI）</a></li>
+        <li><a href="#一个值得记录的工具缺陷">一个值得记录的工具缺陷</a></li>
+      </ul>
+    </li>
+    <li><a href="#四excellm--用-excel-公式搭的神经网络">四、ExceLLM — 用 Excel 公式搭的神经网络</a>
+      <ul>
+        <li><a href="#解压与定位">解压与定位</a></li>
+        <li><a href="#把-excel-当反汇编读">把 Excel 当反汇编读</a></li>
+        <li><a href="#反演逐字符独立枚举">反演（逐字符独立枚举）</a></li>
+        <li><a href="#验证">验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#五romanromance--caesar-移位">五、RomanRomance — Caesar 移位</a></li>
+    <li><a href="#六palatinepack--三层-nibble-展开--flipbits">六、PalatinePack — 三层 nibble 展开 + flipBits</a>
+      <ul>
+        <li><a href="#静态侦察与方向判定">静态侦察与方向判定</a></li>
+        <li><a href="#变换语义">变换语义</a></li>
+        <li><a href="#反演与验证-1">反演与验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#七missioncritical1--全自动闭环示范15-秒从下载到提交">七、missioncritical1 — 全自动闭环示范（15 秒从下载到提交）</a>
+      <ul>
+        <li><a href="#闭环时间线">闭环时间线</a></li>
+      </ul>
+    </li>
+    <li><a href="#八plutochat--lcg-密钥派生--rc4-聊天记录">八、PlutoChat — LCG 密钥派生 + RC4 聊天记录</a>
+      <ul>
+        <li><a href="#静态侦察-2">静态侦察</a></li>
+        <li><a href="#关键坑未初始化的-v9">关键坑：未初始化的 v9</a></li>
+        <li><a href="#解密与取证">解密与取证</a></li>
+      </ul>
+    </li>
+    <li><a href="#九方法论沉淀已入工具知识库自动检索复用">九、方法论沉淀（已入工具知识库，自动检索复用）</a></li>
+    <li><a href="#十实战暴露的-9-个工具缺陷与修复">十、实战暴露的 9 个工具缺陷与修复</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="栗悟饭与龟波功"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">栗悟饭与龟波功</div>
+  <div class="sidebar-description">这一切都是命运石之门的选择！</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">17</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      3
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">64</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "栗悟饭与龟波功",
+          title: "AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）",
+          url: "https:\/\/ip2867.github.io\/post\/ctf2-arena-8-challenges\/",
+          description: " 把 CTF-RE-TOOL 接入 CTF² Agent Arena 真实解题：8 道逆向题全部解出并提交通过——从 Hard 的 Excel 神经网络校验器到 15 秒全自动拿分的 satellite 题。本文是完整 Writeup \u002b 期间暴露并修复的 9 个工具缺陷 \u002b 方法论沉淀。工具在实战里进化，而不是在想象里设计。\n",
+          cover: "https:\/\/ip2867.github.io\/images\/my-banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
           if (_$$(`${gallery} ${children}`).length > 0) {
             new PhotoSwipeLightbox({
               gallery,
@@ -107,11 +1164,203 @@
         } else {
           window.addEventListener('lightbox:ready', pswp);
         }
-      </script><script data-pjax>var defaultComment,savedCommentType,configDefault,loadScript=(e,t)=>{const n=document.createElement("script");return n.src=e,t&&(n.integrity=t),n.crossOrigin="anonymous",n},commentConfigKeys=["valine","waline","twikoo","gitalk","giscus","disqus"],commentConfig={giscus:{enable:!0,load:()=>{const t=document.querySelector(".giscus-comment");if(!t)return;t.style.display="block";const s=t.querySelector('script[src*="giscus.app/client.js"]');s&&s.remove();const o=document.querySelector("iframe.giscus-frame");o&&o.remove();const e=document.createElement("script"),r=document.documentElement.getAttribute("data-theme"),n=document.documentElement.lang||"en",i=n.split("-")[0],a=["ar","be","bg","ca","cs","da","de","en","eo","es","eu","fa","fr","gr","hbs","he","hu","id","it","ja","kh","ko","nl","pl","pt","ro","ru","th","tr","uk","uz","vi","zh-CN","zh-HK","zh-TW"],c=a.includes(n)?n:a.includes(i)?i:"en";e.src="https://giscus.app/client.js",e.setAttribute("data-repo","ip2867/ip2867.github.io"),e.setAttribute("data-repo-id","R_kgDOQvgvJA"),e.setAttribute("data-category","Announcements"),e.setAttribute("data-category-id","DIC_kwDOQvgvJM4C0R79"),e.setAttribute("data-mapping","0"),e.setAttribute("data-strict","0"),e.setAttribute("data-reactions-enabled","1"),e.setAttribute("data-emit-metadata","0"),e.setAttribute("data-input-position","bottom"),e.setAttribute("data-theme",r==="dark"?"dark":"light"),e.setAttribute("data-lang",c),e.setAttribute("crossorigin","anonymous"),e.async=!0,t.appendChild(e),document.body.addEventListener("light-theme-set",()=>{const e=document.querySelector("iframe.giscus-frame");if(!e)return;e.contentWindow.postMessage({giscus:{setConfig:{theme:"light"}}},"https://giscus.app")}),document.body.addEventListener("dark-theme-set",()=>{const e=document.querySelector("iframe.giscus-frame");if(!e)return;e.contentWindow.postMessage({giscus:{setConfig:{theme:"dark"}}},"https://giscus.app")})}}};commentConfig.enable=commentConfigKeys.some(e=>commentConfig?.[e]?.enable),defaultComment="",commentConfig.enable&&(savedCommentType=localStorage.getItem("commentType"),savedCommentType&&commentConfig[savedCommentType]?.enable&&(defaultComment=savedCommentType),defaultComment||(configDefault="giscus",commentConfig[configDefault]?.enable&&(defaultComment=configDefault)),defaultComment||(defaultComment=commentConfigKeys.find(e=>commentConfig?.[e]?.enable)||""));function loadComments(){if(!commentConfig.enable)return;const e={valine:!1,waline:!1,twikoo:!1,gitalk:!1,giscus:!1},s=()=>{const e=document.querySelectorAll(".comment");e.forEach(e=>{e.style.display="none"})},t=t=>{if(e[t]){document.querySelector(`.${t}-comment`).style.display="block";return}commentConfig[t]?.load(),e[t]=!0},o=e=>{const n=document.querySelectorAll(".selector-item");for(let e=0;e<n.length;e++)n[e].classList.remove("active");e.classList.add("active");const o=e.getAttribute("data-selector");s(),t(o)},n=()=>{const e=document.querySelectorAll(".selector-item");for(let t of e)t.addEventListener("click",()=>{const e=t.getAttribute("data-selector");window.localStorage.setItem("commentType",e),o(t)});if(defaultComment){const e=document.querySelector(`[data-selector="${defaultComment}"]`);if(!e)return;e.style.display="block",e.classList.add("active"),t(defaultComment)}};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n()}loadComments()</script></div></div><script src=https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js async integrity=sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S crossorigin=anonymous></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.unregister()})</script><script>const reimuCopyright=String.raw`
+      </script><script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus', 'disqus'];
+  var commentConfig = {giscus: {
+      enable: true,
+      load: () => {
+        const container = document.querySelector('.giscus-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
+        if (existingScript) existingScript.remove();
+        const existingFrame = document.querySelector('iframe.giscus-frame');
+        if (existingFrame) existingFrame.remove();
+
+        
+        const giscusScript = document.createElement('script');
+        const domMode = document.documentElement.getAttribute("data-theme");
+
+        const docLang = document.documentElement.lang || 'en';
+        const langBase = docLang.split('-')[0];
+        const supportedLangs = ['ar', 'be', 'bg', 'ca', 'cs', 'da', 'de', 'en', 
+        'eo', 'es', 'eu', 'fa', 'fr', 'gr', 'hbs', 'he', 'hu', 'id', 'it', 'ja', 
+        'kh', 'ko', 'nl', 'pl', 'pt', 'ro', 'ru', 'th', 'tr', 'uk', 'uz', 'vi', 'zh-CN', 'zh-HK', 'zh-TW'];
+        const giscusLang = supportedLangs.includes(docLang) ? docLang : supportedLangs.includes(langBase) ? langBase : 'en';
+
+        giscusScript.src = 'https://giscus.app/client.js';
+        giscusScript.setAttribute('data-repo', 'ip2867\/ip2867.github.io');
+        giscusScript.setAttribute('data-repo-id', 'R_kgDOQvgvJA');
+        giscusScript.setAttribute('data-category', 'Announcements');
+        giscusScript.setAttribute('data-category-id', 'DIC_kwDOQvgvJM4C0R79');
+        giscusScript.setAttribute('data-mapping', '0');
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '0');
+        giscusScript.setAttribute('data-input-position', 'bottom');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-lang', giscusLang);
+        giscusScript.setAttribute('crossorigin', 'anonymous');
+        giscusScript.async = true;
+        container.appendChild(giscusScript);
+        document.body.addEventListener('light-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+        });
+        document.body.addEventListener('dark-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
+        });
+      }
+    },};
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig?.[key]?.enable);
+
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      var configDefault = 'giscus';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig?.[sys]?.enable) || '';
+    }
+  }
+
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
+
+    
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+    };
+
+    
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      
+      const commentType = item.getAttribute('data-selector');
+
+      
+      hideAllComments();
+
+      
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          
+          changeActiveCommentItems(item);
+        });
+      }
+
+      
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
    ______     ______     __     __    __     __  __    
   /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
   \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
    \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
     \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
                                                     
-  `;console.log(String.raw`%c ${reimuCopyright}`,"color: #ff5252;"),console.log("%c Theme.Reimu %c https://github.com/D-Sketon/hugo-theme-reimu ","color: white; background: #ff5252; padding:5px 0;","padding:4px;border:1px solid #ff5252;")</script></body></html>
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

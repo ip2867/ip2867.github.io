@@ -1,7 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cheat Engine on Ip2867</title><link>https://ip2867.github.io/tags/cheat-engine/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Thu, 22 Oct 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/cheat-engine/index.xml" rel="self" type="application/rss+xml"/><item><title>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</title><link>https://ip2867.github.io/post/cheat-engine-tutorial/</link><pubDate>Thu, 22 Oct 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/cheat-engine-tutorial/</guid><description>
-<![CDATA[<h1>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheat Engine on Ip2867</title>
+    <link>https://ip2867.github.io/tags/cheat-engine/</link>
+    <description>Recent content from Ip2867</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    
+    <managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor>
+    <webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Mon, 26 Oct 2026 00:28:00 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://ip2867.github.io/tags/cheat-engine/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法</title>
+      <link>https://ip2867.github.io/post/cheat-engine-ai-agent/</link>
+      <pubDate>Mon, 26 Oct 2026 00:28:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/cheat-engine-ai-agent/</guid>
+      <description>
+        <![CDATA[<h1>我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>这两天做了一件事：不给 AI 任何提示，让它只用自己写的工具去通关 <code>gtutorial-x86_64.exe</code> 的关卡。</p>
+<p>它最后打穿了两关。但比结果更有意思的是过程 —— <strong>它连续六轮扫描都&quot;收敛&quot;到了一个正确答案，而那六轮全是错的</strong>。每次它都有一份看起来无可辩驳的证据，每次证据都指向错的方向。</p>
+        
+        <hr><p>本文2026-10-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-26</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</title>
+      <link>https://ip2867.github.io/post/cheat-engine-tutorial/</link>
+      <pubDate>Thu, 22 Oct 2026 10:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (栗悟饭与龟波功)</author>
+      <guid>https://ip2867.github.io/post/cheat-engine-tutorial/</guid>
+      <description>
+        <![CDATA[<h1>Cheat Engine 九关教程通关笔记：从数值扫描到代码注入</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>Cheat Engine 自带的九关教程，本质上是一条很完整的逆向入门路线：先学会在内存里找值，再顺着值找到改值的代码，最后读懂并改写这段代码。九关走完，动态调试的基本功就齐了。</p>
         
-        <hr><p>本文2026-10-22首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-22</p>]]></description><category>逆向</category></item></channel></rss>
+        <hr><p>本文2026-10-22首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-22</p>]]>
+      </description>
+      
+        <category>逆向</category>
+      
+    </item>
+    
+  </channel>
+</rss>
