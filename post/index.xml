@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 26 Oct 2026 00:28:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 00:55:00 +0800</lastBuildDate>
     
     
     <atom:link href="https://ip2867.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,17 +22,17 @@
     
 
     <item>
-      <title>我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法</title>
+      <title>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</title>
       <link>https://ip2867.github.io/post/cheat-engine-ai-agent/</link>
-      <pubDate>Mon, 26 Oct 2026 00:28:00 &#43;0800</pubDate>
+      <pubDate>Mon, 26 Oct 2026 00:55:00 &#43;0800</pubDate>
       <author>xxx@example.com (栗悟饭与龟波功)</author>
       <guid>https://ip2867.github.io/post/cheat-engine-ai-agent/</guid>
       <description>
-        <![CDATA[<h1>我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        <![CDATA[<h1>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
-<p>这两天做了一件事：不给 AI 任何提示，让它只用自己写的工具去通关 <code>gtutorial-x86_64.exe</code> 的关卡。</p>
-<p>它最后打穿了两关。但比结果更有意思的是过程 —— <strong>它连续六轮扫描都&quot;收敛&quot;到了一个正确答案，而那六轮全是错的</strong>。每次它都有一份看起来无可辩驳的证据，每次证据都指向错的方向。</p>
+<p>这件事如果只看标题，很容易被理解成&quot;AI 全自动破解游戏&quot;。完全不是。</p>
+<p>真实过程是我和它坐在同一台机器前面，<strong>我给方向，它去验证；它的验证结果反过来修正我的判断</strong>。两关都是这样一点点磨出来的。这篇记的是那个协作过程本身 —— 包括我判断错的地方，和它推不动的时刻。</p>
         
         <hr><p>本文2026-10-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-26</p>]]>
       </description>

@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法 | 栗悟饭与龟波功
+  我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路 | 栗悟饭与龟波功
 </title>
 <meta name="description" content="这一切都是命运石之门的选择！"/><script>
   window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://ip2867.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_4k4bc36ef96\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
@@ -33,7 +33,7 @@
     type="font/woff2"
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content="我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法 | 栗悟饭与龟波功" />
+  <meta property="og:title" content="我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路 | 栗悟饭与龟波功" />
   <meta
     property="og:description"
     content="这一切都是命运石之门的选择！"
@@ -48,8 +48,8 @@
     content="/"
   />
   <meta property="article:author" content="栗悟饭与龟波功" />
-  <meta property="article:published_time" content="2026-10-26T00:28:00&#43;08:00" />
-  <meta property="article:modified_time" content="2026-10-26T00:28:00&#43;08:00" /><meta property="article:tag" content="逆向Cheat EngineMCPAI Agent内存分析方法论" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2026-10-26T00:55:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-10-26T00:55:00&#43;08:00" /><meta property="article:tag" content="逆向Cheat EngineMCPAI Agent内存分析方法论" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css" /><link
     rel="preload"
@@ -133,9 +133,9 @@
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/my-banner.webp" alt="我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/my-banner.webp" alt="我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法</h1>
+            <h1 data-aos="slide-up">我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -149,45 +149,39 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#一先看结果">一、先看结果</a></li>
-    <li><a href="#二ai-为什么需要这个工具">二、AI 为什么需要这个工具</a>
+    <li><a href="#一先说清楚我们在干什么">一、先说清楚我们在干什么</a></li>
+    <li><a href="#二第一关从差一发到锁定弹药">二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&quot;</a>
       <ul>
-        <li><a href="#54-个工具覆盖什么">54 个工具覆盖什么</a></li>
-        <li><a href="#四个值得单独说的设计">四个值得单独说的设计</a></li>
+        <li><a href="#我自己先看出来的那个现象">我自己先看出来的那个现象</a></li>
+        <li><a href="#我把方向给了它">我把方向给了它</a></li>
+        <li><a href="#这一关的实质">这一关的实质</a></li>
       </ul>
     </li>
-    <li><a href="#三安装">三、安装</a>
+    <li><a href="#三第二关三个实体一个标志位和一次误判">三、第二关：三个实体、一个标志位、和一次误判</a>
       <ul>
-        <li><a href="#结构">结构</a></li>
+        <li><a href="#第一步先把自己变成打不死的">第一步：先把自己变成打不死的</a></li>
+        <li><a href="#第二步怎么区分敌我--你给的答案">第二步：怎么区分敌我 —— 你给的答案</a></li>
+        <li><a href="#第三步注入--我给了两个方案">第三步：注入 —— 我给了两个方案</a></li>
+        <li><a href="#第四步这里我们俩一起走错了一次">第四步：这里我们俩一起走错了一次</a></li>
       </ul>
     </li>
-    <li><a href="#四六次自信的错误">四、六次自信的错误</a>
-      <ul>
-        <li><a href="#错误一以为五下打死等于血量是-5">错误一：以为&quot;五下打死&quot;等于&quot;血量是 5&quot;</a></li>
-        <li><a href="#错误二以为-decreased-是个好过滤器">错误二：以为 <code>decreased</code> 是个好过滤器</a></li>
-        <li><a href="#错误三以为收窄可以用扫描器自己的比较">错误三：以为收窄可以用扫描器自己的比较</a></li>
-        <li><a href="#错误四把-float-和-dword-搞反了还连着搞反了六轮">错误四：把 float 和 dword 搞反了，还连着搞反了六轮</a></li>
-        <li><a href="#错误五把断点在这台机器上不可用当成事实">错误五：把&quot;断点在这台机器上不可用&quot;当成事实</a></li>
-        <li><a href="#错误六以为写进去就留住了">错误六：以为写进去就留住了</a></li>
-      </ul>
-    </li>
-    <li><a href="#五第七次换一个问法两个小时变一秒">五、第七次：换一个问法，两个小时变一秒</a>
+    <li><a href="#四真正的突破口把找血量换成找一对血量">四、真正的突破口：把&quot;找血量&quot;换成&quot;找一对血量&quot;</a>
       <ul>
         <li><a href="#顺带纠正一个更早的错误">顺带纠正一个更早的错误</a></li>
-        <li><a href="#还有一个静默失败批量读不是优化是必需">还有一个静默失败：批量读不是优化，是必需</a></li>
-        <li><a href="#真正通关的写法">真正通关的写法</a></li>
+        <li><a href="#最后一步">最后一步</a></li>
       </ul>
     </li>
-    <li><a href="#六还债之前判错的部分以及它们后来怎么了">六、还债：之前判错的部分，以及它们后来怎么了</a>
+    <li><a href="#五回头看这个协作是这样分工的">五、回头看，这个协作是这样分工的</a></li>
+    <li><a href="#六ai-在这个过程中犯的错有个共同形状">六、AI 在这个过程中犯的错，有个共同形状</a>
       <ul>
-        <li><a href="#右敌血量找不到">右敌血量&quot;找不到&quot;</a></li>
-        <li><a href="#那-9-字节的零填充">那 9 字节的零填充</a></li>
-        <li><a href="#桥里一个死代码">桥里一个死代码</a></li>
+        <li><a href="#它总是把相关当成因果">它总是把&quot;相关&quot;当成&quot;因果&quot;</a></li>
+        <li><a href="#它会把我调不通写成不支持">它会把&quot;我调不通&quot;写成&quot;不支持&quot;</a></li>
+        <li><a href="#它写的-verified-true-不代表游戏保留了那个值">它写的 <code>verified: true</code> 不代表游戏保留了那个值</a></li>
+        <li><a href="#这四条的共同点">这四条的共同点</a></li>
       </ul>
     </li>
-    <li><a href="#七15-个技能经验变成可复用的纪律">七、15 个技能：经验变成可复用的纪律</a></li>
-    <li><a href="#八所以我把纪律变成了代码">八、所以我把纪律变成了代码</a></li>
-    <li><a href="#九ai-究竟错在哪">九、AI 究竟错在哪</a></li>
+    <li><a href="#七所以我们把这些纪律变成了代码">七、所以我们把这些纪律变成了代码</a></li>
+    <li><a href="#八一句话">八、一句话</a></li>
   </ul>
 </nav>
 </div></div>
@@ -269,7 +263,7 @@
     class="article-date-link icon-calendar"
     data-aos="zoom-in"
   >
-    <time datetime="2026-10-26 00:28:00 &#43;0800 CST" itemprop="datePublished"
+    <time datetime="2026-10-26 00:55:00 &#43;0800 CST" itemprop="datePublished"
       >2026-10-26</time
     >
     <time style="display: none;" id="post-update-time"
@@ -283,19 +277,99 @@
       >逆向</a
     ></div>
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><blockquote>
-<p>这两天做了一件事：不给 AI 任何提示，让它只用自己写的工具去通关 <code>gtutorial-x86_64.exe</code> 的关卡。</p>
-<p>它最后打穿了两关。但比结果更有意思的是过程 —— <strong>它连续六轮扫描都&quot;收敛&quot;到了一个正确答案，而那六轮全是错的</strong>。每次它都有一份看起来无可辩驳的证据，每次证据都指向错的方向。</p>
-<p>这篇既写这六次错误，也写最后是怎么走出来的，以及那个让 AI 能自己动手的工具长什么样。</p>
+<p>这件事如果只看标题，很容易被理解成&quot;AI 全自动破解游戏&quot;。完全不是。</p>
+<p>真实过程是我和它坐在同一台机器前面，<strong>我给方向，它去验证；它的验证结果反过来修正我的判断</strong>。两关都是这样一点点磨出来的。这篇记的是那个协作过程本身 —— 包括我判断错的地方，和它推不动的时刻。</p>
 </blockquote>
 <p>仓库：<a href="https://github.com/ip2867/CheatEngine-AI-Agent">https://github.com/ip2867/CheatEngine-AI-Agent</a></p>
 <hr>
-<h2 id="一先看结果">
-<a class="header-anchor" href="#%e4%b8%80%e5%85%88%e7%9c%8b%e7%bb%93%e6%9e%9c"></a>
-一、先看结果
-</h2><p>第一关的通关方式并不玄妙：弹药字段是<strong>反向映射</strong>的（屏幕显示 5，内存里是 0），锁住它，换弹永远不触发，靶子就不会回血，然后慢慢打完。</p>
-<p>第二关有两件事值得说。第一件是<strong>代码注入</strong>：找到两个敌人和玩家共享的扣血函数 <code>0x100042D10</code>，读结构体的阵营字段 <code>+0x70</code>（玩家 0 / 敌人 1），敌人走&quot;血量直接归零&quot;，玩家走&quot;完全不受伤&quot;：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#75715e">; 注入到代码洞 0x10023BB18
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">48</span> <span style="color:#960050;background-color:#1e0010">89</span> <span style="color:#a6e22e">C8</span>                 <span style="color:#66d9ef">mov</span>  <span style="color:#66d9ef">rax</span>, <span style="color:#66d9ef">rcx</span>
+<h2 id="一先说清楚我们在干什么">
+<a class="header-anchor" href="#%e4%b8%80%e5%85%88%e8%af%b4%e6%b8%85%e6%a5%9a%e6%88%91%e4%bb%ac%e5%9c%a8%e5%b9%b2%e4%bb%80%e4%b9%88"></a>
+一、先说清楚我们在干什么
+</h2><p><code>gtutorial-x86_64.exe</code> 是 Cheat Engine 自带的训练程序。它不是真游戏，是专门用来练内存分析的靶子，每一关都在逼你用不同的手段。</p>
+<p>我们要打通的是前两关。</p>
+<p>为了让 AI 能真正参与，我先给它修了一条通道：把 Cheat Engine 变成一个 MCP 服务。它可以直接读内存、扫数值、下断点、读寄存器、反汇编、改代码 —— 不是我转述，是它自己动手。</p>
+<p><img src="/images/ce-ai-agent/step2-two-enemies.png" alt="第二关：两个敌人，左边绿条、右边蓝条" class="post-img post-img-normal" width="1600" height="1200" loading="lazy"></p>
+<p><strong>通道是前提，但不是解法。</strong> 接下来九成的时间花在&quot;到底该往哪查&quot;上。</p>
+<hr>
+<h2 id="二第一关从差一发到锁定弹药">
+<a class="header-anchor" href="#%e4%ba%8c%e7%ac%ac%e4%b8%80%e5%85%b3%e4%bb%8e%e5%b7%ae%e4%b8%80%e5%8f%91%e5%88%b0%e9%94%81%e5%ae%9a%e5%bc%b9%e8%8d%af"></a>
+二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&quot;
+</h2><h3 id="我自己先看出来的那个现象">
+<a class="header-anchor" href="#%e6%88%91%e8%87%aa%e5%b7%b1%e5%85%88%e7%9c%8b%e5%87%ba%e6%9d%a5%e7%9a%84%e9%82%a3%e4%b8%aa%e7%8e%b0%e8%b1%a1"></a>
+我自己先看出来的那个现象
+</h3><p>第一关的靶子会回血。我打了几枪就发现规律很奇怪：</p>
+<pre tabindex="0"><code>弹药 5 → 4 → 3 → 2 → 1 →（第5枪）→ 5     ← 弹药回满
+血量 188 → 142 → 98 → 52 → 8 → 188        ← 血量也回满
+</code></pre><p><strong>第 5 枪不但没有伤害，反而把靶子治回满血。</strong> 满血 188 像素、每发 46 像素，188 ÷ 46 ≈ 4.09 —— 它最多能挨 4 发，第 5 发是溢出伤害。</p>
+<p>所以这一关有个死局：<strong>你永远差一发</strong>。打得再准也没用，那个&quot;第 5 发&quot;就是换弹机制本身。</p>
+<p>我的判断是：不要去改血量，那是在跟一个每 5 发自动回满的东西较劲。<strong>要掐掉换弹这个动作本身。</strong></p>
+<h3 id="我把方向给了它">
+<a class="header-anchor" href="#%e6%88%91%e6%8a%8a%e6%96%b9%e5%90%91%e7%bb%99%e4%ba%86%e5%ae%83"></a>
+我把方向给了它
+</h3><p>我去翻了自己以前写的教程，找到关键的那句：<strong>显示值和内存值不是同向的</strong>。界面上显示 3 的时候，候选地址里已经出现 0 了。</p>
+<p>这意味着扫描方向不能照常理走 —— 应该<strong>从 0 开始，按&quot;增加的值&quot;重扫</strong>。</p>
+<p>我把这条告诉了 AI。它照做，用这个方向扫弹药计数，很快命中了 <code>0x1573E9C</code>。</p>
+<p>然后是我给的第二个动作：<strong>把这个地址锁定在满弹对应的值上</strong>。锁定之后，装弹流程再也不触发，靶子也就不会回血了。</p>
+<p>剩下的就是慢慢打完。</p>
+<h3 id="这一关的实质">
+<a class="header-anchor" href="#%e8%bf%99%e4%b8%80%e5%85%b3%e7%9a%84%e5%ae%9e%e8%b4%a8"></a>
+这一关的实质
+</h3><p>这一关真正的难点不是&quot;找地址&quot;，是<strong>看懂那个死局的形状</strong>。</p>
+<p>如果一开始就认定&quot;血量是 5&quot;（打五下就死嘛），后面所有搜索都会围绕一个不存在的东西展开。这里我给了它一个纠正：五下打死不能证明血量是 5，得先算出每发伤害。</p>
+<blockquote>
+<p>这是整个项目里我最想说的一点：<strong>AI 的能力上限，往往卡在我把问题描述成什么样。</strong> 同一套工具，方向给错就是几十轮白跑，方向给对十分钟就完。</p>
+</blockquote>
+<hr>
+<h2 id="三第二关三个实体一个标志位和一次误判">
+<a class="header-anchor" href="#%e4%b8%89%e7%ac%ac%e4%ba%8c%e5%85%b3%e4%b8%89%e4%b8%aa%e5%ae%9e%e4%bd%93%e4%b8%80%e4%b8%aa%e6%a0%87%e5%bf%97%e4%bd%8d%e5%92%8c%e4%b8%80%e6%ac%a1%e8%af%af%e5%88%a4"></a>
+三、第二关：三个实体、一个标志位、和一次误判
+</h2><p>第二关有两个敌人，而且它们和玩家<strong>共用同一套扣血代码</strong>。这意味着改一处会同时影响三方 —— 这既是难点，也是解法。</p>
+<h3 id="第一步先把自己变成打不死的">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e5%85%88%e6%8a%8a%e8%87%aa%e5%b7%b1%e5%8f%98%e6%88%90%e6%89%93%e4%b8%8d%e6%ad%bb%e7%9a%84"></a>
+第一步：先把自己变成打不死的
+</h3><p>我的要求很直接：<strong>先找到自己的血量并锁定，免得自己被打死，然后才能从容地找敌人</strong>。</p>
+<p>这一步 AI 走得非常艰难。它扫 dword、扫 float、扫双向、扫 0..1 比例区间，六轮全部收敛到几十个候选，然后逐个写进去试，<strong>血条一次都没动过</strong>。</p>
+<p>它一度写进文档说&quot;血量不是任何可达堆窗口里能跟随显示的普通 dword&quot;。这个结论是错的。</p>
+<p>是我手动在 CE 里筛出来的：<strong>浮点 + 减少的值</strong>，三个地址，中间那个 <code>0x0167C1B0</code>，值 76。</p>
+<p>它拿到地址之后做了验证，发现这个地址旁边排着一串浮点：</p>
+<pre tabindex="0"><code>0x0167C1B0  76.0     ← 血量显示
+0x0167C1B4  0.25
+0x0167C1B8  0.05
+0x0167C1BC  0.008
+</code></pre><p><strong>这三个数是伤害百分比参数。</strong> 写 38.0，血条立刻掉一半 —— 但写 0.0、锁 201 次、持续 4.8 秒，游戏不判定死亡。因为它每帧都在被游戏重算。</p>
+<p>这是我给的第一个关键判断：<strong>这个数是显示副本，不是权威值。真正的权威值在别处，而且它是个整数。</strong></p>
+<p>顺着&quot;整数&quot;这个方向，它用断点炸出了共享扣血函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x100042D10</span>  <span style="color:#ae81ff">48</span> <span style="color:#ae81ff">89</span> <span style="color:#66d9ef">C8</span>    <span style="color:#66d9ef">mov</span> <span style="color:#66d9ef">rax</span>, <span style="color:#66d9ef">rcx</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x100042D13</span>  <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">50</span> <span style="color:#ae81ff">60</span>    <span style="color:#66d9ef">sub</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x60</span>], <span style="color:#66d9ef">edx</span>    <span style="color:#75715e">; 血量 -= 伤害
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x100042D16</span>  <span style="color:#66d9ef">C3</span>          <span style="color:#66d9ef">ret</span>
+</span></span></code></pre></div><p>打到 <code>rcx=0x15E4CB0</code> —— 那是玩家对象。<code>+0x60</code> 就是真实血量，<code>+0x64</code> 是上限。</p>
+<p><strong>这一步是整个第二关的地基。</strong> 从这里开始，&ldquo;谁的血量&quot;这件事才第一次有了确定的答案。</p>
+<h3 id="第二步怎么区分敌我--你给的答案">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e6%80%8e%e4%b9%88%e5%8c%ba%e5%88%86%e6%95%8c%e6%88%91--%e4%bd%a0%e7%bb%99%e7%9a%84%e7%ad%94%e6%a1%88"></a>
+第二步：怎么区分敌我 —— 你给的答案
+</h3><p>找到共享函数之后，问题变成了：这段代码对玩家和敌人都在跑，我怎么只伤害敌人？</p>
+<p>我给的方案是：<strong>看结构体里的阵营字段，我方是 0，敌方是 1，用 <code>cmp</code> 区分。</strong></p>
+<p>AI 去找了。它一开始拿 <code>+0x24</code> 当判据（那里正好是 float ±0.205 / 0），被我否掉了 —— 那只是恰好相关的浮点参数。真正的标志位是 <strong><code>+0x70</code></strong>：</p>
+<pre tabindex="0"><code>0x015E4B70  +0x60=200  +0x64=200  +0x70=1   ← 敌方
+0x015E4CB0  +0x60=血量  +0x64=100  +0x70=0   ← 我方（唯一）
+</code></pre><p>三个结构体间距 <code>0x140</code> 和 <code>0xA0</code>，全部对得上。</p>
+<h3 id="第三步注入--我给了两个方案">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%89%e6%ad%a5%e6%b3%a8%e5%85%a5--%e6%88%91%e7%bb%99%e4%ba%86%e4%b8%a4%e4%b8%aa%e6%96%b9%e6%a1%88"></a>
+第三步：注入 —— 我给了两个方案
+</h3><p>我给了它两段代码，一个是给敌人拉满伤害，一个是直接把敌人血量清零：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#75715e">; 方案一：给敌人拉满伤害
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">cmp</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">60</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">10</span>],<span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">je</span> <span style="color:#66d9ef">returnhere</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">edx</span>,<span style="color:#ae81ff">7</span><span style="color:#66d9ef">FFFFFFF</span>
+</span></span><span style="display:flex;"><span>originalcode:
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sub</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">60</span>],<span style="color:#66d9ef">edx</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">; 方案二：直接把敌人血量清零
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">cmp</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">60</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">10</span>],<span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">je</span> <span style="color:#66d9ef">returnhere</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mov</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">60</span>],<span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>它落地成了这样，挂在 <code>0x100042D10</code>，跳到 <code>.text</code> 尾部的代码洞 <code>0x10023BB18</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">48</span> <span style="color:#960050;background-color:#1e0010">89</span> <span style="color:#a6e22e">C8</span>                 <span style="color:#66d9ef">mov</span>  <span style="color:#66d9ef">rax</span>, <span style="color:#66d9ef">rcx</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">83</span> <span style="color:#960050;background-color:#1e0010">78</span> <span style="color:#960050;background-color:#1e0010">70</span> <span style="color:#960050;background-color:#1e0010">00</span>              <span style="color:#a6e22e">cmp</span> <span style="color:#66d9ef">dword</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x70</span>], <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">75</span> <span style="color:#960050;background-color:#1e0010">03</span>                    <span style="color:#a6e22e">jne</span> <span style="color:#66d9ef">enemy</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">C3</span>                       <span style="color:#66d9ef">ret</span>                <span style="color:#75715e">; 玩家：一刀不挨
@@ -303,248 +377,40 @@
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">29</span> <span style="color:#960050;background-color:#1e0010">50</span> <span style="color:#960050;background-color:#1e0010">60</span>                 <span style="color:#a6e22e">sub</span> <span style="color:#66d9ef">dword</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x60</span>], <span style="color:#66d9ef">edx</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">C7</span> <span style="color:#ae81ff">40</span> <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>     <span style="color:#66d9ef">mov</span> <span style="color:#66d9ef">dword</span> [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x60</span>], <span style="color:#ae81ff">0</span>   <span style="color:#75715e">; 敌人：一枪秒
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">C3</span>                       <span style="color:#66d9ef">ret</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">; 挂在共享扣血函数 0x100042D10 上
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">E9</span> <span style="color:#ae81ff">03</span> <span style="color:#ae81ff">8</span><span style="color:#66d9ef">E</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">F</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">90</span> <span style="color:#ae81ff">90</span>     <span style="color:#66d9ef">jmp</span> <span style="color:#ae81ff">0x10023BB18</span>
-</span></span></code></pre></div><p><img src="/images/ce-ai-agent/step2-two-enemies.png" alt="第二关：两个敌人，左边绿条、右边蓝条" class="post-img post-img-normal" width="1600" height="1200" loading="lazy"></p>
-<p>但这段代码装上去之后，窗口标题变成了 <code>Step 2 (Integrity check error)</code>，整个战斗循环冻结 —— 子弹穿过敌人不扣血。<strong>所以那个&quot;打不中右边敌人&quot;的现象，根本不是瞄准问题，是它自己把游戏打坏了。</strong></p>
-<p>这个坑当时没被认出来，它还以为是自己算的偏角不对，花了很多轮去调瞄准几何。真正的判断只需要一句：<strong>改完代码先看窗口标题和游戏还在不在跑，再去怀疑自己的数学。</strong></p>
-<p>第二件是<strong>最后真正通关的那条路</strong> —— 完全不注入代码，只用结构扫描找到三个实体，直接改血量。这条路是第七次尝试，下面第五节讲。</p>
-<hr>
-<h2 id="二ai-为什么需要这个工具">
-<a class="header-anchor" href="#%e4%ba%8cai-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e8%bf%99%e4%b8%aa%e5%b7%a5%e5%85%b7"></a>
-二、AI 为什么需要这个工具
-</h2><p>AI 做内存分析有一个很具体的困难：<strong>它看不见进程</strong>。</p>
-<p>它能写代码、能推汇编、能讲清楚一个 setter 每帧做了什么，但它没有办法自己按一下&quot;扫描&quot;。所有结论都得靠人转述，于是就变成了&quot;我说你猜&quot;。</p>
-<p>把它接到 CE 上，这个断层就没了。AI 可以自己：</p>
-<pre tabindex="0"><code>扫描 → 得到候选 → 打一枪 → 再扫描 → 收窄 → 下断点 → 读寄存器 → 反汇编 → 注入
-</code></pre><p>整条链路闭环。这两关就是这么打下来的。</p>
-<h3 id="54-个工具覆盖什么">
-<a class="header-anchor" href="#54-%e4%b8%aa%e5%b7%a5%e5%85%b7%e8%a6%86%e7%9b%96%e4%bb%80%e4%b9%88"></a>
-54 个工具覆盖什么
-</h3><p>从&quot;扫一个数值&quot;到&quot;注入代码区分敌我&quot;，分十组：</p>
-<table>
-  <thead>
-      <tr>
-          <th>分组</th>
-          <th>干什么</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>进程（4）</td>
-          <td>附加进程、白名单、模块段查询</td>
-      </tr>
-      <tr>
-          <td>读取（4）</td>
-          <td>单值读、<strong>64 KiB 批量读</strong></td>
-      </tr>
-      <tr>
-          <td>扫描（6）</td>
-          <td>精确/范围/未知值基线、实时收窄、结果分页、stale 检测</td>
-      </tr>
-      <tr>
-          <td>分析（11）</td>
-          <td>反汇编、指针链、<strong>按结构形状扫全窗口</strong>、xref</td>
-      </tr>
-      <tr>
-          <td>写入（6）</td>
-          <td>带乐观锁的写、写只读页</td>
-      </tr>
-      <tr>
-          <td>断点（10）</td>
-          <td>硬件写断点、重装、命中记录、寄存器快照</td>
-      </tr>
-      <tr>
-          <td>假设与标定（6）</td>
-          <td>假设登记、锚点标定</td>
-      </tr>
-      <tr>
-          <td>候选集（5）</td>
-          <td>分页取候选、实时值对照</td>
-      </tr>
-      <tr>
-          <td>因果探针（1）</td>
-          <td>动作前后对照</td>
-      </tr>
-      <tr>
-          <td>审计（1）</td>
-          <td>操作留痕</td>
-      </tr>
-  </tbody>
-</table>
-<p>完整参数和错误码在仓库的 <code>docs/tools.md</code>。</p>
-<h3 id="四个值得单独说的设计">
-<a class="header-anchor" href="#%e5%9b%9b%e4%b8%aa%e5%80%bc%e5%be%97%e5%8d%95%e7%8b%ac%e8%af%b4%e7%9a%84%e8%ae%be%e8%ae%a1"></a>
-四个值得单独说的设计
-</h3><p><strong>1. <code>scan_results</code> 会告诉你哪些结果已经不能信了</strong></p>
-<p>每次返回都带 <code>live</code> / <code>staleReason</code> / <code>changedSinceScan</code>。所以 AI 不可能拿一份过期的快照去收窄 —— 那正是它踩过最深的坑之一。</p>
-<p><strong>2. 写入有乐观锁</strong></p>
-<p><code>write</code> 要 <code>expect</code>，<code>write_bytes</code> 要 <code>expectHex</code>。值被外部改动时明确报 stale，而不是&quot;写入成功&quot;然后骗你。</p>
-<p>这不是洁癖。没有它，你永远无法区分&quot;我改成功了&quot;和&quot;我改的那一刻它已经变了&quot;。</p>
-<p><strong>3. 断点会先自检</strong></p>
-<p><code>bps_arm</code> 默认先跑 <code>debugPathWorks(probeThreadId)</code> 探针。调不通就直接报错，不允许你带着&quot;断点应该在工作&quot;的假前提继续推理。</p>
+</span></span></code></pre></div><p>几个细节值得记：</p>
+<ul>
+<li><strong>必须用 <code>[rax+0x70]</code>，不能用 <code>[rax+0x24]</code>。</strong> 后者是 float，<code>cmp dword</code> 比的是位模式 <code>0x3E51EB85</code>，永远不相等。</li>
+<li>函数后面只有 <strong>9 字节</strong>连续零，装不下注入体，所以必须跳跃到代码洞。</li>
+<li><code>jne</code> 的位移是 3，不是 2。</li>
+</ul>
+<p>装上之后，左敌一枪就死。</p>
+<p><img src="/images/ce-ai-agent/step2-left-enemy-dead.png" alt="左边敌人已死亡，右边敌人还在" class="post-img post-img-normal" width="1600" height="1200" loading="lazy"></p>
+<h3 id="第四步这里我们俩一起走错了一次">
+<a class="header-anchor" href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e8%bf%99%e9%87%8c%e6%88%91%e4%bb%ac%e4%bf%a9%e4%b8%80%e8%b5%b7%e8%b5%b0%e9%94%99%e4%ba%86%e4%b8%80%e6%ac%a1"></a>
+第四步：这里我们俩一起走错了一次
+</h3><p>装完注入之后，右敌怎么打都打不中。AI 花了很多轮去调瞄准几何 —— 它算出来右敌在 x966 / y0..213，玩家在 x799 / y984..1169，水平差 167 像素、垂直差 985 像素，需要 9.6° 偏角，说&quot;垂直上飞的子弹永远打不到&rdquo;。</p>
+<p>这套计算本身没错，但方向完全错了。</p>
+<p>真相是：<strong>注入之后窗口标题变成了 <code>Step 2 (Integrity check error)</code>，整个战斗循环已经冻结了。</strong> 子弹穿过敌人不扣血，敌方开火也无效。它一直在给一个已经死掉的游戏做几何分析。</p>
+<p>这是我事后和它一起复盘时才认出来的。<strong>代价是白跑了很多轮。</strong></p>
 <blockquote>
-<p>这一条是被一个 bug 打出来的：<code>bps_arm</code> 少调了一次 <code>debugProcess()</code>，导致断点永远 0 命中，而它得出了&quot;这台机器不支持硬件断点&quot;这个完全错误的结论，并绕了很久。修好之后同一次会话抓到 <strong>82 次命中</strong>。</p>
-</blockquote>
-<p><strong>4. 抓帧会先确认没被挡住</strong></p>
-<p><code>BitBlt</code> 是从<strong>屏幕</strong>取像素的（这个构建上 <code>PrintWindow</code> 全黑）。而&quot;处于前台&quot;只说明输入队列指向它，不说明它没被遮挡 —— 一个悬浮层、一条通知、另一个置顶窗口，都会进到截图里。</p>
-<p>有一次&quot;抓通关截图&quot;，实际存下来的是一张<strong>聊天窗口</strong>。补上的是：遍历 z 序，看客户区矩形上有几个别的可见窗口，有就<strong>拒绝保存并删掉旧图</strong>。</p>
-<p>一张自洽的错图比没有图更危险，因为下游全都信它。</p>
-<hr>
-<h2 id="三安装">
-<a class="header-anchor" href="#%e4%b8%89%e5%ae%89%e8%a3%85"></a>
-三、安装
-</h2><p>不需要管理员权限。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># 在解压后的目录里执行</span>
-</span></span><span style="display:flex;"><span>powershell -ExecutionPolicy Bypass <span style="color:#f92672">-File</span> install.ps1
-</span></span></code></pre></div><p>脚本做三件事：</p>
-<ol>
-<li>自动找到 Cheat Engine（Program Files / 注册表 / 运行中的进程三条路）</li>
-<li>把 <code>ce_ai_bridge.lua</code> 放进 CE 的 <code>autorun/</code> 目录 —— CE 一启动桥就在</li>
-<li>生成 MCP 配置片段，粘进你客户端即可</li>
-</ol>
-<p>装完之后<strong>不需要手动进入 CE 界面做任何操作</strong>，管道 <code>\\.\pipe\CE_AI_Bridge_v1_0</code> 就在那里。</p>
-<p>配置 MCP 客户端（以通用 JSON 为例）：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cheat-engine&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;python&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;&lt;安装目录&gt;/mcp/ce_mcp_server.py&#34;</span>]
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="结构">
-<a class="header-anchor" href="#%e7%bb%93%e6%9e%84"></a>
-结构
-</h3><pre tabindex="0"><code>CheatEngine-AI-Agent/
-├─ install.ps1              ← 一键安装（无需管理员）
-├─ ce/ce_ai_bridge.lua      ← CE 内执行层，autorun 自动加载
-│  ce/v2_*.lua              ← 策略 / 断点 / 指令 / 因果四个模块
-├─ mcp/ce_mcp_server.py     ← MCP 服务端，54 个工具
-├─ docs/
-│  ├─ tools.md              ← 54 个工具的完整参数与错误码
-│  ├─ walkthrough.md        ← 实战记录：换弹死局、注入、以及所有失败
-│  └─ skills.md             ← 15 个技能的索引与来历
-└─ skills/
-   ├─ game-memory-hunting/  ← 自研：定位字段的铁律
-   ├─ game-vision/          ← 自研：从像素读状态的铁律
-   └─ skills-vendor/        ← 13 个上游技能（MIT，附 LICENSE）
-</code></pre><pre tabindex="0"><code>AI 客户端 ──stdio/JSON-RPC──▶ ce_mcp_server.py
-                                    │ 命名管道
-                                    ▼
-                            ce_ai_bridge.lua（CE 进程内）
-                                    │
-                                    ▼
-                              目标进程内存
-</code></pre><hr>
-<h2 id="四六次自信的错误">
-<a class="header-anchor" href="#%e5%9b%9b%e5%85%ad%e6%ac%a1%e8%87%aa%e4%bf%a1%e7%9a%84%e9%94%99%e8%af%af"></a>
-四、六次自信的错误
-</h2><p>下面这六件事，每一件在当时都有&quot;实测证据&quot;支撑。</p>
-<h3 id="错误一以为五下打死等于血量是-5">
-<a class="header-anchor" href="#%e9%94%99%e8%af%af%e4%b8%80%e4%bb%a5%e4%b8%ba%e4%ba%94%e4%b8%8b%e6%89%93%e6%ad%bb%e7%ad%89%e4%ba%8e%e8%a1%80%e9%87%8f%e6%98%af-5"></a>
-错误一：以为&quot;五下打死&quot;等于&quot;血量是 5&quot;
-</h3><p>这是最开始的一步，也是最贵的一步。</p>
-<p>观察到的现象：靶子被打五下就死。于是整个搜索都围绕&quot;血量 = 5&quot;展开 —— 扫 5、扫减少、扫 4、3、2、1。</p>
-<p>而真实情况是：靶子满血 188 像素，每发子弹扣 46 像素，<strong>188 ÷ 46 ≈ 4.09</strong>。也就是说它最多能挨 <strong>4 发</strong>，第 5 发是溢出伤害。血量根本不是 5。</p>
-<p>这个错误的代价不在于数字错了，在于<strong>它把后面每一次扫描的假设都污染了</strong>。所有&quot;扫 5 打一枪变 4&quot;的搜索，都是在找一个不存在的东西。</p>
-<blockquote>
-<p><strong>教训</strong>：屏幕上&quot;打五下死&quot;是视觉效果，不是数值。看到&quot;N 下死&quot;，第一反应应该是&quot;每下伤害多少&quot;，而不是&quot;血量是 N&quot;。</p>
-</blockquote>
-<h3 id="错误二以为-decreased-是个好过滤器">
-<a class="header-anchor" href="#%e9%94%99%e8%af%af%e4%ba%8c%e4%bb%a5%e4%b8%ba-decreased-%e6%98%af%e4%b8%aa%e5%a5%bd%e8%bf%87%e6%bb%a4%e5%99%a8"></a>
-错误二：以为 <code>decreased</code> 是个好过滤器
-</h3><p>用 unknown 基线扫出 3300 万个候选，打一枪，筛 <code>decreased</code>。</p>
-<p>筛完还剩 11 万。</p>
-<p>这看上去是巨大的进步 —— 砍掉了 99.6%。但<strong>帧计数器、粒子计时器、动画时钟、分配器记账，全都在递减</strong>。它们永远满足 <code>decreased</code>。这个过滤器在物理上无法排除它们，因为它们的定义就是&quot;一直变小&quot;。</p>
-<p>真正把候选砍掉 98% 的，是一次偶然的正确操作：</p>
-<pre tabindex="0"><code>33,632,256  unknown 基线
-  → 116,873  打一枪 decreased
-  →   2,183  跨换弹 increased     ← 这一步砍掉 98%
-  →      31  值落在 100..250
-</code></pre><p><strong>跨换弹的 <code>increased</code></strong> —— 因为换弹会把靶子治回满血，只有真正跟血量挂钩的字段才会在这里变大。计时器们在这一步全军覆没。</p>
-<blockquote>
-<p><strong>教训</strong>：<code>decreased</code> 筛不掉计时器。一个方向的过滤永远只有一半视野，能筛掉单调递减量的过滤器，是&quot;跨事件的 increased&quot;，不是&quot;事件后的 decreased&quot;。</p>
-</blockquote>
-<h3 id="错误三以为收窄可以用扫描器自己的比较">
-<a class="header-anchor" href="#%e9%94%99%e8%af%af%e4%b8%89%e4%bb%a5%e4%b8%ba%e6%94%b6%e7%aa%84%e5%8f%af%e4%bb%a5%e7%94%a8%e6%89%ab%e6%8f%8f%e5%99%a8%e8%87%aa%e5%b7%b1%e7%9a%84%e6%af%94%e8%be%83"></a>
-错误三：以为收窄可以用扫描器自己的比较
-</h3><p>这一步的错误非常隐蔽，代码看起来完全正确。</p>
-<p>扫描器记录候选地址时，同时记录了一份&quot;当时的值&quot;。收窄的时候，它拿<strong>记录的值</strong>和新扫描做比较。但 <code>read</code> 命令返回的是<strong>实时值</strong>。</p>
-<p>所以两次扫描之间发生变化的字段，会主导幸存集 —— 而不是它真正想找的那个字段。</p>
-<p>结果就是&quot;假收敛&quot;：候选数量一路漂亮地掉到 30 个、20 个，看起来收敛得非常好，但那 30 个和血量毫无关系。</p>
-<p>修法只有一条：<strong>收窄必须用实时读</strong>（分页拉出 <code>scan_results</code> → 逐地址 <code>read</code> → 只保留 live 且等于目标值的）。</p>
-<blockquote>
-<p><strong>教训</strong>：任何&quot;快照 + 比较&quot;的收窄都在赌&quot;期间没变&quot;。而在一个每帧都在跑的进程里，这个赌注必输。</p>
-</blockquote>
-<h3 id="错误四把-float-和-dword-搞反了还连着搞反了六轮">
-<a class="header-anchor" href="#%e9%94%99%e8%af%af%e5%9b%9b%e6%8a%8a-float-%e5%92%8c-dword-%e6%90%9e%e5%8f%8d%e4%ba%86%e8%bf%98%e8%bf%9e%e7%9d%80%e6%90%9e%e5%8f%8d%e4%ba%86%e5%85%ad%e8%bd%ae"></a>
-错误四：把 float 和 dword 搞反了，还连着搞反了六轮
-</h3><p>这是最折磨人的一个。</p>
-<p>第一关的血量，它找过 float、找过 dword、找过双向、找过比例区间 <code>0..1</code>，六轮全空。每一轮都很&quot;收敛&quot;，每一轮写进去都不生效。</p>
-<p>真实答案是：血量是<strong>普通 32 位整数</strong>，就在 <code>0x167BF50</code>，从一开始就在有界窗口里面。而它一直在测的类型是 float —— 一个整数地址，用 float 去扫，永远不可能命中。</p>
-<p>它甚至一度得出了&quot;血量不是任何可达堆窗口里能跟随显示的普通 dword&quot;这个结论，并写进了文档。这个结论是<strong>错的</strong>，而且它当时非常有信心。</p>
-<p>真正的结构是这样的：</p>
-<pre tabindex="0"><code>0x167BF50   dword   health          ← 权威值（整数）
-0x167BF54   dword   health max      ← 除数 100
-0x167C1B0   float   显示值           ← 血条画的就是这个
-</code></pre><p>而那个 <code>0x167C1B0</code>（float 76.0）—— 它曾经很兴奋地以为自己找到了血量，因为<strong>写 38.0，血条立刻从 142 像素掉到 72 像素，正好一半</strong>。看起来完美。</p>
-<p>但写 0.0、锁 201 次、持续 4.8 秒，游戏<strong>不判定死亡</strong>。打一枪，值自己跳回 76.0。</p>
-<p>因为那个 setter 长这样：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE20</span>  <span style="color:#ae81ff">48</span> <span style="color:#ae81ff">89</span> <span style="color:#66d9ef">C8</span>              <span style="color:#66d9ef">mov</span>  <span style="color:#66d9ef">rax</span>, <span style="color:#66d9ef">rcx</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE23</span>  <span style="color:#ae81ff">89</span> <span style="color:#ae81ff">50</span> <span style="color:#ae81ff">70</span>              <span style="color:#66d9ef">mov</span>  [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x70</span>], <span style="color:#66d9ef">edx</span>      <span style="color:#75715e">; this-&gt;n = arg
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE2D</span>  <span style="color:#66d9ef">F2</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">F</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">A</span> <span style="color:#ae81ff">40</span> <span style="color:#ae81ff">70</span>        <span style="color:#66d9ef">cvtsi2sd</span> <span style="color:#66d9ef">xmm0</span>, [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x70</span>]
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE32</span>  <span style="color:#66d9ef">F2</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">F</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">A</span> <span style="color:#ae81ff">48</span> <span style="color:#ae81ff">74</span>        <span style="color:#66d9ef">cvtsi2sd</span> <span style="color:#66d9ef">xmm1</span>, [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x74</span>] <span style="color:#75715e">; max
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE37</span>  <span style="color:#66d9ef">F2</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">F</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">E</span> <span style="color:#66d9ef">C1</span>           <span style="color:#66d9ef">divsd</span>  <span style="color:#66d9ef">xmm0</span>, <span style="color:#66d9ef">xmm1</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE3B</span>  <span style="color:#66d9ef">F2</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">F</span> <span style="color:#ae81ff">59</span> <span style="color:#ae81ff">05</span> <span style="color:#66d9ef">...</span>       <span style="color:#66d9ef">mulsd</span>  <span style="color:#66d9ef">xmm0</span>, [<span style="color:#66d9ef">x100.0</span>]
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#a6e22e">x10003EE4B</span>  <span style="color:#66d9ef">F3</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">F</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">40</span> <span style="color:#ae81ff">50</span>        <span style="color:#66d9ef">movss</span>  [<span style="color:#66d9ef">rax</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">0x50</span>], <span style="color:#66d9ef">xmm0</span>   <span style="color:#75715e">; 目标-&gt;hp = n/max*100
-</span></span></span></code></pre></div><p><code>显示值 = health / health_max * 100.0</code>。<strong>它每帧都被重算一遍。</strong> 血条跟着它变，是因为游戏拿它在画血条，不是因为它就是血量的权威。</p>
-<blockquote>
-<p><strong>教训</strong>：一个能被你改、而且画面立刻有反应的地址，不等于它是源头。要问的是&quot;谁每帧在写它&quot;。<strong>能改 ≠ 有用。</strong></p>
-<p>另一个教训更硬：<strong>类型假设决定成败</strong>。整数地址用 float 扫，是零概率命中的搜索，而它看起来和正常搜索一模一样。</p>
-</blockquote>
-<h3 id="错误五把断点在这台机器上不可用当成事实">
-<a class="header-anchor" href="#%e9%94%99%e8%af%af%e4%ba%94%e6%8a%8a%e6%96%ad%e7%82%b9%e5%9c%a8%e8%bf%99%e5%8f%b0%e6%9c%ba%e5%99%a8%e4%b8%8a%e4%b8%8d%e5%8f%af%e7%94%a8%e5%bd%93%e6%88%90%e4%ba%8b%e5%ae%9e"></a>
-错误五：把&quot;断点在这台机器上不可用&quot;当成事实
-</h3><p>中间有很长时间，它认定硬件断点在这个环境彻底废了。证据看起来很硬：</p>
-<pre tabindex="0"><code>breakpoints: {&#39;0x167C1B0&#39;: {...}}
-hitCount: 0
-</code></pre><p>断点装上了，读数永远是 0。它试了提权、试了换目标、试了另一种触发方式，全部 0 命中。于是写进了文档：&quot;<code>debug_breakThread</code> 停不住目标 ⇒ 断点路线封死&quot;。</p>
-<p>真因是两行代码：</p>
-<pre tabindex="0"><code>bps_arm          从不调用 debugProcess()
-set_breakpoint   会调用 debugProcess()
-</code></pre><p>不调 <code>debugProcess()</code>，断点只是&quot;登记&quot;了，调试器根本没挂上去，所以永远不可能触发。改掉之后：</p>
-<pre tabindex="0"><code>armed 1 times
-bp2.hits = 82
-</code></pre><p><strong>82 次命中。</strong> 之前所有&quot;0 命中&quot;的结论，全部作废。</p>
-<blockquote>
-<p><strong>教训</strong>：&ldquo;这个功能不支持&quot;是个非常危险的结论，它会让后面所有工作绕开一个其实可用的工具。下这个结论之前，必须先证明&quot;我调用它的方式是完整的&rdquo;。</p>
-</blockquote>
-<h3 id="错误六以为写进去就留住了">
-<a class="header-anchor" href="#%e9%94%99%e8%af%af%e5%85%ad%e4%bb%a5%e4%b8%ba%e5%86%99%e8%bf%9b%e5%8e%bb%e5%b0%b1%e7%95%99%e4%bd%8f%e4%ba%86"></a>
-错误六：以为写进去就留住了
-</h3><p><code>write</code> 返回 <code>verified: true</code>，它一度以为这就成功了。</p>
-<p>不是。<code>verified: true</code> 只证明<strong>这个字节落到了内存里并且回读一致</strong>，它从不证明<strong>游戏会保留这个值</strong>。</p>
-<p>真实案例：<code>0x6EF0129</code> 等一批 <code>0x210</code> 步长的对象数组，20 个槽全部写 0，<code>verified: true</code> × 20 —— 血条纹丝不动。因为它是副本，游戏每帧从源头重新拷一遍。写单槽更直接：写进去 432430，立刻被覆盖成 540163（正好是下一个槽的值，说明整个数组在被批量刷新）。</p>
-<blockquote>
-<p><strong>教训</strong>：<code>verified</code> 是存储层的保证，不是语义层的保证。写完必须<strong>观察一段时间</strong>，确认它没被还原，才算数。</p>
+<p>如果重来，判断只需要一句：<strong>改完代码先看窗口标题和游戏还在不在跑，再去怀疑自己的数学。</strong></p>
 </blockquote>
 <hr>
-<h2 id="五第七次换一个问法两个小时变一秒">
-<a class="header-anchor" href="#%e4%ba%94%e7%ac%ac%e4%b8%83%e6%ac%a1%e6%8d%a2%e4%b8%80%e4%b8%aa%e9%97%ae%e6%b3%95%e4%b8%a4%e4%b8%aa%e5%b0%8f%e6%97%b6%e5%8f%98%e4%b8%80%e7%a7%92"></a>
-五、第七次：换一个问法，两个小时变一秒
-</h2><p>前面六次错误全在同一条路上 —— <strong>按值筛</strong>：扫一个数，打一枪，看哪个数变小了，再打一枪，再筛。</p>
-<p>这条路能走通（第一关就是它通的），但它有一个成本结构上的死结：值在变的东西太多了。计时器、帧计数、每个对象里十几个浮点参数，全都跟着屏幕在动。而且每轮收窄都要跨几十万次管道往返，收敛到几十个候选之后还得<strong>逐个写入、截图、看血条</strong> —— 189 个候选试到第 120 个的时候，游戏进程被拖死了。</p>
-<p>真正的转机是把问题<strong>换了一个问法</strong>：</p>
+<h2 id="四真正的突破口把找血量换成找一对血量">
+<a class="header-anchor" href="#%e5%9b%9b%e7%9c%9f%e6%ad%a3%e7%9a%84%e7%aa%81%e7%a0%b4%e5%8f%a3%e6%8a%8a%e6%89%be%e8%a1%80%e9%87%8f%e6%8d%a2%e6%88%90%e6%89%be%e4%b8%80%e5%af%b9%e8%a1%80%e9%87%8f"></a>
+四、真正的突破口：把&quot;找血量&quot;换成&quot;找一对血量&quot;
+</h2><p>几个小时的原地打转之后，问题出在一个思路上。</p>
+<p>前面所有尝试都在<strong>按值筛</strong>：扫一个数、打一枪、看哪个数变小、再打一枪、再筛。</p>
+<p>这条路能走通，但有个死结：<strong>值在变的东西太多了</strong>。计时器、帧计数、每个对象里十几个浮点参数，全都在动。而且每轮收窄要跨几十万次管道往返，收敛到几十个候选之后还得逐个写入、截图、看血条 —— 有一次 189 个候选试到第 120 个，游戏被拖死了。</p>
+<p>转机是把问题<strong>换了一个问法</strong>：</p>
 <blockquote>
 <p>不要问&quot;哪些值在按血条的方向变化&quot;，要问&quot;<strong>哪些相邻的两个数长得像一对血量</strong>&quot;。</p>
 </blockquote>
-<p>血量在实体结构里长这样：</p>
+<p>血量在结构里是这样的：</p>
 <pre tabindex="0"><code>+0x00  hp    当前血量
 +0x04  max   血量上限
-</code></pre><p>这两个 dword 相邻，而且必然满足 <code>hp &lt;= max</code>。这不是数值规律，是<strong>逻辑约束</strong> —— 计时器、帧计数、浮点参数都不会&quot;碰巧&quot;满足它。</p>
-<p>于是扫描从&quot;逐地址问回来&quot;变成&quot;在 CE 内部一次扫完整个窗口&quot;，64 KiB 一个块，块内本地解析。实测（4 MB 窗口）：</p>
+</code></pre><p>相邻，而且必然满足 <code>hp &lt;= max</code>。这不是数值规律，是<strong>逻辑约束</strong> —— 计时器、帧计数、浮点参数都不会&quot;碰巧&quot;满足它。</p>
+<p>于是扫描从&quot;逐地址问回来&quot;变成&quot;在 CE 内部一次扫完整个窗口&quot;。实测（4 MB 窗口）：</p>
 <table>
   <thead>
       <tr>
@@ -561,84 +427,142 @@ bp2.hits = 82
           <td>再加 <code>hp &lt;= max</code></td>
           <td><strong>6</strong></td>
       </tr>
+      <tr>
+          <td>耗时</td>
+          <td><strong>0.9 秒，一次调用，没有开过一枪</strong></td>
+      </tr>
   </tbody>
 </table>
-<p><strong>一个约束砍掉 26 倍，被砍掉的全是 <code>hp=301925169 max=100</code> 这种明显垃圾，三个真实体一个没丢，耗时 0.9 秒。</strong></p>
-<p>而且这一秒里<strong>没有开过一枪</strong>。差分需要靠动作推进，形状扫描不需要 —— 这是它最大的优势。</p>
+<p><strong>一个约束砍掉 26 倍，被砍掉的全是 <code>hp=301925169 max=100</code> 这种明显垃圾，三个真实体一个没丢。</strong></p>
 <h3 id="顺带纠正一个更早的错误">
 <a class="header-anchor" href="#%e9%a1%ba%e5%b8%a6%e7%ba%a0%e6%ad%a3%e4%b8%80%e4%b8%aa%e6%9b%b4%e6%97%a9%e7%9a%84%e9%94%99%e8%af%af"></a>
 顺带纠正一个更早的错误
-</h3><p>之前在同一个窗口里用<strong>虚表指针</strong>筛实体：找 <code>vtable == 0x002b4478</code> 的对象。结果只找到 2 个，右敌始终找不到，于是得出了&quot;右敌可能不在这个窗口里&quot;的结论。</p>
-<p><strong>这个结论是错的。</strong> 换成形状判据之后，三个实体一次全部出现：</p>
+</h3><p>之前 AI 在同一个窗口里用<strong>虚表指针</strong>筛实体，只找到 2 个，右敌始终不出现，于是写下了&quot;右敌可能不在这个窗口里&quot;。</p>
+<p><strong>它一直都在。</strong> 换成形状判据之后，三个实体一次全部出来：</p>
 <pre tabindex="0"><code>0x015E4B70  hp=200  max=200   ← 敌人 1
 0x015E4CB0  hp=100  max=100   ← 玩家
 0x015E4D10  hp=200  max=200   ← 敌人 2
-</code></pre><p>间距 <code>0x140</code> 和 <code>0xA0</code> 跟历史记录完全一致。<strong>它一直都在，是判据错了。</strong></p>
-<p>教训很干净：<strong>用会变的东西当锚点，就是给自己埋坑</strong>。虚表值可能因为多态、不同工厂而不同；而 <code>hp &lt;= max</code> 是游戏逻辑本身决定的，不随实现变化。</p>
-<h3 id="还有一个静默失败批量读不是优化是必需">
-<a class="header-anchor" href="#%e8%bf%98%e6%9c%89%e4%b8%80%e4%b8%aa%e9%9d%99%e9%bb%98%e5%a4%b1%e8%b4%a5%e6%89%b9%e9%87%8f%e8%af%bb%e4%b8%8d%e6%98%af%e4%bc%98%e5%8c%96%e6%98%af%e5%bf%85%e9%9c%80"></a>
-还有一个静默失败：批量读不是优化，是必需
-</h3><p>用 <code>read_memory</code> 一次读一个值去走完 4 MB，是一百万次往返。这不是&quot;慢一点&quot;：</p>
-<ol>
-<li>任何工具超时都跑不完（实测 3 分钟没动）；</li>
-<li>每次往返都在目标进程上做一次读 —— <strong>实测把游戏轮询到崩溃过</strong>。</li>
-</ol>
-<p>所以桥里必须有 64 KiB 的批量读。有个细节值得写下来：返回里必须<strong>分别报告&quot;请求了多少&quot;和&quot;实际读到多少&quot;</strong>，因为跨页会提前停。按请求长度推进的话，每一页边界都会变成一个静默的数据黑洞 —— 而且它不会报错，只会让扫描结果悄悄少一块。</p>
-<h3 id="真正通关的写法">
-<a class="header-anchor" href="#%e7%9c%9f%e6%ad%a3%e9%80%9a%e5%85%b3%e7%9a%84%e5%86%99%e6%b3%95"></a>
-真正通关的写法
-</h3><p>三个实体一次全找到之后，剩下的事就没有悬念了：</p>
+</code></pre><p>间距 <code>0x140</code> 和 <code>0xA0</code> 跟历史记录完全一致。</p>
+<p>教训很干净：<strong>用会变的东西当锚点，就是给自己埋坑。</strong> 虚表值可能因为多态、不同工厂而不同；<code>hp &lt;= max</code> 是游戏逻辑本身决定的，不随实现变化。</p>
+<h3 id="最后一步">
+<a class="header-anchor" href="#%e6%9c%80%e5%90%8e%e4%b8%80%e6%ad%a5"></a>
+最后一步
+</h3><p>三个实体到手之后，就没有悬念了。玩家血量上限和当前值都写 100000，两个敌人的血量和上限都写 1：</p>
 <pre tabindex="0"><code>before: E1=200  PL=100  E2=200
-player max → 100000   verified
-player hp  → 100000   verified
-E1 hp / max → 1 / 1   verified ×2
-E2 hp / max → 1 / 1   verified ×2
 after:  E1=1  PL=100000  E2=1
-</code></pre><p>这里有个细节：<strong>两个敌人必须同时改</strong>。只改一个的话，幸存的那个会拿到伤害加成，反而更危险。</p>
+</code></pre><p>有个细节：<strong>两个敌人必须同时改。</strong> 只改一个的话，幸存的那个会拿到伤害加成，反而更危险。</p>
 <p>通关画面上的红字是 <code>Player Health: 99984</code> —— 锁血生效了，只是掉了一点点。<strong>没有注入、没有改 <code>.text</code>、没有完整性检测报错。</strong></p>
 <hr>
-<h2 id="六还债之前判错的部分以及它们后来怎么了">
-<a class="header-anchor" href="#%e5%85%ad%e8%bf%98%e5%80%ba%e4%b9%8b%e5%89%8d%e5%88%a4%e9%94%99%e7%9a%84%e9%83%a8%e5%88%86%e4%bb%a5%e5%8f%8a%e5%ae%83%e4%bb%ac%e5%90%8e%e6%9d%a5%e6%80%8e%e4%b9%88%e4%ba%86"></a>
-六、还债：之前判错的部分，以及它们后来怎么了
-</h2><p>必须写清楚，因为这个项目最容易被误解的地方就在这里。</p>
-<h3 id="右敌血量找不到">
-<a class="header-anchor" href="#%e5%8f%b3%e6%95%8c%e8%a1%80%e9%87%8f%e6%89%be%e4%b8%8d%e5%88%b0"></a>
-右敌血量&quot;找不到&quot;
-</h3><p>最初扫 <code>0x01500000..0x01640000</code>（1.4 MB），用虚表判据只找到 2 个实体（左敌尸体 + 玩家）。当时的记录是&quot;右敌从不出现在这个扫描里&quot;。</p>
-<p><strong>它一直都在。</strong> 换形状判据后三个实体一次全出来，位置和间距都对得上历史记录。这一条已经改掉了。</p>
-<p><img src="/images/ce-ai-agent/step2-left-enemy-dead.png" alt="左边敌人已死亡，右边敌人还在" class="post-img post-img-normal" width="1600" height="1200" loading="lazy"></p>
-<p>另外两个小坑，一并留着：</p>
-<ul>
-<li><code>0x015E4D50</code> 的 <code>+0x60</code> 确实在自然衰减（195 → 194 → 193&hellip;），但它和血条显示<strong>无关</strong>，不是它的血量。<strong>&ldquo;在变化&quot;和&quot;是它&quot;是两件事。</strong></li>
-<li>右敌血条是蓝色的，而当时用的像素判据只认绿色，所以一度&quot;看不见&quot;它 —— 这是工具的问题，不是游戏的问题。</li>
-</ul>
-<h3 id="那-9-字节的零填充">
-<a class="header-anchor" href="#%e9%82%a3-9-%e5%ad%97%e8%8a%82%e7%9a%84%e9%9b%b6%e5%a1%ab%e5%85%85"></a>
-那 9 字节的零填充
-</h3><p>装完注入后，扣血函数后面只有 9 字节连续零，根本不够放注入体，所以必须跳到代码洞 <code>0x10023BB18</code>（<code>.text</code> 尾部 1256 字节连续零）。这个跳跃本身引入了完整性检测的风险 —— 代价已经付出了，标题变了。</p>
-<p><strong>这条路不是可持续策略。</strong> 真正通关用的是结构扫描，不碰代码。</p>
-<h3 id="桥里一个死代码">
-<a class="header-anchor" href="#%e6%a1%a5%e9%87%8c%e4%b8%80%e4%b8%aa%e6%ad%bb%e4%bb%a3%e7%a0%81"></a>
-桥里一个死代码
-</h3><p><code>handlers.write</code> 里原本有一个&quot;只读页拒绝写&quot;的检查，但 CE 7.7 的 <code>virtualprotect</code> / <code>VirtualProtect</code> / <code>VirtualProtectEx</code> <strong>全是 nil</strong>，那段代码等于永远失败。已删掉，改由 <code>writeBytes</code> 自己做保护变更，用 <code>expectHex</code> 做真正的守卫。</p>
+<h2 id="五回头看这个协作是这样分工的">
+<a class="header-anchor" href="#%e4%ba%94%e5%9b%9e%e5%a4%b4%e7%9c%8b%e8%bf%99%e4%b8%aa%e5%8d%8f%e4%bd%9c%e6%98%af%e8%bf%99%e6%a0%b7%e5%88%86%e5%b7%a5%e7%9a%84"></a>
+五、回头看，这个协作是这样分工的
+</h2><p>把两关的每一步拆开看，分工其实非常清楚：</p>
+<table>
+  <thead>
+      <tr>
+          <th>环节</th>
+          <th>我做什么</th>
+          <th>AI 做什么</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>第一关：发现&quot;第 5 发回满血&quot;</td>
+          <td>打几枪、看出死局</td>
+          <td>实测血量像素，验证 188÷46≈4.09</td>
+      </tr>
+      <tr>
+          <td>第一关：换扫描方向</td>
+          <td>想起&quot;显示值和内存值不同向&quot;，定方向</td>
+          <td>按新方向扫，命中弹药字段</td>
+      </tr>
+      <tr>
+          <td>第一关：锁定</td>
+          <td>说&quot;锁在满弹对应的值上&quot;</td>
+          <td>执行并验证换弹不再触发</td>
+      </tr>
+      <tr>
+          <td>第二关：先锁自己</td>
+          <td>定优先级：&ldquo;先别被打死&rdquo;</td>
+          <td>扫了六轮全空</td>
+      </tr>
+      <tr>
+          <td>第二关：血量地址</td>
+          <td><strong>手动在 CE 里筛出 <code>0x167C1B0</code></strong></td>
+          <td>验证、发现它是显示副本、顺藤找出整数权威值</td>
+      </tr>
+      <tr>
+          <td>第二关：找共享代码</td>
+          <td>说&quot;敌我是共用代码的&quot;</td>
+          <td>下断点、抓到 80+ 次命中、反汇编出 <code>0x100042D10</code></td>
+      </tr>
+      <tr>
+          <td>第二关：区分敌我</td>
+          <td><strong>给出阵营字段 <code>+0x70</code>，我方 0 敌方 1</strong></td>
+          <td>验证 <code>+0x24</code> 是错的、定位三个结构体</td>
+      </tr>
+      <tr>
+          <td>第二关：注入代码</td>
+          <td><strong>给出两段汇编方案</strong></td>
+          <td>落地、算跳转位移、找代码洞</td>
+      </tr>
+      <tr>
+          <td>第二关：卡住时</td>
+          <td>一起复盘，认出是完整性检测</td>
+          <td>承认几何分析白跑</td>
+      </tr>
+      <tr>
+          <td>突破口</td>
+          <td>提出&quot;换成找一对血量&quot;</td>
+          <td>实现整窗扫描，159 → 6，0.9 秒</td>
+      </tr>
+  </tbody>
+</table>
+<p>看出来了吗 —— <strong>几乎每一个方向性的决定都是我给的，几乎每一个方向的验证都是它做的。</strong></p>
+<p>这就是它真实的定位：<strong>一个能在一秒内执行几十万次内存读的探索器，但它不知道自己在找什么。</strong></p>
 <hr>
-<h2 id="七15-个技能经验变成可复用的纪律">
-<a class="header-anchor" href="#%e4%b8%8315-%e4%b8%aa%e6%8a%80%e8%83%bd%e7%bb%8f%e9%aa%8c%e5%8f%98%e6%88%90%e5%8f%af%e5%a4%8d%e7%94%a8%e7%9a%84%e7%ba%aa%e5%be%8b"></a>
-七、15 个技能：经验变成可复用的纪律
-</h2><p>除了工具，还带 15 个技能。这是&quot;经验自进化&quot;的落地形式。</p>
-<p><strong>2 个是这两关打出来的</strong>（自研）：</p>
-<ul>
-<li><code>game-memory-hunting</code> —— 定位字段的铁律。比如&quot;只有跨换弹的 <code>increased</code> 能砍掉计时器&rdquo;、&ldquo;收窄必须用实时读&rdquo;、&quot;<code>verified: true</code> 不代表游戏保留了它&quot;、&quot;<strong>能按形状筛就别按数值筛</strong>&quot;。</li>
-<li><code>game-vision</code> —— 从像素读状态的铁律。比如&quot;<code>PrintWindow</code> 全黑时只能用屏幕 DC <code>BitBlt</code>&quot;、&ldquo;血条要有几何拒绝&rdquo;、&quot;<strong>前台不等于没被遮挡</strong>&quot;。</li>
+<h2 id="六ai-在这个过程中犯的错有个共同形状">
+<a class="header-anchor" href="#%e5%85%adai-%e5%9c%a8%e8%bf%99%e4%b8%aa%e8%bf%87%e7%a8%8b%e4%b8%ad%e7%8a%af%e7%9a%84%e9%94%99%e6%9c%89%e4%b8%aa%e5%85%b1%e5%90%8c%e5%bd%a2%e7%8a%b6"></a>
+六、AI 在这个过程中犯的错，有个共同形状
+</h2><p>现在讲坑，但只讲浓缩的那几条，因为它们全都指向同一件事。</p>
+<h3 id="它总是把相关当成因果">
+<a class="header-anchor" href="#%e5%ae%83%e6%80%bb%e6%98%af%e6%8a%8a%e7%9b%b8%e5%85%b3%e5%bd%93%e6%88%90%e5%9b%a0%e6%9e%9c"></a>
+它总是把&quot;相关&quot;当成&quot;因果&quot;
+</h3><ul>
+<li>数值&quot;五下死&quot; → 以为血量是 5</li>
+<li>字段&quot;在变小&quot; → 以为是血量</li>
+<li>血条&quot;跟着某个 float 变&quot; → 以为那是血量（其实是显示副本）</li>
+<li>断点&quot;读数 0&quot; → 以为这台机器不支持断点（其实只是少调了一次 <code>debugProcess()</code>）</li>
+<li>只找到 2 个实体 → 以为第 3 个在别处（其实是判据选错了）</li>
 </ul>
-<p><strong>13 个 vendored 自 <a href="https://github.com/gmh5225/awesome-game-security">awesome-game-security</a></strong>：反作弊架构、DMA、内核、图形 API hooking、移动端、引擎结构等技术地图。</p>
-<p>有一点必须说清楚：<strong>那 13 个技能是纯路由索引</strong>。它们上游指向的 <code>archive/</code> 正文快照有 18.6 GB，没有随仓库分发 —— 所以它们能告诉你&quot;这个方向该看什么&quot;，但<strong>不能当正文读</strong>。而且那是 awesome list，收录不代表技术可信，版本和环境都要自己验。</p>
+<p><strong>能立刻改变画面的东西，不等于源头；能被观察到在变化的东西，不等于就是它。</strong></p>
+<h3 id="它会把我调不通写成不支持">
+<a class="header-anchor" href="#%e5%ae%83%e4%bc%9a%e6%8a%8a%e6%88%91%e8%b0%83%e4%b8%8d%e9%80%9a%e5%86%99%e6%88%90%e4%b8%8d%e6%94%af%e6%8c%81"></a>
+它会把&quot;我调不通&quot;写成&quot;不支持&quot;
+</h3><p>中间有很长时间，它认定硬件断点在这个环境彻底废了，还写进了文档。真因只有两行代码：</p>
+<pre tabindex="0"><code>bps_arm          从不调用 debugProcess()
+set_breakpoint   会调用 debugProcess()
+</code></pre><p>不调 <code>debugProcess()</code>，断点只是&quot;登记&quot;了，调试器根本没挂上去。改掉之后同一次会话 <strong>80+ 次命中</strong>。</p>
+<p><strong>&ldquo;这个功能不支持&quot;是个非常危险的结论</strong> —— 它会让后面所有工作绕开一个其实可用的工具。</p>
+<h3 id="它写的-verified-true-不代表游戏保留了那个值">
+<a class="header-anchor" href="#%e5%ae%83%e5%86%99%e7%9a%84-verified-true-%e4%b8%8d%e4%bb%a3%e8%a1%a8%e6%b8%b8%e6%88%8f%e4%bf%9d%e7%95%99%e4%ba%86%e9%82%a3%e4%b8%aa%e5%80%bc"></a>
+它写的 <code>verified: true</code> 不代表游戏保留了那个值
+</h3><p><code>write</code> 返回成功，只证明字节落到了内存并且回读一致，<strong>从不证明游戏下一帧不会覆盖它</strong>。</p>
+<p>真实案例：一批 <code>0x210</code> 步长的对象数组，20 个槽全部写 0，<code>verified: true</code> × 20 —— 血条纹丝不动。因为它是副本，游戏每帧从源头重新拷一遍。</p>
+<h3 id="这四条的共同点">
+<a class="header-anchor" href="#%e8%bf%99%e5%9b%9b%e6%9d%a1%e7%9a%84%e5%85%b1%e5%90%8c%e7%82%b9"></a>
+这四条的共同点
+</h3><blockquote>
+<p><strong>它每次都找到了一个&quot;和现象相关&quot;的东西，并把相关性当成了因果。</strong></p>
+</blockquote>
+<p>而真正让它翻盘的，不是&quot;更努力地筛&rdquo;，是<strong>换了一个问法</strong>。从&quot;哪些值在按它的方向变&quot;换成&quot;哪些东西长得像一对血量&quot;。</p>
+<p>AI 答错的时候，往往不是不够努力，而是<strong>问错了问题</strong>。</p>
 <hr>
-<h2 id="八所以我把纪律变成了代码">
-<a class="header-anchor" href="#%e5%85%ab%e6%89%80%e4%bb%a5%e6%88%91%e6%8a%8a%e7%ba%aa%e5%be%8b%e5%8f%98%e6%88%90%e4%ba%86%e4%bb%a3%e7%a0%81"></a>
-八、所以我把纪律变成了代码
+<h2 id="七所以我们把这些纪律变成了代码">
+<a class="header-anchor" href="#%e4%b8%83%e6%89%80%e4%bb%a5%e6%88%91%e4%bb%ac%e6%8a%8a%e8%bf%99%e4%ba%9b%e7%ba%aa%e5%be%8b%e5%8f%98%e6%88%90%e4%ba%86%e4%bb%a3%e7%a0%81"></a>
+七、所以我们把这些纪律变成了代码
 </h2><p>这是这一轮里我认为最重要的一件事。</p>
-<p>如果我只是在提示词里写&quot;注意类型假设&quot;、&ldquo;注意假收敛&rdquo;、&ldquo;改完要观察&rdquo;，那没有任何意义 —— <strong>凡是模型可以选择不做的纪律，弱的模型一定会不做</strong>。</p>
+<p>如果只是在提示词里写&quot;注意类型假设&quot;、&ldquo;注意假收敛&rdquo;、&ldquo;改完要观察&rdquo;，那没有任何意义 —— <strong>凡是模型可以选择不做的纪律，弱的模型一定会不做</strong>。</p>
 <p>所以这些东西变成了工具本身的硬性约束：</p>
 <table>
   <thead>
@@ -654,15 +578,15 @@ after:  E1=1  PL=100000  E2=1
       </tr>
       <tr>
           <td>直接扫全地址空间</td>
-          <td>先查询模块段，扫描窗口限制在真实可写区（约 123 MB，而不是 1 亿候选）</td>
+          <td>先查模块段，窗口限在真实可写区（约 123 MB，不是 1 亿候选）</td>
       </tr>
       <tr>
-          <td><code>write</code> 成功就以为改成了</td>
+          <td>写完就以为改成了</td>
           <td><code>expect</code> / <code>expectHex</code> 乐观锁，值被外部改动就明确报 stale</td>
       </tr>
       <tr>
           <td>断点 0 命中还以为是环境问题</td>
-          <td><code>bps_arm</code> 默认先做 <code>debugPathWorks(probeThreadId)</code> 探针，调不通直接报错</td>
+          <td><code>bps_arm</code> 默认先做 <code>debugPathWorks</code> 探针，调不通直接报错</td>
       </tr>
       <tr>
           <td>抓帧抓到半帧就当真值</td>
@@ -682,27 +606,15 @@ after:  E1=1  PL=100000  E2=1
       </tr>
   </tbody>
 </table>
-<p>这些不是&quot;建议&quot;，是不满足就报错的接口契约。</p>
+<p>最后一条就是这次突破的产物。它现在是一个正式工具：<code>hp &lt;= max</code> 是默认判据，不用再靠人想起来。</p>
 <hr>
-<h2 id="九ai-究竟错在哪">
-<a class="header-anchor" href="#%e4%b9%9dai-%e7%a9%b6%e7%ab%9f%e9%94%99%e5%9c%a8%e5%93%aa"></a>
-九、AI 究竟错在哪
-</h2><p>回头看，那些错误有一个共同结构：</p>
-<blockquote>
-<p><strong>每次都找到了一个&quot;和现象相关&quot;的东西，并把相关性当成了因果。</strong></p>
-</blockquote>
-<ul>
-<li>数值&quot;五下死&quot; → 以为血量是 5（相关，非因果）</li>
-<li>字段&quot;在变小&quot; → 以为是血量（相关，非因果）</li>
-<li>血条&quot;跟着某个 float 变&quot; → 以为那是血量（相关，非因果 —— 那是显示副本）</li>
-<li>断点&quot;读数 0&quot; → 以为不支持（相关，非因果 —— 那是少了一次调用）</li>
-<li>只找到 2 个实体 → 以为第 3 个在别处（相关，非因果 —— 那是判据选错了）</li>
-</ul>
-<p><strong>能立刻改变画面的东西，不等于源头；能被观察到在变化的东西，不等于就是它。</strong></p>
-<p>而真正让事情翻盘的，不是&quot;更努力地筛&quot;，是<strong>换了一个问法</strong>。从&quot;哪些值在按它的方向变&quot;换成&quot;哪些东西长得像一对血量&quot;。前者要跟一个每帧都在动的世界搏斗，后者只需要一个逻辑约束 <code>hp &lt;= max</code>。</p>
-<p>这也是我认为整件事最有价值的地方：<strong>AI 答错的时候往往不是不够努力，而是问错了问题。</strong> 而人类指出的那句&quot;显示值和内存值不是同向的&quot;，本质上就是在换问题。</p>
-<p>如果想让 AI 帮你做内存分析，这里有一套<strong>能跑、且知道自己哪里不行</strong>的接口。如果你想看&quot;AI 怎么把自己骗了六次&quot;，上面就是全部。</p>
-<p>仓库：<a href="https://github.com/ip2867/CheatEngine-AI-Agent">https://github.com/ip2867/CheatEngine-AI-Agent</a></p>
+<h2 id="八一句话">
+<a class="header-anchor" href="#%e5%85%ab%e4%b8%80%e5%8f%a5%e8%af%9d"></a>
+八、一句话
+</h2><p>这两关不是 AI 自己打通的，也不是我打通的。</p>
+<p><strong>是我负责不知道往哪走的时候停下来想，它负责我想到之后在一秒内验证掉。</strong> 它扫不出来的那个血量地址，是我手动筛出来的；我算不出来的那个 0.9 秒，是它跑出来的。</p>
+<p>如果说这个项目证明了什么，大概就是：<strong>一个能看见进程的 AI，比一个只能说话的 AI 强很多；但它依然需要一个能提问的人。</strong></p>
+<p>工具和全部踩坑记录都在 <a href="https://github.com/ip2867/CheatEngine-AI-Agent">https://github.com/ip2867/CheatEngine-AI-Agent</a>。</p>
 </div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
       <a
@@ -798,10 +710,10 @@ after:  E1=1  PL=100000  E2=1
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;63.9k</span
+          >&nbsp;61.3k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;02:14</span>
+        <span class="icon-coffee">&nbsp;02:09</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -827,45 +739,39 @@ after:  E1=1  PL=100000  E2=1
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#一先看结果">一、先看结果</a></li>
-    <li><a href="#二ai-为什么需要这个工具">二、AI 为什么需要这个工具</a>
+    <li><a href="#一先说清楚我们在干什么">一、先说清楚我们在干什么</a></li>
+    <li><a href="#二第一关从差一发到锁定弹药">二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&quot;</a>
       <ul>
-        <li><a href="#54-个工具覆盖什么">54 个工具覆盖什么</a></li>
-        <li><a href="#四个值得单独说的设计">四个值得单独说的设计</a></li>
+        <li><a href="#我自己先看出来的那个现象">我自己先看出来的那个现象</a></li>
+        <li><a href="#我把方向给了它">我把方向给了它</a></li>
+        <li><a href="#这一关的实质">这一关的实质</a></li>
       </ul>
     </li>
-    <li><a href="#三安装">三、安装</a>
+    <li><a href="#三第二关三个实体一个标志位和一次误判">三、第二关：三个实体、一个标志位、和一次误判</a>
       <ul>
-        <li><a href="#结构">结构</a></li>
+        <li><a href="#第一步先把自己变成打不死的">第一步：先把自己变成打不死的</a></li>
+        <li><a href="#第二步怎么区分敌我--你给的答案">第二步：怎么区分敌我 —— 你给的答案</a></li>
+        <li><a href="#第三步注入--我给了两个方案">第三步：注入 —— 我给了两个方案</a></li>
+        <li><a href="#第四步这里我们俩一起走错了一次">第四步：这里我们俩一起走错了一次</a></li>
       </ul>
     </li>
-    <li><a href="#四六次自信的错误">四、六次自信的错误</a>
-      <ul>
-        <li><a href="#错误一以为五下打死等于血量是-5">错误一：以为&quot;五下打死&quot;等于&quot;血量是 5&quot;</a></li>
-        <li><a href="#错误二以为-decreased-是个好过滤器">错误二：以为 <code>decreased</code> 是个好过滤器</a></li>
-        <li><a href="#错误三以为收窄可以用扫描器自己的比较">错误三：以为收窄可以用扫描器自己的比较</a></li>
-        <li><a href="#错误四把-float-和-dword-搞反了还连着搞反了六轮">错误四：把 float 和 dword 搞反了，还连着搞反了六轮</a></li>
-        <li><a href="#错误五把断点在这台机器上不可用当成事实">错误五：把&quot;断点在这台机器上不可用&quot;当成事实</a></li>
-        <li><a href="#错误六以为写进去就留住了">错误六：以为写进去就留住了</a></li>
-      </ul>
-    </li>
-    <li><a href="#五第七次换一个问法两个小时变一秒">五、第七次：换一个问法，两个小时变一秒</a>
+    <li><a href="#四真正的突破口把找血量换成找一对血量">四、真正的突破口：把&quot;找血量&quot;换成&quot;找一对血量&quot;</a>
       <ul>
         <li><a href="#顺带纠正一个更早的错误">顺带纠正一个更早的错误</a></li>
-        <li><a href="#还有一个静默失败批量读不是优化是必需">还有一个静默失败：批量读不是优化，是必需</a></li>
-        <li><a href="#真正通关的写法">真正通关的写法</a></li>
+        <li><a href="#最后一步">最后一步</a></li>
       </ul>
     </li>
-    <li><a href="#六还债之前判错的部分以及它们后来怎么了">六、还债：之前判错的部分，以及它们后来怎么了</a>
+    <li><a href="#五回头看这个协作是这样分工的">五、回头看，这个协作是这样分工的</a></li>
+    <li><a href="#六ai-在这个过程中犯的错有个共同形状">六、AI 在这个过程中犯的错，有个共同形状</a>
       <ul>
-        <li><a href="#右敌血量找不到">右敌血量&quot;找不到&quot;</a></li>
-        <li><a href="#那-9-字节的零填充">那 9 字节的零填充</a></li>
-        <li><a href="#桥里一个死代码">桥里一个死代码</a></li>
+        <li><a href="#它总是把相关当成因果">它总是把&quot;相关&quot;当成&quot;因果&quot;</a></li>
+        <li><a href="#它会把我调不通写成不支持">它会把&quot;我调不通&quot;写成&quot;不支持&quot;</a></li>
+        <li><a href="#它写的-verified-true-不代表游戏保留了那个值">它写的 <code>verified: true</code> 不代表游戏保留了那个值</a></li>
+        <li><a href="#这四条的共同点">这四条的共同点</a></li>
       </ul>
     </li>
-    <li><a href="#七15-个技能经验变成可复用的纪律">七、15 个技能：经验变成可复用的纪律</a></li>
-    <li><a href="#八所以我把纪律变成了代码">八、所以我把纪律变成了代码</a></li>
-    <li><a href="#九ai-究竟错在哪">九、AI 究竟错在哪</a></li>
+    <li><a href="#七所以我们把这些纪律变成了代码">七、所以我们把这些纪律变成了代码</a></li>
+    <li><a href="#八一句话">八、一句话</a></li>
   </ul>
 </nav>
 </div></div>
@@ -981,9 +887,9 @@ after:  E1=1  PL=100000  E2=1
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "栗悟饭与龟波功",
-          title: "我让 AI 自己打通 Cheat Engine 训练关：它错了六次，第七次换了问法",
+          title: "我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路",
           url: "https:\/\/ip2867.github.io\/post\/cheat-engine-ai-agent\/",
-          description: " 这两天做了一件事：不给 AI 任何提示，让它只用自己写的工具去通关 gtutorial-x86_64.exe 的关卡。\n它最后打穿了两关。但比结果更有意思的是过程 —— 它连续六轮扫描都\u0026quot;收敛\u0026quot;到了一个正确答案，而那六轮全是错的。每次它都有一份看起来无可辩驳的证据，每次证据都指向错的方向。\n",
+          description: " 这件事如果只看标题，很容易被理解成\u0026quot;AI 全自动破解游戏\u0026quot;。完全不是。\n真实过程是我和它坐在同一台机器前面，我给方向，它去验证；它的验证结果反过来修正我的判断。两关都是这样一点点磨出来的。这篇记的是那个协作过程本身 —— 包括我判断错的地方，和它推不动的时刻。\n",
           cover: "https:\/\/ip2867.github.io\/images\/my-banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
