@@ -4,7 +4,23 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
-    ]
+      "**/node_modules/**",
+      "files/**/*.exe",
+      "files/**/*.dll",
+      "files/**/*.apk",
+      "files/**/*.py",
+      "files/**/*.js",
+      "files/**/*.bat",
+      "files/**/*.cmd",
+      "files/**/*.ps1",
+      "files/**/*.sh",
+      "files/**/*.msi",
+      "files/**/*.so",
+      "files/**/*.dylib",
+      "files/**/*.jar",
+      "files/**/*.vbs",
+      "files/**/*.zip"
+    ],
+    "site": "my-blog-fufu-2025"
   }
 }
