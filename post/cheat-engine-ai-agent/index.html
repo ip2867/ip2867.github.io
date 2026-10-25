@@ -409,6 +409,7 @@
 <p>我把这条告诉了 AI。它照做，用这个方向扫弹药计数，很快命中了 <code>0x1573E9C</code>。</p>
 <p>然后是我给的第二个动作：<strong>把这个地址锁定在满弹对应的值上</strong>。锁定之后，装弹流程再也不触发，靶子也就不会回血了。</p>
 <p>剩下的就是慢慢打完。</p>
+<p><img src="/images/ce-ai-agent/step1-win.png" alt="第一关通关：well done，换弹计数锁死之后靶子再也回不了血" class="post-img post-img-normal" width="1702" height="1358" loading="lazy"></p>
 <h3 id="这一关的实质">
 <a class="header-anchor" href="#%e8%bf%99%e4%b8%80%e5%85%b3%e7%9a%84%e5%ae%9e%e8%b4%a8"></a>
 这一关的实质
@@ -550,6 +551,7 @@
 after:  E1=1  PL=100000  E2=1
 </code></pre><p>有个细节：<strong>两个敌人必须同时改。</strong> 只改一个的话，幸存的那个会拿到伤害加成，反而更危险。</p>
 <p>通关画面上的红字是 <code>Player Health: 99984</code> —— 锁血生效了，只是掉了一点点。<strong>没有注入、没有改 <code>.text</code>、没有完整性检测报错。</strong></p>
+<p><img src="/images/ce-ai-agent/step2-win.png" alt="第二关通关：well done，Player Health 99984" class="post-img post-img-normal" width="1604" height="1264" loading="lazy"></p>
 <hr>
 <h2 id="五回头看这个协作是这样分工的">
 <a class="header-anchor" href="#%e4%ba%94%e5%9b%9e%e5%a4%b4%e7%9c%8b%e8%bf%99%e4%b8%aa%e5%8d%8f%e4%bd%9c%e6%98%af%e8%bf%99%e6%a0%b7%e5%88%86%e5%b7%a5%e7%9a%84"></a>
