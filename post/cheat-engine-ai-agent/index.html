@@ -150,7 +150,15 @@
   <nav id="TableOfContents">
   <ul>
     <li><a href="#一先说清楚我们在干什么">一、先说清楚我们在干什么</a></li>
-    <li><a href="#二第一关从差一发到锁定弹药">二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&quot;</a>
+    <li><a href="#一点五这条通道长什么样">一点五、这条通道长什么样</a>
+      <ul>
+        <li><a href="#一次调用是怎么走完的">一次调用是怎么走完的</a></li>
+        <li><a href="#工具分成这几类">工具分成这几类</a></li>
+        <li><a href="#几个后面会反复出现的">几个后面会反复出现的</a></li>
+        <li><a href="#这套工具的设计取向">这套工具的设计取向</a></li>
+      </ul>
+    </li>
+    <li><a href="#二第一关从差一发到锁定弹药">二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&rdquo;</a>
       <ul>
         <li><a href="#我自己先看出来的那个现象">我自己先看出来的那个现象</a></li>
         <li><a href="#我把方向给了它">我把方向给了它</a></li>
@@ -291,9 +299,99 @@
 <p><img src="/images/ce-ai-agent/step2-two-enemies.png" alt="第二关：两个敌人，左边绿条、右边蓝条" class="post-img post-img-normal" width="1600" height="1200" loading="lazy"></p>
 <p><strong>通道是前提，但不是解法。</strong> 接下来九成的时间花在&quot;到底该往哪查&quot;上。</p>
 <hr>
+<h2 id="一点五这条通道长什么样">
+<a class="header-anchor" href="#%e4%b8%80%e7%82%b9%e4%ba%94%e8%bf%99%e6%9d%a1%e9%80%9a%e9%81%93%e9%95%bf%e4%bb%80%e4%b9%88%e6%a0%b7"></a>
+一点五、这条通道长什么样
+</h2><p>在进入攻关过程之前，值得交代一下 AI 手里到底有哪些工具 —— 因为后面每一步卡住或突破，都跟某个工具&quot;有没有被正确使用&quot;直接相关。</p>
+<h3 id="一次调用是怎么走完的">
+<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e8%b0%83%e7%94%a8%e6%98%af%e6%80%8e%e4%b9%88%e8%b5%b0%e5%ae%8c%e7%9a%84"></a>
+一次调用是怎么走完的
+</h3><pre tabindex="0"><code>AI 的 tool call  →  ce_mcp_server.py  →  命名管道  →  ce_ai_bridge.lua 在 CE 里执行  →  原路返回
+</code></pre><p>AI 说一句&quot;读这个地址&quot;，中间要过四层。<code>ce_mcp_server.py</code> 是 MCP 服务的壳，负责把工具调用翻译成管道命令；管道 <code>\\.\pipe\CE_AI_Bridge_v1_0</code> 是本机的双向通道；真正干活的是注入在 CE 进程里的 Lua 桥 —— <strong>它能直接用 CE 自己的内存 API，所以读写的是真实进程，不是模拟</strong>。</p>
+<p>这个设计的代价是：<strong>AI 的每一个动作，都必须在 CE 的 API 世界里表达出来。</strong> 想要什么能力，就得先在桥里写一个 handler。这也解释了后面为什么&quot;某个功能不支持&quot;是个特别危险的结论 —— 它往往只是这个 handler 没写对。</p>
+<h3 id="工具分成这几类">
+<a class="header-anchor" href="#%e5%b7%a5%e5%85%b7%e5%88%86%e6%88%90%e8%bf%99%e5%87%a0%e7%b1%bb"></a>
+工具分成这几类
+</h3><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>数量</th>
+          <th>能干什么</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>进程</td>
+          <td>4</td>
+          <td>列出所有进程、按镜像名挂载、查模块段（基址 / 大小 / 权限）</td>
+      </tr>
+      <tr>
+          <td>读取</td>
+          <td>4</td>
+          <td>单个地址按类型读、按块批量读（一次 64 KiB）、读字符串、读结构体字段</td>
+      </tr>
+      <tr>
+          <td>扫描</td>
+          <td>6</td>
+          <td>首次扫描（<code>exact</code> / <code>unknown</code> / <code>range</code>）、按增减收窄、翻页取结果、重扫</td>
+      </tr>
+      <tr>
+          <td>分析</td>
+          <td>11</td>
+          <td>反汇编、取指令字节、找模块、<strong>按形状扫实体</strong>、看候选集实时状态</td>
+      </tr>
+      <tr>
+          <td>写入</td>
+          <td>6</td>
+          <td>单值写、字节写、批量写、带乐观锁的写</td>
+      </tr>
+      <tr>
+          <td>断点</td>
+          <td>10</td>
+          <td>下读/写/执行断点、查命中、读寄存器、查调试器状态</td>
+      </tr>
+      <tr>
+          <td>假设与标定</td>
+          <td>6</td>
+          <td>开假设、标定基准（<code>baseline</code> / <code>action</code>）、给扫描挂因果前提</td>
+      </tr>
+      <tr>
+          <td>候选集</td>
+          <td>5</td>
+          <td>取幸存集、按实时值收窄、标注失效原因</td>
+      </tr>
+      <tr>
+          <td>因果与审计</td>
+          <td>2</td>
+          <td>探针、调用审计</td>
+      </tr>
+  </tbody>
+</table>
+<p>一共 <strong>54 个工具</strong>。</p>
+<h3 id="几个后面会反复出现的">
+<a class="header-anchor" href="#%e5%87%a0%e4%b8%aa%e5%90%8e%e9%9d%a2%e4%bc%9a%e5%8f%8d%e5%a4%8d%e5%87%ba%e7%8e%b0%e7%9a%84"></a>
+几个后面会反复出现的
+</h3><p><strong><code>scan_first</code> / <code>scan_next</code></strong> —— 这是 CE 里那个&quot;首次扫描 / 再次扫描&quot;的 API 化版本。<code>type</code> 可以是 <code>dword</code> / <code>float</code> / <code>qword</code>，<code>op</code> 可以是 <code>exact</code> / <code>unknown</code> / <code>increased</code> / <code>decreased</code> / <code>changed</code>。第二关前面六轮全空，就是在不同的组合里试。</p>
+<p><strong><code>scan_results</code></strong> —— 这个不起眼，但它是&quot;假收敛&quot;的解药。它返回的每条结果都带三个字段：<code>live</code>（现在还是不是活的）、<code>changedSinceScan</code>（扫描之后变了没有）、<code>staleReason</code>（失效原因）。<strong>没有这三个字段，&ldquo;收窄&quot;实际上是在用旧快照筛实时值</strong>，筛出来的东西没有意义。这是早期反复踩的坑。</p>
+<p><strong><code>read_bytes</code></strong> —— 一次读 64 KiB 回来本地解析。听起来平平无奇，但它是转折点：之前逐地址读，几十万次管道往返直接把游戏拖死过一次（189 个候选试到第 120 个，进程消失）。批量读之后，扫完 4 MB 只要一次调用。</p>
+<p><strong><code>find_struct</code></strong> —— 这次是专门为突破口新写的：不按值筛，而是<strong>在 CE 里一次扫完整个窗口，找所有满足&quot;相邻两个 dword 且 <code>hp &lt;= max</code>&ldquo;的地方</strong>。它是把&quot;换一个问法&quot;这个洞察固化成了工具。</p>
+<p><strong><code>set_breakpoint</code> / <code>bp_hits</code> / <code>read_registers</code></strong> —— 下断点、拿命中、读当时的寄存器。第二关能定位共享扣血函数全靠这套：断点抓到 <code>rcx=0x15E4CB0</code>、<code>rdx=2</code>，才知道&quot;血量 -= 伤害&quot;到底在谁身上跑。</p>
+<p><strong><code>write</code> / <code>write_bytes</code></strong> —— 写内存。这里有个设计细节：两个都支持乐观锁，<code>write</code> 用 <code>expect</code>（期望旧值），<code>write_bytes</code> 用 <code>expectHex</code>（期望旧字节）。值被外部改过就明确报 stale，而不是默默覆盖。</p>
+<p><strong><code>hypothesis_open</code> / <code>anchor_calibrate</code></strong> —— 扫描前的三件套，必须先声明一个假设、再标定一次可观测的基准，才能开始扫。强制 AI 在动手前说清楚&quot;我在找什么、根据什么判断它变了&rdquo;。</p>
+<h3 id="这套工具的设计取向">
+<a class="header-anchor" href="#%e8%bf%99%e5%a5%97%e5%b7%a5%e5%85%b7%e7%9a%84%e8%ae%be%e8%ae%a1%e5%8f%96%e5%90%91"></a>
+这套工具的设计取向
+</h3><p>回头看，54 个工具里有两类很有意思：</p>
+<ul>
+<li><strong>一类是能力</strong>：读、写、扫、断点、反汇编 —— 让 AI 能动手。</li>
+<li><strong>一类是纪律</strong>：<code>live</code> / <code>staleReason</code>、<code>expect</code> 乐观锁、<code>debugPathWorks</code> 探针、<code>find_struct</code> 的 <code>hp &lt;= max</code> 默认约束 —— 这类工具不是给 AI 更强的能力，是<strong>堵住它最容易犯的错</strong>。</li>
+</ul>
+<p>后面第七章会展开：凡是能让模型&quot;选择不做&quot;的纪律，弱的模型一定会不做。所以纪律必须长在工具里。</p>
+<hr>
 <h2 id="二第一关从差一发到锁定弹药">
 <a class="header-anchor" href="#%e4%ba%8c%e7%ac%ac%e4%b8%80%e5%85%b3%e4%bb%8e%e5%b7%ae%e4%b8%80%e5%8f%91%e5%88%b0%e9%94%81%e5%ae%9a%e5%bc%b9%e8%8d%af"></a>
-二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&quot;
+二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&rdquo;
 </h2><h3 id="我自己先看出来的那个现象">
 <a class="header-anchor" href="#%e6%88%91%e8%87%aa%e5%b7%b1%e5%85%88%e7%9c%8b%e5%87%ba%e6%9d%a5%e7%9a%84%e9%82%a3%e4%b8%aa%e7%8e%b0%e8%b1%a1"></a>
 我自己先看出来的那个现象
@@ -710,10 +808,10 @@ set_breakpoint   会调用 debugProcess()
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;61.3k</span
+          >&nbsp;62.9k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;02:09</span>
+        <span class="icon-coffee">&nbsp;02:12</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -740,7 +838,15 @@ set_breakpoint   会调用 debugProcess()
   <nav id="TableOfContents">
   <ul>
     <li><a href="#一先说清楚我们在干什么">一、先说清楚我们在干什么</a></li>
-    <li><a href="#二第一关从差一发到锁定弹药">二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&quot;</a>
+    <li><a href="#一点五这条通道长什么样">一点五、这条通道长什么样</a>
+      <ul>
+        <li><a href="#一次调用是怎么走完的">一次调用是怎么走完的</a></li>
+        <li><a href="#工具分成这几类">工具分成这几类</a></li>
+        <li><a href="#几个后面会反复出现的">几个后面会反复出现的</a></li>
+        <li><a href="#这套工具的设计取向">这套工具的设计取向</a></li>
+      </ul>
+    </li>
+    <li><a href="#二第一关从差一发到锁定弹药">二、第一关：从&quot;差一发&quot;到&quot;锁定弹药&rdquo;</a>
       <ul>
         <li><a href="#我自己先看出来的那个现象">我自己先看出来的那个现象</a></li>
         <li><a href="#我把方向给了它">我把方向给了它</a></li>
