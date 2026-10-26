@@ -1,45 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>AI Agent on Ip2867</title>
-    <link>https://ip2867.github.io/tags/ai-agent/</link>
-    <description>Recent content from Ip2867</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    
-    <managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor>
-    <webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster>
-    
-    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
-    
-    <lastBuildDate>Mon, 26 Oct 2026 00:55:00 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://ip2867.github.io/tags/ai-agent/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-    
-
-    <item>
-      <title>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</title>
-      <link>https://ip2867.github.io/post/cheat-engine-ai-agent/</link>
-      <pubDate>Mon, 26 Oct 2026 00:55:00 &#43;0800</pubDate>
-      <author>xxx@example.com (栗悟饭与龟波功)</author>
-      <guid>https://ip2867.github.io/post/cheat-engine-ai-agent/</guid>
-      <description>
-        <![CDATA[<h1>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Agent on Ip2867</title><link>https://ip2867.github.io/tags/ai-agent/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 26 Oct 2026 00:55:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/ai-agent/index.xml" rel="self" type="application/rss+xml"/><item><title>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</title><link>https://ip2867.github.io/post/cheat-engine-ai-agent/</link><pubDate>Mon, 26 Oct 2026 00:55:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/cheat-engine-ai-agent/</guid><description>
+<![CDATA[<h1>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
 <p>这件事如果只看标题，很容易被理解成&quot;AI 全自动破解游戏&quot;。完全不是。</p>
 <p>真实过程是我和它坐在同一台机器前面，<strong>我给方向，它去验证；它的验证结果反过来修正我的判断</strong>。两关都是这样一点点磨出来的。这篇记的是那个协作过程本身 —— 包括我判断错的地方，和它推不动的时刻。</p>
         
-        <hr><p>本文2026-10-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-26</p>]]>
-      </description>
-      
-        <category>逆向</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文2026-10-26首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-10-26</p>]]></description><category>逆向</category></item></channel></rss>

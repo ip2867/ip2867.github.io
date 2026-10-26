@@ -1,873 +1,150 @@
-<!doctype html>
-<html
-  lang="zh-CN" 
-  data-theme-mode="auto"
-  >
-  <head><meta charset="utf-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, shrink-to-fit=no"
-/><title>
-  CTF-RE-TOOL：把逆向工作流装进一个桌面工具 | 栗悟饭与龟波功
-</title>
-<meta name="description" content="这一切都是命运石之门的选择！"/><script>
-  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://ip2867.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_4k4bc36ef96\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
-  
-</script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="preload"
-  as="style"
-  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
-/>
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
-  media="print"
-  onload="this.media='all'"
-/>
-<link
-    rel="preload"
-    href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content="CTF-RE-TOOL：把逆向工作流装进一个桌面工具 | 栗悟饭与龟波功" />
-  <meta
-    property="og:description"
-    content="这一切都是命运石之门的选择！"
-  />
-  <meta property="og:url" content="https://ip2867.github.io/post/ctf-re-tool-intro/" />
-  <meta
-    property="og:site_name"
-    content="Ip2867"
-  />
-  <meta
-    property="og:image"
-    content="/"
-  />
-  <meta property="article:author" content="栗悟饭与龟波功" />
-  <meta property="article:published_time" content="2026-10-09T22:40:00&#43;08:00" />
-  <meta property="article:modified_time" content="2026-10-09T22:40:00&#43;08:00" /><meta property="article:tag" content="CTF逆向工具ElectronFridaIDAAI" /><meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="/" />
-<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css" /><link
-    rel="preload"
-    as="style"
-    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
-    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
-    onload="this.onload=null;this.rel='stylesheet'"
-  /><link
-    rel="preload"
-    as="style"
-    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
-    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
-    onload="this.onload=null;this.rel='stylesheet'"
-  /><script
-    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
-    
-    
-    
-    
-    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
-    rel="stylesheet"
-    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
-    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
-  <body><div id='loader'>
-    <div class="loading-left-bg loading-bg"></div>
-    <div class="loading-right-bg loading-bg"></div>
-    <div class="spinner-box">
-      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
-            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
-            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
-          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
-          </svg></div><div class="loading-word">EL PSY KONGROO</div>
-    </div>
-  </div>
-  </div>
-  <script>
-    var time = null;
-    var loaderEl = document.getElementById('loader');
-    var startLoading = () => {
-      time = Date.now();
-      loaderEl.classList.remove("loading");
-    }
-    var hideLoader = () => {
-      document.body.style.overflow = 'auto';
-      loader.classList.add('loading');
-    };
-
-    var endLoading = () => {
-      if (!time) {
-        hideLoader();
-      } else {
-        if (Date.now() - time > 500) {
-          time = null;
-          hideLoader();
-        } else {
-          setTimeout(endLoading, 500 - (Date.now() - time));
-          time = null;
-        }
-      }
-    }
-    window.addEventListener('DOMContentLoaded', endLoading);
-    loaderEl.addEventListener('click', endLoading);
-  </script><div id="copy-tooltip"></div>
-<div id="lang-tooltip">
-本文章没有找到对应的语言版本
-</div>
-<div id="heatmap-tooltip"></div><div id="container">
-      <div id="wrap"><div id="header-nav">
-  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/">
-        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
-        <span class="main-nav-link">首页</span>
-      </a><a class="main-nav-link-wrap" href="/archives">
-        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
-        <span class="main-nav-link">归档</span>
-      </a><a class="main-nav-link-wrap" href="/about">
-        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
-        <span class="main-nav-link">关于</span>
-      </a><a class="main-nav-link-wrap" href="/friend">
-        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
-        <span class="main-nav-link">友链</span>
-      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
-  </nav>
-  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/my-banner.webp" alt="CTF-RE-TOOL：把逆向工作流装进一个桌面工具"><div id="header-outer">
-    <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h1>
-          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
-  </div>
-</header><div id="content"
-          aria-label="Page content"
-          class="sidebar-left"
-            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
-    <div
-      class="sidebar-wrap"
-      data-aos="fade-up"
-    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
-<div class="sidebar-toc-wrapper toc-div-class">
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一为什么要写这个工具">一、为什么要写这个工具</a></li>
-    <li><a href="#二整体架构一条解题流水线">二、整体架构：一条解题流水线</a></li>
-    <li><a href="#三实战一2exe--自动分析流水线完整走一遍">三、实战一：<code>2.exe</code> —— 自动分析流水线完整走一遍</a>
-      <ul>
-        <li><a href="#31-拖入--识别--建案">3.1 拖入 → 识别 → 建案</a></li>
-        <li><a href="#32-pe-五步流水线">3.2 PE 五步流水线</a></li>
-        <li><a href="#33-ai-tool-use从找到-main到还原-vm">3.3 AI Tool-Use：从&quot;找到 main&quot;到&quot;还原 VM&quot;</a></li>
-        <li><a href="#34-求解与验证闭环">3.4 求解与验证闭环</a></li>
-      </ul>
-    </li>
-    <li><a href="#四实战二app-releaseapk--frida-hook-全流程">四、实战二：<code>app-release.apk</code> —— Frida Hook 全流程</a>
-      <ul>
-        <li><a href="#41-apk-七步自动分析">4.1 APK 七步自动分析</a></li>
-        <li><a href="#42-静态定位r8-混淆下按常量串反查">4.2 静态定位：R8 混淆下按常量串反查</a></li>
-        <li><a href="#43-native-反演从-ida-伪代码到-key">4.3 native 反演：从 IDA 伪代码到 key</a></li>
-        <li><a href="#44-hook-脚本是怎么生成的">4.4 Hook 脚本是怎么生成的</a></li>
-        <li><a href="#45-最大坑app-停在首页校验代码永不执行">4.5 最大坑：App 停在首页，校验代码永不执行</a></li>
-        <li><a href="#46-hook-抓到了什么">4.6 Hook 抓到了什么</a></li>
-        <li><a href="#47-进程内解密直接出-flag">4.7 进程内解密直接出 flag</a></li>
-        <li><a href="#48-四路证据交叉验证">4.8 四路证据交叉验证</a></li>
-      </ul>
-    </li>
-    <li><a href="#五一些工程细节">五、一些工程细节</a></li>
-    <li><a href="#六小结">六、小结</a></li>
-  </ul>
-</nav>
-</div></div>
-          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
-  <img
-    data-src="/avatar/avatar.webp"
-    data-sizes="auto"
-    alt="栗悟饭与龟波功"
-    class="lazyload"
-  />
-  <div class="sidebar-author-name">栗悟饭与龟波功</div>
-  <div class="sidebar-description">这一切都是命运石之门的选择！</div>
-</div>
-<div class="sidebar-state">
-  <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">17</div>
-  </div>
-  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
-    <div>分类</div>
-    <div class="sidebar-state-number">
-      3
-    </div>
-  </a>
-  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
-    <div>标签</div>
-    <div class="sidebar-state-number">64</div>
-  </a>
-</div>
-<div class="sidebar-social"></div>
-<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/"
-        aria-label="首页"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">首页</div>
-    </div><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/archives"
-        aria-label="归档"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">归档</div>
-    </div><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/about"
-        aria-label="关于"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">关于</div>
-    </div><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/friend"
-        aria-label="友链"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">友链</div>
-    </div></div>
-</div><div class="sidebar-btn-wrapper" style="position:static">
-            <div class="sidebar-toc-btn current"></div>
-            <div class="sidebar-common-btn"></div>
-          </div></div>
-  </div><div class="sidebar-widget"></div></div></aside>
-<section id="main" aria-label="Main content"><article
-  class="h-entry article"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <div
-    class="article-inner"
-    data-aos="fade-up"
-  >
-    <div class="article-meta"><div class="article-date">
-  <span
-    class="article-date-link icon-calendar"
-    data-aos="zoom-in"
-  >
-    <time datetime="2026-10-09 22:40:00 &#43;0800 CST" itemprop="datePublished"
-      >2026-10-09</time
-    >
-    <time style="display: none;" id="post-update-time"
-      >2026-10-09</time
-    >
-  </span></div>
-<div class="article-category"><a
-      class="article-category-link"
-      href="/categories/%e9%80%86%e5%90%91"
-      data-aos="zoom-in"
-      >逆向</a
-    ></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><blockquote>
-<p>一个基于 Electron 的 CTF 逆向工程辅助工具：集成 AI 分析引擎、一键调用逆向工具、Frida 自动 Hook、解密脚本生成，内置 11 个逆向方法论 Skills 与可检索知识库，并通过 MCP 实时接入 IDA / JEB / Burp。</p>
-<p>项目地址：<a href="https://github.com/ip2867/ctf-re-tool">https://github.com/ip2867/ctf-re-tool</a>　·　下载：<a href="https://github.com/ip2867/ctf-re-tool/releases">Releases</a>（<code>CTF-RE-TOOL.exe</code>，便携单文件，双击即用）</p>
-</blockquote>
-<hr>
-<h2 id="一为什么要写这个工具">
-<a class="header-anchor" href="#%e4%b8%80%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%86%99%e8%bf%99%e4%b8%aa%e5%b7%a5%e5%85%b7"></a>
-一、为什么要写这个工具
-</h2><p>做 CTF 逆向，真正消耗时间的往往不是某一道题本身，而是反复的<strong>环境切换</strong>：</p>
-<ul>
-<li>拖一个文件进来，先 <code>file</code> / DIE 查壳，再确定是 PE、ELF 还是 APK；</li>
-<li>打开了 IDA，又要在 JEB、jadx、apktool、pycdc 之间来回切，路径每次都要重新点；</li>
-<li>静态走不通想上 Frida：开模拟器、push frida-server、查进程名、写 hook 脚本、过滤日志噪音……每一步都是体力活；</li>
-<li>好不容易抓到一段密文，还得手写解密脚本，来回试算法。</li>
-</ul>
-<p>这些动作本身没有智力含量，却占了整个解题过程的一大半。<strong>CTF-RE-TOOL</strong> 想做的，就是把这些动作收敛到一个窗口里，并且按一条固定的&quot;流水线&quot;执行，让注意力尽量留在&quot;算法怎么还原&quot;上。</p>
-<h2 id="二整体架构一条解题流水线">
-<a class="header-anchor" href="#%e4%ba%8c%e6%95%b4%e4%bd%93%e6%9e%b6%e6%9e%84%e4%b8%80%e6%9d%a1%e8%a7%a3%e9%a2%98%e6%b5%81%e6%b0%b4%e7%ba%bf"></a>
-二、整体架构：一条解题流水线
-</h2><p>工具的核心不是&quot;又一个 AI 聊天框&quot;，而是一条<strong>带验证闭环的流水线</strong>。拖入文件后自动走完这几步：</p>
-<p><img src="/images/ctf-re-tool.png" alt="主界面" loading="lazy"></p>
-<blockquote>
-<p>三栏布局：左侧文件分析与工具区，中间 AI 对话，右侧输出日志 / Frida Hook / 快速操作。</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>拖入文件
-</span></span><span style="display:flex;"><span>  │
-</span></span><span style="display:flex;"><span>  ├─ 魔数识别（APK / PE / ELF / DEX / PYC / JAR / Lua / WASM / Mach-O）
-</span></span><span style="display:flex;"><span>  ├─ 建立 CASE 证据目录（cases/&lt;题名&gt;_&lt;md5前8&gt;/：evidence + scripts + timeline + findings）
-</span></span><span style="display:flex;"><span>  │
-</span></span><span style="display:flex;"><span>  ├─ 按类型走自动分析流水线
-</span></span><span style="display:flex;"><span>  │     PE  ：查壳 → IDA+MCP → 反调试检测 → 算法识别 → 生成解密脚本
-</span></span><span style="display:flex;"><span>  │     APK ：查壳 → JEB+MCP → SO提取+IDA → 模拟器 → 装APK → frida-server → 生成Hook脚本
-</span></span><span style="display:flex;"><span>  │
-</span></span><span style="display:flex;"><span>  ├─ AI Tool-Use 求解循环（读技能 → bash/run_python → 反编译 → 还原算法）
-</span></span><span style="display:flex;"><span>  │     └─ 输出契约：[FLAG]...[/FLAG] + [VERIFY]{算法,密钥,密文}[/VERIFY]
-</span></span><span style="display:flex;"><span>  │
-</span></span><span style="display:flex;"><span>  ├─ 验证闭环：工具在本地复现 [VERIFY]，通过才算 verified；失败则枚举 [HYPOTHESES] 兜底
-</span></span><span style="display:flex;"><span>  ├─ （需要动态证据时）Frida 自动 Hook + 界面驱动 + 进程内解密
-</span></span><span style="display:flex;"><span>  │
-</span></span><span style="display:flex;"><span>  └─ 经验沉淀：踩坑与正则写入经验库，下次同类题自动注入提示词
-</span></span></code></pre></div><p>几个关键设计：</p>
-<p><strong>① MCP 不是&quot;连上就算&quot;，而是真的取数。</strong> IDA MCP 连上后会枚举导出函数、定位 JNI 函数并反编译，把伪代码喂给后续 AI——否则等于白连。</p>
-<p><strong>② AI 的输出是契约，不是散文。</strong> AI 按约定输出 <code>[VERIFY]{&quot;algo&quot;:&quot;aes_cbc&quot;,&quot;key&quot;:&quot;...&quot;,&quot;ciphertext&quot;:&quot;...&quot;,&quot;iv&quot;:&quot;...&quot;}</code>，工具解析后用本地 Python 复现一遍：解出来能匹配 <code>expected</code> 才标记 <code>verified</code>。AI 说对了不算数，<strong>本地跑通了才算</strong>。</p>
-<p><strong>③ 失败有兜底。</strong> 验证不过时，AI 会被要求给出 <code>[HYPOTHESES]</code>（多个候选算法 × 密钥 × 字节序组合），工具本地枚举，命中即记录。</p>
-<p><strong>④ 每道题都是一个案件。</strong> 反编译产物、Hook 脚本、验证输出、时间线全部落盘到 <code>CASE</code> 目录，写 WP 时直接引用。</p>
-<h2 id="三实战一2exe--自动分析流水线完整走一遍">
-<a class="header-anchor" href="#%e4%b8%89%e5%ae%9e%e6%88%98%e4%b8%802exe--%e8%87%aa%e5%8a%a8%e5%88%86%e6%9e%90%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%ae%8c%e6%95%b4%e8%b5%b0%e4%b8%80%e9%81%8d"></a>
-三、实战一：<code>2.exe</code> —— 自动分析流水线完整走一遍
-</h2><p>题目是一个 105 KB 的 PE 控制台程序，MinGW/GCC 4.9.2 编译，无壳，但核心校验藏在一个<strong>自实现的字节码虚拟机</strong>里。这道题走的是纯静态流水线。</p>
-<h3 id="31-拖入--识别--建案">
-<a class="header-anchor" href="#31-%e6%8b%96%e5%85%a5--%e8%af%86%e5%88%ab--%e5%bb%ba%e6%a1%88"></a>
-3.1 拖入 → 识别 → 建案
-</h3><p>拖入文件后，工具读魔数识别为 <code>PE</code>，算出 MD5/SHA256，随后建立 CASE 目录并记录时间线。这一步的产出是后面一切工作的&quot;案卷&quot;。</p>
-<h3 id="32-pe-五步流水线">
-<a class="header-anchor" href="#32-pe-%e4%ba%94%e6%ad%a5%e6%b5%81%e6%b0%b4%e7%ba%bf"></a>
-3.2 PE 五步流水线
-</h3><p>点&quot;分析文件&quot;后，工具按固定顺序执行：</p>
-<ol>
-<li><strong>DIE 查壳</strong>——确认无壳，排除脱壳流程；</li>
-<li><strong>启动 IDA 并自动连接 MCP</strong>——端口轮询等待（最长 180s），而不是固定 2 秒就判失败，因为 IDA 冷启动 + 插件自启监听需要时间；</li>
-<li><strong>反调试特征检测</strong>；</li>
-<li><strong>算法特征识别</strong>——扫描 <code>0x9E3779B9</code>（TEA）、AES S盒、SM4 S盒等特征常量；</li>
-<li><strong>生成解密脚本框架</strong>。</li>
-</ol>
-<h3 id="33-ai-tool-use从找到-main到还原-vm">
-<a class="header-anchor" href="#33-ai-tool-use%e4%bb%8e%e6%89%be%e5%88%b0-main%e5%88%b0%e8%bf%98%e5%8e%9f-vm"></a>
-3.3 AI Tool-Use：从&quot;找到 main&quot;到&quot;还原 VM&quot;
-</h3><p>接下来是 AI 的 Tool-Use 循环（最多 25 轮）：AI 先读 <code>ctf-reverse-binary</code> 技能拿到方法论，然后用 <code>ida_decompile</code> 通过 MCP 拉伪代码。工具的 CASE 里留了它拉回来的真实反编译结果：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// ==== main ====
-</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#66d9ef">__cdecl</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>envp)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> dst_[<span style="color:#ae81ff">117</span>]; <span style="color:#75715e">// [esp+18h] [ebp-1D4h] BYREF
-</span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__main</span>();
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">qmemcpy</span>(dst_, <span style="color:#f92672">&amp;</span>src_, <span style="color:#ae81ff">0x1C8u</span>);   <span style="color:#75715e">// 456 字节 = 114 个 dword，正是字节码程序
-</span></span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">vm_operad</span>(dst_, <span style="color:#ae81ff">114</span>);           <span style="color:#75715e">// 虚拟机入口，程序长度 114
-</span></span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">puts</span>(<span style="color:#e6db74">&#34;good,The answer format is:flag {}&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>main</code> 干的事一目了然：把 <code>0x403040</code> 处 114 个 dword 拷到栈上，交给 <code>vm_operad</code> 解释执行。继续拉 <code>vm_operad</code> 的伪代码：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#66d9ef">__cdecl</span> <span style="color:#a6e22e">vm_operad</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>dst, <span style="color:#66d9ef">int</span> n114)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> Str[<span style="color:#ae81ff">200</span>];  <span style="color:#75715e">// [ebp-E5h]：输入区 Str[0..99] + 输出区 Str[100..199] 共用一块内存
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> v4;        <span style="color:#75715e">// 累加器 T
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span>  v5, v6, v7, v8;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span>  pc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (pc <span style="color:#f92672">&gt;=</span> n114) <span style="color:#66d9ef">return</span> pc;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> (dst[pc]) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>  Str[v6 <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>] <span style="color:#f92672">=</span> v4;            <span style="color:#f92672">++</span>pc; <span style="color:#f92672">++</span>v6; <span style="color:#f92672">++</span>v8; <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// 输出区写入
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>  v4 <span style="color:#f92672">=</span> dst[pc<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> Str[v8];      pc <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>;          <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// ADD
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span>  v4 <span style="color:#f92672">=</span> Str[v8] <span style="color:#f92672">-</span> <span style="color:#a6e22e">LOBYTE</span>(dst[pc<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]); pc <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>;       <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// SUB
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">:</span>  v4 <span style="color:#f92672">=</span> dst[pc<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">^</span> Str[v8];      pc <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>;          <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// XOR
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">:</span>  v4 <span style="color:#f92672">=</span> dst[pc<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> Str[v8];      pc <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>;          <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// MUL
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">6</span><span style="color:#f92672">:</span>  <span style="color:#f92672">++</span>pc;                                            <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// NOP
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">7</span><span style="color:#f92672">:</span>  <span style="color:#66d9ef">if</span> (Str[v7 <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>] <span style="color:#f92672">!=</span> dst[pc<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]) {   <span style="color:#75715e">// 逐字节比对
-</span></span></span><span style="display:flex;"><span>                 <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;what a shame...&#34;</span>); <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>               }
-</span></span><span style="display:flex;"><span>               <span style="color:#f92672">++</span>v7; pc <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>;                                    <span style="color:#66d9ef">break</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">8</span><span style="color:#f92672">:</span>  Str[v5] <span style="color:#f92672">=</span> v4;                  <span style="color:#f92672">++</span>pc; <span style="color:#f92672">++</span>v5;       <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// ⚠ 写回输入区
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">read</span>(Str);                     <span style="color:#f92672">++</span>pc;             <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// 读输入
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">11</span><span style="color:#f92672">:</span> v4 <span style="color:#f92672">=</span> Str[v8] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;              <span style="color:#f92672">++</span>pc;             <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// DEC
-</span></span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">12</span><span style="color:#f92672">:</span> v4 <span style="color:#f92672">=</span> Str[v8] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;              <span style="color:#f92672">++</span>pc;             <span style="color:#66d9ef">break</span>; <span style="color:#75715e">// INC
-</span></span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>read</code> 里藏着第一个约束：<code>scanf</code> 读入后 <code>strlen != 15</code> 直接 <code>WRONG!</code>——<strong>flag 长度必为 15</strong>。</p>
-<p>两个坑在这里看得非常清楚：</p>
-<ul>
-<li><strong><code>case 8</code> 写回的是输入区</strong>。<code>Str</code> 是 200 字节的一块内存，<code>Str[0..99]</code> 放输入、<code>Str[100..199]</code> 放输出；<code>case 8</code> 的 <code>Str[v5] = v4</code> 从下标 0 开始写，会把还没读的原始输入覆盖掉，所以后面 <code>Str[v8]</code> 读到的可能已经不是原始字符。模拟时必须忠实复刻这一点，否则逐位爆破的结果是错的。</li>
-<li><strong><code>v4</code> 是 <code>char</code></strong>。所有运算都要按 8 位（模 256）处理，<code>case 7</code> 的比较发生在有符号域（<code>0xA7</code> 以 <code>-89</code> 参与）。</li>
-</ul>
-<h3 id="34-求解与验证闭环">
-<a class="header-anchor" href="#34-%e6%b1%82%e8%a7%a3%e4%b8%8e%e9%aa%8c%e8%af%81%e9%97%ad%e7%8e%af"></a>
-3.4 求解与验证闭环
-</h3><p>程序尾部 15 条 <code>[7, 目标值]</code> 就是全部校验点：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[34, 63, 52, 50, 114, 51, 24, 167, 49, 241, 40, 132, 193, 30, 122]
-</span></span></code></pre></div><p>由于每个输入字节只影响输出缓冲的同一下标，可以<strong>逐位独立枚举</strong>可打印字符。工具生成模拟脚本并运行：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[+] 关键输入 = 757515121f3d478
-</span></span><span style="display:flex;"><span>[+] 复刻 VM 校验通过 = True =&gt; flag{757515121f3d478}
-</span></span></code></pre></div><p>随后 AI 按契约输出 <code>[VERIFY]</code>（<code>algo: custom</code> + 一段 <code>decrypt(data, key)</code> 代码），工具在本地用 Python 复现这段代码、比对 <code>expected</code>，日志出现 <code>[HIT] ... flag=flag{757515121f3d478}</code>，flag 才被标记为已验证。</p>
-<p>最后用二进制本身做终审：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bat" data-lang="bat"><span style="display:flex;"><span>&gt; echo 757515121f3d478| 2.exe
-</span></span><span style="display:flex;"><span>string:good,The answer format is:flag {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; echo 000000000000000| 2.exe
-</span></span><span style="display:flex;"><span>string:what a shame...
-</span></span></code></pre></div><p><strong>flag = <code>flag{757515121f3d478}</code></strong></p>
-<p>完整脚本见附件 <a href="/files/ctf-re-tool-intro/solve_vm.py">solve_vm.py</a>，题目样本 <a href="/files/ctf-re-tool-intro/2.exe">2.exe</a>。</p>
-<h2 id="四实战二app-releaseapk--frida-hook-全流程">
-<a class="header-anchor" href="#%e5%9b%9b%e5%ae%9e%e6%88%98%e4%ba%8capp-releaseapk--frida-hook-%e5%85%a8%e6%b5%81%e7%a8%8b"></a>
-四、实战二：<code>app-release.apk</code> —— Frida Hook 全流程
-</h2><p>第二道题（<code>com.nctf.hookmysecret</code>）是典型的<strong>三阶段 Android 题</strong>：手势图案 → native 校验 → AES 终验。这道题我主要靠&quot;运行 Hook&quot;解，所以把 Hook 链路完整拆开讲。</p>
-<h3 id="41-apk-七步自动分析">
-<a class="header-anchor" href="#41-apk-%e4%b8%83%e6%ad%a5%e8%87%aa%e5%8a%a8%e5%88%86%e6%9e%90"></a>
-4.1 APK 七步自动分析
-</h3><p>APK 的流水线比 PE 多几步，每步都有明确的失败处理：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[1/7] DIE 查壳
-</span></span><span style="display:flex;"><span>[2/7] JEB 分析 Java 层
-</span></span><span style="display:flex;"><span>        ├─ 先探测 16161 端口：已在监听 = JEB+MCP 插件在跑 → 直接复用
-</span></span><span style="display:flex;"><span>        │   （避免重复启动第二个 JEB——第二个绑不上端口，同工程被占会卡死）
-</span></span><span style="display:flex;"><span>        └─ 未运行 → 启动 JEB，30 秒内轮询 MCP 握手
-</span></span><span style="display:flex;"><span>[3/7] 检查 Native SO
-</span></span><span style="display:flex;"><span>        ├─ 按内容查 ZIP 条目（顺便检测 Unity IL2CPP 的 global-metadata.dat）
-</span></span><span style="display:flex;"><span>        ├─ 提取 SO → IDA 打开 → MCP 等待就绪（180s）
-</span></span><span style="display:flex;"><span>        └─ 连上后立刻取数：枚举导出 → 定位 Java_* JNI 函数 → 反编译
-</span></span><span style="display:flex;"><span>[4/7] 检查模拟器状态（未连上会自动尝试拉起）
-</span></span><span style="display:flex;"><span>[5/7] 安装 APK 到模拟器
-</span></span><span style="display:flex;"><span>[6/7] 启动 frida-server（27042）
-</span></span><span style="display:flex;"><span>[7/7] 生成 Frida Hook 脚本 → 进入自动求解
-</span></span></code></pre></div><h3 id="42-静态定位r8-混淆下按常量串反查">
-<a class="header-anchor" href="#42-%e9%9d%99%e6%80%81%e5%ae%9a%e4%bd%8dr8-%e6%b7%b7%e6%b7%86%e4%b8%8b%e6%8c%89%e5%b8%b8%e9%87%8f%e4%b8%b2%e5%8f%8d%e6%9f%a5"></a>
-4.2 静态定位：R8 混淆下按常量串反查
-</h3><p>R8 把包名压成了单字母（<code>N0</code>、<code>C</code>、<code>K0</code>、<code>M0</code>），Activity 名倒是完整的，但<strong>校验逻辑都在 OnClickListener 里</strong>。这时候类名不可靠，常量串才可靠——工具用参数化的目录检索（纯 Node 实现，不走 PowerShell 拼接）直接搜：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bat" data-lang="bat"><span style="display:flex;"><span>findstr /S /I /M /C:<span style="color:#e6db74">&#34;stage3_iv&#34;</span> /C:<span style="color:#e6db74">&#34;stage2Key&#34;</span> smali\*.smali
-</span></span></code></pre></div><p>三发命中：</p>
-<table>
-  <thead>
-      <tr>
-          <th>命中</th>
-          <th>位置</th>
-          <th>角色</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>stage2Key</code> / <code>NativeBridge</code></td>
-          <td><code>N0/d.smali</code></td>
-          <td>校验回调本体</td>
-      </tr>
-      <tr>
-          <td><code>encryptStage2</code> + <code>int[]</code> 常量</td>
-          <td><code>K0/a.smali</code> + <code>libhookmysecret.so</code></td>
-          <td>Stage2 native 校验</td>
-      </tr>
-      <tr>
-          <td><code>stage3_iv</code> + <code>SELECT v FROM app_cfg</code></td>
-          <td><code>M0/a.smali</code></td>
-          <td>SQLiteOpenHelper，IV 藏在这</td>
-      </tr>
-  </tbody>
-</table>
-<p><code>N0/d.smali</code> 里能直接确认 Stage3 的算法与参数来源：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-smali" data-lang="smali"><span style="display:flex;"><span>const-string v2, <span style="color:#e6db74">&#34;AES/CBC/PKCS5Padding&#34;</span>        <span style="color:#75715e"># 算法
-</span></span></span><span style="display:flex;"><span>invoke-static {v2}, <span style="color:#66d9ef">L</span>javax/crypto/<span style="color:#a6e22e">Cipher</span>;-&gt;<span style="color:#a6e22e">getInstance</span>(...)
-</span></span><span style="display:flex;"><span>const-string v12, <span style="color:#e6db74">&#34;stage3_iv&#34;</span>                   <span style="color:#75715e"># IV 来自 SQLite
-</span></span></span><span style="display:flex;"><span>const-string v9, <span style="color:#e6db74">&#34;-&#34;</span>                            <span style="color:#75715e"># key 先去分隔符
-</span></span></span><span style="display:flex;"><span>const-string v3, <span style="color:#e6db74">&#34;jSaMnziall55Tdr+IZc7EKUNm/N4uwrZw1QFPw6DuirfYFJZg88j6GKLhWfNljAB&#34;</span>
-</span></span></code></pre></div><h3 id="43-native-反演从-ida-伪代码到-key">
-<a class="header-anchor" href="#43-native-%e5%8f%8d%e6%bc%94%e4%bb%8e-ida-%e4%bc%aa%e4%bb%a3%e7%a0%81%e5%88%b0-key"></a>
-4.3 native 反演：从 IDA 伪代码到 key
-</h3><p>Stage2 的 <code>encryptStage2</code> 是 native 方法。工具自动提取 <code>libhookmysecret.so</code> 交给 IDA，反编译出的核心是一个逐字节滚动的状态机：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>v26 <span style="color:#f92672">=</span> <span style="color:#a6e22e">__ROL1__</span>(v25 <span style="color:#f92672">^</span> S <span style="color:#f92672">^</span> (<span style="color:#ae81ff">13</span><span style="color:#f92672">*</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">66</span>), <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">7</span><span style="color:#f92672">*</span>S;   <span style="color:#75715e">// S 初值 81
-</span></span></span><span style="display:flex;"><span>v44 <span style="color:#f92672">=</span> S <span style="color:#f92672">+</span> v25;
-</span></span><span style="display:flex;"><span>v45 <span style="color:#f92672">=</span> i <span style="color:#f92672">^</span> v26;
-</span></span><span style="display:flex;"><span>S    <span style="color:#f92672">=</span> v45 <span style="color:#f92672">+</span> v44;    <span style="color:#75715e">// 状态滚动：每一步的 S 依赖上一步的真实输出
-</span></span></span></code></pre></div><p>三个魔数 <code>0x51 / 0x0D / 0x42</code>（81、13、66）与式子一一对应。反演时<strong>必须按&quot;每步实际 v 值推进滚动状态&quot;</strong>，不能当独立字节算。工具写出正演 + 反演一对函数，用 <code>forward(inverse(TARGET)) == TARGET</code> 自检：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">native_inverse</span>(target):
-</span></span><span style="display:flex;"><span>    S <span style="color:#f92672">=</span> <span style="color:#ae81ff">81</span>; key <span style="color:#f92672">=</span> bytearray()
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, t <span style="color:#f92672">in</span> enumerate(target):
-</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> ror8((t <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">*</span> S) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>, <span style="color:#ae81ff">3</span>)
-</span></span><span style="display:flex;"><span>        b <span style="color:#f92672">=</span> (x <span style="color:#f92672">^</span> S <span style="color:#f92672">^</span> ((<span style="color:#ae81ff">13</span> <span style="color:#f92672">*</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">66</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>)) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>
-</span></span><span style="display:flex;"><span>        key<span style="color:#f92672">.</span>append(b)
-</span></span><span style="display:flex;"><span>        S <span style="color:#f92672">=</span> (S <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> (i <span style="color:#f92672">^</span> t)) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>          <span style="color:#75715e"># 状态滚动</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> bytes(key)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[stage2] 反演出的 key = b&#39;k7Xm2Pq9Wv4N8bRt&#39;
-</span></span><span style="display:flex;"><span>自检 forward(inverse(TARGET)) == TARGET : True
-</span></span></code></pre></div><h3 id="44-hook-脚本是怎么生成的">
-<a class="header-anchor" href="#44-hook-%e8%84%9a%e6%9c%ac%e6%98%af%e6%80%8e%e4%b9%88%e7%94%9f%e6%88%90%e7%9a%84"></a>
-4.4 Hook 脚本是怎么生成的
-</h3><p>到这里静态已经能解了，但工具还是走了一遍动态——因为<strong>多阶段题的静态推断需要运行时证据交叉确认</strong>。Hook 脚本不是手写的，是 AI 按契约生成的，提示词里写死了几条硬规矩：</p>
-<ol>
-<li><strong>降噪必须严格</strong>：hook <code>String.equals</code> 时只打印&quot;长度 ≥8 且命中 <code>flag|ctf|NCTF|key|secret|token</code> 或是 ≥20 位 hex/base64&quot;的比较。只按长度过滤会漏——AndroidX、<code>res/*.xml</code>、绝对路径这些噪音长度都在 6 以上。</li>
-<li><strong>绝不过早收尾</strong>：只有确认命中校验数据（flag 形态字符串、加密函数实参/返回、SP 写入 key/密文）才 <code>send(&quot;[done]&quot;)</code>。工具用<strong>滚动窗口</strong>抓取：每来一条数据续 60s，连续 60s 无数据才结束（绝对上限 10 分钟），所以脚本里不许写固定超时。</li>
-<li><strong>必须主动触发</strong>：spawn 后如果不操作界面，App 停在首页，Stage2/3 的加密代码根本不会执行（见 4.5）。</li>
-<li><strong>内部类写法</strong>：<code>Java.use('android.app.SharedPreferencesImpl$EditorImpl')</code>——写成 <code>SharedPreferencesImpl.EditorImpl</code> 会拿到 <code>undefined</code>。</li>
-</ol>
-<p>生成后工具先做<strong>静态语法预检</strong>（AI 生成的正则常含未转义的 <code>/</code>，会让 frida 报 <code>invalid regular expression flags</code> 整脚本不加载、白等 25 秒），自动修复或回退到内置模板；然后<strong>前置注入&quot;进程内解密&quot;段</strong>——既然 key/IV/密文已经反演出来了，就别让 Hook 只当 passive 旁听，直接在 App 进程里解出 flag 打印 <code>[FLAG]</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 生成脚本的关键 hook 点（节选）
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">Java</span>.<span style="color:#a6e22e">perform</span>(<span style="color:#66d9ef">function</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// native 校验函数：看输入与返回的 int[]
-</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">NB</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Java</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;com.nctf.hookmysecret.nativebridge.NativeBridge&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">NB</span>.<span style="color:#a6e22e">encryptStage2</span>.<span style="color:#a6e22e">overload</span>(<span style="color:#e6db74">&#39;java.lang.String&#39;</span>).<span style="color:#a6e22e">implementation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">s</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">encryptStage2</span>(<span style="color:#a6e22e">s</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[HIT] encryptStage2(&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;) = &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">r</span>));
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">r</span>;
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// AES 参数：key / IV / 明文一次拿全
-</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Cipher</span>.<span style="color:#a6e22e">init</span>.<span style="color:#a6e22e">overload</span>(<span style="color:#e6db74">&#39;int&#39;</span>, <span style="color:#e6db74">&#39;java.security.Key&#39;</span>).<span style="color:#a6e22e">implementation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">mode</span>, <span style="color:#a6e22e">key</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[Cipher] init key=&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">bytesToHex</span>(<span style="color:#a6e22e">key</span>.<span style="color:#a6e22e">getEncoded</span>()));
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">init</span>(<span style="color:#a6e22e">mode</span>, <span style="color:#a6e22e">key</span>);
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 阶段状态机：stage1Passed / stage2Passed / stage2Key 写入点
-</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Ed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Java</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;android.app.SharedPreferencesImpl$EditorImpl&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Ed</span>.<span style="color:#a6e22e">putString</span>.<span style="color:#a6e22e">implementation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[DATA] putString &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; = &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">v</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">putString</span>(<span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span>);
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// SQLite：IV 常量的来源
-</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">SQLiteDatabase</span>.<span style="color:#a6e22e">rawQuery</span>.<span style="color:#a6e22e">overload</span>(<span style="color:#e6db74">&#39;java.lang.String&#39;</span>, <span style="color:#e6db74">&#39;[Ljava.lang.String;&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">implementation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">sql</span>, <span style="color:#a6e22e">args</span>) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[SQL] &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sql</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; args=&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">args</span>));
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">rawQuery</span>(<span style="color:#a6e22e">sql</span>, <span style="color:#a6e22e">args</span>);
-</span></span><span style="display:flex;"><span>        };
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><p>完整脚本见附件 <a href="/files/ctf-re-tool-intro/hook.js">hook.js</a>。</p>
-<h3 id="45-最大坑app-停在首页校验代码永不执行">
-<a class="header-anchor" href="#45-%e6%9c%80%e5%a4%a7%e5%9d%91app-%e5%81%9c%e5%9c%a8%e9%a6%96%e9%a1%b5%e6%a0%a1%e9%aa%8c%e4%bb%a3%e7%a0%81%e6%b0%b8%e4%b8%8d%e6%89%a7%e8%a1%8c"></a>
-4.5 最大坑：App 停在首页，校验代码永不执行
-</h3><p>spawn 模式拉起后如果没人操作界面，App 停在手势页——Stage2/3 的加密根本不会跑，Hook 抓到的全是启动噪音。工具的对策是<strong>Hook 与界面驱动并行</strong>：</p>
-<ul>
-<li><strong>主动驱动</strong>：每轮 <code>dump UI → 挑可点击节点 → 操作 → 再 dump</code> 逐屏推进（点开始 → 画手势 → 填输入 → 提交），输入值先用占位值触发分支；</li>
-<li><strong>滚动抓取</strong>：Hook 窗口 5 秒等启动 + 30 秒驱动期间持续有数据就不断续期，不会因为操作慢被硬停；</li>
-<li><strong>抓取窗口必须长于驱动窗口</strong>，否则校验真正发生时窗口已经关了。</li>
-</ul>
-<h3 id="46-hook-抓到了什么">
-<a class="header-anchor" href="#46-hook-%e6%8a%93%e5%88%b0%e4%ba%86%e4%bb%80%e4%b9%88"></a>
-4.6 Hook 抓到了什么
-</h3><p>Frida 17.9.8 attach 到 <code>127.0.0.1:27042</code>，spawn <code>com.nctf.hookmysecret</code> 后的真实输出（节选 + 注解）：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[HIT] NativeBridge.encryptStage2 hooked          ← native 校验函数已挂钩
-</span></span><span style="display:flex;"><span>[HIT] Cipher hooked                              ← AES 参数点已挂钩
-</span></span><span style="display:flex;"><span>[HIT] Arrays.equals(int[]) [] vs [] -&gt; true      ← 手势校验在进行（int[] 比较节点序列）
-</span></span><span style="display:flex;"><span>[DATA] ARRAY MATCH [16842910,16843597,0,0]
-</span></span><span style="display:flex;"><span>[HIT] Arrays.equals(int[]) [16842910,16843597,0,0] vs [16842910,16843547,16843597,0,0] -&gt; false
-</span></span><span style="display:flex;"><span>[HIT] Arrays.equals(int[]) [16842910,16843547,16843597,0,0] vs [16842909,16842910,16843547,16843597,0,0] -&gt; false
-</span></span><span style="display:flex;"><span>[HIT] String.equals true: &#34;.../databases/config.db&#34; == &#34;.../databases/config.db&#34;
-</span></span></code></pre></div><p>这几行信息量很大：<code>int[]</code> 数组在<strong>逐个节点变长</strong>——那是界面驱动在画手势、<code>Arrays.equals</code> 在拿节点序列做比对，证实了 Stage1 是图案校验；<code>config.db</code> 命中则坐实了&quot;IV 藏在 SQLite&quot;的静态推断。<code>[HIT]</code> 表示&quot;校验/关键函数被调用&quot;，<code>[DATA]</code> 表示&quot;抓到含 key/密文/正确值的数据&quot;——AI 拿到的是<strong>已经按这两个前缀筛过的关键行</strong>，而不是几万字符的原始噪音（直接 <code>slice(0,6000)</code> 会把真正的命中行截掉，这是实测踩过的坑）。</p>
-<h3 id="47-进程内解密直接出-flag">
-<a class="header-anchor" href="#47-%e8%bf%9b%e7%a8%8b%e5%86%85%e8%a7%a3%e5%af%86%e7%9b%b4%e6%8e%a5%e5%87%ba-flag"></a>
-4.7 进程内解密直接出 flag
-</h3><p>因为 key/IV/密文都已就位，注入的解密段直接在 App 进程里跑 <code>AES/CBC/PKCS5Padding</code>，打印：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[FLAG]NCTF{a680107e-a49b-43e1-915b-cedd25e7835a}[/FLAG]
-</span></span></code></pre></div><p>工具对 <code>[FLAG]</code> 的处理是<strong>最硬证据通道</strong>：正则收割 → <code>looksLikeFlag</code> 校验 → 直接 <code>recordFlag(verified=true)</code>，不等 AI 复述。Hook 输出随后回灌 AI 做最终结论，AI 再次给出同一 flag 与 <code>[VERIFY]</code> 契约，本地复现再次通过。</p>
-<h3 id="48-四路证据交叉验证">
-<a class="header-anchor" href="#48-%e5%9b%9b%e8%b7%af%e8%af%81%e6%8d%ae%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81"></a>
-4.8 四路证据交叉验证
-</h3><p>这道题最终在 <code>findings.json</code> 里的记录是：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;flag&#34;</span>: <span style="color:#e6db74">&#34;NCTF{a680107e-a49b-43e1-915b-cedd25e7835a}&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;verified&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;ai, verify-contract, ai-deep, frida-flag&#34;</span> }
-</span></span></code></pre></div><p>四个独立来源指向同一个答案：AI 静态推理、验证契约本地复现、深度分析、Frida 进程内解密。<strong>flag 不是&quot;AI 说它对&quot;，而是四条互相独立的证据链都收敛</strong>。</p>
-<p>完整脚本见附件 <a href="/files/ctf-re-tool-intro/solve_apk.py">solve_apk.py</a>，题目样本 <a href="/files/ctf-re-tool-intro/app-release.apk">app-release.apk</a>。</p>
-<blockquote>
-<p><strong>经验沉淀</strong>：这道题的最优解其实是纯静态——反查常量串定位校验点（<code>N0/d</code>）+ native 反演 key + AES 解密，全程不需要模拟器。动态 Hook 的价值在于<strong>证据交叉确认</strong>与<strong>触发真实流程</strong>。工具把这类&quot;踩坑 + 正解&quot;自动写入经验库，下次遇到同类题自动注入提示词。</p>
-</blockquote>
-<h2 id="五一些工程细节">
-<a class="header-anchor" href="#%e4%ba%94%e4%b8%80%e4%ba%9b%e5%b7%a5%e7%a8%8b%e7%bb%86%e8%8a%82"></a>
-五、一些工程细节
-</h2><p>工具本身也是按&quot;安全工具&quot;的标准写的：</p>
-<ul>
-<li><strong>渲染层加固</strong>：<code>sandbox: true</code> + <code>contextIsolation</code>，渲染层只有 <code>contextBridge</code> 暴露的白名单 API；外链一律走系统浏览器。</li>
-<li><strong>IPC 参数化</strong>：命令执行走 <code>run-tool-args</code>（argv 数组 + <code>shell:false</code>），杜绝命令注入；zip 条目枚举、目录内容检索改用纯 Node 实现，替掉了 PowerShell 字符串拼接。</li>
-<li><strong>路径边界</strong>：文件写入限定在允许根（userData / 应用目录 / 临时目录 / 当前题目目录）之内；打包后 asar 只读，运行期产物统一落 <code>userData</code>。</li>
-<li><strong>CASE 与隐私</strong>：每题证据独立成目录，<code>cases/</code>、<code>HANDOFF.md</code> 等含答案/本机信息的文件默认不入库。</li>
-<li><strong>成本控制</strong>：脚本生成这类模式化任务走快速模型，重推理才走主力模型。</li>
-</ul>
-<h2 id="六小结">
-<a class="header-anchor" href="#%e5%85%ad%e5%b0%8f%e7%bb%93"></a>
-六、小结
-</h2><p><code>CTF-RE-TOOL</code> 不是要替代 IDA / Frida / JEB——真正的分析永远得靠它们。它解决的是**&ldquo;把工具串起来&quot;这件事的摩擦**，并且坚持两条原则：</p>
-<ol>
-<li><strong>AI 的结论必须过本地验证</strong>——<code>[VERIFY]</code> 契约复现不过就不算数；</li>
-<li><strong>动态证据与静态推断互相交叉</strong>——单一来源的 flag 不标 verified。</li>
-</ol>
-<p>上面两道题，一道是纯静态的字节码虚拟机（自动分析流水线全程），一道要靠动态 Hook 定位、静态反演收尾（Hook 与界面驱动并行）——正好覆盖了逆向里最常见的两种节奏。</p>
-<ul>
-<li>项目地址：<a href="https://github.com/ip2867/ctf-re-tool">https://github.com/ip2867/ctf-re-tool</a></li>
-<li>下载试用：<a href="https://github.com/ip2867/ctf-re-tool/releases">Releases</a></li>
-</ul>
-<blockquote>
-<p>适用范围：CTF 竞赛、授权渗透测试、自有系统的安全研究。请勿用于未授权目标。</p>
-</blockquote>
-</div>
-    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/ctf"
-        rel="tag"
-        >CTF</a
-      >
-    </li><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/%e9%80%86%e5%90%91"
-        rel="tag"
-        >逆向</a
-      >
-    </li><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/%e5%b7%a5%e5%85%b7"
-        rel="tag"
-        >工具</a
-      >
-    </li><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/electron"
-        rel="tag"
-        >ELECTRON</a
-      >
-    </li><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/frida"
-        rel="tag"
-        >FRIDA</a
-      >
-    </li><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/ida"
-        rel="tag"
-        >IDA</a
-      >
-    </li><li class="article-tag-list-item" data-aos="zoom-in">
-      <a
-        class="article-tag-list-link"
-        href="/tags/ai"
-        rel="tag"
-        >AI</a
-      >
-    </li></ul>
-</footer>
-  </div><nav
-    id="article-nav"
-    aria-label="Article navigation"
-    data-aos="fade-up"
-  ><div class="article-nav-link-wrap left"><img
-              data-src="/covers/cover1.webp"
-              data-sizes="auto"
-              alt="CTF 逆向入门(六)：反调试技术与绕过方法"
-              class="lazyload"
-            /><a
-          href="/post/ctf-anti-debug-bypass/"
-          aria-label="前一篇:CTF 逆向入门(六)：反调试技术与绕过方法"
-          title="前一篇:CTF 逆向入门(六)：反调试技术与绕过方法"
-        ></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">CTF 逆向入门(六)：反调试技术与绕过方法</h3>
-      </div><div class="article-nav-link-wrap right"><img
-              data-src="/covers/cover1.webp"
-              data-sizes="auto"
-              alt="AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）"
-              class="lazyload"
-            /><a
-          href="/post/ctf2-arena-8-challenges/"
-          aria-label="后一篇:AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）"
-          title="后一篇:AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）"
-        ></a>
-        <div class="article-nav-caption">后一篇</div>
-        <h3 class="article-nav-title">AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</h3>
-      </div></nav></article><section id="comments" data-aos="fade-up">
-<div class="comment-header"><h2 class="comment-title">说些什么吧！</h2>
-  <div class="comment-selector">
-    <div class="comment-selector-wrap"><div class="selector-item" data-selector="giscus">
-          <span>giscus</span>
-        </div></div>
-  </div>
-</div>
-
-<div class="comment-content"><div class="comment giscus-comment" data-aos="fade-up"
-     >
-    </div></div>
-</section></section>
-        </div><footer id="footer" aria-label="Site footer">
-  <div style="width: 100%; overflow: hidden">
-    <div class="footer-line"></div>
-  </div>
-  <div id="footer-info"><div>
-      <span class="icon-copyright"></span>2020-2026<span class="footer-info-sep rotate"></span>
-      栗悟饭与龟波功
-    </div><div>
-        基于&nbsp;<a
-          href="https://gohugo.io/"
-          target="_blank"
-          rel="noopener nofollow noreferrer"
-          >Hugo</a
-        >&nbsp; Theme.<a
-          href="https://github.com/D-Sketon/hugo-theme-reimu"
-          target="_blank"
-          rel="noopener nofollow noreferrer"
-          >Reimu</a
-        >
-      </div><div>
-        <span class="icon-brush"
-          >&nbsp;62.9k</span
-        >
-        &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;02:12</span>
-      </div><div>
-        <span class="icon-eye"></span>
-        <span id="busuanzi_container_site_pv"
-          >总访问量&nbsp;<span
-            id="busuanzi_value_site_pv"
-          ></span
-        ></span>
-        &nbsp;|&nbsp;
-        <span class="icon-user"></span>
-        <span id="busuanzi_container_site_uv"
-          >总访客量&nbsp;<span
-            id="busuanzi_value_site_uv"
-          ></span
-        ></span>
-      </div></div>
-</footer>
-<div class="sidebar-top">
-            <div class="sidebar-top-taichi rotate"></div>
-            <div class="arrow-up"></div>
-          </div><div id="mask" class="hide"></div>
-      </div><nav id="mobile-nav" aria-label="Mobile navigation">
-  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
-<div class="sidebar-toc-wrapper toc-div-class">
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一为什么要写这个工具">一、为什么要写这个工具</a></li>
-    <li><a href="#二整体架构一条解题流水线">二、整体架构：一条解题流水线</a></li>
-    <li><a href="#三实战一2exe--自动分析流水线完整走一遍">三、实战一：<code>2.exe</code> —— 自动分析流水线完整走一遍</a>
-      <ul>
-        <li><a href="#31-拖入--识别--建案">3.1 拖入 → 识别 → 建案</a></li>
-        <li><a href="#32-pe-五步流水线">3.2 PE 五步流水线</a></li>
-        <li><a href="#33-ai-tool-use从找到-main到还原-vm">3.3 AI Tool-Use：从&quot;找到 main&quot;到&quot;还原 VM&quot;</a></li>
-        <li><a href="#34-求解与验证闭环">3.4 求解与验证闭环</a></li>
-      </ul>
-    </li>
-    <li><a href="#四实战二app-releaseapk--frida-hook-全流程">四、实战二：<code>app-release.apk</code> —— Frida Hook 全流程</a>
-      <ul>
-        <li><a href="#41-apk-七步自动分析">4.1 APK 七步自动分析</a></li>
-        <li><a href="#42-静态定位r8-混淆下按常量串反查">4.2 静态定位：R8 混淆下按常量串反查</a></li>
-        <li><a href="#43-native-反演从-ida-伪代码到-key">4.3 native 反演：从 IDA 伪代码到 key</a></li>
-        <li><a href="#44-hook-脚本是怎么生成的">4.4 Hook 脚本是怎么生成的</a></li>
-        <li><a href="#45-最大坑app-停在首页校验代码永不执行">4.5 最大坑：App 停在首页，校验代码永不执行</a></li>
-        <li><a href="#46-hook-抓到了什么">4.6 Hook 抓到了什么</a></li>
-        <li><a href="#47-进程内解密直接出-flag">4.7 进程内解密直接出 flag</a></li>
-        <li><a href="#48-四路证据交叉验证">4.8 四路证据交叉验证</a></li>
-      </ul>
-    </li>
-    <li><a href="#五一些工程细节">五、一些工程细节</a></li>
-    <li><a href="#六小结">六、小结</a></li>
-  </ul>
-</nav>
-</div></div>
-        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
-  <img
-    data-src="/avatar/avatar.webp"
-    data-sizes="auto"
-    alt="栗悟饭与龟波功"
-    class="lazyload"
-  />
-  <div class="sidebar-author-name">栗悟饭与龟波功</div>
-  <div class="sidebar-description">这一切都是命运石之门的选择！</div>
-</div>
-<div class="sidebar-state">
-  <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">17</div>
-  </div>
-  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
-    <div>分类</div>
-    <div class="sidebar-state-number">
-      3
-    </div>
-  </a>
-  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
-    <div>标签</div>
-    <div class="sidebar-state-number">64</div>
-  </a>
-</div>
-<div class="sidebar-social"></div>
-<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/"
-        aria-label="首页"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">首页</div>
-    </div><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/archives"
-        aria-label="归档"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">归档</div>
-    </div><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/about"
-        aria-label="关于"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">关于</div>
-    </div><div class="sidebar-menu-link-wrap">
-      <a
-        class="sidebar-menu-link-dummy"
-        href="/friend"
-        aria-label="友链"
-      ></a>
-      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
-      <div class="sidebar-menu-link">友链</div>
-    </div></div>
-</div></div><div class="sidebar-btn-wrapper">
-        <div class="sidebar-toc-btn current"></div>
-        <div class="sidebar-common-btn"></div>
-      </div></nav>
-</div><script
-    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
-    
-    
-    
-    
-    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
-    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
-    
-    
-    
-    
-    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
-    var aosInit = () => {
-      AOS.init({
-        duration: 1000,
-        easing: "ease",
-        once: true,
-        offset: 50,
-      });
-    };
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", aosInit);
-    } else {
-      aosInit();
-    }
-  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
-  var setupFirework = () => {
-    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
-      if (window.firework) {
-        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
-        options.excludeElements = options.excludeelements;
-        delete options.excludeelements;
-        window.firework(options);
-      }
-    }
-  }
-</script><script
-    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
-    defer
-    
-    
-    onload="setupFirework()"
-    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
-
-<div id="lazy-script">
-  <div><script data-pjax>
-        window.REIMU_POST = {
-          author: "栗悟饭与龟波功",
-          title: "CTF-RE-TOOL：把逆向工作流装进一个桌面工具",
-          url: "https:\/\/ip2867.github.io\/post\/ctf-re-tool-intro\/",
-          description: " 一个基于 Electron 的 CTF 逆向工程辅助工具：集成 AI 分析引擎、一键调用逆向工具、Frida 自动 Hook、解密脚本生成，内置 11 个逆向方法论 Skills 与可检索知识库，并通过 MCP 实时接入 IDA \/ JEB \/ Burp。\n",
-          cover: "https:\/\/ip2867.github.io\/images\/my-banner.webp",
-        };
-      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+<!doctype html><html lang=zh-CN data-theme-mode=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>CTF-RE-TOOL：把逆向工作流装进一个桌面工具 | 栗悟饭与龟波功</title><meta name=description content="这一切都是命运石之门的选择！"><script>window.siteConfig=JSON.parse('{"anchor_icon":null,"base":"https://ip2867.github.io/","clipboard":{"copyright":{"count":50,"enable":false,"license_type":"by-nc-sa"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ","pt-br":"Falha ao copiar (ﾟ⊿ﾟ)ﾂ","zh-cn":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-tw":"複製失敗 (ﾟ⊿ﾟ)ﾂ"},"success":{"en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)","pt-br":"Copiado com sucesso (*^▽^*)","zh-cn":"复制成功 (*^▽^*)","zh-tw":"複製成功 (*^▽^*)"}},"code_block":{"expand":true},"icon_font":"4552607_4k4bc36ef96","outdate":{"daysago":180,"enable":false,"message":{"en":"This article was last updated on {time}. Please note that the content may no longer be applicable.","ja":"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。","pt-br":"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.","zh-cn":"本文最后更新于 {time}，请注意文中内容可能已不适用。","zh-tw":"本文最後更新於 {time}，請注意文中內容可能已不適用。"}}}')</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap" media=print onload='this.media="all"'><link rel=preload href=//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=stylesheet href=/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css><meta property="og:type" content="website"><meta property="og:title" content="CTF-RE-TOOL：把逆向工作流装进一个桌面工具 | 栗悟饭与龟波功"><meta property="og:description" content="这一切都是命运石之门的选择！"><meta property="og:url" content="https://ip2867.github.io/post/ctf-re-tool-intro/"><meta property="og:site_name" content="Ip2867"><meta property="og:image" content="/"><meta property="article:author" content="栗悟饭与龟波功"><meta property="article:published_time" content="2026-10-09T22:40:00+08:00"><meta property="article:modified_time" content="2026-10-09T22:40:00+08:00"><meta property="article:tag" content="CTF逆向工具ElectronFridaIDAAI"><meta name=twitter:card content="summary"><meta name=twitter:image content="/"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet href=/css/main.min.f6466612d0d084b07f5515ecec56eae298c073fdbec512920e17cae8f72e8d69.css><link rel=preload as=style href=https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css integrity=sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE crossorigin=anonymous onload='this.onload=null,this.rel="stylesheet"'><link rel=preload as=style href=https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css integrity=sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI crossorigin=anonymous onload='this.onload=null,this.rel="stylesheet"'><script src=https://npm.webcache.cn/pace-js@1.2.4/pace.min.js integrity=sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8 crossorigin=anonymous></script><link rel=stylesheet href=https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css integrity=sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa crossorigin=anonymous></head><body><div id=loader><div class="loading-left-bg loading-bg"></div><div class="loading-right-bg loading-bg"></div><div class=spinner-box><div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" shape-rendering="geometricPrecision"><path d="M303.5 432a80 80 0 01-12 160 80 80 0 0112-160z" fill="var(--red-1, #ff5252)"/><path d="M512 65a447 447 0 010 894V929a417 417 0 000-834 417 417 0 000 834v30a447 447 0 010-894zm0 30A417 417 0 01929 512 208.5 208.5.0 01720.5 720.5V592a80 80 0 000-160 80 80 0 000 160V720.5A208.5 208.5.0 01512 512 208.5 208.5.0 00303.5 303.5 208.5 208.5.0 0095 512 417 417 0 01512 95z" fill="var(--red-1, #ff5252)"/></svg></div><div class=loading-word>EL PSY KONGROO</div></div></div></div><script>var time=null,loaderEl=document.getElementById("loader"),startLoading=()=>{time=Date.now(),loaderEl.classList.remove("loading")},hideLoader=()=>{document.body.style.overflow="auto",loader.classList.add("loading")},endLoading=()=>{time?Date.now()-time>500?(time=null,hideLoader()):(setTimeout(endLoading,500-(Date.now()-time)),time=null):hideLoader()};window.addEventListener("DOMContentLoaded",endLoading),loaderEl.addEventListener("click",endLoading)</script><div id=copy-tooltip></div><div id=lang-tooltip>本文章没有找到对应的语言版本</div><div id=heatmap-tooltip></div><div id=container><div id=wrap><div id=header-nav><nav id=main-nav aria-label="Primary navigation"><a class=main-nav-link-wrap href=/><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>首页</span>
+</a><a class=main-nav-link-wrap href=/archives><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>归档</span>
+</a><a class=main-nav-link-wrap href=/about><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>关于</span>
+</a><a class=main-nav-link-wrap href=/friend><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class=main-nav-link>友链</span>
+</a><a id=main-nav-toggle class=nav-icon aria-label="Toggle navigation" role=button></a></nav><nav id=sub-nav aria-label="Secondary navigation"></nav></div><header id=header aria-label="Site header"><picture></picture><img fetchpriority=high src=/images/my-banner.webp alt=CTF-RE-TOOL：把逆向工作流装进一个桌面工具><div id=header-outer><div id=header-title><span id=logo><h1 data-aos=slide-up>CTF-RE-TOOL：把逆向工作流装进一个桌面工具</h1></span><h2 id=subtitle-wrap data-aos=slide-down></h2></div></div></header><div id=content aria-label="Page content" class=sidebar-left><aside id=sidebar aria-label=Sidebar><div class="sidebar-wrapper-container sticky"><div class=sidebar-wrapper><div class=sidebar-wrap data-aos=fade-up><div class=sidebar-toc-sidebar><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><a href=#一为什么要写这个工具>一、为什么要写这个工具</a></li><li><a href=#二整体架构一条解题流水线>二、整体架构：一条解题流水线</a></li><li><a href=#三实战一2exe--自动分析流水线完整走一遍>三、实战一：<code>2.exe</code> —— 自动分析流水线完整走一遍</a><ul><li><a href=#31-拖入--识别--建案>3.1 拖入 → 识别 → 建案</a></li><li><a href=#32-pe-五步流水线>3.2 PE 五步流水线</a></li><li><a href=#33-ai-tool-use从找到-main到还原-vm>3.3 AI Tool-Use：从"找到 main"到"还原 VM"</a></li><li><a href=#34-求解与验证闭环>3.4 求解与验证闭环</a></li></ul></li><li><a href=#四实战二app-releaseapk--frida-hook-全流程>四、实战二：<code>app-release.apk</code> —— Frida Hook 全流程</a><ul><li><a href=#41-apk-七步自动分析>4.1 APK 七步自动分析</a></li><li><a href=#42-静态定位r8-混淆下按常量串反查>4.2 静态定位：R8 混淆下按常量串反查</a></li><li><a href=#43-native-反演从-ida-伪代码到-key>4.3 native 反演：从 IDA 伪代码到 key</a></li><li><a href=#44-hook-脚本是怎么生成的>4.4 Hook 脚本是怎么生成的</a></li><li><a href=#45-最大坑app-停在首页校验代码永不执行>4.5 最大坑：App 停在首页，校验代码永不执行</a></li><li><a href=#46-hook-抓到了什么>4.6 Hook 抓到了什么</a></li><li><a href=#47-进程内解密直接出-flag>4.7 进程内解密直接出 flag</a></li><li><a href=#48-四路证据交叉验证>4.8 四路证据交叉验证</a></li></ul></li><li><a href=#五一些工程细节>五、一些工程细节</a></li><li><a href=#六小结>六、小结</a></li></ul></nav></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=/avatar/avatar.webp data-sizes=auto alt=栗悟饭与龟波功 class=lazyload><div class=sidebar-author-name>栗悟饭与龟波功</div><div class=sidebar-description>这一切都是命运石之门的选择！</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>17</div></div><a class=sidebar-state-category href=/categories/ aria-label=sidebar-state-category-link><div>分类</div><div class=sidebar-state-number>3</div></a><a class=sidebar-state-tag href=/tags/ aria-label=sidebar-state-tag-link><div>标签</div><div class=sidebar-state-number>64</div></a></div><div class=sidebar-social></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/ aria-label=首页></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/archives aria-label=归档></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/about aria-label=关于></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/friend aria-label=友链></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>友链</div></div></div></div><div class=sidebar-btn-wrapper style=position:static><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></div></div><div class=sidebar-widget></div></div></aside><section id=main aria-label="Main content"><article class="h-entry article" itemscope itemtype=https://schema.org/BlogPosting><div class=article-inner data-aos=fade-up><div class=article-meta><div class=article-date><span class="article-date-link icon-calendar" data-aos=zoom-in><time datetime="2026-10-09 22:40:00 +0800 CST" itemprop=datePublished>2026-10-09</time>
+<time style=display:none id=post-update-time>2026-10-09</time></span></div><div class=article-category><a class=article-category-link href=/categories/%e9%80%86%e5%90%91 data-aos=zoom-in>逆向</a></div></div><div class=hr-line></div><div class="e-content article-entry" itemprop=articleBody><blockquote><p>一个基于 Electron 的 CTF 逆向工程辅助工具：集成 AI 分析引擎、一键调用逆向工具、Frida 自动 Hook、解密脚本生成，内置 11 个逆向方法论 Skills 与可检索知识库，并通过 MCP 实时接入 IDA / JEB / Burp。</p><p>项目地址：<a href=https://github.com/ip2867/ctf-re-tool>https://github.com/ip2867/ctf-re-tool</a>　·　下载：<a href=https://github.com/ip2867/ctf-re-tool/releases>Releases</a>（<code>CTF-RE-TOOL.exe</code>，便携单文件，双击即用）</p></blockquote><hr><h2 id=一为什么要写这个工具><a class=header-anchor href=#%e4%b8%80%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%86%99%e8%bf%99%e4%b8%aa%e5%b7%a5%e5%85%b7></a>一、为什么要写这个工具</h2><p>做 CTF 逆向，真正消耗时间的往往不是某一道题本身，而是反复的<strong>环境切换</strong>：</p><ul><li>拖一个文件进来，先 <code>file</code> / DIE 查壳，再确定是 PE、ELF 还是 APK；</li><li>打开了 IDA，又要在 JEB、jadx、apktool、pycdc 之间来回切，路径每次都要重新点；</li><li>静态走不通想上 Frida：开模拟器、push frida-server、查进程名、写 hook 脚本、过滤日志噪音……每一步都是体力活；</li><li>好不容易抓到一段密文，还得手写解密脚本，来回试算法。</li></ul><p>这些动作本身没有智力含量，却占了整个解题过程的一大半。<strong>CTF-RE-TOOL</strong> 想做的，就是把这些动作收敛到一个窗口里，并且按一条固定的"流水线"执行，让注意力尽量留在"算法怎么还原"上。</p><h2 id=二整体架构一条解题流水线><a class=header-anchor href=#%e4%ba%8c%e6%95%b4%e4%bd%93%e6%9e%b6%e6%9e%84%e4%b8%80%e6%9d%a1%e8%a7%a3%e9%a2%98%e6%b5%81%e6%b0%b4%e7%ba%bf></a>二、整体架构：一条解题流水线</h2><p>工具的核心不是"又一个 AI 聊天框"，而是一条<strong>带验证闭环的流水线</strong>。拖入文件后自动走完这几步：</p><p><img src=/images/ctf-re-tool.png alt=主界面 loading=lazy></p><blockquote><p>三栏布局：左侧文件分析与工具区，中间 AI 对话，右侧输出日志 / Frida Hook / 快速操作。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>拖入文件
+</span></span><span style=display:flex><span>  │
+</span></span><span style=display:flex><span>  ├─ 魔数识别（APK / PE / ELF / DEX / PYC / JAR / Lua / WASM / Mach-O）
+</span></span><span style=display:flex><span>  ├─ 建立 CASE 证据目录（cases/&lt;题名&gt;_&lt;md5前8&gt;/：evidence + scripts + timeline + findings）
+</span></span><span style=display:flex><span>  │
+</span></span><span style=display:flex><span>  ├─ 按类型走自动分析流水线
+</span></span><span style=display:flex><span>  │     PE  ：查壳 → IDA+MCP → 反调试检测 → 算法识别 → 生成解密脚本
+</span></span><span style=display:flex><span>  │     APK ：查壳 → JEB+MCP → SO提取+IDA → 模拟器 → 装APK → frida-server → 生成Hook脚本
+</span></span><span style=display:flex><span>  │
+</span></span><span style=display:flex><span>  ├─ AI Tool-Use 求解循环（读技能 → bash/run_python → 反编译 → 还原算法）
+</span></span><span style=display:flex><span>  │     └─ 输出契约：[FLAG]...[/FLAG] + [VERIFY]{算法,密钥,密文}[/VERIFY]
+</span></span><span style=display:flex><span>  │
+</span></span><span style=display:flex><span>  ├─ 验证闭环：工具在本地复现 [VERIFY]，通过才算 verified；失败则枚举 [HYPOTHESES] 兜底
+</span></span><span style=display:flex><span>  ├─ （需要动态证据时）Frida 自动 Hook + 界面驱动 + 进程内解密
+</span></span><span style=display:flex><span>  │
+</span></span><span style=display:flex><span>  └─ 经验沉淀：踩坑与正则写入经验库，下次同类题自动注入提示词
+</span></span></code></pre></div><p>几个关键设计：</p><p><strong>① MCP 不是"连上就算"，而是真的取数。</strong> IDA MCP 连上后会枚举导出函数、定位 JNI 函数并反编译，把伪代码喂给后续 AI——否则等于白连。</p><p><strong>② AI 的输出是契约，不是散文。</strong> AI 按约定输出 <code>[VERIFY]{"algo":"aes_cbc","key":"...","ciphertext":"...","iv":"..."}</code>，工具解析后用本地 Python 复现一遍：解出来能匹配 <code>expected</code> 才标记 <code>verified</code>。AI 说对了不算数，<strong>本地跑通了才算</strong>。</p><p><strong>③ 失败有兜底。</strong> 验证不过时，AI 会被要求给出 <code>[HYPOTHESES]</code>（多个候选算法 × 密钥 × 字节序组合），工具本地枚举，命中即记录。</p><p><strong>④ 每道题都是一个案件。</strong> 反编译产物、Hook 脚本、验证输出、时间线全部落盘到 <code>CASE</code> 目录，写 WP 时直接引用。</p><h2 id=三实战一2exe--自动分析流水线完整走一遍><a class=header-anchor href=#%e4%b8%89%e5%ae%9e%e6%88%98%e4%b8%802exe--%e8%87%aa%e5%8a%a8%e5%88%86%e6%9e%90%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%ae%8c%e6%95%b4%e8%b5%b0%e4%b8%80%e9%81%8d></a>三、实战一：<code>2.exe</code> —— 自动分析流水线完整走一遍</h2><p>题目是一个 105 KB 的 PE 控制台程序，MinGW/GCC 4.9.2 编译，无壳，但核心校验藏在一个<strong>自实现的字节码虚拟机</strong>里。这道题走的是纯静态流水线。</p><h3 id=31-拖入--识别--建案><a class=header-anchor href=#31-%e6%8b%96%e5%85%a5--%e8%af%86%e5%88%ab--%e5%bb%ba%e6%a1%88></a>3.1 拖入 → 识别 → 建案</h3><p>拖入文件后，工具读魔数识别为 <code>PE</code>，算出 MD5/SHA256，随后建立 CASE 目录并记录时间线。这一步的产出是后面一切工作的"案卷"。</p><h3 id=32-pe-五步流水线><a class=header-anchor href=#32-pe-%e4%ba%94%e6%ad%a5%e6%b5%81%e6%b0%b4%e7%ba%bf></a>3.2 PE 五步流水线</h3><p>点"分析文件"后，工具按固定顺序执行：</p><ol><li><strong>DIE 查壳</strong>——确认无壳，排除脱壳流程；</li><li><strong>启动 IDA 并自动连接 MCP</strong>——端口轮询等待（最长 180s），而不是固定 2 秒就判失败，因为 IDA 冷启动 + 插件自启监听需要时间；</li><li><strong>反调试特征检测</strong>；</li><li><strong>算法特征识别</strong>——扫描 <code>0x9E3779B9</code>（TEA）、AES S盒、SM4 S盒等特征常量；</li><li><strong>生成解密脚本框架</strong>。</li></ol><h3 id=33-ai-tool-use从找到-main到还原-vm><a class=header-anchor href=#33-ai-tool-use%e4%bb%8e%e6%89%be%e5%88%b0-main%e5%88%b0%e8%bf%98%e5%8e%9f-vm></a>3.3 AI Tool-Use：从"找到 main"到"还原 VM"</h3><p>接下来是 AI 的 Tool-Use 循环（最多 25 轮）：AI 先读 <code>ctf-reverse-binary</code> 技能拿到方法论，然后用 <code>ida_decompile</code> 通过 MCP 拉伪代码。工具的 CASE 里留了它拉回来的真实反编译结果：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>// ==== main ====
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#66d9ef>__cdecl</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>envp)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> dst_[<span style=color:#ae81ff>117</span>]; <span style=color:#75715e>// [esp+18h] [ebp-1D4h] BYREF
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>__main</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>qmemcpy</span>(dst_, <span style=color:#f92672>&amp;</span>src_, <span style=color:#ae81ff>0x1C8u</span>);   <span style=color:#75715e>// 456 字节 = 114 个 dword，正是字节码程序
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>vm_operad</span>(dst_, <span style=color:#ae81ff>114</span>);           <span style=color:#75715e>// 虚拟机入口，程序长度 114
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>puts</span>(<span style=color:#e6db74>&#34;good,The answer format is:flag {}&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><code>main</code> 干的事一目了然：把 <code>0x403040</code> 处 114 个 dword 拷到栈上，交给 <code>vm_operad</code> 解释执行。继续拉 <code>vm_operad</code> 的伪代码：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#66d9ef>__cdecl</span> <span style=color:#a6e22e>vm_operad</span>(<span style=color:#66d9ef>int</span> <span style=color:#f92672>*</span>dst, <span style=color:#66d9ef>int</span> n114)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> Str[<span style=color:#ae81ff>200</span>];  <span style=color:#75715e>// [ebp-E5h]：输入区 Str[0..99] + 输出区 Str[100..199] 共用一块内存
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> v4;        <span style=color:#75715e>// 累加器 T
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span>  v5, v6, v7, v8;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span>  pc <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>while</span> (<span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (pc <span style=color:#f92672>&gt;=</span> n114) <span style=color:#66d9ef>return</span> pc;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>switch</span> (dst[pc]) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>  Str[v6 <span style=color:#f92672>+</span> <span style=color:#ae81ff>100</span>] <span style=color:#f92672>=</span> v4;            <span style=color:#f92672>++</span>pc; <span style=color:#f92672>++</span>v6; <span style=color:#f92672>++</span>v8; <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// 输出区写入
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>2</span><span style=color:#f92672>:</span>  v4 <span style=color:#f92672>=</span> dst[pc<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> Str[v8];      pc <span style=color:#f92672>+=</span> <span style=color:#ae81ff>2</span>;          <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// ADD
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>3</span><span style=color:#f92672>:</span>  v4 <span style=color:#f92672>=</span> Str[v8] <span style=color:#f92672>-</span> <span style=color:#a6e22e>LOBYTE</span>(dst[pc<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]); pc <span style=color:#f92672>+=</span> <span style=color:#ae81ff>2</span>;       <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// SUB
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>4</span><span style=color:#f92672>:</span>  v4 <span style=color:#f92672>=</span> dst[pc<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>^</span> Str[v8];      pc <span style=color:#f92672>+=</span> <span style=color:#ae81ff>2</span>;          <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// XOR
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>5</span><span style=color:#f92672>:</span>  v4 <span style=color:#f92672>=</span> dst[pc<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>*</span> Str[v8];      pc <span style=color:#f92672>+=</span> <span style=color:#ae81ff>2</span>;          <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// MUL
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>6</span><span style=color:#f92672>:</span>  <span style=color:#f92672>++</span>pc;                                            <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// NOP
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>7</span><span style=color:#f92672>:</span>  <span style=color:#66d9ef>if</span> (Str[v7 <span style=color:#f92672>+</span> <span style=color:#ae81ff>100</span>] <span style=color:#f92672>!=</span> dst[pc<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]) {   <span style=color:#75715e>// 逐字节比对
+</span></span></span><span style=display:flex><span>                 <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;what a shame...&#34;</span>); <span style=color:#a6e22e>exit</span>(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>               }
+</span></span><span style=display:flex><span>               <span style=color:#f92672>++</span>v7; pc <span style=color:#f92672>+=</span> <span style=color:#ae81ff>2</span>;                                    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>8</span><span style=color:#f92672>:</span>  Str[v5] <span style=color:#f92672>=</span> v4;                  <span style=color:#f92672>++</span>pc; <span style=color:#f92672>++</span>v5;       <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// ⚠ 写回输入区
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>10</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>read</span>(Str);                     <span style=color:#f92672>++</span>pc;             <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// 读输入
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>11</span><span style=color:#f92672>:</span> v4 <span style=color:#f92672>=</span> Str[v8] <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;              <span style=color:#f92672>++</span>pc;             <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// DEC
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>12</span><span style=color:#f92672>:</span> v4 <span style=color:#f92672>=</span> Str[v8] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;              <span style=color:#f92672>++</span>pc;             <span style=color:#66d9ef>break</span>; <span style=color:#75715e>// INC
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><code>read</code> 里藏着第一个约束：<code>scanf</code> 读入后 <code>strlen != 15</code> 直接 <code>WRONG!</code>——<strong>flag 长度必为 15</strong>。</p><p>两个坑在这里看得非常清楚：</p><ul><li><strong><code>case 8</code> 写回的是输入区</strong>。<code>Str</code> 是 200 字节的一块内存，<code>Str[0..99]</code> 放输入、<code>Str[100..199]</code> 放输出；<code>case 8</code> 的 <code>Str[v5] = v4</code> 从下标 0 开始写，会把还没读的原始输入覆盖掉，所以后面 <code>Str[v8]</code> 读到的可能已经不是原始字符。模拟时必须忠实复刻这一点，否则逐位爆破的结果是错的。</li><li><strong><code>v4</code> 是 <code>char</code></strong>。所有运算都要按 8 位（模 256）处理，<code>case 7</code> 的比较发生在有符号域（<code>0xA7</code> 以 <code>-89</code> 参与）。</li></ul><h3 id=34-求解与验证闭环><a class=header-anchor href=#34-%e6%b1%82%e8%a7%a3%e4%b8%8e%e9%aa%8c%e8%af%81%e9%97%ad%e7%8e%af></a>3.4 求解与验证闭环</h3><p>程序尾部 15 条 <code>[7, 目标值]</code> 就是全部校验点：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[34, 63, 52, 50, 114, 51, 24, 167, 49, 241, 40, 132, 193, 30, 122]
+</span></span></code></pre></div><p>由于每个输入字节只影响输出缓冲的同一下标，可以<strong>逐位独立枚举</strong>可打印字符。工具生成模拟脚本并运行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[+] 关键输入 = 757515121f3d478
+</span></span><span style=display:flex><span>[+] 复刻 VM 校验通过 = True =&gt; flag{757515121f3d478}
+</span></span></code></pre></div><p>随后 AI 按契约输出 <code>[VERIFY]</code>（<code>algo: custom</code> + 一段 <code>decrypt(data, key)</code> 代码），工具在本地用 Python 复现这段代码、比对 <code>expected</code>，日志出现 <code>[HIT] ... flag=flag{757515121f3d478}</code>，flag 才被标记为已验证。</p><p>最后用二进制本身做终审：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bat data-lang=bat><span style=display:flex><span>&gt; echo 757515121f3d478| 2.exe
+</span></span><span style=display:flex><span>string:good,The answer format is:flag {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&gt; echo 000000000000000| 2.exe
+</span></span><span style=display:flex><span>string:what a shame...
+</span></span></code></pre></div><p><strong>flag = <code>flag{757515121f3d478}</code></strong></p><p>完整脚本见附件 <a href=/files/ctf-re-tool-intro/solve_vm.py>solve_vm.py</a>，题目样本 <a href=/files/ctf-re-tool-intro/2.exe>2.exe</a>。</p><h2 id=四实战二app-releaseapk--frida-hook-全流程><a class=header-anchor href=#%e5%9b%9b%e5%ae%9e%e6%88%98%e4%ba%8capp-releaseapk--frida-hook-%e5%85%a8%e6%b5%81%e7%a8%8b></a>四、实战二：<code>app-release.apk</code> —— Frida Hook 全流程</h2><p>第二道题（<code>com.nctf.hookmysecret</code>）是典型的<strong>三阶段 Android 题</strong>：手势图案 → native 校验 → AES 终验。这道题我主要靠"运行 Hook"解，所以把 Hook 链路完整拆开讲。</p><h3 id=41-apk-七步自动分析><a class=header-anchor href=#41-apk-%e4%b8%83%e6%ad%a5%e8%87%aa%e5%8a%a8%e5%88%86%e6%9e%90></a>4.1 APK 七步自动分析</h3><p>APK 的流水线比 PE 多几步，每步都有明确的失败处理：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[1/7] DIE 查壳
+</span></span><span style=display:flex><span>[2/7] JEB 分析 Java 层
+</span></span><span style=display:flex><span>        ├─ 先探测 16161 端口：已在监听 = JEB+MCP 插件在跑 → 直接复用
+</span></span><span style=display:flex><span>        │   （避免重复启动第二个 JEB——第二个绑不上端口，同工程被占会卡死）
+</span></span><span style=display:flex><span>        └─ 未运行 → 启动 JEB，30 秒内轮询 MCP 握手
+</span></span><span style=display:flex><span>[3/7] 检查 Native SO
+</span></span><span style=display:flex><span>        ├─ 按内容查 ZIP 条目（顺便检测 Unity IL2CPP 的 global-metadata.dat）
+</span></span><span style=display:flex><span>        ├─ 提取 SO → IDA 打开 → MCP 等待就绪（180s）
+</span></span><span style=display:flex><span>        └─ 连上后立刻取数：枚举导出 → 定位 Java_* JNI 函数 → 反编译
+</span></span><span style=display:flex><span>[4/7] 检查模拟器状态（未连上会自动尝试拉起）
+</span></span><span style=display:flex><span>[5/7] 安装 APK 到模拟器
+</span></span><span style=display:flex><span>[6/7] 启动 frida-server（27042）
+</span></span><span style=display:flex><span>[7/7] 生成 Frida Hook 脚本 → 进入自动求解
+</span></span></code></pre></div><h3 id=42-静态定位r8-混淆下按常量串反查><a class=header-anchor href=#42-%e9%9d%99%e6%80%81%e5%ae%9a%e4%bd%8dr8-%e6%b7%b7%e6%b7%86%e4%b8%8b%e6%8c%89%e5%b8%b8%e9%87%8f%e4%b8%b2%e5%8f%8d%e6%9f%a5></a>4.2 静态定位：R8 混淆下按常量串反查</h3><p>R8 把包名压成了单字母（<code>N0</code>、<code>C</code>、<code>K0</code>、<code>M0</code>），Activity 名倒是完整的，但<strong>校验逻辑都在 OnClickListener 里</strong>。这时候类名不可靠，常量串才可靠——工具用参数化的目录检索（纯 Node 实现，不走 PowerShell 拼接）直接搜：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bat data-lang=bat><span style=display:flex><span>findstr /S /I /M /C:<span style=color:#e6db74>&#34;stage3_iv&#34;</span> /C:<span style=color:#e6db74>&#34;stage2Key&#34;</span> smali\*.smali
+</span></span></code></pre></div><p>三发命中：</p><table><thead><tr><th>命中</th><th>位置</th><th>角色</th></tr></thead><tbody><tr><td><code>stage2Key</code> / <code>NativeBridge</code></td><td><code>N0/d.smali</code></td><td>校验回调本体</td></tr><tr><td><code>encryptStage2</code> + <code>int[]</code> 常量</td><td><code>K0/a.smali</code> + <code>libhookmysecret.so</code></td><td>Stage2 native 校验</td></tr><tr><td><code>stage3_iv</code> + <code>SELECT v FROM app_cfg</code></td><td><code>M0/a.smali</code></td><td>SQLiteOpenHelper，IV 藏在这</td></tr></tbody></table><p><code>N0/d.smali</code> 里能直接确认 Stage3 的算法与参数来源：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-smali data-lang=smali><span style=display:flex><span>const-string v2, <span style=color:#e6db74>&#34;AES/CBC/PKCS5Padding&#34;</span>        <span style=color:#75715e># 算法
+</span></span></span><span style=display:flex><span>invoke-static {v2}, <span style=color:#66d9ef>L</span>javax/crypto/<span style=color:#a6e22e>Cipher</span>;-&gt;<span style=color:#a6e22e>getInstance</span>(...)
+</span></span><span style=display:flex><span>const-string v12, <span style=color:#e6db74>&#34;stage3_iv&#34;</span>                   <span style=color:#75715e># IV 来自 SQLite
+</span></span></span><span style=display:flex><span>const-string v9, <span style=color:#e6db74>&#34;-&#34;</span>                            <span style=color:#75715e># key 先去分隔符
+</span></span></span><span style=display:flex><span>const-string v3, <span style=color:#e6db74>&#34;jSaMnziall55Tdr+IZc7EKUNm/N4uwrZw1QFPw6DuirfYFJZg88j6GKLhWfNljAB&#34;</span>
+</span></span></code></pre></div><h3 id=43-native-反演从-ida-伪代码到-key><a class=header-anchor href=#43-native-%e5%8f%8d%e6%bc%94%e4%bb%8e-ida-%e4%bc%aa%e4%bb%a3%e7%a0%81%e5%88%b0-key></a>4.3 native 反演：从 IDA 伪代码到 key</h3><p>Stage2 的 <code>encryptStage2</code> 是 native 方法。工具自动提取 <code>libhookmysecret.so</code> 交给 IDA，反编译出的核心是一个逐字节滚动的状态机：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>v26 <span style=color:#f92672>=</span> <span style=color:#a6e22e>__ROL1__</span>(v25 <span style=color:#f92672>^</span> S <span style=color:#f92672>^</span> (<span style=color:#ae81ff>13</span><span style=color:#f92672>*</span>i <span style=color:#f92672>+</span> <span style=color:#ae81ff>66</span>), <span style=color:#ae81ff>3</span>) <span style=color:#f92672>+</span> i <span style=color:#f92672>+</span> <span style=color:#ae81ff>7</span><span style=color:#f92672>*</span>S;   <span style=color:#75715e>// S 初值 81
+</span></span></span><span style=display:flex><span>v44 <span style=color:#f92672>=</span> S <span style=color:#f92672>+</span> v25;
+</span></span><span style=display:flex><span>v45 <span style=color:#f92672>=</span> i <span style=color:#f92672>^</span> v26;
+</span></span><span style=display:flex><span>S    <span style=color:#f92672>=</span> v45 <span style=color:#f92672>+</span> v44;    <span style=color:#75715e>// 状态滚动：每一步的 S 依赖上一步的真实输出
+</span></span></span></code></pre></div><p>三个魔数 <code>0x51 / 0x0D / 0x42</code>（81、13、66）与式子一一对应。反演时<strong>必须按"每步实际 v 值推进滚动状态"</strong>，不能当独立字节算。工具写出正演 + 反演一对函数，用 <code>forward(inverse(TARGET)) == TARGET</code> 自检：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>native_inverse</span>(target):
+</span></span><span style=display:flex><span>    S <span style=color:#f92672>=</span> <span style=color:#ae81ff>81</span>; key <span style=color:#f92672>=</span> bytearray()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i, t <span style=color:#f92672>in</span> enumerate(target):
+</span></span><span style=display:flex><span>        x <span style=color:#f92672>=</span> ror8((t <span style=color:#f92672>-</span> i <span style=color:#f92672>-</span> <span style=color:#ae81ff>7</span> <span style=color:#f92672>*</span> S) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>, <span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span>        b <span style=color:#f92672>=</span> (x <span style=color:#f92672>^</span> S <span style=color:#f92672>^</span> ((<span style=color:#ae81ff>13</span> <span style=color:#f92672>*</span> i <span style=color:#f92672>+</span> <span style=color:#ae81ff>66</span>) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>)) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>
+</span></span><span style=display:flex><span>        key<span style=color:#f92672>.</span>append(b)
+</span></span><span style=display:flex><span>        S <span style=color:#f92672>=</span> (S <span style=color:#f92672>+</span> b <span style=color:#f92672>+</span> (i <span style=color:#f92672>^</span> t)) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>          <span style=color:#75715e># 状态滚动</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> bytes(key)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[stage2] 反演出的 key = b&#39;k7Xm2Pq9Wv4N8bRt&#39;
+</span></span><span style=display:flex><span>自检 forward(inverse(TARGET)) == TARGET : True
+</span></span></code></pre></div><h3 id=44-hook-脚本是怎么生成的><a class=header-anchor href=#44-hook-%e8%84%9a%e6%9c%ac%e6%98%af%e6%80%8e%e4%b9%88%e7%94%9f%e6%88%90%e7%9a%84></a>4.4 Hook 脚本是怎么生成的</h3><p>到这里静态已经能解了，但工具还是走了一遍动态——因为<strong>多阶段题的静态推断需要运行时证据交叉确认</strong>。Hook 脚本不是手写的，是 AI 按契约生成的，提示词里写死了几条硬规矩：</p><ol><li><strong>降噪必须严格</strong>：hook <code>String.equals</code> 时只打印"长度 ≥8 且命中 <code>flag|ctf|NCTF|key|secret|token</code> 或是 ≥20 位 hex/base64"的比较。只按长度过滤会漏——AndroidX、<code>res/*.xml</code>、绝对路径这些噪音长度都在 6 以上。</li><li><strong>绝不过早收尾</strong>：只有确认命中校验数据（flag 形态字符串、加密函数实参/返回、SP 写入 key/密文）才 <code>send("[done]")</code>。工具用<strong>滚动窗口</strong>抓取：每来一条数据续 60s，连续 60s 无数据才结束（绝对上限 10 分钟），所以脚本里不许写固定超时。</li><li><strong>必须主动触发</strong>：spawn 后如果不操作界面，App 停在首页，Stage2/3 的加密代码根本不会执行（见 4.5）。</li><li><strong>内部类写法</strong>：<code>Java.use('android.app.SharedPreferencesImpl$EditorImpl')</code>——写成 <code>SharedPreferencesImpl.EditorImpl</code> 会拿到 <code>undefined</code>。</li></ol><p>生成后工具先做<strong>静态语法预检</strong>（AI 生成的正则常含未转义的 <code>/</code>，会让 frida 报 <code>invalid regular expression flags</code> 整脚本不加载、白等 25 秒），自动修复或回退到内置模板；然后<strong>前置注入"进程内解密"段</strong>——既然 key/IV/密文已经反演出来了，就别让 Hook 只当 passive 旁听，直接在 App 进程里解出 flag 打印 <code>[FLAG]</code>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 生成脚本的关键 hook 点（节选）
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>Java</span>.<span style=color:#a6e22e>perform</span>(<span style=color:#66d9ef>function</span> () {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// native 校验函数：看输入与返回的 int[]
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>NB</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Java</span>.<span style=color:#a6e22e>use</span>(<span style=color:#e6db74>&#39;com.nctf.hookmysecret.nativebridge.NativeBridge&#39;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>NB</span>.<span style=color:#a6e22e>encryptStage2</span>.<span style=color:#a6e22e>overload</span>(<span style=color:#e6db74>&#39;java.lang.String&#39;</span>).<span style=color:#a6e22e>implementation</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>s</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>r</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>encryptStage2</span>(<span style=color:#a6e22e>s</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;[HIT] encryptStage2(&#34;&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>s</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;&#34;) = &#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>r</span>));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>r</span>;
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// AES 参数：key / IV / 明文一次拿全
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>Cipher</span>.<span style=color:#a6e22e>init</span>.<span style=color:#a6e22e>overload</span>(<span style=color:#e6db74>&#39;int&#39;</span>, <span style=color:#e6db74>&#39;java.security.Key&#39;</span>).<span style=color:#a6e22e>implementation</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>mode</span>, <span style=color:#a6e22e>key</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;[Cipher] init key=&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>bytesToHex</span>(<span style=color:#a6e22e>key</span>.<span style=color:#a6e22e>getEncoded</span>()));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>init</span>(<span style=color:#a6e22e>mode</span>, <span style=color:#a6e22e>key</span>);
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 阶段状态机：stage1Passed / stage2Passed / stage2Key 写入点
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>Ed</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Java</span>.<span style=color:#a6e22e>use</span>(<span style=color:#e6db74>&#39;android.app.SharedPreferencesImpl$EditorImpl&#39;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Ed</span>.<span style=color:#a6e22e>putString</span>.<span style=color:#a6e22e>implementation</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>k</span>, <span style=color:#a6e22e>v</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;[DATA] putString &#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>k</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39; = &#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>putString</span>(<span style=color:#a6e22e>k</span>, <span style=color:#a6e22e>v</span>);
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// SQLite：IV 常量的来源
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>SQLiteDatabase</span>.<span style=color:#a6e22e>rawQuery</span>.<span style=color:#a6e22e>overload</span>(<span style=color:#e6db74>&#39;java.lang.String&#39;</span>, <span style=color:#e6db74>&#39;[Ljava.lang.String;&#39;</span>)
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>implementation</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>sql</span>, <span style=color:#a6e22e>args</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;[SQL] &#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>sql</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39; args=&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>args</span>));
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>rawQuery</span>(<span style=color:#a6e22e>sql</span>, <span style=color:#a6e22e>args</span>);
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><p>完整脚本见附件 <a href=/files/ctf-re-tool-intro/hook.js>hook.js</a>。</p><h3 id=45-最大坑app-停在首页校验代码永不执行><a class=header-anchor href=#45-%e6%9c%80%e5%a4%a7%e5%9d%91app-%e5%81%9c%e5%9c%a8%e9%a6%96%e9%a1%b5%e6%a0%a1%e9%aa%8c%e4%bb%a3%e7%a0%81%e6%b0%b8%e4%b8%8d%e6%89%a7%e8%a1%8c></a>4.5 最大坑：App 停在首页，校验代码永不执行</h3><p>spawn 模式拉起后如果没人操作界面，App 停在手势页——Stage2/3 的加密根本不会跑，Hook 抓到的全是启动噪音。工具的对策是<strong>Hook 与界面驱动并行</strong>：</p><ul><li><strong>主动驱动</strong>：每轮 <code>dump UI → 挑可点击节点 → 操作 → 再 dump</code> 逐屏推进（点开始 → 画手势 → 填输入 → 提交），输入值先用占位值触发分支；</li><li><strong>滚动抓取</strong>：Hook 窗口 5 秒等启动 + 30 秒驱动期间持续有数据就不断续期，不会因为操作慢被硬停；</li><li><strong>抓取窗口必须长于驱动窗口</strong>，否则校验真正发生时窗口已经关了。</li></ul><h3 id=46-hook-抓到了什么><a class=header-anchor href=#46-hook-%e6%8a%93%e5%88%b0%e4%ba%86%e4%bb%80%e4%b9%88></a>4.6 Hook 抓到了什么</h3><p>Frida 17.9.8 attach 到 <code>127.0.0.1:27042</code>，spawn <code>com.nctf.hookmysecret</code> 后的真实输出（节选 + 注解）：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[HIT] NativeBridge.encryptStage2 hooked          ← native 校验函数已挂钩
+</span></span><span style=display:flex><span>[HIT] Cipher hooked                              ← AES 参数点已挂钩
+</span></span><span style=display:flex><span>[HIT] Arrays.equals(int[]) [] vs [] -&gt; true      ← 手势校验在进行（int[] 比较节点序列）
+</span></span><span style=display:flex><span>[DATA] ARRAY MATCH [16842910,16843597,0,0]
+</span></span><span style=display:flex><span>[HIT] Arrays.equals(int[]) [16842910,16843597,0,0] vs [16842910,16843547,16843597,0,0] -&gt; false
+</span></span><span style=display:flex><span>[HIT] Arrays.equals(int[]) [16842910,16843547,16843597,0,0] vs [16842909,16842910,16843547,16843597,0,0] -&gt; false
+</span></span><span style=display:flex><span>[HIT] String.equals true: &#34;.../databases/config.db&#34; == &#34;.../databases/config.db&#34;
+</span></span></code></pre></div><p>这几行信息量很大：<code>int[]</code> 数组在<strong>逐个节点变长</strong>——那是界面驱动在画手势、<code>Arrays.equals</code> 在拿节点序列做比对，证实了 Stage1 是图案校验；<code>config.db</code> 命中则坐实了"IV 藏在 SQLite"的静态推断。<code>[HIT]</code> 表示"校验/关键函数被调用"，<code>[DATA]</code> 表示"抓到含 key/密文/正确值的数据"——AI 拿到的是<strong>已经按这两个前缀筛过的关键行</strong>，而不是几万字符的原始噪音（直接 <code>slice(0,6000)</code> 会把真正的命中行截掉，这是实测踩过的坑）。</p><h3 id=47-进程内解密直接出-flag><a class=header-anchor href=#47-%e8%bf%9b%e7%a8%8b%e5%86%85%e8%a7%a3%e5%af%86%e7%9b%b4%e6%8e%a5%e5%87%ba-flag></a>4.7 进程内解密直接出 flag</h3><p>因为 key/IV/密文都已就位，注入的解密段直接在 App 进程里跑 <code>AES/CBC/PKCS5Padding</code>，打印：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[FLAG]NCTF{a680107e-a49b-43e1-915b-cedd25e7835a}[/FLAG]
+</span></span></code></pre></div><p>工具对 <code>[FLAG]</code> 的处理是<strong>最硬证据通道</strong>：正则收割 → <code>looksLikeFlag</code> 校验 → 直接 <code>recordFlag(verified=true)</code>，不等 AI 复述。Hook 输出随后回灌 AI 做最终结论，AI 再次给出同一 flag 与 <code>[VERIFY]</code> 契约，本地复现再次通过。</p><h3 id=48-四路证据交叉验证><a class=header-anchor href=#48-%e5%9b%9b%e8%b7%af%e8%af%81%e6%8d%ae%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81></a>4.8 四路证据交叉验证</h3><p>这道题最终在 <code>findings.json</code> 里的记录是：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{ <span style=color:#f92672>&#34;flag&#34;</span>: <span style=color:#e6db74>&#34;NCTF{a680107e-a49b-43e1-915b-cedd25e7835a}&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;verified&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;source&#34;</span>: <span style=color:#e6db74>&#34;ai, verify-contract, ai-deep, frida-flag&#34;</span> }
+</span></span></code></pre></div><p>四个独立来源指向同一个答案：AI 静态推理、验证契约本地复现、深度分析、Frida 进程内解密。<strong>flag 不是"AI 说它对"，而是四条互相独立的证据链都收敛</strong>。</p><p>完整脚本见附件 <a href=/files/ctf-re-tool-intro/solve_apk.py>solve_apk.py</a>，题目样本 <a href=/files/ctf-re-tool-intro/app-release.apk>app-release.apk</a>。</p><blockquote><p><strong>经验沉淀</strong>：这道题的最优解其实是纯静态——反查常量串定位校验点（<code>N0/d</code>）+ native 反演 key + AES 解密，全程不需要模拟器。动态 Hook 的价值在于<strong>证据交叉确认</strong>与<strong>触发真实流程</strong>。工具把这类"踩坑 + 正解"自动写入经验库，下次遇到同类题自动注入提示词。</p></blockquote><h2 id=五一些工程细节><a class=header-anchor href=#%e4%ba%94%e4%b8%80%e4%ba%9b%e5%b7%a5%e7%a8%8b%e7%bb%86%e8%8a%82></a>五、一些工程细节</h2><p>工具本身也是按"安全工具"的标准写的：</p><ul><li><strong>渲染层加固</strong>：<code>sandbox: true</code> + <code>contextIsolation</code>，渲染层只有 <code>contextBridge</code> 暴露的白名单 API；外链一律走系统浏览器。</li><li><strong>IPC 参数化</strong>：命令执行走 <code>run-tool-args</code>（argv 数组 + <code>shell:false</code>），杜绝命令注入；zip 条目枚举、目录内容检索改用纯 Node 实现，替掉了 PowerShell 字符串拼接。</li><li><strong>路径边界</strong>：文件写入限定在允许根（userData / 应用目录 / 临时目录 / 当前题目目录）之内；打包后 asar 只读，运行期产物统一落 <code>userData</code>。</li><li><strong>CASE 与隐私</strong>：每题证据独立成目录，<code>cases/</code>、<code>HANDOFF.md</code> 等含答案/本机信息的文件默认不入库。</li><li><strong>成本控制</strong>：脚本生成这类模式化任务走快速模型，重推理才走主力模型。</li></ul><h2 id=六小结><a class=header-anchor href=#%e5%85%ad%e5%b0%8f%e7%bb%93></a>六、小结</h2><p><code>CTF-RE-TOOL</code> 不是要替代 IDA / Frida / JEB——真正的分析永远得靠它们。它解决的是**&ldquo;把工具串起来"这件事的摩擦**，并且坚持两条原则：</p><ol><li><strong>AI 的结论必须过本地验证</strong>——<code>[VERIFY]</code> 契约复现不过就不算数；</li><li><strong>动态证据与静态推断互相交叉</strong>——单一来源的 flag 不标 verified。</li></ol><p>上面两道题，一道是纯静态的字节码虚拟机（自动分析流水线全程），一道要靠动态 Hook 定位、静态反演收尾（Hook 与界面驱动并行）——正好覆盖了逆向里最常见的两种节奏。</p><ul><li>项目地址：<a href=https://github.com/ip2867/ctf-re-tool>https://github.com/ip2867/ctf-re-tool</a></li><li>下载试用：<a href=https://github.com/ip2867/ctf-re-tool/releases>Releases</a></li></ul><blockquote><p>适用范围：CTF 竞赛、授权渗透测试、自有系统的安全研究。请勿用于未授权目标。</p></blockquote></div><footer class=article-footer><ul class=article-tag-list itemprop=keywords><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ctf rel=tag>CTF</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e9%80%86%e5%90%91 rel=tag>逆向</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/%e5%b7%a5%e5%85%b7 rel=tag>工具</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/electron rel=tag>ELECTRON</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/frida rel=tag>FRIDA</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ida rel=tag>IDA</a></li><li class=article-tag-list-item data-aos=zoom-in><a class=article-tag-list-link href=/tags/ai rel=tag>AI</a></li></ul></footer></div><nav id=article-nav aria-label="Article navigation" data-aos=fade-up><div class="article-nav-link-wrap left"><img data-src=/covers/cover1.webp data-sizes=auto alt="CTF 逆向入门(六)：反调试技术与绕过方法" class=lazyload><a href=/post/ctf-anti-debug-bypass/ aria-label="前一篇:CTF 逆向入门(六)：反调试技术与绕过方法" title="前一篇:CTF 逆向入门(六)：反调试技术与绕过方法"></a><div class=article-nav-caption>前一篇</div><h3 class=article-nav-title>CTF 逆向入门(六)：反调试技术与绕过方法</h3></div><div class="article-nav-link-wrap right"><img data-src=/covers/cover1.webp data-sizes=auto alt="AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）" class=lazyload><a href=/post/ctf2-arena-8-challenges/ aria-label="后一篇:AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）" title="后一篇:AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）"></a><div class=article-nav-caption>后一篇</div><h3 class=article-nav-title>AI 自动解题实录：CTF-RE-TOOL 在 CTF² 平台 8 连破（附完整 WP 与工具进化史）</h3></div></nav></article><section id=comments data-aos=fade-up><div class=comment-header><h2 class=comment-title>说些什么吧！</h2><div class=comment-selector><div class=comment-selector-wrap><div class=selector-item data-selector=giscus><span>giscus</span></div></div></div></div><div class=comment-content><div class="comment giscus-comment" data-aos=fade-up></div></div></section></section></div><footer id=footer aria-label="Site footer"><div style=width:100%;overflow:hidden><div class=footer-line></div></div><div id=footer-info><div><span class=icon-copyright></span>2020-2026<span class="footer-info-sep rotate"></span>
+栗悟饭与龟波功</div><div>基于&nbsp;<a href=https://gohugo.io/ target=_blank rel="noopener nofollow noreferrer">Hugo</a>&nbsp; Theme.<a href=https://github.com/D-Sketon/hugo-theme-reimu target=_blank rel="noopener nofollow noreferrer">Reimu</a></div><div><span class=icon-brush>&nbsp;62.9k</span>
+&nbsp;|&nbsp;
+<span class=icon-coffee>&nbsp;02:12</span></div><div><span class=icon-eye></span>
+<span id=busuanzi_container_site_pv style=display:none>总访问量&nbsp;<span id=busuanzi_value_site_pv></span></span>
+&nbsp;|&nbsp;
+<span class=icon-user></span>
+<span id=busuanzi_container_site_uv style=display:none>总访客量&nbsp;<span id=busuanzi_value_site_uv></span></span></div></div></footer><div class=sidebar-top><div class="sidebar-top-taichi rotate"></div><div class=arrow-up></div></div><div id=mask class=hide></div></div><nav id=mobile-nav aria-label="Mobile navigation"><div class=sidebar-wrap><div class=sidebar-toc-sidebar><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><a href=#一为什么要写这个工具>一、为什么要写这个工具</a></li><li><a href=#二整体架构一条解题流水线>二、整体架构：一条解题流水线</a></li><li><a href=#三实战一2exe--自动分析流水线完整走一遍>三、实战一：<code>2.exe</code> —— 自动分析流水线完整走一遍</a><ul><li><a href=#31-拖入--识别--建案>3.1 拖入 → 识别 → 建案</a></li><li><a href=#32-pe-五步流水线>3.2 PE 五步流水线</a></li><li><a href=#33-ai-tool-use从找到-main到还原-vm>3.3 AI Tool-Use：从"找到 main"到"还原 VM"</a></li><li><a href=#34-求解与验证闭环>3.4 求解与验证闭环</a></li></ul></li><li><a href=#四实战二app-releaseapk--frida-hook-全流程>四、实战二：<code>app-release.apk</code> —— Frida Hook 全流程</a><ul><li><a href=#41-apk-七步自动分析>4.1 APK 七步自动分析</a></li><li><a href=#42-静态定位r8-混淆下按常量串反查>4.2 静态定位：R8 混淆下按常量串反查</a></li><li><a href=#43-native-反演从-ida-伪代码到-key>4.3 native 反演：从 IDA 伪代码到 key</a></li><li><a href=#44-hook-脚本是怎么生成的>4.4 Hook 脚本是怎么生成的</a></li><li><a href=#45-最大坑app-停在首页校验代码永不执行>4.5 最大坑：App 停在首页，校验代码永不执行</a></li><li><a href=#46-hook-抓到了什么>4.6 Hook 抓到了什么</a></li><li><a href=#47-进程内解密直接出-flag>4.7 进程内解密直接出 flag</a></li><li><a href=#48-四路证据交叉验证>4.8 四路证据交叉验证</a></li></ul></li><li><a href=#五一些工程细节>五、一些工程细节</a></li><li><a href=#六小结>六、小结</a></li></ul></nav></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=/avatar/avatar.webp data-sizes=auto alt=栗悟饭与龟波功 class=lazyload><div class=sidebar-author-name>栗悟饭与龟波功</div><div class=sidebar-description>这一切都是命运石之门的选择！</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>17</div></div><a class=sidebar-state-category href=/categories/ aria-label=sidebar-state-category-link><div>分类</div><div class=sidebar-state-number>3</div></a><a class=sidebar-state-tag href=/tags/ aria-label=sidebar-state-tag-link><div>标签</div><div class=sidebar-state-number>64</div></a></div><div class=sidebar-social></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/ aria-label=首页></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/archives aria-label=归档></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/about aria-label=关于></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=/friend aria-label=友链></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class=sidebar-menu-link>友链</div></div></div></div></div><div class=sidebar-btn-wrapper><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></nav></div><script src=https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js integrity=sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e crossorigin=anonymous></script><script src=https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js integrity=sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q crossorigin=anonymous></script><script src=/js/main.js integrity crossorigin=anonymous></script><script src=/js/aos.js integrity crossorigin=anonymous></script><script>var aosInit=()=>{AOS.init({duration:1e3,easing:"ease",once:!0,offset:50})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",aosInit):aosInit()</script><script src=/js/pjax_main.js integrity crossorigin=anonymous data-pjax></script><script>var setupFirework=()=>{if((!!1||!window.matchMedia("(max-width: 768px)").matches)&&window.firework){const e=JSON.parse('{"excludeelements":["a","button"],"particles":[{"colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"duration":[1200,1800],"easing":"easeOutExpo","move":["emit"],"number":20,"shape":"circle","shapeOptions":{"alpha":[0.3,0.5],"radius":[16,32]}},{"colors":["var(--red-0)"],"duration":[1200,1800],"easing":"easeOutExpo","move":["diffuse"],"number":1,"shape":"circle","shapeOptions":{"alpha":[0.2,0.5],"lineWidth":6,"radius":20}}]}');e.excludeElements=e.excludeelements,delete e.excludeelements,window.firework(e)}}</script><script src=https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js defer onload=setupFirework() integrity=sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T crossorigin=anonymous></script><div id=lazy-script><div><script data-pjax>window.REIMU_POST={author:"栗悟饭与龟波功",title:"CTF-RE-TOOL：把逆向工作流装进一个桌面工具",url:"https://ip2867.github.io/post/ctf-re-tool-intro/",description:` 一个基于 Electron 的 CTF 逆向工程辅助工具：集成 AI 分析引擎、一键调用逆向工具、Frida 自动 Hook、解密脚本生成，内置 11 个逆向方法论 Skills 与可检索知识库，并通过 MCP 实时接入 IDA / JEB / Burp。
+`,cover:"https://ip2867.github.io/images/my-banner.webp"}</script><script src=/js/insert_highlight.js integrity crossorigin=anonymous data-pjax></script><script src=/js/tabs.js integrity crossorigin=anonymous data-pjax defer></script><script type=module data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
           if (_$$(`${gallery} ${children}`).length > 0) {
             new PhotoSwipeLightbox({
               gallery,
@@ -885,203 +162,11 @@
         } else {
           window.addEventListener('lightbox:ready', pswp);
         }
-      </script><script data-pjax>
-  var loadScript = (src, integrity) => {
-    const script = document.createElement('script');
-    script.src = src;
-    if (integrity) script.integrity = integrity;
-    script.crossOrigin = 'anonymous';
-    return script;
-  };
-  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus', 'disqus'];
-  var commentConfig = {giscus: {
-      enable: true,
-      load: () => {
-        const container = document.querySelector('.giscus-comment');
-        if (!container) return;
-        container.style.display = 'block';
-
-        
-        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
-        if (existingScript) existingScript.remove();
-        const existingFrame = document.querySelector('iframe.giscus-frame');
-        if (existingFrame) existingFrame.remove();
-
-        
-        const giscusScript = document.createElement('script');
-        const domMode = document.documentElement.getAttribute("data-theme");
-
-        const docLang = document.documentElement.lang || 'en';
-        const langBase = docLang.split('-')[0];
-        const supportedLangs = ['ar', 'be', 'bg', 'ca', 'cs', 'da', 'de', 'en', 
-        'eo', 'es', 'eu', 'fa', 'fr', 'gr', 'hbs', 'he', 'hu', 'id', 'it', 'ja', 
-        'kh', 'ko', 'nl', 'pl', 'pt', 'ro', 'ru', 'th', 'tr', 'uk', 'uz', 'vi', 'zh-CN', 'zh-HK', 'zh-TW'];
-        const giscusLang = supportedLangs.includes(docLang) ? docLang : supportedLangs.includes(langBase) ? langBase : 'en';
-
-        giscusScript.src = 'https://giscus.app/client.js';
-        giscusScript.setAttribute('data-repo', 'ip2867\/ip2867.github.io');
-        giscusScript.setAttribute('data-repo-id', 'R_kgDOQvgvJA');
-        giscusScript.setAttribute('data-category', 'Announcements');
-        giscusScript.setAttribute('data-category-id', 'DIC_kwDOQvgvJM4C0R79');
-        giscusScript.setAttribute('data-mapping', '0');
-        giscusScript.setAttribute('data-strict', '0');
-        giscusScript.setAttribute('data-reactions-enabled', '1');
-        giscusScript.setAttribute('data-emit-metadata', '0');
-        giscusScript.setAttribute('data-input-position', 'bottom');
-        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
-        giscusScript.setAttribute('data-lang', giscusLang);
-        giscusScript.setAttribute('crossorigin', 'anonymous');
-        giscusScript.async = true;
-        container.appendChild(giscusScript);
-        document.body.addEventListener('light-theme-set', () => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
-        });
-        document.body.addEventListener('dark-theme-set', () => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
-        });
-      }
-    },};
-  commentConfig.enable = commentConfigKeys.some(key => commentConfig?.[key]?.enable);
-
-  var defaultComment = '';
-  if (commentConfig.enable) {
-    
-    var savedCommentType = localStorage.getItem('commentType');
-    
-    
-    if (savedCommentType) {
-      if (commentConfig[savedCommentType]?.enable) {
-        defaultComment = savedCommentType;
-      }
-    }
-    
-    
-    if (!defaultComment) {
-      var configDefault = 'giscus';
-      if (commentConfig[configDefault]?.enable) {
-        defaultComment = configDefault;
-      }
-    }
-    
-    
-    if (!defaultComment) {
-      defaultComment = commentConfigKeys.find(sys => commentConfig?.[sys]?.enable) || '';
-    }
-  }
-
-  function loadComments() {
-    if (!commentConfig.enable) return;
-    
-    const loadedComments = {
-      valine: false,
-      waline: false,
-      twikoo: false,
-      gitalk: false,
-      giscus: false
-    };
-
-    
-    const hideAllComments = () => {
-      const commentContainers = document.querySelectorAll('.comment');
-      commentContainers.forEach(container => {
-        container.style.display = 'none';
-      });
-    };
-
-    
-    const loadCommentSystem = (type) => {
-      if (loadedComments[type]) {
-        
-        document.querySelector(`.${type}-comment`).style.display = 'block';
-        return;
-      }
-
-      
-      commentConfig[type]?.load();
-      loadedComments[type] = true;
-    };
-
-    
-    const changeActiveCommentItems = (item) => {
-      const commentItems = document.querySelectorAll('.selector-item');
-      for (let i = 0; i < commentItems.length; i++) {
-        commentItems[i].classList.remove('active');
-      }
-      item.classList.add('active');
-
-      
-      const commentType = item.getAttribute('data-selector');
-
-      
-      hideAllComments();
-
-      
-      loadCommentSystem(commentType);
-    };
-
-    const commentInit = () => {
-      
-      const commentItems = document.querySelectorAll('.selector-item');
-      for (let item of commentItems) {
-        item.addEventListener('click', () => {
-          
-          const commentType = item.getAttribute('data-selector');
-          window.localStorage.setItem('commentType', commentType);
-          
-          changeActiveCommentItems(item);
-        });
-      }
-
-      
-      if (defaultComment) {
-        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
-        if (!defaultSelectorItem) return;
-        defaultSelectorItem.style.display = 'block';
-        defaultSelectorItem.classList.add('active');
-        loadCommentSystem(defaultComment);
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', commentInit);
-    } else {
-      commentInit();
-    }
-  };
-  loadComments();
-</script></div>
-</div><script
-    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
-    
-    async
-    
-    
-    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      });
-    }
-  </script><script>
-  const reimuCopyright = String.raw`
+      </script><script data-pjax>var defaultComment,savedCommentType,configDefault,loadScript=(e,t)=>{const n=document.createElement("script");return n.src=e,t&&(n.integrity=t),n.crossOrigin="anonymous",n},commentConfigKeys=["valine","waline","twikoo","gitalk","giscus","disqus"],commentConfig={giscus:{enable:!0,load:()=>{const t=document.querySelector(".giscus-comment");if(!t)return;t.style.display="block";const s=t.querySelector('script[src*="giscus.app/client.js"]');s&&s.remove();const o=document.querySelector("iframe.giscus-frame");o&&o.remove();const e=document.createElement("script"),r=document.documentElement.getAttribute("data-theme"),n=document.documentElement.lang||"en",i=n.split("-")[0],a=["ar","be","bg","ca","cs","da","de","en","eo","es","eu","fa","fr","gr","hbs","he","hu","id","it","ja","kh","ko","nl","pl","pt","ro","ru","th","tr","uk","uz","vi","zh-CN","zh-HK","zh-TW"],c=a.includes(n)?n:a.includes(i)?i:"en";e.src="https://giscus.app/client.js",e.setAttribute("data-repo","ip2867/ip2867.github.io"),e.setAttribute("data-repo-id","R_kgDOQvgvJA"),e.setAttribute("data-category","Announcements"),e.setAttribute("data-category-id","DIC_kwDOQvgvJM4C0R79"),e.setAttribute("data-mapping","0"),e.setAttribute("data-strict","0"),e.setAttribute("data-reactions-enabled","1"),e.setAttribute("data-emit-metadata","0"),e.setAttribute("data-input-position","bottom"),e.setAttribute("data-theme",r==="dark"?"dark":"light"),e.setAttribute("data-lang",c),e.setAttribute("crossorigin","anonymous"),e.async=!0,t.appendChild(e),document.body.addEventListener("light-theme-set",()=>{const e=document.querySelector("iframe.giscus-frame");if(!e)return;e.contentWindow.postMessage({giscus:{setConfig:{theme:"light"}}},"https://giscus.app")}),document.body.addEventListener("dark-theme-set",()=>{const e=document.querySelector("iframe.giscus-frame");if(!e)return;e.contentWindow.postMessage({giscus:{setConfig:{theme:"dark"}}},"https://giscus.app")})}}};commentConfig.enable=commentConfigKeys.some(e=>commentConfig?.[e]?.enable),defaultComment="",commentConfig.enable&&(savedCommentType=localStorage.getItem("commentType"),savedCommentType&&commentConfig[savedCommentType]?.enable&&(defaultComment=savedCommentType),defaultComment||(configDefault="giscus",commentConfig[configDefault]?.enable&&(defaultComment=configDefault)),defaultComment||(defaultComment=commentConfigKeys.find(e=>commentConfig?.[e]?.enable)||""));function loadComments(){if(!commentConfig.enable)return;const e={valine:!1,waline:!1,twikoo:!1,gitalk:!1,giscus:!1},s=()=>{const e=document.querySelectorAll(".comment");e.forEach(e=>{e.style.display="none"})},t=t=>{if(e[t]){document.querySelector(`.${t}-comment`).style.display="block";return}commentConfig[t]?.load(),e[t]=!0},o=e=>{const n=document.querySelectorAll(".selector-item");for(let e=0;e<n.length;e++)n[e].classList.remove("active");e.classList.add("active");const o=e.getAttribute("data-selector");s(),t(o)},n=()=>{const e=document.querySelectorAll(".selector-item");for(let t of e)t.addEventListener("click",()=>{const e=t.getAttribute("data-selector");window.localStorage.setItem("commentType",e),o(t)});if(defaultComment){const e=document.querySelector(`[data-selector="${defaultComment}"]`);if(!e)return;e.style.display="block",e.classList.add("active"),t(defaultComment)}};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n()}loadComments()</script></div></div><script>"serviceWorker"in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.unregister()})</script><script>const reimuCopyright=String.raw`
    ______     ______     __     __    __     __  __    
   /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
   \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
    \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
     \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
                                                     
-  `;
-  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
-  console.log(
-    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
-    "color: white; background: #ff5252; padding:5px 0;",
-    "padding:4px;border:1px solid #ff5252;",
-  );
-</script></body>
-</html>
+  `;console.log(String.raw`%c ${reimuCopyright}`,"color: #ff5252;"),console.log("%c Theme.Reimu %c https://github.com/D-Sketon/hugo-theme-reimu ","color: white; background: #ff5252; padding:5px 0;","padding:4px;border:1px solid #ff5252;")</script><script data-pjax>(()=>{const t="ip2867-github-io",i=4e3,a=2e3,s="https://abacus.jasoncameron.dev",e=window,o=e=>e.toLocaleString("en-US"),n=()=>{const t=document.getElementById("busuanzi_value_site_pv"),n=document.getElementById("busuanzi_value_site_uv"),s=document.getElementById("busuanzi_container_site_pv"),r=document.getElementById("busuanzi_container_site_uv");if(!t&&!n)return;t&&e.__bszPv!=null&&(t.textContent=o(i+e.__bszPv),s&&(s.style.display="inline")),n&&e.__bszUv!=null&&(n.textContent=o(a+e.__bszUv),r&&(r.style.display="inline"))};if((e.__bszPv!=null||e.__bszUv!=null)&&n(),e.__bszPvCounted||(e.__bszPvCounted=!0,fetch(`${s}/hit/${t}/site-pv`,{cache:"no-store"}).then(e=>e.ok?e.json():Promise.reject(e.status)).then(t=>{e.__bszPv=t.value,n()}).catch(()=>{const e=document.getElementById("busuanzi_container_site_pv");e&&(e.style.display="none")})),!e.__bszUvCounted){e.__bszUvCounted=!0;const i=`${t}-site-uv-seen`;let o=!1;try{o=!localStorage.getItem(i),o&&localStorage.setItem(i,"1")}catch{o=!1}fetch(`${s}/${o?"hit":"get"}/${t}/site-uv`,{cache:"no-store"}).then(e=>e.ok?e.json():Promise.reject(e.status)).then(t=>{e.__bszUv=t.value,n()}).catch(()=>{const e=document.getElementById("busuanzi_container_site_uv");e&&(e.style.display="none")})}})()</script></body></html>
