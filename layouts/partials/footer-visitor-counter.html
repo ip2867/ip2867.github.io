@@ -1,0 +1,91 @@
+{{- /*
+  站点访问统计（替代已失效的不蒜子）
+
+  背景：原不蒜子接口 busuanzi.ibruce.info 长期返回 502，页脚数字始终为空，
+  且其历史数据无法迁移。改用 abacus.jasoncameron.dev 的公开计数接口：
+    GET /hit/<namespace>/<key>  计数 +1 并返回 {"value": N}
+    GET /get/<namespace>/<key>  只读，不计数
+  该接口返回 JSON 且 Access-Control-Allow-Origin: *，可直接在浏览器读取。
+
+  历史数据：新服务从 0 开始，通过 pv_base / uv_base 两个基数把旧数据接续上，
+  页面显示 = 基数 + 新服务计数。基数只影响显示，不改动真实计数记录。
+
+  注意：主题启用了 pjax，切换页面不会重新加载 document，
+  因此计数逻辑挂在 window 上并用「本次文档是否已计数」标记去重。
+  关闭方式：在 params.yml 设 footer.visitor_counter: false
+*/ -}}
+{{- $enabled := true -}}
+{{- with .Site.Params.footer.visitor_counter -}}{{- $enabled = . -}}{{- end -}}
+{{- if $enabled -}}
+  {{- $ns := .Site.Params.footer.visitor_counter_namespace | default "ip2867-github-io" -}}
+  {{- $pvBase := .Site.Params.footer.visitor_counter_pv_base | default 0 -}}
+  {{- $uvBase := .Site.Params.footer.visitor_counter_uv_base | default 0 -}}
+  <script data-pjax>
+    (() => {
+      const ns = {{ $ns }};
+      const pvBase = {{ $pvBase }};
+      const uvBase = {{ $uvBase }};
+      const base = "https://abacus.jasoncameron.dev";
+      const W = window;
+      const fmt = (n) => n.toLocaleString("en-US");
+
+      const paint = () => {
+        const pvEl = document.getElementById("busuanzi_value_site_pv");
+        const uvEl = document.getElementById("busuanzi_value_site_uv");
+        const pvBox = document.getElementById("busuanzi_container_site_pv");
+        const uvBox = document.getElementById("busuanzi_container_site_uv");
+        if (!pvEl && !uvEl) return;
+
+        if (pvEl && W.__bszPv != null) {
+          pvEl.textContent = fmt(pvBase + W.__bszPv);
+          if (pvBox) pvBox.style.display = "inline";
+        }
+        if (uvEl && W.__bszUv != null) {
+          uvEl.textContent = fmt(uvBase + W.__bszUv);
+          if (uvBox) uvBox.style.display = "inline";
+        }
+      };
+
+      // 重新进入页面时先还原已取得的数据
+      if (W.__bszPv != null || W.__bszUv != null) paint();
+
+      // 访问量：每个文档生命周期内只计一次
+      if (!W.__bszPvCounted) {
+        W.__bszPvCounted = true;
+        fetch(`${base}/hit/${ns}/site-pv`, { cache: "no-store" })
+          .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+          .then((d) => {
+            W.__bszPv = d.value;
+            paint();
+          })
+          .catch(() => {
+            const box = document.getElementById("busuanzi_container_site_pv");
+            if (box) box.style.display = "none";
+          });
+      }
+
+      // 访客量：同一浏览器首次访问才 +1，用 localStorage 去重
+      if (!W.__bszUvCounted) {
+        W.__bszUvCounted = true;
+        const seenKey = `${ns}-site-uv-seen`;
+        let first = false;
+        try {
+          first = !localStorage.getItem(seenKey);
+          if (first) localStorage.setItem(seenKey, "1");
+        } catch (e) {
+          first = false;
+        }
+        fetch(`${base}/${first ? "hit" : "get"}/${ns}/site-uv`, { cache: "no-store" })
+          .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+          .then((d) => {
+            W.__bszUv = d.value;
+            paint();
+          })
+          .catch(() => {
+            const box = document.getElementById("busuanzi_container_site_uv");
+            if (box) box.style.display = "none";
+          });
+      }
+    })();
+  </script>
+{{- end -}}
