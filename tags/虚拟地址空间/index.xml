@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虚拟地址空间 on Ip2867</title><link>https://ip2867.github.io/tags/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sun, 01 Nov 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4/index.xml" rel="self" type="application/rss+xml"/><item><title>Pwn 入门基础（二）：虚拟地址空间、栈帧与越界控制流</title><link>https://ip2867.github.io/post/pwn-basics-part2-address-space-stack-frame/</link><pubDate>Sun, 01 Nov 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/pwn-basics-part2-address-space-stack-frame/</guid><description>
+<![CDATA[<h1>Pwn 入门基础（二）：虚拟地址空间、栈帧与越界控制流</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>上一篇把汇编、寄存器、函数调用和保护机制串了一遍。这一篇补上两块地基——<strong>进程地址空间</strong>和<strong>栈帧的动态变化</strong>——然后用两个最小实验（数组越界、字符串栈溢出）把「覆盖返回地址劫持 rip」从原理推到实操，最后用 pwntools 写出第一个能跑的 exploit。</p>
+        
+        <hr><p>本文2026-11-01首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-01</p>]]></description><category>Pwn</category></item></channel></rss>

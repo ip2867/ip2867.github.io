@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip2867</title><link>https://ip2867.github.io/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Fri, 30 Oct 2026 15:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Pwn 入门基础：从汇编、栈到保护机制</title><link>https://ip2867.github.io/post/pwn-basics-asm-stack-protections/</link><pubDate>Fri, 30 Oct 2026 15:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/pwn-basics-asm-stack-protections/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip2867</title><link>https://ip2867.github.io/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sun, 01 Nov 2026 14:10:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Pwn 入门基础（三）：ROP 技巧全梳理——ret2xxx 与栈迁移</title><link>https://ip2867.github.io/post/pwn-basics-part3-rop-techniques/</link><pubDate>Sun, 01 Nov 2026 14:10:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/pwn-basics-part3-rop-techniques/</guid><description>
+<![CDATA[<h1>Pwn 入门基础（三）：ROP 技巧全梳理——ret2xxx 与栈迁移</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>前两篇把汇编、栈帧、越界和保护机制的地基打完了。这一篇进入真正的&quot;利用&quot;阶段：当你能控制返回地址之后，跳到哪里、怎么跳、跳过去之后怎么继续，就是 ROP 要解决的问题。</p>
+        
+        <hr><p>本文2026-11-01首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-01</p>]]></description><category>Pwn</category></item><item><title>Pwn 入门基础（二）：虚拟地址空间、栈帧与越界控制流</title><link>https://ip2867.github.io/post/pwn-basics-part2-address-space-stack-frame/</link><pubDate>Sun, 01 Nov 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/pwn-basics-part2-address-space-stack-frame/</guid><description>
+<![CDATA[<h1>Pwn 入门基础（二）：虚拟地址空间、栈帧与越界控制流</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>上一篇把汇编、寄存器、函数调用和保护机制串了一遍。这一篇补上两块地基——<strong>进程地址空间</strong>和<strong>栈帧的动态变化</strong>——然后用两个最小实验（数组越界、字符串栈溢出）把「覆盖返回地址劫持 rip」从原理推到实操，最后用 pwntools 写出第一个能跑的 exploit。</p>
+        
+        <hr><p>本文2026-11-01首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-01</p>]]></description><category>Pwn</category></item><item><title>Pwn 入门基础：从汇编、栈到保护机制</title><link>https://ip2867.github.io/post/pwn-basics-asm-stack-protections/</link><pubDate>Fri, 30 Oct 2026 15:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/pwn-basics-asm-stack-protections/</guid><description>
 <![CDATA[<h1>Pwn 入门基础：从汇编、栈到保护机制</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -49,17 +61,5 @@
         
           <blockquote>
 <p>CTF 逆向系列第六篇，系统介绍 Windows 和 Linux 平台下的反调试技术及其绕过方法。反调试是出题者用来阻止选手用调试器分析程序的手段，本文先梳理各类反调试的原理和识别特征，再演示在 IDA 和 x64dbg 中的绕过技巧。</p>
-        
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(五)：花指令识别与去除</title><link>https://ip2867.github.io/post/ctf-flower-code/</link><pubDate>Sat, 06 Jun 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-flower-code/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(五)：花指令识别与去除</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>CTF 逆向系列第五篇，介绍花指令（Junk Code / Opaque Predicate）的识别与去除。花指令是出题者在程序中插入的无用代码，目的是干扰 IDA 的反编译引擎，让 F5 输出变成一堆 goto 或无法反编译。本文先讲知识点，再通过四道实战题目演示不同类型的花指令解法。</p>
-        
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</title><link>https://ip2867.github.io/post/ctf-firmware-analysis/</link><pubDate>Sat, 06 Jun 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-firmware-analysis/</guid><description>
-<![CDATA[<h1>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>CTF 中的固件题（Firmware Reverse）是一类结合逆向工程与 IoT 安全的综合题型。选手需要从路由器、工控设备等固件镜像中提取文件系统、定位后门或硬编码凭证、逆向分析关键程序，最终拿到 flag。本文先系统梳理固件分析的核心知识点，再通过三道真实 CTF 赛题演示完整的解题流程。</p>
         
         <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item></channel></rss>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ret2syscall on Ip2867</title><link>https://ip2867.github.io/tags/ret2syscall/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sun, 01 Nov 2026 14:10:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/ret2syscall/index.xml" rel="self" type="application/rss+xml"/><item><title>Pwn 入门基础（三）：ROP 技巧全梳理——ret2xxx 与栈迁移</title><link>https://ip2867.github.io/post/pwn-basics-part3-rop-techniques/</link><pubDate>Sun, 01 Nov 2026 14:10:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/pwn-basics-part3-rop-techniques/</guid><description>
+<![CDATA[<h1>Pwn 入门基础（三）：ROP 技巧全梳理——ret2xxx 与栈迁移</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>前两篇把汇编、栈帧、越界和保护机制的地基打完了。这一篇进入真正的&quot;利用&quot;阶段：当你能控制返回地址之后，跳到哪里、怎么跳、跳过去之后怎么继续，就是 ROP 要解决的问题。</p>
+        
+        <hr><p>本文2026-11-01首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-01</p>]]></description><category>Pwn</category></item></channel></rss>
