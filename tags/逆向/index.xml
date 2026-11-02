@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/tags/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 26 Oct 2026 00:55:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</title><link>https://ip2867.github.io/post/cheat-engine-ai-agent/</link><pubDate>Mon, 26 Oct 2026 00:55:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/cheat-engine-ai-agent/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/tags/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 02 Nov 2026 10:20:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/tags/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>ARM 汇编完整入门：指令集、寄存器、寻址与函数调用</title><link>https://ip2867.github.io/post/arm-assembly-complete-guide/</link><pubDate>Mon, 02 Nov 2026 10:20:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/arm-assembly-complete-guide/</guid><description>
+<![CDATA[<h1>ARM 汇编完整入门：指令集、寄存器、寻址与函数调用</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>这篇把 ARM 汇编从「指令长什么样」到「函数怎么调用」串成一条线。目标不是背指令表，而是建立两个和 x86 完全不同的直觉：<strong>ARM 是 Load/Store 架构</strong>，以及<strong>返回地址在 LR 里而不是栈上</strong>。这两点决定了 ARM 逆向和 Pwn 的所有后续推演。</p>
+        
+        <hr><p>本文2026-11-02首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-02</p>]]></description><category>逆向</category></item><item><title>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</title><link>https://ip2867.github.io/post/cheat-engine-ai-agent/</link><pubDate>Mon, 26 Oct 2026 00:55:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/cheat-engine-ai-agent/</guid><description>
 <![CDATA[<h1>我和 AI 一起打通了 Cheat Engine 训练关：两个人在同一个死局里怎么换思路</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -53,11 +59,5 @@
         
           <blockquote>
 <p>CTF 逆向系列第四篇，覆盖三种实用技能：PyInstaller 打包程序的解包与逆向、Android APK 逆向入门、反调试技术与绕过方法。这些是 CTF 逆向题中常见的&quot;非加密&quot;考点。</p>
-        
-        <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</title><link>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</link><pubDate>Wed, 27 May 2026 12:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-reverse-3-aes-tea/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(三)：AES高级加密标准与TEA系列分组加密</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>CTF 逆向系列第三篇，深入两种重要的分组加密算法：AES（高级加密标准）和 TEA 家族（TEA/XTEA/XXTEA）。每种算法先讲原理和识别特征，再用实际题目演示完整的解题过程。</p>
         
         <hr><p>本文2026-05-27首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-05-27</p>]]></description><category>逆向</category></item></channel></rss>
