@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/categories/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 02 Nov 2026 10:30:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>Frida 实战进阶：从 Java Hook 到 SO 层、RPC 与反调试绕过</title><link>https://ip2867.github.io/post/frida-advanced-hook-guide/</link><pubDate>Mon, 02 Nov 2026 10:30:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/frida-advanced-hook-guide/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/categories/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 02 Nov 2026 11:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>JNI / NDK / 交叉编译：从 .so 生产流程到 Hook 动态注册</title><link>https://ip2867.github.io/post/jni-ndk-crosscompile-and-registernatives-hook/</link><pubDate>Mon, 02 Nov 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/jni-ndk-crosscompile-and-registernatives-hook/</guid><description>
+<![CDATA[<h1>JNI / NDK / 交叉编译：从 .so 生产流程到 Hook 动态注册</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>很多人学 Android Native 逆向时会把三个概念混在一起：<strong>JNI、NDK、交叉编译</strong>。它们不在同一个层面上——</p>
+<ul>
+<li><strong>JNI</strong> 是「两个国家之间的外交协议」：规定 Java 和 C/C++ 怎么互相调用。</li>
+<li><strong>NDK</strong> 是「外交部」：装着编译器、头文件、构建脚本的工具箱。</li>
+<li><strong>交叉编译</strong> 是「外交部里专门做翻译的人」：让 x86 电脑产出 ARM 手机能跑的代码。</li>
+</ul>
+<p>协议不依赖外交部存在，但没有外交部，你很难按协议高效生产出可用的东西。搞清这三层之后，再回头看 Frida 为什么必须 Hook <code>RegisterNatives</code>，逻辑就是自然的了。</p>
+        
+        <hr><p>本文2026-11-02首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-02</p>]]></description><category>逆向</category></item><item><title>Frida 实战进阶：从 Java Hook 到 SO 层、RPC 与反调试绕过</title><link>https://ip2867.github.io/post/frida-advanced-hook-guide/</link><pubDate>Mon, 02 Nov 2026 10:30:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/frida-advanced-hook-guide/</guid><description>
 <![CDATA[<h1>Frida 实战进阶：从 Java Hook 到 SO 层、RPC 与反调试绕过</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -53,11 +65,5 @@
         
           <blockquote>
 <p>CTF 逆向系列第五篇，介绍花指令（Junk Code / Opaque Predicate）的识别与去除。花指令是出题者在程序中插入的无用代码，目的是干扰 IDA 的反编译引擎，让 F5 输出变成一堆 goto 或无法反编译。本文先讲知识点，再通过四道实战题目演示不同类型的花指令解法。</p>
-        
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</title><link>https://ip2867.github.io/post/ctf-firmware-analysis/</link><pubDate>Sat, 06 Jun 2026 10:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-firmware-analysis/</guid><description>
-<![CDATA[<h1>CTF 固件逆向入门：IoT固件分析、binwalk提取与后门追踪</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>CTF 中的固件题（Firmware Reverse）是一类结合逆向工程与 IoT 安全的综合题型。选手需要从路由器、工控设备等固件镜像中提取文件系统、定位后门或硬编码凭证、逆向分析关键程序，最终拿到 flag。本文先系统梳理固件分析的核心知识点，再通过三道真实 CTF 赛题演示完整的解题流程。</p>
         
         <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item></channel></rss>
