@@ -8,6 +8,11 @@
   {{- else if lt $ratio 1.0 -}}
     {{- $class = "post-img post-img-tall" -}}
   {{- end -}}
+  {{- /* 截图类（含细密文字）单独放大，避免缩到 640px 后小字不可读 */ -}}
+  {{- $base := path.Base $path -}}
+  {{- if or (hasPrefix $base "ida-") (hasPrefix $base "t1-") (hasPrefix $base "t2-") (hasPrefix $base "t3-") -}}
+    {{- $class = printf "%s post-img-detail" $class -}}
+  {{- end -}}
   <img src="{{ .RelPermalink }}" alt="{{ $.Text }}" class="{{ $class }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
 {{- else -}}
   <img src="{{ $dest | safeURL }}" alt="{{ .Text }}" loading="lazy">

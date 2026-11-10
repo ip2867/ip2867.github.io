@@ -28,6 +28,13 @@
     width: 100%;
   }
 
+  // 细节类截图（IDA 反汇编、终端长输出）：小字密集，限宽后不可读，
+  // 改为占满正文宽度，点击可看原图
+  .post-img-detail {
+    max-width: 100%;
+    width: 100%;
+  }
+
   // 窄屏下取消固定限宽，避免小屏幕上出现过大留白
   @media (max-width: 768px) {
     .post-img-normal {
