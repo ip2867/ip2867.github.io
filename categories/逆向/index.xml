@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/categories/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 02 Nov 2026 11:00:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>JNI / NDK / 交叉编译：从 .so 生产流程到 Hook 动态注册</title><link>https://ip2867.github.io/post/jni-ndk-crosscompile-and-registernatives-hook/</link><pubDate>Mon, 02 Nov 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/jni-ndk-crosscompile-and-registernatives-hook/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>逆向 on Ip2867</title><link>https://ip2867.github.io/categories/%E9%80%86%E5%90%91/</link><description>Recent content from Ip2867</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>xxx@example.com (栗悟饭与龟波功)</managingEditor><webMaster>xxx@example.com (栗悟饭与龟波功)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 09 Nov 2026 18:30:00 +0800</lastBuildDate><atom:link href="https://ip2867.github.io/categories/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>qwb2026s10 三道逆向题完整复现：页尾缝隙、双固件信任链与自修改代码</title><link>https://ip2867.github.io/post/qwb2026s10-three-challenges-writeup/</link><pubDate>Mon, 09 Nov 2026 18:30:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/qwb2026s10-three-challenges-writeup/</guid><description>
+<![CDATA[<h1>qwb2026s10 三道逆向题完整复现：页尾缝隙、双固件信任链与自修改代码</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
+        
+          <blockquote>
+<p>本文记录 qwb2026s10 三道逆向题的完整复现过程。三题风格差异极大：</p>
+<ul>
+<li><strong>ELFStudy</strong>：校验函数被加密藏在 LOAD 段的<strong>页尾缝隙</strong>里，靠动态链接器在重定位阶段解密，执行完再抹掉；</li>
+<li><strong>firmware</strong>：OTA 包 + 双固件信任链，x86 主机程序校验 RISC-V 设备的镜像，中间夹一层 keymat 派生；</li>
+<li><strong>license</strong>：单步异常驱动的自修改代码 + 白盒 AES + GF(2) 代数。</li>
+</ul>
+<p>三题都已复现并验证通过，所有结论都有实测截图或可复现命令支撑。</p>
+        
+        <hr><p>本文2026-11-09首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-11-09</p>]]></description><category>逆向</category></item><item><title>JNI / NDK / 交叉编译：从 .so 生产流程到 Hook 动态注册</title><link>https://ip2867.github.io/post/jni-ndk-crosscompile-and-registernatives-hook/</link><pubDate>Mon, 02 Nov 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/jni-ndk-crosscompile-and-registernatives-hook/</guid><description>
 <![CDATA[<h1>JNI / NDK / 交叉编译：从 .so 生产流程到 Hook 动态注册</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
         
           <blockquote>
@@ -59,11 +71,5 @@
         
           <blockquote>
 <p>CTF 逆向系列第六篇，系统介绍 Windows 和 Linux 平台下的反调试技术及其绕过方法。反调试是出题者用来阻止选手用调试器分析程序的手段，本文先梳理各类反调试的原理和识别特征，再演示在 IDA 和 x64dbg 中的绕过技巧。</p>
-        
-        <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item><item><title>CTF 逆向入门(五)：花指令识别与去除</title><link>https://ip2867.github.io/post/ctf-flower-code/</link><pubDate>Sat, 06 Jun 2026 11:00:00 +0800</pubDate><author>xxx@example.com (栗悟饭与龟波功)</author><guid>https://ip2867.github.io/post/ctf-flower-code/</guid><description>
-<![CDATA[<h1>CTF 逆向入门(五)：花指令识别与去除</h1><p>作者：栗悟饭与龟波功（xxx@example.com）</p>
-        
-          <blockquote>
-<p>CTF 逆向系列第五篇，介绍花指令（Junk Code / Opaque Predicate）的识别与去除。花指令是出题者在程序中插入的无用代码，目的是干扰 IDA 的反编译引擎，让 F5 输出变成一堆 goto 或无法反编译。本文先讲知识点，再通过四道实战题目演示不同类型的花指令解法。</p>
         
         <hr><p>本文2026-06-06首发于<a href='https://ip2867.github.io/'>Ip2867</a>，最后修改于2026-06-06</p>]]></description><category>逆向</category></item></channel></rss>
